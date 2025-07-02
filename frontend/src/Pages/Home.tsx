@@ -1,10 +1,18 @@
+import { useAppContext } from "../AppContext/AppContext";
 import { assets } from "../assets/assets";
 
 const Home = () => {
+  const { showMenu } = useAppContext();
   return (
-    <div className="h-[90vh] overflow-auto">
+    <div
+      className={
+        showMenu
+          ? "translate-y-20 transition-all transform ease-in-out duration-700  h-[100vh] overflow-hidden relative"
+          : "h-[100vh] translate-y-0  overflow-hidden relative transform ease-in-out transition-all duration-700"
+      }
+    >
       <div
-        className="flex items-center justify-center h-[80%] p-4"
+        className="flex items-center justify-center h-[90%] p-4"
         style={{
           backgroundImage:
             "linear-gradient(to bottom right, #f3f4f6 80%, #f9a8d4)",
@@ -27,19 +35,19 @@ const Home = () => {
             {" "}
             <a
               href=""
-              className="gap-2 md:w-1/5 group text-xs font-bold flex text-center items-center bg-blue-800 text-white px-4 py-3 capitalize whitespace-nowrap rounded-full hover:bg-indigo-500 transition duration-300"
+              className="gap-2 md:w-2/5 group text-sm font-bold flex text-center items-center bg-blue-800 text-white px-7 py-5 capitalize whitespace-nowrap rounded-full hover:bg-indigo-500 transition duration-300"
             >
               start building for free{" "}
               <img
-                className="w-4 group-hover:translate-x-1 group-hover:transition-transform duration-300"
-                src={assets.rightArrow}
+                className="w-6 group-hover:translate-x-30  duration-1600 group-hover:opacity-0"
+                src={assets.whiteArrow}
                 alt=""
               />
             </a>
           </div>
         </div>
       </div>
-      <div className="bg-gradient-to-l from-gray-800 to-blue-950 flex flex-col md:items-center items-start justify-center text-white p-2 md:p-8">
+      <div className="absolute bottom-0  w-full bg-gradient-to-l from-gray-800 to-blue-950 flex flex-col md:items-center items-start justify-center text-white p-2 md:p-8">
         <p className="font-semibold text-center md:text-lg text-sm mb-4">
           500+ Global Brands Run on Hexerize
         </p>

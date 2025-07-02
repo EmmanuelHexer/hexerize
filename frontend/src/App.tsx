@@ -10,8 +10,9 @@ import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <Navbar />
+      {/* Main content area */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
