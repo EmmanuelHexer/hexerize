@@ -1,7 +1,6 @@
 import { useAppContext } from "../AppContext/AppContext.jsx";
 import { assets } from "../assets/assets.js";
 import { NavLink, useNavigate } from "react-router-dom";
-import Dropdown from "./Dropdown.js";
 
 const Navbar = () => {
   const { showMenu, setShowMenu } = useAppContext();
@@ -95,7 +94,6 @@ const Navbar = () => {
           />
         </button>
       </div>
-      {showMenu && <Dropdown />}
     </>
   );
 };

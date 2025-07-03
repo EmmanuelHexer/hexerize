@@ -1,16 +1,12 @@
 import { useAppContext } from "../AppContext/AppContext";
 import { assets } from "../assets/assets";
+import Dropdown from "../Components/Dropdown";
 
 const Home = () => {
   const { showMenu } = useAppContext();
   return (
-    <div
-      className={
-        showMenu
-          ? "translate-y-20 transition-all transform ease-in-out duration-700  h-[100vh] overflow-hidden relative"
-          : "h-[100vh] translate-y-0  overflow-hidden relative transform ease-in-out transition-all duration-700"
-      }
-    >
+    <div className="h-[100vh] translate-y-0  overflow-hidden relative transform ease-in-out transition-all duration-700">
+      {showMenu && <Dropdown />}
       <div
         className="flex items-center justify-center h-[90%] p-4"
         style={{
