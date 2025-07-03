@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useAppContext } from "../AppContext/AppContext.jsx";
 import { assets } from "../assets/assets.js";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -5,10 +6,33 @@ import { NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const { showMenu, setShowMenu } = useAppContext();
   const navigate = useNavigate();
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNav, setShowNav] = useState(true);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        setShowNav(false); // scroll down → hide
+      } else {
+        setShowNav(true); // scroll up → show
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
   return (
     <>
-      <div className="flex z-20 absolute w-full justify-between items-center px-4 py-4 md:py-6 md:px-6 bg-gradient-to-r from-gray-800 to-indigo-400 shadow-xl">
+      <div
+        className={`fixed ${
+          showNav ? "translate-y-0" : "-translate-y-full"
+        } transition duration-300 flex z-50  w-full justify-between  items-center px-4 py-4 md:py-6 md:px-6 bg-gradient-to-r from-gray-800 to-indigo-400 shadow-xl`}
+      >
         <img
           onClick={() => {
             navigate("/");

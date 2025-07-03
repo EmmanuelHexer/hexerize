@@ -5,10 +5,16 @@ import Dropdown from "../Components/Dropdown";
 const Home = () => {
   const { showMenu } = useAppContext();
   return (
-    <div className="h-[100vh] translate-y-0  overflow-hidden relative transform ease-in-out transition-all duration-700">
+    <div
+      className={` h-[100vh] translate-y-0  overflow-hidden relative transform ease-in-out transition-all duration-700`}
+    >
       {showMenu && <Dropdown />}
       <div
-        className="flex items-center justify-center h-[90%] p-4"
+        className={
+          showMenu
+            ? `blur-lg md:blur-none flex items-center justify-center h-[90%] p-4`
+            : `blur-none flex items-center justify-center h-[90%] p-4`
+        }
         style={{
           backgroundImage:
             "linear-gradient(to bottom right, #f3f4f6 80%, #f9a8d4)",

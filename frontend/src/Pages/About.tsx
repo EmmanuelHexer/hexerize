@@ -1,5 +1,9 @@
+import { useAppContext } from "../AppContext/AppContext";
+import Dropdown from "../Components/Dropdown";
+
 const About = () => {
-  return <div>About</div>;
+  const { showMenu } = useAppContext();
+  return <div className="relative h-[100vh] ">{showMenu && <Dropdown />}</div>;
 };
 
 export default About;
