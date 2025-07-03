@@ -16,9 +16,8 @@ const Home = () => {
               AI-powered no-code platform
             </p>
 
-            <h1 className="capitalize font-extrabold text-4xl md:text-6xl mb-6 leading-tight tracking-tight text-[color:var(--accent-color)] animate-slide-up">
-              Meet AI-powered <br className="hidden md:block" />
-              visual development
+            <h1 className="capitalize max-w-10xl font-extrabold text-4xl md:text-6xl mb-6 leading-tight tracking-tight text-[color:var(--accent-color)] animate-slide-up">
+              Meet AI-powered visual development
             </h1>
 
             <p className="text-[color:var(--body-color)]/80 text-sm md:text-lg font-medium leading-relaxed max-w-[55ch] mx-auto mb-5 md:mb-10 animate-slide-up">
