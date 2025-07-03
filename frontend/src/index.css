@@ -30,3 +30,94 @@
     animation: slideOut 0.5s ease-in-out forwards;
   }
 }
+
+:root {
+  --body-background: #ffffff;
+  --body-color: #1f2937; /* Tailwind's gray-800 */
+  --heading-color: #0f172a; /* Tailwind's slate-900 */
+  --link-color: #1d4ed8; /* Tailwind's blue-700 */
+  --card-background: #f9fafb; /* Tailwind's gray-50 */
+  --accent-color: #123e94; /* Tailwind's blue-600 */
+  --vh: 100vh;
+}
+
+[data-theme="dark"] {
+  --body-background: #1a1a1a;
+  --body-color: #f9fafb; /* white-ish */
+  --heading-color: #ffffff;
+  --link-color: #38bdf8; /* Tailwind's cyan-400 */
+  --card-background: #111827; /* Tailwind's gray-900 */
+  --accent-color: #0ea5e9; /* Tailwind's sky-500 */
+}
+
+/* In styles.css */
+.dark-logo {
+  display: none;
+}
+.light-logo {
+  display: block;
+}
+[data-theme="dark"] .dark-logo {
+  display: block;
+}
+[data-theme="dark"] .light-logo {
+  display: none;
+}
+
+/* === THEME UTILITIES === */
+
+/* Backgrounds */
+.theme-bg {
+  background-color: var(--body-background);
+}
+.theme-card {
+  background-color: var(--card-background);
+}
+.theme-accent-bg {
+  background-color: var(--accent-color);
+}
+
+/* Text */
+.theme-text {
+  color: var(--body-color);
+}
+.theme-heading {
+  color: var(--heading-color);
+}
+.theme-link {
+  color: var(--link-color);
+}
+.theme-accent-text {
+  color: var(--accent-color);
+}
+
+/* Borders */
+.theme-border {
+  border-color: var(--body-color);
+}
+.theme-border-accent {
+  border-color: var(--accent-color);
+}
+
+/* Hover Effects */
+.hover\:theme-link:hover {
+  color: var(--link-color);
+}
+.hover\:theme-bg:hover {
+  background-color: var(--body-background);
+}
+.hover\:theme-accent:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* On mobile it should fit the screen (100vh) */
+@media (max-width: 768px) {
+  .sm-home-screen {
+    height: calc(100vh - 60px);
+  }
+
+  .color-red {
+    color: red;
+  }
+}

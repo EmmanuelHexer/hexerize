@@ -1,124 +1,98 @@
-import { useEffect, useState } from "react";
-import { useAppContext } from "../AppContext/AppContext.jsx";
-import { assets } from "../assets/assets.js";
+import { useAppContext } from "../AppContext/AppContext";
+import { assets } from "../assets/assets";
 import { NavLink, useNavigate } from "react-router-dom";
+import { IoMenu, IoClose } from "react-icons/io5";
+import DarkMode from "./DarkMode";
+
+// Detect react-router-dom version for compatibility
+const isReactRouterV6 = !!NavLink.prototype?.render
+  ?.toString()
+  .includes("isActive");
 
 const Navbar = () => {
   const { showMenu, setShowMenu } = useAppContext();
   const navigate = useNavigate();
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [showNav, setShowNav] = useState(true);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY) {
-        setShowNav(false); // scroll down → hide
-      } else {
-        setShowNav(true); // scroll up → show
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
   return (
-    <>
+    <header className="fixed top-0 left-0 w-full h-[60px] md:h-[80px] z-50 theme-card backdrop-blur-md shadow-md px-4 py-3 md:px-8 md:py-5 flex justify-between items-center transition-all duration-300">
       <div
-        className={`fixed ${
-          showNav ? "translate-y-0" : "-translate-y-full"
-        } transition duration-300 flex z-50  w-full justify-between  items-center px-4 py-4 md:py-6 md:px-6 bg-gradient-to-r from-gray-800 to-indigo-400 shadow-xl`}
+        onClick={() => {
+          navigate("/");
+          setShowMenu(false);
+        }}
+        className="cursor-pointer"
       >
         <img
-          onClick={() => {
-            navigate("/");
-            setShowMenu(false);
-          }}
-          className="md:w-30 w-28"
-          src={assets.logo}
-          alt=""
+          src={assets.darkLogo}
+          alt="Hexerize Dark Logo"
+          className="w-12 h-10 md:w-16 md:h-auto rounded-md shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 hidden dark-logo"
         />
-        <ul className="hidden md:flex space-x-2 md:space-x-6 text-white uppercase font-semibold md:font-extrabold text-xs md:text-sm">
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "underline underline-offset-4 text-slate-400 transition duration-300"
-                : ""
-            }
-            to={"/about"}
-          >
-            <a href="">About</a>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "underline underline-offset-4 text-slate-400 transition duration-300"
-                : ""
-            }
-            to={"/companies"}
-          >
-            <a href="">Companies</a>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "underline underline-offset-4 text-slate-400 transition duration-300"
-                : ""
-            }
-            to={"/how-it-works"}
-          >
-            <a href="">how it works</a>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "underline underline-offset-4 text-slate-400 transition duration-300"
-                : ""
-            }
-            to={"/careers"}
-          >
-            <a href="">careers</a>
-          </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "underline underline-offset-4 text-slate-400 transition duration-300"
-                : ""
-            }
-            to={"/community"}
-          >
-            <a href="">community</a>
-          </NavLink>
-        </ul>
-        <div>
+        <img
+          src={assets.logo}
+          alt="Hexerize Logo"
+          className="w-12 h-10 md:w-16 md:h-auto rounded-md shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 block data-[theme='dark']:hidden light-logo"
+        />
+      </div>
+      <nav className="hidden lg:flex space-x-10 text-base font-medium theme-text">
+        {["About", "Companies", "How It Works", "Careers", "Community"].map(
+          (label) => {
+            const path = `/${label.toLowerCase().replace(/\s+/g, "-")}`;
+            return (
+              <NavLink
+                key={path}
+                to={path}
+                className={
+                  isReactRouterV6
+                    ? ({ isActive }) =>
+                        `relative group hover:theme-accent-text transition-colors duration-300 ${
+                          isActive ? "theme-accent-text" : ""
+                        }`
+                    : "relative group hover:theme-accent-text transition-colors duration-300"
+                }
+                {...(!isReactRouterV6 && {
+                  activeclassName: "theme-accent-text",
+                })}
+              >
+                {label}
+                <span
+                  className={`absolute left-0 bottom-[-4px] w-full h-0.5 theme-accent-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${
+                    window.location.pathname === path ? "scale-x-100" : ""
+                  }`}
+                ></span>
+              </NavLink>
+            );
+          },
+        )}
+      </nav>
+
+      <div className="flex items-center gap-4">
+        <div className="flex item-center h-full m-auto">
+          <DarkMode />
           <a
-            href=""
-            className="  gap-1 group text-sm font-bold flex text-center items-center bg-white text-gray-800 px-4 py-2 md:px-4 md:py-2 rounded-full hover:bg-gray-200 transition duration-300"
+            href="#"
+            className="relative theme-accent-bg hover:brightness-110 text-white text-sm md:text-base font-semibold px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 group items-center overflow-hidden hidden lg:flex"
           >
-            Explore{" "}
+            <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            <span className="relative z-10">Explore</span>
             <img
-              className="w-4 group-hover:translate-x-1 group-hover:transition-transform duration-300"
               src={assets.rightArrow}
-              alt=""
+              alt="arrow"
+              className="ml-2 w-4 filter brightness-0 invert transition-transform duration-300 group-hover:translate-x-1"
             />
           </a>
-        </div>{" "}
+        </div>
         <button
-          className="md:hidden flex uppercase text-sm items-center text-white font-bold"
+          className="lg:hidden flex items-center p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300"
           onClick={() => setShowMenu(!showMenu)}
         >
-          <img
-            className="h-8 w-10"
-            src={showMenu ? assets.closeMenu : assets.openMenu}
-            alt=""
-          />
+          {showMenu ? (
+            <IoClose size={37} className="theme-accent-text" />
+          ) : (
+            <IoMenu size={37} className="theme-accent-text" />
+          )}
         </button>
       </div>
-    </>
+    </header>
   );
 };
 

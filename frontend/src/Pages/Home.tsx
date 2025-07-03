@@ -1,62 +1,84 @@
-import { useAppContext } from "../AppContext/AppContext";
 import { assets } from "../assets/assets";
-import Dropdown from "../Components/Dropdown";
 
 const Home = () => {
-  const { showMenu } = useAppContext();
   return (
-    <div
-      className={` h-[100vh] translate-y-0  overflow-hidden relative transform ease-in-out transition-all duration-700`}
-    >
-      {showMenu && <Dropdown />}
+    <div className="bg-[color:var(--card-background)] transition-all duration-700 ease-in-out">
       <div
-        className={
-          showMenu
-            ? `blur-lg md:blur-none flex items-center justify-center h-[90%] p-4`
-            : `blur-none flex items-center justify-center h-[90%] p-4`
-        }
         style={{
-          backgroundImage:
-            "linear-gradient(to bottom right, #f3f4f6 80%, #f9a8d4)",
+          minHeight: "calc(100vh - 80px)",
         }}
+        className="flex flex-col justify-between sm-home-screen"
       >
-        <div className=" text-center">
-          <p className="uppercase font-bold mt-4 md:mt-0 text-gray-500 text-xs md:text-sm mb-2">
-            ai-powered no code platform
-          </p>
-          <p className="capitalize font-bold text-3xl sm: md:text-5xl mb-4 md:mb-6">
-            Meet AI-powered visual development
-          </p>
-          <p className="text-gray-600 text-sm md:text-base mb-10 font-semibold">
-            The visual control you know and love, now superchangeable by AI.
-            Bubble turns ideas into fully scalable apps-fast. <br /> Join
-            5million+ builders designing,launching and scaling powerful
-            businesses on Bubble.
-          </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            {" "}
-            <a
-              href=""
-              className="gap-2 md:w-2/5 group text-sm font-bold flex text-center items-center bg-blue-800 text-white px-7 py-5 capitalize whitespace-nowrap rounded-full hover:bg-indigo-500 transition duration-300"
-            >
-              start building for free{" "}
-              <img
-                className="w-6 group-hover:translate-x-30  duration-1600 group-hover:opacity-0"
-                src={assets.whiteArrow}
-                alt=""
-              />
-            </a>
+        {/* Hero Section */}
+        <div className="flex-1 flex items-center justify-center p-4 pt-[16px] md:pt-[20px]">
+          <div className="text-center w-full max-w-5xl backdrop-blur-md rounded-xl md:p-10 animate-fade-in text-[color:var(--body-color)]">
+            <p className="uppercase font-semibold text-[11px] md:text-sm text-[color:var(--body-color)]/70 mb-3 tracking-normal animate-slide-up">
+              AI-powered no-code platform
+            </p>
+
+            <h1 className="capitalize font-extrabold text-4xl md:text-6xl mb-6 leading-tight tracking-tight text-[color:var(--accent-color)] animate-slide-up">
+              Meet AI-powered <br className="hidden md:block" />
+              visual development
+            </h1>
+
+            <p className="text-[color:var(--body-color)]/80 text-sm md:text-lg font-medium leading-relaxed max-w-[55ch] mx-auto mb-5 md:mb-10 animate-slide-up">
+              The control you love, now supercharged by AI. <br />
+              Build and scale apps without code — trusted by 5M+ developers and
+              teams.
+            </p>
+
+            {/* CTA */}
+            <div className="flex justify-center">
+              <a
+                href="#"
+                className="relative group inline-flex items-center gap-2 px-10 py-2 md:py-4 text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:brightness-110 rounded-full shadow-lg ring-2 ring-[color:var(--accent-color)]/30 hover:ring-[color:var(--accent-color)]/50 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[color:var(--accent-color)]/40 animate-slide-up"
+              >
+                <span className="absolute inset-0 bg-[color:var(--accent-color)]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10">Start Building</span>
+                <img
+                  src={assets.whiteArrow}
+                  alt="arrow"
+                  className="relative z-10 w-5 transition-transform duration-300 transform group-hover:translate-x-1 brightness-0 invert"
+                />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="absolute bottom-0  w-full bg-gradient-to-l from-gray-800 to-blue-950 flex flex-col md:items-center items-start justify-center text-white p-2 md:p-8">
-        <p className="font-semibold text-center md:text-lg text-sm mb-4">
-          500+ Global Brands Run on Hexerize
-        </p>
-        <div className="flex flex-row flex-wrap md:items-center justify-evenly gap-4 md:p-4 p-2 items-start">
-          <img className="md:w-34 w-28 mr-1 md:mr-6" src={assets.logo} alt="" />
-          <img className="md:w-34 w-28 mr-1 md:mr-6" src={assets.logo} alt="" />
-          <img className="md:w-34 w-28 mr-1 md:mr-6" src={assets.logo} alt="" />
+
+        {/* Brand Strip */}
+        <div className="w-full px-4 py-6 md:py-8 rounded-t-xl shadow-md text-white bg-[color:var(--accent-color)]">
+          <div className="relative z-10 text-center max-w-6xl mx-auto">
+            <p className="text-sm md:text-base font-semibold tracking-wide mb-5 text-white">
+              Backed by real results
+            </p>
+
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-center">
+              <div className="space-y-1">
+                <h3 className="text-1xl md:text-4xl font-bold text-white">
+                  5M+
+                </h3>
+                <p className="text-xs md:text-sm text-white">
+                  Projects Deployed
+                </p>
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-1xl md:text-4xl font-bold text-white">
+                  98%
+                </h3>
+                <p className="text-xs md:text-sm text-white">
+                  Customer Satisfaction
+                </p>
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-1xl md:text-4xl font-bold text-white">
+                  50+
+                </h3>
+                <p className="text-xs md:text-sm text-white">
+                  Countries Reached
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
