@@ -33,7 +33,7 @@ const Navbar = () => {
           className="w-12 h-10 md:w-16 md:h-auto rounded-md shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 block data-[theme='dark']:hidden light-logo"
         />
       </div>
-      <nav className="hidden lg:flex space-x-10 text-base font-medium theme-text">
+      <nav className="hidden lg:flex space-x-10 text-base font-medium theme-text ml-[120px]">
         {["About", "Companies", "How It Works", "Careers", "Community"].map(
           (label) => {
             const path = `/${label.toLowerCase().replace(/\s+/g, "-")}`;
