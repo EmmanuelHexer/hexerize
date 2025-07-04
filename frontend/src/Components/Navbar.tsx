@@ -25,15 +25,15 @@ const Navbar = () => {
         <img
           src={assets.darkLogo}
           alt="Hexerize Dark Logo"
-          className="w-12 h-10 md:w-16 md:h-auto rounded-md shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 hidden dark-logo"
+          className="w-28 md:w-32 md:h-auto rounded-md hover:shadow-lg hover:scale-105 transition-transform duration-300 hidden dark-logo"
         />
         <img
           src={assets.logo}
           alt="Hexerize Logo"
-          className="w-12 h-10 md:w-16 md:h-auto rounded-md shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 block data-[theme='dark']:hidden light-logo"
+          className="w-28 md:w-32 md:h-auto rounded-md  hover:shadow-xl hover:scale-105 transition-transform duration-300 block data-[theme='dark']:hidden light-logo"
         />
       </div>
-      <nav className="hidden lg:flex space-x-10 text-base font-medium theme-text ml-[120px]">
+      <nav className="hidden lg:flex space-x-10 text-base font-medium theme-text ml-[100px]">
         {["About", "Companies", "How It Works", "Careers", "Community"].map(
           (label) => {
             const path = `/${label.toLowerCase().replace(/\s+/g, "-")}`;
