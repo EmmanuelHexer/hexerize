@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoMenu, IoClose } from "react-icons/io5";
 import DarkMode from "./DarkMode";
+import { navLinks } from "../../Utilities/NavLinks";
 
 // Detect react-router-dom version for compatibility
 const isReactRouterV6 = !!NavLink.prototype?.render
@@ -34,35 +35,33 @@ const Navbar = () => {
         />
       </div>
       <nav className="hidden lg:flex space-x-10 text-base font-medium theme-text ml-[100px]">
-        {["About", "Companies", "How It Works", "Careers", "Community"].map(
-          (label) => {
-            const path = `/${label.toLowerCase().replace(/\s+/g, "-")}`;
-            return (
-              <NavLink
-                key={path}
-                to={path}
-                className={
-                  isReactRouterV6
-                    ? ({ isActive }) =>
-                        `relative group hover:theme-accent-text transition-colors duration-300 ${
-                          isActive ? "theme-accent-text" : ""
-                        }`
-                    : "relative group hover:theme-accent-text transition-colors duration-300"
-                }
-                {...(!isReactRouterV6 && {
-                  activeclassName: "theme-accent-text",
-                })}
-              >
-                {label}
-                <span
-                  className={`absolute left-0 bottom-[-4px] w-full h-0.5 theme-accent-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${
-                    window.location.pathname === path ? "scale-x-100" : ""
-                  }`}
-                ></span>
-              </NavLink>
-            );
-          },
-        )}
+        {navLinks.map(({ label, linkPath }) => {
+          const path = linkPath;
+          return (
+            <NavLink
+              key={path}
+              to={path}
+              className={
+                isReactRouterV6
+                  ? ({ isActive }) =>
+                      `relative group hover:theme-accent-text transition-colors duration-300 ${
+                        isActive ? "theme-accent-text" : ""
+                      }`
+                  : "relative group hover:theme-accent-text transition-colors duration-300"
+              }
+              {...(!isReactRouterV6 && {
+                activeclassName: "theme-accent-text",
+              })}
+            >
+              {label}
+              <span
+                className={`absolute left-0 bottom-[-4px] w-full h-0.5 theme-accent-bg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${
+                  window.location.pathname === path ? "scale-x-100" : ""
+                }`}
+              ></span>
+            </NavLink>
+          );
+        })}
       </nav>
 
       <div className="flex items-center gap-4">

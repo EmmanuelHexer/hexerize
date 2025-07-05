@@ -1,4 +1,4 @@
-const HowItWorks = () => {
+const Blog = () => {
   return (
     <div
       className={` bg-[color:var(--card-background)] h-[100vh]  transition-all duration-700 ease-in-out overflow-y-auto`}
@@ -45,4 +45,4 @@ const HowItWorks = () => {
   );
 };
 
-export default HowItWorks;
+export default Blog;

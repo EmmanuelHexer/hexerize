@@ -1,7 +1,8 @@
 export const navLinks = [
+  { label: "Home", linkPath: "/" },
+  { label: "Services", linkPath: "/services" },
+  { label: "Projects", linkPath: "/projects" },
   { label: "About", linkPath: "/about" },
-  { label: "Companies", linkPath: "/companies" },
-  { label: "How It Works", linkPath: "/how-it-works" },
-  { label: "Careers", linkPath: "/careers" },
-  { label: "Community", linkPath: "/community" },
+  { label: "Blog", linkPath: "/blog" },
+  { label: "Contact", linkPath: "/contact" },
 ];
