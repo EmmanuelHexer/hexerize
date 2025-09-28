@@ -9,7 +9,7 @@ const About = () => {
   useSEO(seoConfig.about);
   const navigate = useNavigate();
 
-  const [_visibleSections, setVisibleSections] = useState<string[]>([]);
+  const [, setVisibleSections] = useState<string[]>([]);
 
   useEffect(() => {
     const observerOptions = {
