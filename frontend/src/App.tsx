@@ -1,43 +1,81 @@
 import "./index.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import Blog from "./Pages/Blog";
-import Projects from "./Pages/Projects";
-import Services from "./Pages/Services";
+import { Suspense, lazy, useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Dropdown from "./Components/Dropdown";
-import { useAppContext } from "./AppContext/AppContext";
+import LoadingSpinner from "./Components/LoadingSpinner";
+import ErrorBoundary from "./Components/ErrorBoundary";
+import { useAppContext } from "./AppContext/AppContext.tsx";
+
+// Eager load critical pages for instant access
+import Home from "./Pages/Home";
+import Services from "./Pages/Services"; // Critical business page
+
+// Lazy load secondary pages for performance
+const About = lazy(() => import("./Pages/About"));
+const Contact = lazy(() => import("./Pages/Contact"));
+const Blog = lazy(() => import("./Pages/Blog"));
+const Projects = lazy(() => import("./Pages/Projects"));
+const NotFound = lazy(() => import("./Pages/NotFound"));
 
 function App() {
   const { showMenu } = useAppContext();
 
+  // Intelligent preloading of lazy components on idle
+  useEffect(() => {
+    const preloadComponents = () => {
+      // Preload most likely next pages after initial render
+      setTimeout(() => {
+        import("./Pages/About"); // About is commonly visited after landing
+        import("./Pages/Contact"); // Contact is high-conversion page
+      }, 2000); // Delay to avoid blocking initial render
+
+      // Preload remaining components on user interaction
+      setTimeout(() => {
+        import("./Pages/Projects");
+        import("./Pages/Blog");
+      }, 5000);
+    };
+
+    // Start preloading when browser is idle
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(preloadComponents);
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(preloadComponents, 3000);
+    }
+  }, []);
+
   return (
-    <div
-      className={`min-h-screen flex flex-col relative ${
-        showMenu ? "overflow-hidden h-screen" : ""
-      }`}
-    >
-      <Navbar />
-
-      {/* Dropdown Overlay (Always on top of all pages) */}
-      <Dropdown />
-
-      {/* Main content behind dropdown */}
-      <main
-        className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300`}
+    <ErrorBoundary>
+      <div
+        className={`min-h-screen flex flex-col relative ${
+          showMenu ? "overflow-hidden h-screen" : ""
+        }`}
       >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-    </div>
+        <Navbar />
+
+        {/* Dropdown Overlay (Always on top of all pages) */}
+        <Dropdown />
+
+        {/* Main content behind dropdown */}
+        <main
+          className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300`}
+        >
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </main>
+      </div>
+    </ErrorBoundary>
   );
 }
 

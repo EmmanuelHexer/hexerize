@@ -8,12 +8,28 @@ Allow: /about
 Allow: /blog
 Allow: /contact
 
+# Allow common assets
+Allow: /assets/
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
+Allow: /favicon.png
+Allow: /HexerizeLogo.png
+
 # Block unnecessary files
 Disallow: /src/
 Disallow: /node_modules/
 Disallow: /*.json$
 Disallow: /*.js.map$
 Disallow: /vite.config.*
+Disallow: /*.env*
 
 # Sitemap location
 Sitemap: https://hexerize.com/sitemap.xml

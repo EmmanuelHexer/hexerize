@@ -4,10 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import { navLinks } from "../../Utilities/NavLinks";
 
-// Detect react-router-dom version for compatibility
-const isReactRouterV6 = !!NavLink.prototype?.render
-  ?.toString()
-  .includes("isActive");
+// React Router v6+ uses function form for className
 
 const Navbar = () => {
   const { showMenu, setShowMenu } = useAppContext();
@@ -35,17 +32,11 @@ const Navbar = () => {
             <NavLink
               key={path}
               to={path}
-              className={
-                isReactRouterV6
-                  ? ({ isActive }) =>
-                      `relative group hover:theme-accent-text transition-colors duration-300 ${
-                        isActive ? "theme-accent-text" : ""
-                      }`
-                  : "relative group hover:theme-accent-text transition-colors duration-300"
+              className={({ isActive }) =>
+                `relative group hover:theme-accent-text transition-colors duration-300 ${
+                  isActive ? "theme-accent-text" : ""
+                }`
               }
-              {...(!isReactRouterV6 && {
-                activeClassName: "theme-accent-text",
-              })}
             >
               {label}
               <span

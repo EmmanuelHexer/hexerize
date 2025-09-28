@@ -2,11 +2,33 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
+import { createWebPageSchema, createBreadcrumbSchema, createServiceSchema } from "../utils/structuredData";
 
 const Services = () => {
-  // SEO for Services page
-  useSEO(seoConfig.services);
   const navigate = useNavigate();
+
+  // Create structured data for services page
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createServiceSchema(),
+      createWebPageSchema(
+        seoConfig.services.title,
+        seoConfig.services.description,
+        "https://hexerize.com/services"
+      ),
+      createBreadcrumbSchema([
+        { name: "Home", url: "https://hexerize.com/" },
+        { name: "Services", url: "https://hexerize.com/services" }
+      ])
+    ]
+  };
+
+  // SEO for Services page
+  useSEO({
+    ...seoConfig.services,
+    structuredData
+  });
 
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
 

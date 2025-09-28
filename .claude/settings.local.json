@@ -4,7 +4,9 @@
       "WebSearch",
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(cd:*)",
+      "Bash(npm ls:*)"
     ],
     "deny": [],
     "ask": []

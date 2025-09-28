@@ -66,8 +66,8 @@ const About = () => {
         "Visionary entrepreneur and full-stack developer who conceptualized the Hexerize ecosystem. Passionate about building innovative digital solutions that solve real-world problems and drive business growth.",
       expertise: [
         "Full-Stack Development",
-        "Business Strategy",
-        "Product Vision",
+        "Performance Engineering",
+        "Technical Innovation",
         "Team Leadership"
       ],
       technologies: ["React", "Next.js", "Node.js", "Express", "Python", "Django", "TypeScript", "JavaScript", "MongoDB", "PostgreSQL", "MySQL", "Redis", "AWS", "Docker", "Kubernetes", "Git", "Tailwind CSS", "Bootstrap", "REST APIs", "GraphQL", "Firebase", "Vercel", "Netlify"],
@@ -81,8 +81,8 @@ const About = () => {
       expertise: [
         "Full-Stack Development",
         "System Architecture",
-        "Technical Innovation",
-        "Performance Engineering"
+        "Business Strategy",
+        "Product Vision"
       ],
       technologies: ["React Native", "React", "Vue.js", "Angular", "Node.js", "TypeScript", "Python", "Java", "PostgreSQL", "MongoDB", "Redis", "MySQL", "GraphQL", "REST APIs", "Microservices", "Docker", "Kubernetes", "AWS", "Azure", "Git", "GitHub Actions", "Jenkins", "TensorFlow", "Machine Learning", "AI/ML", "Socket.io", "Express", "Fastify", "Prisma", "Sequelize"],
       image: assets.dev2,
@@ -347,7 +347,7 @@ const About = () => {
                   </p>
 
                   {/* Skills */}
-                  <div className="mb-4">
+                  <div>
                     <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-2">Skills</h4>
                     <div className="flex flex-wrap justify-center gap-2">
                       {member.expertise.map((skill, idx) => (
@@ -358,26 +358,6 @@ const About = () => {
                           {skill}
                         </span>
                       ))}
-                    </div>
-                  </div>
-
-                  {/* Tech Stack - Simplified */}
-                  <div>
-                    <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-2">Tech Stack</h4>
-                    <div className="flex flex-wrap justify-center gap-1">
-                      {member.technologies.slice(0, 8).map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-1 text-xs bg-slate-700/50 text-gray-300 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {member.technologies.length > 8 && (
-                        <span className="px-2 py-1 text-xs text-gray-400 rounded">
-                          +{member.technologies.length - 8} more
-                        </span>
-                      )}
                     </div>
                   </div>
                 </div>

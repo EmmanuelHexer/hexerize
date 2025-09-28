@@ -2,14 +2,48 @@ import { assets } from "../assets/assets";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
+import { usePerformanceMonitoring } from "../hooks/usePerformanceMonitoring";
+import { useSEOAnalytics, useBotDetection, useCoreWebVitalsSEO } from "../hooks/useSEOAnalytics";
 import { seoConfig } from "../config/seoConfig";
+import { createOrganizationSchema, createWebsiteSchema, createWebPageSchema, createBreadcrumbSchema } from "../utils/structuredData";
 import { FaReact, FaNodeJs, FaPython, FaDocker, FaAws } from 'react-icons/fa';
 import { SiJavascript, SiTypescript, SiMongodb } from 'react-icons/si';
 
 const Home = () => {
-  // SEO for Home page
-  useSEO(seoConfig.home);
   const navigate = useNavigate();
+
+  // Create comprehensive structured data
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createOrganizationSchema(),
+      createWebsiteSchema(),
+      createWebPageSchema(
+        seoConfig.home.title,
+        seoConfig.home.description,
+        "https://hexerize.com/"
+      ),
+      createBreadcrumbSchema([
+        { name: "Home", url: "https://hexerize.com/" }
+      ])
+    ]
+  };
+
+  // SEO for Home page with structured data
+  useSEO({
+    ...seoConfig.home,
+    structuredData
+  });
+
+  // Performance and SEO monitoring
+  usePerformanceMonitoring('home');
+  useSEOAnalytics({
+    page: 'home',
+    title: seoConfig.home.title,
+    description: seoConfig.home.description
+  });
+  useBotDetection();
+  useCoreWebVitalsSEO();
 
   useEffect(() => {
     // Particle Effect
