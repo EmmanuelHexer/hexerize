@@ -1,55 +1,9 @@
-import { useState } from "react";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 
 const Contact = () => {
   // SEO for Contact page
   useSEO(seoConfig.contact);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    service: "",
-    budget: "",
-    timeline: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert(
-        "Thank you for your message! We'll get back to you within 24 hours.",
-      );
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        service: "",
-        budget: "",
-        timeline: "",
-        message: "",
-      });
-    }, 2000);
-  };
 
   const contactMethods = [
     {
@@ -78,33 +32,8 @@ const Contact = () => {
     },
   ];
 
-  const services = [
-    "Web Development",
-    "Mobile App Development",
-    "Digital Branding",
-    "E-commerce Solutions",
-    "Digital Strategy",
-    "Custom Software",
-    "UI/UX Design",
-    "Other",
-  ];
-
-  const budgets = [
-    "Under $10k",
-    "$10k - $25k",
-    "$25k - $50k",
-    "$50k - $100k",
-    "$100k+",
-    "Let's discuss",
-  ];
-
-  const timelines = [
-    "ASAP",
-    "1-2 months",
-    "3-6 months",
-    "6+ months",
-    "Flexible",
-  ];
+  // Form options removed as form is currently disabled
+  // Available for future form implementation
 
   return (
     <>
@@ -114,18 +43,17 @@ const Contact = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Get In <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Touch</span>
+                Get In{" "}
+                <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                  Touch
+                </span>
               </h1>
-              <p
-                className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 sm:mb-12"
-              >
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 sm:mb-12">
                 Ready to transform your business? Let's discuss your project and
                 explore how we can create innovative digital solutions that
                 drive real results.
               </p>
-              <div
-                className="flex flex-wrap items-center justify-center gap-4 sm:gap-8"
-              >
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-indigo-400">
                     &lt; 24h
@@ -136,18 +64,14 @@ const Contact = () => {
                 </div>
                 <div className="w-px h-12 bg-slate-700"></div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-400">
-                    Free
-                  </div>
+                  <div className="text-3xl font-bold text-indigo-400">Free</div>
                   <div className="text-sm text-gray-300 opacity-70">
                     Consultation
                   </div>
                 </div>
                 <div className="w-px h-12 bg-slate-700"></div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-400">
-                    100%
-                  </div>
+                  <div className="text-3xl font-bold text-indigo-400">100%</div>
                   <div className="text-sm text-gray-300 opacity-70">
                     Confidential
                   </div>
@@ -416,7 +340,10 @@ const Contact = () => {
                       Schedule a free 30-minute consultation call to discuss
                       your project.
                     </p>
-                    <a href="tel:+2330553130196" className="px-6 py-3 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300 inline-block text-center">
+                    <a
+                      href="tel:+2330553130196"
+                      className="px-6 py-3 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300 inline-block text-center"
+                    >
                       Schedule Call
                     </a>
                   </div>

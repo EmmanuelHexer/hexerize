@@ -27,8 +27,8 @@ export const useSEOAnalytics = (pageData: { page: string; title: string; descrip
       };
 
       // Send to Google Analytics 4 if available
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'page_view', {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'page_view', {
           page_title: pageData.title,
           page_location: window.location.href,
           content_group1: pageData.page,
@@ -37,7 +37,7 @@ export const useSEOAnalytics = (pageData: { page: string; title: string; descrip
         });
 
         // Track SEO-specific metrics
-        window.gtag('event', 'seo_metrics', {
+        (window as any).gtag('event', 'seo_metrics', {
           event_category: 'SEO',
           page_title_length: pageData.title.length,
           meta_description_length: pageData.description.length,
@@ -61,48 +61,48 @@ export const useSEOAnalytics = (pageData: { page: string; title: string; descrip
   }, [pageData]);
 };
 
-const sendToCustomAnalytics = async (data: SEOAnalyticsData) => {
+const sendToCustomAnalytics = async (_data: SEOAnalyticsData) => {
   // Analytics endpoint disabled for development
   // Replace with actual analytics service when available
 };
 
-const validateSEOBestPractices = (pageData: { title: string; description: string; keywords?: string }) => {
-  const issues: string[] = [];
+// Commented out - available for future SEO validation features
+// const validateSEOBestPractices = (pageData: { title: string; description: string; keywords?: string }) => {
+//   const issues: string[] = [];
 
-  // Title validation
-  if (pageData.title.length < 30) {
-    issues.push('Title too short (recommended: 30-60 characters)');
-  } else if (pageData.title.length > 60) {
-    issues.push('Title too long (recommended: 30-60 characters)');
-  }
+//   // Title validation
+//   if (pageData.title.length < 30) {
+//     issues.push('Title too short (recommended: 30-60 characters)');
+//   } else if (pageData.title.length > 60) {
+//     issues.push('Title too long (recommended: 30-60 characters)');
+//   }
 
-  // Description validation
-  if (pageData.description.length < 120) {
-    issues.push('Meta description too short (recommended: 120-160 characters)');
-  } else if (pageData.description.length > 160) {
-    issues.push('Meta description too long (recommended: 120-160 characters)');
-  }
+//   // Description validation
+//   if (pageData.description.length < 120) {
+//     issues.push('Meta description too short (recommended: 120-160 characters)');
+//   } else if (pageData.description.length > 160) {
+//     issues.push('Meta description too long (recommended: 120-160 characters)');
+//   }
 
-  // Keywords validation
-  if (pageData.keywords) {
-    const keywordCount = pageData.keywords.split(',').length;
-    if (keywordCount > 10) {
-      issues.push('Too many keywords (recommended: 5-10 keywords)');
-    }
-  }
+//   // Keywords validation
+//   if (pageData.keywords) {
+//     const keywordCount = pageData.keywords.split(',').length;
+//     if (keywordCount > 10) {
+//       issues.push('Too many keywords (recommended: 5-10 keywords)');
+//     }
+//   }
 
-  // Check for duplicates
-  const titleWords = pageData.title.toLowerCase().split(' ');
-  const descriptionWords = pageData.description.toLowerCase().split(' ');
-  const commonWords = titleWords.filter(word =>
-    descriptionWords.includes(word) && word.length > 3
-  );
+//   // Check for duplicates
+//   const titleWords = pageData.title.toLowerCase().split(' ');
+//   const descriptionWords = pageData.description.toLowerCase().split(' ');
+//   const commonWords = titleWords.filter(word =>
+//     descriptionWords.includes(word) && word.length > 3
+//   );
 
-  if (commonWords.length === 0) {
-    issues.push('No common keywords between title and description');
-  }
-
-};
+//   if (commonWords.length === 0) {
+//     issues.push('No common keywords between title and description');
+//   }
+// };
 
 // Hook for tracking search engine bot visits
 export const useBotDetection = () => {
@@ -126,8 +126,8 @@ export const useBotDetection = () => {
 
     if (detectedBot) {
       // Track bot visits
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'bot_visit', {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'bot_visit', {
           event_category: 'SEO',
           event_label: detectedBot,
           page_location: window.location.href
@@ -152,8 +152,8 @@ export const useCoreWebVitalsSEO = () => {
         if (lcp > 4000) rating = 'poor';
         else if (lcp > 2500) rating = 'needs improvement';
 
-        if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', 'lcp_seo_impact', {
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'lcp_seo_impact', {
             event_category: 'SEO',
             lcp_value: Math.round(lcp),
             lcp_rating: rating,

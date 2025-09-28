@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+// @ts-ignore - Custom plugin without types
 import { seoOptimizationPlugin } from "./vite-seo-plugin.js";
 
 // https://vite.dev/config/
@@ -30,21 +31,12 @@ export default defineConfig({
     sourcemap: true,
     // Minimize bundle size
     minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: process.env.NODE_ENV === 'production',
-        drop_debugger: true,
-        pure_funcs: ['console.log']
-      }
-    },
     // Increase chunk size warning limit for better optimization
     chunkSizeWarningLimit: 1000,
     // Enable CSS code splitting
     cssCodeSplit: true
   },
   server: {
-    // Enable compression
-    compress: true,
     // Add CORS headers
     cors: true,
     // Fix WebSocket HMR issues

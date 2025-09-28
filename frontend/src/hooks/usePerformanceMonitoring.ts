@@ -66,7 +66,10 @@ export const usePerformanceMonitoring = (pageName: string) => {
     const getFID = (onPerfEntry: (metric: PerformanceMetrics) => void) => {
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
-          onPerfEntry({ fid: entry.processingStart - entry.startTime });
+          const fidEntry = entry as any; // Type assertion for FID entry
+          if (fidEntry.processingStart) {
+            onPerfEntry({ fid: fidEntry.processingStart - entry.startTime });
+          }
         }
       });
       observer.observe({ type: 'first-input', buffered: true });
@@ -83,10 +86,10 @@ export const usePerformanceMonitoring = (pageName: string) => {
     const reportMetrics = (metrics: PerformanceMetrics) => {
 
       // Send to analytics service (replace with your analytics service)
-      if (typeof window !== 'undefined' && window.gtag) {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
         Object.entries(metrics).forEach(([key, value]) => {
           if (value !== undefined) {
-            window.gtag('event', 'web_vitals', {
+            (window as any).gtag('event', 'web_vitals', {
               event_category: 'Performance',
               event_label: key.toUpperCase(),
               value: Math.round(value),
@@ -113,8 +116,8 @@ export const usePerformanceMonitoring = (pageName: string) => {
     window.addEventListener('load', () => {
       setTimeout(() => {
         const perfData = performance.timing;
-        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-        const domContentLoadTime = perfData.domContentLoadedEventEnd - perfData.navigationStart;
+        // const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+        // const domContentLoadTime = perfData.domContentLoadedEventEnd - perfData.navigationStart;
 
         reportMetrics({
           ttfb: perfData.responseStart - perfData.fetchStart
@@ -135,8 +138,8 @@ export const useCustomMetric = (metricName: string, startTime?: number) => {
 
 
       // Send to analytics
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'custom_metric', {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'custom_metric', {
           event_category: 'Performance',
           event_label: metricName,
           value: Math.round(duration)
