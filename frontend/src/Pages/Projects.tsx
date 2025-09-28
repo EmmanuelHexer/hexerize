@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 import { assets } from "../assets/assets";
@@ -6,6 +7,7 @@ import { assets } from "../assets/assets";
 const Projects = () => {
   // SEO for Projects page
   useSEO(seoConfig.projects);
+  const navigate = useNavigate();
 
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
   const [activeFilter, setActiveFilter] = useState('all');
@@ -32,11 +34,11 @@ const Projects = () => {
 
   const projects = [
     {
-      id: "client-project-1",
-      title: "Modern Business Platform",
+      id: "brediyie-platform",
+      title: "Brediyie Digital Platform",
       category: "web",
-      client: "Confidential Client",
-      description: "A comprehensive business management platform that streamlines operations and enhances productivity for growing companies.",
+      client: "Brediyie",
+      description: "A comprehensive digital platform for Brediyie that streamlines business operations and enhances customer engagement through modern web technologies.",
       challenge: "Complex workflow management, data integration, user experience optimization",
       solution: "Modern React-based platform with intuitive design and seamless integrations",
       results: ["40% increase in operational efficiency", "Reduced processing time by 60%", "Enhanced user satisfaction"],
@@ -44,22 +46,24 @@ const Projects = () => {
       image: assets.project1,
       year: "2024",
       duration: "3 months",
-      status: "completed"
+      status: "completed",
+      website: "brediyie.com"
     },
     {
-      id: "client-project-2",
-      title: "Digital Solutions Portal",
+      id: "millys-cuisine",
+      title: "Milly's Cuisine Website",
       category: "web",
-      client: "Enterprise Client",
-      description: "An innovative digital portal designed to connect businesses with cutting-edge solutions and streamline their digital transformation journey.",
-      challenge: "User interface complexity, performance optimization, scalability requirements",
+      client: "Milly's Cuisine",
+      description: "An elegant restaurant website for Milly's Cuisine featuring menu displays, online reservations, and a seamless dining experience showcase.",
+      challenge: "User interface complexity, performance optimization, mobile responsiveness",
       solution: "Responsive web application with modern UI/UX and optimized performance",
-      results: ["Improved user engagement by 45%", "Faster load times", "Scalable architecture"],
+      results: ["Improved user engagement by 45%", "Faster load times", "Mobile-first design"],
       tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
       image: assets.project2,
       year: "2024",
       duration: "4 months",
-      status: "completed"
+      status: "completed",
+      website: "millyscuisine.com"
     },
     {
       id: "hexer-sms",
@@ -281,12 +285,12 @@ const Projects = () => {
 
                     {/* CTA */}
                     {project.status === 'completed' ? (
-                      <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
-                        View Case Study
+                      <a href={`https://${project.website}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
+                        Visit Website
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                      </button>
+                      </a>
                     ) : (
                       <div className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700/50 border border-blue-500/20 text-blue-400 rounded-xl font-semibold">
                         <i className="ri-time-line text-base"></i>
@@ -364,10 +368,10 @@ const Projects = () => {
                   Join our growing list of successful clients. Let's transform your business with innovative digital solutions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
+                  <button onClick={() => navigate('/contact')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
                     Start Your Project
                   </button>
-                  <button className="px-8 py-4 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
+                  <button onClick={() => navigate('/contact')} className="px-8 py-4 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
                     Schedule Consultation
                   </button>
                 </div>

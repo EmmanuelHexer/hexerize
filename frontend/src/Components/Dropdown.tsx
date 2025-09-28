@@ -77,7 +77,7 @@ const Dropdown = () => {
         {/* Enhanced Explore Button - Mobile Only */}
         <div className="p-8 flex justify-center">
           <a
-            href="#"
+            href="/projects"
             className="bg-gradient-to-r from-[color:var(--accent-color)] to-blue-600 hover:from-[color:var(--accent-color)]/90 hover:to-blue-600/90 text-white font-bold px-12 py-5 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center group relative overflow-hidden text-lg"
             onClick={() => setShowMenu(false)}
           >

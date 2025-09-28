@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
+import { assets } from "../assets/assets";
 
 const About = () => {
   // SEO for About page
   useSEO(seoConfig.about);
+  const navigate = useNavigate();
 
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
 
@@ -51,7 +54,7 @@ const About = () => {
       title: "Continuous Growth",
       description:
         "We're committed to continuous learning and improvement, staying ahead of industry trends to benefit our clients and ecosystem.",
-      icon: "ri-trending-up-line",
+      icon: "ri-line-chart-line",
     },
   ];
 
@@ -67,22 +70,22 @@ const About = () => {
         "Product Vision",
         "Team Leadership"
       ],
-      technologies: ["React", "Node.js", "Python", "TypeScript", "MongoDB", "AWS", "Docker"],
-      image: "/api/placeholder/300/300",
+      technologies: ["React", "Next.js", "Node.js", "Express", "Python", "Django", "TypeScript", "JavaScript", "MongoDB", "PostgreSQL", "MySQL", "Redis", "AWS", "Docker", "Kubernetes", "Git", "Tailwind CSS", "Bootstrap", "REST APIs", "GraphQL", "Firebase", "Vercel", "Netlify"],
+      image: assets.dev1,
     },
     {
       name: "Izen",
-      role: "Co-Founder & CTO",
+      role: "Co-Founder & Full-Stack Developer",
       description:
-        "Brilliant technical architect and development prodigy who brings cutting-edge solutions to life. Specializes in system design, performance optimization, and emerging technologies.",
+        "Brilliant full-stack developer and technical architect who brings cutting-edge solutions to life. Specializes in both frontend and backend development, system design, and emerging technologies.",
       expertise: [
+        "Full-Stack Development",
         "System Architecture",
         "Technical Innovation",
-        "Performance Engineering",
-        "DevOps Excellence"
+        "Performance Engineering"
       ],
-      technologies: ["React Native", "PostgreSQL", "Redis", "Kubernetes", "GraphQL", "Microservices", "AI/ML"],
-      image: "/api/placeholder/300/300",
+      technologies: ["React Native", "React", "Vue.js", "Angular", "Node.js", "TypeScript", "Python", "Java", "PostgreSQL", "MongoDB", "Redis", "MySQL", "GraphQL", "REST APIs", "Microservices", "Docker", "Kubernetes", "AWS", "Azure", "Git", "GitHub Actions", "Jenkins", "TensorFlow", "Machine Learning", "AI/ML", "Socket.io", "Express", "Fastify", "Prisma", "Sequelize"],
+      image: assets.dev2,
     },
   ];
 
@@ -234,7 +237,7 @@ const About = () => {
               <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-3xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 mx-auto bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl">
-                    <i className="ri-target-line"></i>
+                    <i className="ri-focus-3-line"></i>
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 text-center">
@@ -313,12 +316,22 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
               {team.map((member, index) => (
                 <div key={index} className="text-center group">
                   <div className="relative mb-6">
                     <div className="w-48 h-48 mx-auto bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center text-6xl overflow-hidden group-hover:scale-105 transition-transform duration-300 text-indigo-400">
-                      <i className="ri-user-line"></i>
+                      {member.image && typeof member.image === 'string' && member.image.includes('/api/placeholder') ? (
+                        <i className="ri-user-line"></i>
+                      ) : member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <i className="ri-user-line"></i>
+                      )}
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity status-indicator"></div>
                   </div>
@@ -333,9 +346,9 @@ const About = () => {
                     {member.description}
                   </p>
 
-                  {/* Expertise */}
+                  {/* Skills */}
                   <div className="mb-4">
-                    <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-2">Expertise</h4>
+                    <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-2">Skills</h4>
                     <div className="flex flex-wrap justify-center gap-2">
                       {member.expertise.map((skill, idx) => (
                         <span
@@ -348,22 +361,52 @@ const About = () => {
                     </div>
                   </div>
 
-                  {/* Technologies */}
+                  {/* Tech Stack - Simplified */}
                   <div>
                     <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-2">Tech Stack</h4>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {member.technologies.map((tech, idx) => (
+                    <div className="flex flex-wrap justify-center gap-1">
+                      {member.technologies.slice(0, 8).map((tech, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 text-xs bg-slate-700/50 text-gray-300 rounded border border-gray-600/30"
+                          className="px-2 py-1 text-xs bg-slate-700/50 text-gray-300 rounded"
                         >
                           {tech}
                         </span>
                       ))}
+                      {member.technologies.length > 8 && (
+                        <span className="px-2 py-1 text-xs text-gray-400 rounded">
+                          +{member.technologies.length - 8} more
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Combined Power */}
+            <div className="mt-16 text-center">
+              <div className="bg-slate-800/30 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+                <h3 className="text-2xl font-bold text-white mb-6">Combined Power</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-400 mb-2">25+</div>
+                    <div className="text-sm text-gray-300">Total Technologies</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-400 mb-2">8</div>
+                    <div className="text-sm text-gray-300">Core Expertise Areas</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-purple-400 mb-2">2024</div>
+                    <div className="text-sm text-gray-300">Year Founded</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-indigo-400 mb-2">∞</div>
+                    <div className="text-sm text-gray-300">Innovation Potential</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -452,10 +495,10 @@ const About = () => {
                   innovative digital solutions that drive real results.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
+                  <button onClick={() => navigate('/contact')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
                     Start a Project
                   </button>
-                  <button className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
+                  <button onClick={() => navigate('/services')} className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
                     Learn More
                   </button>
                 </div>

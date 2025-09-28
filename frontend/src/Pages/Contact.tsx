@@ -54,19 +54,19 @@ const Contact = () => {
   const contactMethods = [
     {
       title: "Email",
-      value: "hello@hexerize.com",
+      value: "Coming Soon",
       icon: "ri-mail-line",
       description: "Drop us a line anytime",
     },
     {
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+233 0553130196",
       icon: "ri-phone-line",
       description: "Call us during business hours",
     },
     {
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Ghana",
       icon: "ri-map-pin-line",
       description: "Visit our office",
     },
@@ -184,9 +184,9 @@ const Contact = () => {
         {/* Contact Form & Info */}
         <section className="pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="grid lg:grid-cols-1 gap-12">
               {/* Contact Form */}
-              <div className="lg:col-span-2">
+              {/* <div className="lg:col-span-2">
                 <div className="theme-card border border-gray-200/10 rounded-3xl p-8 hover-lift">
                   <h2 className="text-2xl sm:text-3xl font-bold theme-heading mb-6 sm:mb-8">
                     Start Your Project
@@ -320,7 +320,7 @@ const Contact = () => {
                     </button>
                   </form>
                 </div>
-              </div>
+              </div> */}
 
               {/* Contact Info Sidebar */}
               <div className="space-y-8">
@@ -416,9 +416,9 @@ const Contact = () => {
                       Schedule a free 30-minute consultation call to discuss
                       your project.
                     </p>
-                    <button className="px-6 py-3 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
+                    <a href="tel:+2330553130196" className="px-6 py-3 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300 inline-block text-center">
                       Schedule Call
-                    </button>
+                    </a>
                   </div>
 
                   {/* Background elements */}

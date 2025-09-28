@@ -1,11 +1,15 @@
 import { assets } from "../assets/assets";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
+import { FaReact, FaNodeJs, FaPython, FaDocker, FaAws } from 'react-icons/fa';
+import { SiJavascript, SiTypescript, SiMongodb } from 'react-icons/si';
 
 const Home = () => {
   // SEO for Home page
   useSEO(seoConfig.home);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Particle Effect
@@ -143,8 +147,8 @@ const Home = () => {
 
             {/* Dual CTA */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 items-center justify-center lg:justify-start tiny-phone-spacing small-phone-spacing">
-              <a
-                href="#contact"
+              <button
+                onClick={() => navigate('/contact')}
                 className="magnetic-hover group inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow w-full sm:w-fit tiny-phone-buttons small-phone-buttons"
               >
                 <span>Start Your Project</span>
@@ -153,17 +157,17 @@ const Home = () => {
                   alt="Start project with Hexerize arrow icon"
                   className="w-4 md:w-5 transition-transform duration-300 transform group-hover:translate-x-1 brightness-0 invert"
                 />
-              </a>
+              </button>
 
-              <a
-                href="#portfolio"
+              <button
+                onClick={() => navigate('/projects')}
                 className="magnetic-hover inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-[color:var(--accent-color)] bg-transparent border border-[color:var(--accent-color)]/30 hover:bg-[color:var(--accent-color)]/10 hover:border-[color:var(--accent-color)] rounded-full transition-all duration-300 transform hover:scale-105 w-full sm:w-fit tiny-phone-buttons small-phone-buttons"
               >
                 <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                 </svg>
                 View Our Work
-              </a>
+              </button>
             </div>
 
             {/* Trust Indicators */}
@@ -244,30 +248,47 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Orbiting Tech Icons */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="relative w-60 h-60 sm:w-80 sm:h-80">
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[color:var(--accent-color)]/20 border border-[color:var(--accent-color)]/40 rounded-lg flex items-center justify-center tech-orbit">
-                      <svg className="w-4 h-4 text-[color:var(--accent-color)]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8z" />
-                      </svg>
-                    </div>
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-8 h-8 bg-[color:var(--accent-color)]/20 border border-[color:var(--accent-color)]/40 rounded-lg flex items-center justify-center tech-orbit" style={{animationDelay: '10s'}}>
-                      <svg className="w-4 h-4 text-[color:var(--accent-color)]" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[color:var(--accent-color)]/20 border border-[color:var(--accent-color)]/40 rounded-lg flex items-center justify-center tech-orbit" style={{animationDelay: '5s'}}>
-                      <svg className="w-4 h-4 text-[color:var(--accent-color)]" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-[color:var(--accent-color)]/20 border border-[color:var(--accent-color)]/40 rounded-lg flex items-center justify-center tech-orbit" style={{animationDelay: '15s'}}>
-                      <svg className="w-4 h-4 text-[color:var(--accent-color)]" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2h6v2H7V4zm0 4h6v2H7V8zm0 4h6v2H7v-2z" clipRule="evenodd" />
-                      </svg>
-                    </div>
+              {/* Orbiting Language Icons */}
+              <div className="absolute inset-0 pointer-events-none" style={{left: '-100px', right: '-100px', top: '-100px', bottom: '-100px'}}>
+                <div className="absolute" style={{top: '47%', left: '45%', transform: 'translate(-50%, -50%)'}}>
+                  {/* React Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#61DAFB]/20 border border-[#61DAFB]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '0s'}}>
+                    <FaReact className="w-8 h-8 text-[#61DAFB]" />
+                  </div>
+
+                  {/* JavaScript Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#F7DF1E]/20 border border-[#F7DF1E]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '2.5s'}}>
+                    <SiJavascript className="w-8 h-8 text-[#F7DF1E]" />
+                  </div>
+
+                  {/* Node.js Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#339933]/20 border border-[#339933]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '5s'}}>
+                    <FaNodeJs className="w-8 h-8 text-[#339933]" />
+                  </div>
+
+                  {/* TypeScript Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#3178C6]/20 border border-[#3178C6]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '7.5s'}}>
+                    <SiTypescript className="w-8 h-8 text-[#3178C6]" />
+                  </div>
+
+                  {/* Python Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#3776AB]/20 border border-[#3776AB]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '10s'}}>
+                    <FaPython className="w-8 h-8 text-[#3776AB]" />
+                  </div>
+
+                  {/* MongoDB Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#47A248]/20 border border-[#47A248]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '12.5s'}}>
+                    <SiMongodb className="w-8 h-8 text-[#47A248]" />
+                  </div>
+
+                  {/* Docker Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#2496ED]/20 border border-[#2496ED]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '15s'}}>
+                    <FaDocker className="w-8 h-8 text-[#2496ED]" />
+                  </div>
+
+                  {/* AWS Icon */}
+                  <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-[#FF9900]/20 border border-[#FF9900]/50 rounded-xl flex items-center justify-center tech-orbit shadow-lg" style={{animationDelay: '17.5s'}}>
+                    <FaAws className="w-8 h-8 text-[#FF9900]" />
                   </div>
                 </div>
               </div>
