@@ -183,9 +183,13 @@ const About = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
-                <div className="aspect-square bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center relative overflow-hidden">
-                  <div className="text-8xl opacity-20 text-indigo-400"><i className="ri-star-line"></i></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse-soft"></div>
+                <div className="aspect-square bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-3xl overflow-hidden relative">
+                  <img
+                    src={assets.ourStory}
+                    alt="Hexerize Our Story - Founded by visionary developers"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-yellow-500/20 rounded-full animate-float"></div>
               </div>
