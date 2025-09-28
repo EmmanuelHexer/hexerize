@@ -1,5 +1,24 @@
+import { Helmet } from "react-helmet-async";
+
 const Blog = () => {
   return (
+    <>
+      <Helmet>
+        <title>Blog - Hexerize | Digital Innovation Insights & Industry Trends</title>
+        <meta name="description" content="Stay updated with the latest insights on digital innovation, web development trends, business growth strategies, and technology insights from Hexerize's expert team." />
+        <meta name="keywords" content="digital innovation blog, web development insights, business growth tips, technology trends, digital transformation, industry news" />
+        <link rel="canonical" href="https://hexerize.com/blog" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Blog - Hexerize | Digital Innovation Insights & Industry Trends" />
+        <meta property="og:description" content="Stay updated with the latest insights on digital innovation, web development trends, and business growth strategies from Hexerize's expert team." />
+        <meta property="og:url" content="https://hexerize.com/blog" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:title" content="Blog - Hexerize | Digital Innovation Insights & Industry Trends" />
+        <meta name="twitter:description" content="Stay updated with the latest insights on digital innovation, web development trends, and business growth strategies." />
+      </Helmet>
     <div
       className={` bg-[color:var(--card-background)] h-[100vh]  transition-all duration-700 ease-in-out overflow-y-auto`}
     >
@@ -42,6 +61,7 @@ const Blog = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

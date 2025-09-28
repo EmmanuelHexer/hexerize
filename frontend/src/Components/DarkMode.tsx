@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sun, Moon } from "../assets/assets.js";
 
 const DarkMode = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true); // Default to dark mode
 
   const setDarkMode = () => {
     document.querySelector("body")?.setAttribute("data-theme", "dark");
@@ -12,68 +12,68 @@ const DarkMode = () => {
     document.querySelector("body")?.setAttribute("data-theme", "light");
   };
 
+  // Set default dark mode on component mount
+  useEffect(() => {
+    setDarkMode();
+  }, []);
+
   const toggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
 
     if (isChecked) {
-      setDarkMode(); // Applies the theme to the document
-      setIsDark(true); // Updates state
+      setLightMode(); // Now checked means light mode
+      setIsDark(false); // Updates state
     } else {
-      setLightMode();
-      setIsDark(false);
+      setDarkMode(); // Unchecked means dark mode (default)
+      setIsDark(true);
     }
   };
 
   return (
-    <div className="mr-4 mt-2">
+    <div className="mr-4">
       <label
         htmlFor="darkmode-toggle"
-        className={`relative w-[70px] h-[34px] inline-block rounded-full transition duration-300 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.2),inset_-4px_-4px_8px_rgba(255,255,255,0.3)] cursor-pointer ${
+        className={`relative w-[60px] h-[30px] inline-block rounded-full transition-all duration-500 cursor-pointer shadow-lg border-2 ${
           isDark
-            ? "bg-neutral-800"
-            : "bg-gradient-to-br from-yellow-100 to-yellow-300"
+            ? "bg-gradient-to-r from-slate-700 to-slate-800 border-slate-600"
+            : "bg-gradient-to-r from-sky-200 to-blue-300 border-blue-200"
         }`}
       >
         <input
           type="checkbox"
           id="darkmode-toggle"
-          checked={isDark}
+          checked={!isDark} // Invert logic - checked means light mode
           onChange={toggleTheme}
           className="sr-only peer"
         />
 
         {/* Toggle Circle */}
         <span
-          className={`absolute top-[3px] left-[3px] w-[28px] h-[28px] rounded-full transition-all duration-300 shadow-[2px_2px_8px_rgba(0,0,0,0.3)] bg-white border border-white/30 flex items-center justify-center ${
+          className={`absolute top-[1px] left-[1px] w-[26px] h-[26px] rounded-full transition-all duration-500 ease-in-out shadow-xl flex items-center justify-center transform ${
             isDark
-              ? "translate-x-[34px] bg-gray-700"
-              : "translate-x-0 bg-yellow-400"
+              ? "translate-x-0 bg-gradient-to-br from-slate-600 to-slate-700 rotate-0" // Dark mode - slider on left
+              : "translate-x-[28px] bg-gradient-to-br from-yellow-300 to-orange-400 rotate-180" // Light mode - slider on right
           }`}
         >
           <img
             src={isDark ? Moon : Sun}
-            className="w-[16px] h-[16px]"
-            alt="mode icon"
+            className="w-[14px] h-[14px] transition-all duration-500 transform"
+            alt={isDark ? "Dark mode" : "Light mode"}
           />
         </span>
 
-        {/* Sun icon (left) */}
-        <img
-          src={Sun}
-          alt="sun"
-          className={`absolute top-[8px] left-[10px] w-[16px] transition-opacity duration-300 ${
-            isDark ? "opacity-30" : "opacity-100"
-          }`}
-        />
+        {/* Background Icons with Glow Effect */}
+        <div className={`absolute top-[6px] left-[8px] transition-all duration-500 ${
+          isDark ? "opacity-40 scale-90" : "opacity-20 scale-75"
+        }`}>
+          <img src={Moon} alt="moon" className="w-[12px] h-[12px]" />
+        </div>
 
-        {/* Moon icon (right) */}
-        <img
-          src={Moon}
-          alt="moon"
-          className={`absolute top-[8px] left-[44px] w-[16px] transition-opacity duration-300 ${
-            isDark ? "opacity-100" : "opacity-30"
-          }`}
-        />
+        <div className={`absolute top-[6px] right-[8px] transition-all duration-500 ${
+          isDark ? "opacity-20 scale-75" : "opacity-40 scale-90"
+        }`}>
+          <img src={Sun} alt="sun" className="w-[12px] h-[12px]" />
+        </div>
       </label>
     </div>
   );

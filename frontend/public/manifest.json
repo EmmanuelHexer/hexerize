@@ -1,0 +1,26 @@
+{
+  "name": "Hexerize - Digital Innovation Company",
+  "short_name": "Hexerize",
+  "description": "More than a web design agency — we're a digital innovation company helping businesses grow through modern websites, branding, and digital strategies while building our own ecosystem.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/HexerizeLogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en-US"
+}

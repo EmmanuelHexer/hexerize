@@ -50,7 +50,7 @@ const Navbar = () => {
                   : "relative group hover:theme-accent-text transition-colors duration-300"
               }
               {...(!isReactRouterV6 && {
-                activeclassName: "theme-accent-text",
+                activeClassName: "theme-accent-text",
               })}
             >
               {label}
@@ -66,7 +66,7 @@ const Navbar = () => {
 
       <div className="flex items-center gap-4">
         <div className="flex item-center h-full m-auto">
-          <DarkMode />
+          {/* <DarkMode /> */}
           <a
             href="#"
             className="relative theme-accent-bg hover:brightness-110 text-white text-sm md:text-base font-semibold px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 group items-center overflow-hidden hidden lg:flex"
@@ -81,14 +81,20 @@ const Navbar = () => {
           </a>
         </div>
         <button
-          className="lg:hidden flex items-center p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300"
-          onClick={() => setShowMenu(!showMenu)}
+          className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-xl hover:bg-[color:var(--accent-color)]/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-color)]/50 z-50"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowMenu(!showMenu);
+          }}
+          aria-label={showMenu ? "Close menu" : "Open menu"}
+          aria-expanded={showMenu}
         >
-          {showMenu ? (
-            <IoClose size={37} className="theme-accent-text" />
-          ) : (
-            <IoMenu size={37} className="theme-accent-text" />
-          )}
+          <div className="hamburger-icon">
+            <span className={`hamburger-line line-1 ${showMenu ? 'active' : ''}`}></span>
+            <span className={`hamburger-line line-2 ${showMenu ? 'active' : ''}`}></span>
+            <span className={`hamburger-line line-3 ${showMenu ? 'active' : ''}`}></span>
+          </div>
         </button>
       </div>
     </header>

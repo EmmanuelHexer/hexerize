@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /services
+Allow: /projects
+Allow: /about
+Allow: /blog
+Allow: /contact
+
+# Block unnecessary files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.js.map$
+Disallow: /vite.config.*
+
+# Sitemap location
+Sitemap: https://hexerize.com/sitemap.xml
+
+# Crawl delay for polite crawling
+Crawl-delay: 1
