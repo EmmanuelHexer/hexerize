@@ -1,8 +1,12 @@
 import { assets } from "../assets/assets";
-import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
+import { useSEO } from "../hooks/useSEO";
+import { seoConfig } from "../config/seoConfig";
 
 const Home = () => {
+  // SEO for Home page
+  useSEO(seoConfig.home);
+
   useEffect(() => {
     // Particle Effect
     const createParticles = () => {
@@ -101,35 +105,19 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Hexerize - Digital Innovation Company | Modern Websites, Apps & Digital Ecosystem</title>
-        <meta name="description" content="More than a web design agency — we're a digital innovation company. We help businesses grow through modern websites, branding, and digital strategies while building our own ecosystem of platforms and apps." />
-        <meta name="keywords" content="digital innovation, web design agency, modern websites, branding, digital strategies, app development, digital ecosystem, business growth" />
-        <link rel="canonical" href="https://hexerize.com/" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Hexerize - Digital Innovation Company | Modern Websites, Apps & Digital Ecosystem" />
-        <meta property="og:description" content="More than a web design agency — we're a digital innovation company helping businesses grow through modern websites, branding, and digital strategies while building our own ecosystem." />
-        <meta property="og:url" content="https://hexerize.com/" />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter */}
-        <meta name="twitter:title" content="Hexerize - Digital Innovation Company | Modern Websites, Apps & Digital Ecosystem" />
-        <meta name="twitter:description" content="More than a web design agency — we're a digital innovation company helping businesses grow through modern websites, branding, and digital strategies." />
-      </Helmet>
-    <div className="bg-[color:var(--card-background)] transition-all duration-700 ease-in-out home-container lg:overflow-hidden">
+    <div className="bg-[color:var(--card-background)] transition-all duration-700 ease-in-out home-container">
       {/* Hero Section */}
-      <section className="h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 lg:py-0 py-12 sm:py-16 relative overflow-hidden">
+      <section className="h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Animated Background Elements */}
         <div id="particles-container" className="absolute inset-0 z-0"></div>
         <div className="absolute top-10 left-10 w-64 h-64 bg-[color:var(--accent-color)]/20 rounded-full blur-3xl animate-float z-0"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-[color:var(--accent-color)]/10 rounded-full blur-3xl animate-float z-0" style={{animationDelay: '2s'}}></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center w-full max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-12 items-center w-full max-w-7xl relative z-10 py-4 sm:py-8 lg:py-0">
           {/* Left Column - Text Content */}
-          <div className="space-y-6 md:space-y-8 scroll-fade-in text-center lg:text-left">
+          <div className="space-y-3 sm:space-y-5 md:space-y-6 lg:space-y-6 scroll-fade-in text-center lg:text-left">
             {/* Status Badge */}
-            <div className="inline-block py-2 px-4 rounded-full bg-[color:var(--accent-color)]/10 border border-[color:var(--accent-color)]/30 text-sm mb-2">
+            <div className="inline-block py-2 px-4 rounded-full bg-[color:var(--accent-color)]/10 border border-[color:var(--accent-color)]/30 text-sm">
               <span className="flex items-center justify-center lg:justify-start gap-2">
                 <span className="h-2 w-2 rounded-full bg-green-400 status-indicator"></span>
                 <span className="text-[color:var(--accent-color)] font-medium">Available for New Projects</span>
@@ -141,7 +129,7 @@ const Home = () => {
                 Digital Innovation Company
               </p>
 
-              <h1 className="font-extrabold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight tracking-tight text-[color:var(--heading-color)] tiny-phone-header tiny-phone-mb">
+              <h1 className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight tracking-tight text-[color:var(--heading-color)] tiny-phone-header tiny-phone-mb">
                 We Build The<br/>
                 <span className="text-gradient-animated">
                   Digital Future
@@ -149,15 +137,15 @@ const Home = () => {
               </h1>
             </div>
 
-            <p className="text-[color:var(--body-color)]/70 text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-[50ch] mx-auto lg:mx-0 tiny-phone-text">
+            <p className="text-[color:var(--body-color)]/70 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-[50ch] mx-auto lg:mx-0 tiny-phone-text">
               Innovative digital solutions that transform businesses. We create modern websites, powerful apps, and strategic digital experiences that drive real growth and success.
             </p>
 
             {/* Dual CTA */}
-            <div className="flex flex-row gap-4 pt-4 items-center justify-center lg:justify-start tiny-phone-spacing small-phone-spacing">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 items-center justify-center lg:justify-start tiny-phone-spacing small-phone-spacing">
               <a
                 href="#contact"
-                className="magnetic-hover group inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow flex-shrink-0 w-fit tiny-phone-buttons small-phone-buttons"
+                className="magnetic-hover group inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow w-full sm:w-fit tiny-phone-buttons small-phone-buttons"
               >
                 <span>Start Your Project</span>
                 <img
@@ -169,7 +157,7 @@ const Home = () => {
 
               <a
                 href="#portfolio"
-                className="magnetic-hover inline-flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-[color:var(--accent-color)] bg-transparent border border-[color:var(--accent-color)]/30 hover:bg-[color:var(--accent-color)]/10 hover:border-[color:var(--accent-color)] rounded-full transition-all duration-300 transform hover:scale-105 flex-shrink-0 w-fit tiny-phone-buttons small-phone-buttons"
+                className="magnetic-hover inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-[color:var(--accent-color)] bg-transparent border border-[color:var(--accent-color)]/30 hover:bg-[color:var(--accent-color)]/10 hover:border-[color:var(--accent-color)] rounded-full transition-all duration-300 transform hover:scale-105 w-full sm:w-fit tiny-phone-buttons small-phone-buttons"
               >
                 <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />

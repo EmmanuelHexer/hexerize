@@ -1,8 +1,7 @@
 import { useAppContext } from "../AppContext/AppContext";
 import { assets } from "../assets/assets";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IoMenu, IoClose } from "react-icons/io5";
-import DarkMode from "./DarkMode";
+
 import { navLinks } from "../../Utilities/NavLinks";
 
 // Detect react-router-dom version for compatibility
@@ -25,13 +24,8 @@ const Navbar = () => {
       >
         <img
           src={assets.darkLogo}
-          alt="Hexerize Dark Logo"
-          className="w-28 md:w-32 md:h-auto rounded-md hover:scale-105 transition-transform duration-300 hidden dark-logo"
-        />
-        <img
-          src={assets.logo}
           alt="Hexerize Logo"
-          className="w-28 md:w-32 md:h-auto rounded-md hover:scale-105 transition-transform duration-300 block data-[theme='dark']:hidden light-logo"
+          className="w-28 md:w-32 md:h-auto rounded-md hover:scale-105 transition-transform duration-300"
         />
       </div>
       <nav className="hidden lg:flex space-x-10 text-base font-medium theme-text ml-[100px]">
@@ -91,9 +85,15 @@ const Navbar = () => {
           aria-expanded={showMenu}
         >
           <div className="hamburger-icon">
-            <span className={`hamburger-line line-1 ${showMenu ? 'active' : ''}`}></span>
-            <span className={`hamburger-line line-2 ${showMenu ? 'active' : ''}`}></span>
-            <span className={`hamburger-line line-3 ${showMenu ? 'active' : ''}`}></span>
+            <span
+              className={`hamburger-line line-1 ${showMenu ? "active" : ""}`}
+            ></span>
+            <span
+              className={`hamburger-line line-2 ${showMenu ? "active" : ""}`}
+            ></span>
+            <span
+              className={`hamburger-line line-3 ${showMenu ? "active" : ""}`}
+            ></span>
           </div>
         </button>
       </div>

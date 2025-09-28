@@ -7,6 +7,8 @@ import closeMenu from "./closeMenu.png";
 import Moon from "./Moon.svg";
 import Sun from "./Sun.svg";
 import darkLogo from "./hexerizeLogoDark.png";
+import project1 from "./projects/project1.jpeg";
+import project2 from "./projects/project2.jpeg";
 
 export { default as Sun } from "./sun.svg";
 export { default as Moon } from "./moon.svg";
@@ -19,4 +21,6 @@ export const assets = {
   whiteArrow,
   openMenu,
   closeMenu,
+  project1,
+  project2,
 };

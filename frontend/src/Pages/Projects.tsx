@@ -1,7 +1,12 @@
-import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
+import { useSEO } from "../hooks/useSEO";
+import { seoConfig } from "../config/seoConfig";
+import { assets } from "../assets/assets";
 
 const Projects = () => {
+  // SEO for Projects page
+  useSEO(seoConfig.projects);
+
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
   const [activeFilter, setActiveFilter] = useState('all');
 
@@ -27,88 +32,64 @@ const Projects = () => {
 
   const projects = [
     {
-      id: "ecommerce-platform",
-      title: "E-Commerce Revolution",
+      id: "client-project-1",
+      title: "Modern Business Platform",
       category: "web",
-      client: "TechMart Solutions",
-      description: "Complete digital transformation of a traditional retail business into a modern e-commerce powerhouse.",
-      challenge: "Legacy systems, poor mobile experience, 70% cart abandonment rate",
-      solution: "Modern React-based platform with AI-powered recommendations and seamless checkout",
-      results: ["300% increase in conversions", "85% reduction in cart abandonment", "50% faster page load times"],
-      tech: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-      image: "/api/placeholder/600/400",
+      client: "Confidential Client",
+      description: "A comprehensive business management platform that streamlines operations and enhances productivity for growing companies.",
+      challenge: "Complex workflow management, data integration, user experience optimization",
+      solution: "Modern React-based platform with intuitive design and seamless integrations",
+      results: ["40% increase in operational efficiency", "Reduced processing time by 60%", "Enhanced user satisfaction"],
+      tech: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+      image: assets.project1,
       year: "2024",
-      duration: "4 months"
+      duration: "3 months",
+      status: "completed"
     },
     {
-      id: "fintech-app",
-      title: "FinanceFlow Mobile",
-      category: "app",
-      client: "FinanceFlow Inc",
-      description: "Revolutionary mobile banking app that simplifies personal finance management for millennials.",
-      challenge: "Complex financial data visualization, security concerns, user adoption",
-      solution: "Intuitive React Native app with advanced analytics and bank-grade security",
-      results: ["500K+ downloads in 6 months", "4.8/5 app store rating", "40% user retention increase"],
-      tech: ["React Native", "TypeScript", "Firebase", "Plaid API", "Biometric Auth"],
-      image: "/api/placeholder/600/400",
-      year: "2024",
-      duration: "6 months"
-    },
-    {
-      id: "healthcare-portal",
-      title: "MedConnect Portal",
+      id: "client-project-2",
+      title: "Digital Solutions Portal",
       category: "web",
-      client: "HealthCare United",
-      description: "Comprehensive patient portal connecting doctors, patients, and healthcare providers seamlessly.",
-      challenge: "HIPAA compliance, complex workflows, legacy system integration",
-      solution: "Secure, scalable portal with telemedicine capabilities and real-time communication",
-      results: ["90% patient satisfaction", "60% reduction in admin tasks", "HIPAA compliant infrastructure"],
-      tech: ["Vue.js", "Python", "PostgreSQL", "WebRTC", "Docker"],
-      image: "/api/placeholder/600/400",
-      year: "2023",
-      duration: "8 months"
+      client: "Enterprise Client",
+      description: "An innovative digital portal designed to connect businesses with cutting-edge solutions and streamline their digital transformation journey.",
+      challenge: "User interface complexity, performance optimization, scalability requirements",
+      solution: "Responsive web application with modern UI/UX and optimized performance",
+      results: ["Improved user engagement by 45%", "Faster load times", "Scalable architecture"],
+      tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
+      image: assets.project2,
+      year: "2024",
+      duration: "4 months",
+      status: "completed"
     },
     {
-      id: "ai-analytics",
-      title: "DataInsight AI",
+      id: "hexer-sms",
+      title: "HexerSMS - School Management System",
       category: "platform",
-      client: "Analytics Pro",
-      description: "AI-powered business intelligence platform that transforms raw data into actionable insights.",
-      challenge: "Complex data processing, real-time analytics, scalability requirements",
-      solution: "Cloud-native platform with machine learning algorithms and intuitive dashboards",
-      results: ["75% faster decision making", "10x data processing speed", "Enterprise ready scaling"],
-      tech: ["Python", "TensorFlow", "Kubernetes", "Apache Kafka", "React"],
+      client: "Hexerize Internal Project",
+      description: "A comprehensive school management system designed specifically for junior high and primary schools in Ghana, streamlining administrative tasks and enhancing educational experiences.",
+      challenge: "Complex educational workflows, student data management, parent-teacher communication",
+      solution: "Full-featured SMS with student records, attendance tracking, gradebook, and parent portal",
+      results: ["Expected to serve 50+ schools", "Streamlined admin processes", "Enhanced parent engagement"],
+      tech: ["React", "Node.js", "MongoDB", "Socket.io", "Payment Integration"],
       image: "/api/placeholder/600/400",
       year: "2024",
-      duration: "10 months"
+      duration: "6 months",
+      status: "coming-soon"
     },
     {
-      id: "social-platform",
-      title: "ConnectHub Social",
+      id: "stedova-app",
+      title: "Stedova - Campus Social Platform",
       category: "app",
-      client: "ConnectHub LLC",
-      description: "Next-generation social platform focusing on meaningful connections and community building.",
-      challenge: "User engagement, content moderation, real-time messaging at scale",
-      solution: "Progressive web app with AI moderation and advanced networking features",
-      results: ["1M+ active users", "200% engagement increase", "99.9% uptime"],
-      tech: ["Next.js", "Socket.io", "Redis", "OpenAI API", "Vercel"],
-      image: "/api/placeholder/600/400",
-      year: "2023",
-      duration: "12 months"
-    },
-    {
-      id: "edu-platform",
-      title: "EduLearn Academy",
-      category: "platform",
-      client: "EduLearn Technologies",
-      description: "Interactive learning platform revolutionizing online education with gamification and AI tutoring.",
-      challenge: "Student engagement, personalized learning paths, assessment automation",
-      solution: "Adaptive learning platform with AI tutors and comprehensive progress tracking",
-      results: ["95% course completion rate", "4x learning efficiency", "Global classroom reach"],
-      tech: ["Angular", "Node.js", "MongoDB", "WebGL", "ML.js"],
+      client: "Hexerize Internal Project",
+      description: "A revolutionary campus platform for Ghanaian students featuring lecturer discovery, social feeds, chat functionality, and an integrated marketplace for buying and selling.",
+      challenge: "Campus community building, secure transactions, real-time communication, lecturer verification",
+      solution: "Mobile-first platform with social features, verified lecturer profiles, and secure marketplace",
+      results: ["Targeting 10,000+ students", "Enhanced campus connections", "Safe trading environment"],
+      tech: ["React Native", "Node.js", "Socket.io", "MongoDB", "Payment Gateway"],
       image: "/api/placeholder/600/400",
       year: "2024",
-      duration: "7 months"
+      duration: "8 months",
+      status: "coming-soon"
     }
   ];
 
@@ -123,48 +104,32 @@ const Projects = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Our Projects - Hexerize | Digital Innovation Portfolio & Case Studies</title>
-        <meta name="description" content="Explore Hexerize's portfolio of innovative digital projects, websites, apps, and digital solutions. See how we help businesses transform and grow through cutting-edge technology." />
-        <meta name="keywords" content="digital projects, portfolio, case studies, web development projects, app development, digital innovation, client work, business transformation" />
-        <link rel="canonical" href="https://hexerize.com/projects" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Our Projects - Hexerize | Digital Innovation Portfolio & Case Studies" />
-        <meta property="og:description" content="Explore Hexerize's portfolio of innovative digital projects, websites, apps, and digital solutions. See how we help businesses transform and grow." />
-        <meta property="og:url" content="https://hexerize.com/projects" />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter */}
-        <meta name="twitter:title" content="Our Projects - Hexerize | Digital Innovation Portfolio & Case Studies" />
-        <meta name="twitter:description" content="Explore Hexerize's portfolio of innovative digital projects, websites, apps, and digital solutions." />
-      </Helmet>
-
-      <div className="min-h-screen theme-bg theme-text">
+      <div className="min-h-screen bg-slate-900 text-gray-100">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 overflow-hidden">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
-              <h1 className="text-5xl md:text-6xl font-bold theme-heading mb-6 animate-fade-in">
-                Our <span className="text-gradient-animated">Projects</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Projects</span>
               </h1>
-              <p className="text-xl theme-text max-w-3xl mx-auto mb-12 animate-fade-in" style={{animationDelay: '0.2s'}}>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 sm:mb-12">
                 Real stories of digital transformation. See how we've helped businesses innovate, grow, and succeed in the digital landscape.
               </p>
-              <div className="flex items-center justify-center gap-8 animate-fade-in" style={{animationDelay: '0.4s'}}>
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold theme-accent-text">150+</div>
-                  <div className="text-sm theme-text opacity-70">Projects Completed</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-indigo-400">4</div>
+                  <div className="text-sm text-gray-300 opacity-70">Featured Projects</div>
                 </div>
-                <div className="w-px h-12 theme-text opacity-20"></div>
+                <div className="w-px h-12 bg-slate-700"></div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold theme-accent-text">50+</div>
-                  <div className="text-sm theme-text opacity-70">Happy Clients</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-indigo-400">2</div>
+                  <div className="text-sm text-gray-300 opacity-70">Coming Soon</div>
                 </div>
-                <div className="w-px h-12 theme-text opacity-20"></div>
+                <div className="w-px h-12 bg-slate-700"></div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold theme-accent-text">95%</div>
-                  <div className="text-sm theme-text opacity-70">Success Rate</div>
+                  <div className="text-3xl font-bold text-indigo-400">95%</div>
+                  <div className="text-sm text-gray-300 opacity-70">Success Rate</div>
                 </div>
               </div>
             </div>
@@ -172,8 +137,8 @@ const Projects = () => {
         </section>
 
         {/* Filter Navigation */}
-        <section className="py-12 border-b border-gray-200/10">
-          <div className="max-w-6xl mx-auto px-6">
+        <section className="py-12 border-b border-slate-700">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="flex flex-wrap justify-center gap-4">
               {categories.map((category) => (
                 <button
@@ -181,8 +146,8 @@ const Projects = () => {
                   onClick={() => setActiveFilter(category.id)}
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                     activeFilter === category.id
-                      ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
-                      : 'theme-card border border-indigo-500/20 theme-text hover-lift'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white'
+                      : 'bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 text-gray-300 hover:transform hover:-translate-y-1 transition-all duration-300'
                   }`}
                 >
                   {category.label}
@@ -206,21 +171,41 @@ const Projects = () => {
                   {/* Project Image/Visual */}
                   <div className={`lg:col-span-3 ${index % 2 === 1 ? 'lg:col-start-3' : ''}`}>
                     <div className="relative group">
-                      <div className="theme-card border border-gray-200/10 rounded-2xl p-8 hover-lift">
+                      <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
                         <div className="aspect-video bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl mb-6 flex items-center justify-center relative overflow-hidden">
-                          <div className="text-6xl opacity-20">🚀</div>
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse-soft"></div>
+                          {project.status === 'completed' && typeof project.image === 'string' && project.image.includes('/api/placeholder') ? (
+                            <>
+                              <div className="text-6xl opacity-20 text-indigo-400"><i className="ri-rocket-line"></i></div>
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse-soft"></div>
+                            </>
+                          ) : project.status === 'completed' ? (
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-cover rounded-lg"
+                            />
+                          ) : (
+                            <>
+                              <div className="text-6xl opacity-20 text-indigo-400">
+                                <i className={project.category === 'platform' ? 'ri-dashboard-line' : project.category === 'app' ? 'ri-smartphone-line' : 'ri-computer-line'}></i>
+                              </div>
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse-soft"></div>
+                              <div className="absolute top-4 right-4 px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-xs text-blue-400 font-medium">
+                                Coming Soon
+                              </div>
+                            </>
+                          )}
                         </div>
 
                         {/* Tech Stack */}
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tech.slice(0, 4).map((tech, idx) => (
-                            <span key={idx} className="px-3 py-1 text-xs bg-indigo-500/10 theme-accent-text rounded-full border border-indigo-500/20">
+                            <span key={idx} className="px-3 py-1 text-xs bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20">
                               {tech}
                             </span>
                           ))}
                           {project.tech.length > 4 && (
-                            <span className="px-3 py-1 text-xs theme-text opacity-50 rounded-full">
+                            <span className="px-3 py-1 text-xs text-gray-300 opacity-50 rounded-full">
                               +{project.tech.length - 4} more
                             </span>
                           )}
@@ -228,70 +213,86 @@ const Projects = () => {
 
                         {/* Project Metrics */}
                         <div className="grid grid-cols-2 gap-4">
-                          <div className="text-center p-4 theme-card rounded-xl border border-indigo-500/10">
-                            <div className="text-sm theme-text opacity-70 mb-1">Duration</div>
-                            <div className="font-semibold theme-accent-text">{project.duration}</div>
+                          <div className="text-center p-4 bg-slate-700/50 rounded-xl border border-indigo-500/10">
+                            <div className="text-sm text-gray-300 opacity-70 mb-1">Duration</div>
+                            <div className="font-semibold text-indigo-400">{project.duration}</div>
                           </div>
-                          <div className="text-center p-4 theme-card rounded-xl border border-indigo-500/10">
-                            <div className="text-sm theme-text opacity-70 mb-1">Year</div>
-                            <div className="font-semibold theme-accent-text">{project.year}</div>
+                          <div className="text-center p-4 bg-slate-700/50 rounded-xl border border-indigo-500/10">
+                            <div className="text-sm text-gray-300 opacity-70 mb-1">Year</div>
+                            <div className="font-semibold text-indigo-400">{project.year}</div>
                           </div>
                         </div>
                       </div>
 
                       {/* Floating elements */}
-                      <div className="absolute -top-4 -right-4 w-8 h-8 bg-indigo-500/20 rounded-full animate-float"></div>
-                      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-500/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+                      <div className="absolute -top-4 -right-4 w-8 h-8 bg-indigo-500/20 rounded-full"></div>
+                      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-500/10 rounded-full"></div>
                     </div>
                   </div>
 
                   {/* Project Content */}
                   <div className={`lg:col-span-2 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-2 h-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full animate-pulse-soft"></div>
-                      <span className="text-sm uppercase tracking-wide theme-accent-text font-semibold">
-                        {project.client}
-                      </span>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full animate-pulse-soft"></div>
+                        <span className="text-sm uppercase tracking-wide text-indigo-400 font-semibold">
+                          {project.client}
+                        </span>
+                      </div>
+                      <div className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        project.status === 'completed'
+                          ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                          : 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
+                      }`}>
+                        {project.status === 'completed' ? 'Completed' : 'In Development'}
+                      </div>
                     </div>
 
-                    <h2 className="text-4xl font-bold theme-heading mb-6">
+                    <h2 className="text-4xl font-bold text-white mb-6">
                       {project.title}
                     </h2>
 
-                    <p className="text-lg theme-text mb-8 leading-relaxed">
+                    <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                       {project.description}
                     </p>
 
                     {/* Challenge & Solution */}
                     <div className="space-y-6 mb-8">
                       <div>
-                        <h3 className="text-sm font-semibold theme-accent-text mb-2 uppercase tracking-wide">Challenge</h3>
-                        <p className="theme-text text-sm leading-relaxed">{project.challenge}</p>
+                        <h3 className="text-sm font-semibold text-indigo-400 mb-2 uppercase tracking-wide">Challenge</h3>
+                        <p className="text-gray-300 text-sm leading-relaxed">{project.challenge}</p>
                       </div>
                       <div>
-                        <h3 className="text-sm font-semibold theme-accent-text mb-2 uppercase tracking-wide">Solution</h3>
-                        <p className="theme-text text-sm leading-relaxed">{project.solution}</p>
+                        <h3 className="text-sm font-semibold text-indigo-400 mb-2 uppercase tracking-wide">Solution</h3>
+                        <p className="text-gray-300 text-sm leading-relaxed">{project.solution}</p>
                       </div>
                     </div>
 
                     {/* Results */}
                     <div className="space-y-3 mb-8">
-                      <h3 className="text-sm font-semibold theme-accent-text uppercase tracking-wide">Key Results</h3>
+                      <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wide">Key Results</h3>
                       {project.results.map((result, idx) => (
                         <div key={idx} className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-green-500 rounded-full status-indicator"></div>
-                          <span className="text-sm theme-text">{result}</span>
+                          <span className="text-sm text-gray-300">{result}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* CTA */}
-                    <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
-                      View Case Study
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </button>
+                    {project.status === 'completed' ? (
+                      <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
+                        View Case Study
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </button>
+                    ) : (
+                      <div className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700/50 border border-blue-500/20 text-blue-400 rounded-xl font-semibold">
+                        <i className="ri-time-line text-base"></i>
+                        Coming Soon
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -300,13 +301,13 @@ const Projects = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-20 border-t border-gray-200/10">
-          <div className="max-w-6xl mx-auto px-6">
+        <section className="py-20 border-t border-slate-700">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold theme-heading mb-6">
-                Our <span className="text-gradient-animated">Process</span>
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Process</span>
               </h2>
-              <p className="text-lg theme-text max-w-2xl mx-auto">
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
                 Every successful project follows our proven methodology, ensuring exceptional results and client satisfaction.
               </p>
             </div>
@@ -336,15 +337,15 @@ const Projects = () => {
               ].map((item, index) => (
                 <div key={index} className="text-center group">
                   <div className="relative mb-6">
-                    <div className="w-16 h-16 mx-auto theme-card border border-indigo-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-lg font-bold theme-accent-text">{item.step}</span>
+                    <div className="w-16 h-16 mx-auto bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-lg font-bold text-indigo-400">{item.step}</span>
                     </div>
                     {index < 3 && (
                       <div className="hidden md:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-indigo-500/50 to-transparent"></div>
                     )}
                   </div>
-                  <h3 className="text-xl font-semibold theme-heading mb-3">{item.title}</h3>
-                  <p className="theme-text">{item.description}</p>
+                  <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
+                  <p className="text-gray-300">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -354,27 +355,27 @@ const Projects = () => {
         {/* CTA Section */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <div className="theme-card border border-indigo-500/20 rounded-3xl p-12 relative overflow-hidden">
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-3xl p-12 relative overflow-hidden">
               <div className="relative z-10">
-                <h2 className="text-3xl font-bold theme-heading mb-6">
+                <h2 className="text-3xl font-bold text-white mb-6">
                   Ready to Start Your Project?
                 </h2>
-                <p className="text-lg theme-text mb-8 max-w-2xl mx-auto">
+                <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                   Join our growing list of successful clients. Let's transform your business with innovative digital solutions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300 animate-glow">
+                  <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
                     Start Your Project
                   </button>
-                  <button className="px-8 py-4 theme-card border border-indigo-500/20 theme-text rounded-xl font-semibold hover-lift">
+                  <button className="px-8 py-4 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
                     Schedule Consultation
                   </button>
                 </div>
               </div>
 
               {/* Background elements */}
-              <div className="absolute top-4 right-4 w-20 h-20 bg-indigo-500/10 rounded-full animate-float"></div>
-              <div className="absolute bottom-4 left-4 w-16 h-16 bg-purple-500/10 rounded-full animate-float" style={{animationDelay: '3s'}}></div>
+              <div className="absolute top-4 right-4 w-20 h-20 bg-indigo-500/10 rounded-full"></div>
+              <div className="absolute bottom-4 left-4 w-16 h-16 bg-purple-500/10 rounded-full"></div>
             </div>
           </div>
         </section>
