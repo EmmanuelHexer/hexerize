@@ -155,9 +155,9 @@ const Home = () => {
         <section className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           {/* Animated Background Elements */}
           <div id="particles-container" className="absolute inset-0 z-0"></div>
-          <div className="absolute top-10 left-10 w-64 h-64 bg-[color:var(--accent-color)]/20 rounded-full blur-3xl animate-float z-0"></div>
+          <div className="hidden lg:block absolute top-10 left-10 w-64 h-64 bg-[color:var(--accent-color)]/20 rounded-full blur-3xl animate-float z-0"></div>
           <div
-            className="absolute bottom-10 right-10 w-80 h-80 bg-[color:var(--accent-color)]/10 rounded-full blur-3xl animate-float z-0"
+            className="hidden lg:block absolute bottom-10 right-10 w-80 h-80 bg-[color:var(--accent-color)]/10 rounded-full blur-3xl animate-float z-0"
             style={{ animationDelay: "2s" }}
           ></div>
 
