@@ -168,38 +168,26 @@
     animation: float-slow 8s ease-in-out infinite;
   }
 
-  /* Combined slide-up + continuous float animation */
-  @keyframes slide-up-float {
+  /* Continuous bottom-to-top loop animation */
+  @keyframes slide-up-loop {
     0% {
-      transform: translateY(60px);
+      transform: translateY(calc(100vh + 100px));
       opacity: 0;
     }
-    30% {
+    3% {
       opacity: 1;
     }
-    40% {
-      transform: translateY(0px);
-    }
-    50%, 100% {
+    92% {
       opacity: 1;
-      animation-timing-function: ease-in-out;
-    }
-    55% {
-      transform: translateY(-8px) rotate(2deg);
-    }
-    70% {
-      transform: translateY(-4px) rotate(-2deg);
-    }
-    85% {
-      transform: translateY(-6px) rotate(1deg);
     }
     100% {
-      transform: translateY(0px) rotate(0deg);
+      transform: translateY(-100px);
+      opacity: 0;
     }
   }
 
   .animate-slide-up-float {
-    animation: slide-up-float 4s ease-out infinite;
+    animation: slide-up-loop 15s linear infinite;
   }
 
   .hover-lift {
