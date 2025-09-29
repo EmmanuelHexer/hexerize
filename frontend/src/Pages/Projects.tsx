@@ -111,29 +111,38 @@ const Projects = () => {
 
       <div className="min-h-screen bg-slate-900 text-gray-100">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-20 sm:pt-24 md:pt-32 pb-10 sm:pb-12 md:pb-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              {/* Mobile-optimized badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-green-500/10 border border-green-500/20 rounded-full">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-xs font-medium text-green-400">Our Work</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
                 Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Projects</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 sm:mb-12">
-                Real stories of digital transformation. See how we've helped businesses innovate, grow, and succeed in the digital landscape.
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-12 leading-relaxed">
+                Real stories of digital transformation and innovation.
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+
+              {/* Mobile: Show only 2 key stats */}
+              <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8">
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-indigo-400">4</div>
-                  <div className="text-sm text-gray-300 opacity-70">Featured Projects</div>
+                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">4</div>
+                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">Featured</div>
                 </div>
-                <div className="w-px h-12 bg-slate-700"></div>
+                <div className="w-px h-10 sm:h-10 md:h-12 bg-slate-700"></div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-indigo-400">2</div>
-                  <div className="text-sm text-gray-300 opacity-70">Coming Soon</div>
+                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">95%</div>
+                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">Success</div>
                 </div>
-                <div className="w-px h-12 bg-slate-700"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-400">95%</div>
-                  <div className="text-sm text-gray-300 opacity-70">Success Rate</div>
+                {/* Third stat hidden on mobile, shown on tablet+ */}
+                <div className="hidden sm:flex w-px h-10 md:h-12 bg-slate-700"></div>
+                <div className="hidden sm:block text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-orange-400 mb-1">2</div>
+                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">Coming Soon</div>
                 </div>
               </div>
             </div>

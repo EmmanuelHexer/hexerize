@@ -150,9 +150,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-[color:var(--card-background)] transition-all duration-700 ease-in-out home-container">
+      <div className="bg-[color:var(--card-background)] transition-all duration-700 ease-in-out">
         {/* Hero Section */}
-        <section className="h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section className="h-[calc(100vh-60px)] md:h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           {/* Animated Background Elements */}
           <div id="particles-container" className="absolute inset-0 z-0"></div>
           <div className="absolute top-10 left-10 w-64 h-64 bg-[color:var(--accent-color)]/20 rounded-full blur-3xl animate-float z-0"></div>
@@ -179,7 +179,7 @@ const Home = () => {
                   Digital Innovation Company
                 </p>
 
-                <h1 className="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight tracking-tight text-[color:var(--heading-color)] tiny-phone-header tiny-phone-mb">
+                <h1 className="font-extrabold text-4xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight tracking-tight text-[color:var(--heading-color)] tiny-phone-header tiny-phone-mb">
                   We Build The
                   <br />
                   <span className="text-gradient-animated">Digital Future</span>
@@ -193,7 +193,7 @@ const Home = () => {
               </p>
 
               {/* Dual CTA */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 items-center justify-center lg:justify-start tiny-phone-spacing small-phone-spacing">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-center lg:justify-start tiny-phone-spacing small-phone-spacing">
                 <button
                   onClick={() => navigate("/contact")}
                   className="magnetic-hover group inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow w-full sm:w-fit tiny-phone-buttons small-phone-buttons"
@@ -255,7 +255,7 @@ const Home = () => {
             </div>
 
             {/* Right Column - Professional Visual Element */}
-            <div className="relative scroll-fade-in max-w-lg mx-auto lg:ml-auto mt-8 lg:mt-0">
+            <div className="relative scroll-fade-in max-w-lg mx-auto lg:ml-auto mt-8 lg:mt-0 hidden lg:block">
               {/* Main Visual Container */}
               <div className="relative">
                 {/* Enhanced Glowing Background */}

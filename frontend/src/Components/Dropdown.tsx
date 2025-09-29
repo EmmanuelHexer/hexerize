@@ -71,24 +71,24 @@ const Dropdown = () => {
               </NavLink>
             </li>
           ))}
-          </ul>
-        </div>
 
-        {/* Enhanced Explore Button - Mobile Only */}
-        <div className="p-6 flex justify-center">
-          <a
-            href="/projects"
-            className="bg-gradient-to-r from-[color:var(--accent-color)] to-blue-600 hover:from-[color:var(--accent-color)]/90 hover:to-blue-600/90 text-white font-bold px-8 py-4 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center group relative overflow-hidden text-base"
-            onClick={() => setShowMenu(false)}
-          >
-            <span className="relative z-10">Get Started</span>
-            <img
-              src={assets.rightArrow}
-              alt="arrow"
-              className="ml-3 w-4 filter brightness-0 invert transition-transform duration-300 group-hover:translate-x-1 relative z-10"
-            />
-            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-          </a>
+          {/* Get Started Button - Integrated into nav list */}
+          <li className="mt-2 flex justify-center">
+            <a
+              href="/projects"
+              className="bg-gradient-to-r from-[color:var(--accent-color)] to-blue-600 hover:from-[color:var(--accent-color)]/90 hover:to-blue-600/90 text-white font-bold px-8 py-4 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center group relative overflow-hidden text-base"
+              onClick={() => setShowMenu(false)}
+            >
+              <span className="relative z-10">Get Started</span>
+              <img
+                src={assets.rightArrow}
+                alt="arrow"
+                className="ml-3 w-4 filter brightness-0 invert transition-transform duration-300 group-hover:translate-x-1 relative z-10"
+              />
+              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+          </li>
+          </ul>
         </div>
       </div>
     </div>

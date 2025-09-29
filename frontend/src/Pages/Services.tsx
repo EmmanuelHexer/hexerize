@@ -135,45 +135,52 @@ const Services = () => {
     <>
       <div className="min-h-screen bg-slate-900 text-gray-100">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-16 sm:pt-20 md:pt-32 pb-6 sm:pb-10 md:pb-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              {/* Mobile-optimized badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
+                <span className="text-xs font-medium text-indigo-400">What We Offer</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-3 md:mb-6 leading-tight">
                 Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Services</span>
               </h1>
               <p
-                className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 sm:mb-12"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-12 leading-relaxed"
               >
                 Comprehensive digital solutions that transform businesses and
-                create lasting impact in the digital ecosystem.
+                create lasting impact.
               </p>
-              <div
-                className="flex flex-wrap items-center justify-center gap-4 sm:gap-8"
-              >
+
+              {/* Mobile: Show only 2 key stats */}
+              <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-400">
+                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">
                     150+
                   </div>
-                  <div className="text-sm text-gray-300 opacity-70">
-                    Projects Delivered
+                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">
+                    Projects
                   </div>
                 </div>
-                <div className="w-px h-12 bg-slate-700"></div>
+                <div className="w-px h-10 sm:h-10 md:h-12 bg-slate-700"></div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-400">
+                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">
                     98%
                   </div>
-                  <div className="text-sm text-gray-300 opacity-70">
-                    Client Satisfaction
+                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">
+                    Satisfaction
                   </div>
                 </div>
-                <div className="w-px h-12 bg-slate-700"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-400">
+                {/* Third stat hidden on mobile, shown on tablet+ */}
+                <div className="hidden sm:flex w-px h-10 md:h-12 bg-slate-700"></div>
+                <div className="hidden sm:block text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-indigo-400 mb-1">
                     24/7
                   </div>
-                  <div className="text-sm text-gray-300 opacity-70">
-                    Support Available
+                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">
+                    Support
                   </div>
                 </div>
               </div>
@@ -182,7 +189,7 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20">
+        <section className="py-20 border-t border-slate-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="grid gap-20">
               {services.map((service, index) => (

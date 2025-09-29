@@ -102,77 +102,99 @@ const About = () => {
     <>
       <div className="min-h-screen bg-slate-900 text-gray-100">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-20 sm:pt-24 md:pt-32 pb-10 sm:pb-12 md:pb-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                  About <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Hexerize</span>
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-                  Founded by two passionate young developers, Hexerize is a
-                  digital innovation company building the future of technology.
-                  We create cutting-edge solutions for clients while developing
-                  our own ecosystem of revolutionary platforms and applications.
-                </p>
-                <div className="flex flex-wrap gap-2 sm:gap-4">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-indigo-500/20">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-indigo-400">
-                      Innovation Driven
-                    </span>
+            <div className="text-center lg:text-left">
+              {/* Mobile-optimized centered layout */}
+              <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+                <div className="flex flex-col items-center lg:items-start">
+                  {/* Mobile-optimized badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-purple-500/10 border border-purple-500/20 rounded-full">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-medium text-purple-400">Who We Are</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-indigo-500/20">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-indigo-400">
-                      Tech Innovators
-                    </span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-indigo-500/20">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-indigo-400">
-                      Ecosystem Builders
-                    </span>
+
+                  <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight w-full">
+                    About <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Hexerize</span>
+                  </h1>
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed max-w-2xl w-full">
+                    Founded by two passionate developers building the future of technology with cutting-edge solutions.
+                  </p>
+
+                  {/* Mobile: Show only 2 badges */}
+                  <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start mb-6 lg:mb-0">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-full border border-indigo-500/20">
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-medium text-indigo-400">
+                        Innovation Driven
+                      </span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-full border border-indigo-500/20">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-medium text-indigo-400">
+                        Tech Innovators
+                      </span>
+                    </div>
+                    <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800/50 rounded-full border border-indigo-500/20">
+                      <div className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-medium text-indigo-400">
+                        Ecosystem Builders
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="relative">
-                <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
-                  <div className="grid grid-cols-2 gap-6">
-                    {stats.slice(0, 4).map((stat, index) => (
-                      <div key={index} className="text-center">
-                        <div className="text-2xl font-bold text-indigo-400 mb-1">
-                          {stat.value}
-                        </div>
-                        <div className="text-sm text-gray-300 opacity-70">
-                          {stat.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="border-t border-gray-200/10 mt-6 pt-6">
+                {/* Stats card - hidden on mobile, shown on lg+ */}
+                <div className="hidden lg:block relative">
+                  <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
                     <div className="grid grid-cols-2 gap-6">
-                      {stats.slice(4).map((stat, index) => (
+                      {stats.slice(0, 4).map((stat, index) => (
                         <div key={index} className="text-center">
-                          <div className="text-2xl font-bold theme-accent-text mb-1">
+                          <div className="text-2xl font-bold text-indigo-400 mb-1">
                             {stat.value}
                           </div>
-                          <div className="text-sm theme-text opacity-70">
+                          <div className="text-sm text-gray-300 opacity-70">
                             {stat.label}
                           </div>
                         </div>
                       ))}
                     </div>
+                    <div className="border-t border-gray-200/10 mt-6 pt-6">
+                      <div className="grid grid-cols-2 gap-6">
+                        {stats.slice(4).map((stat, index) => (
+                          <div key={index} className="text-center">
+                            <div className="text-2xl font-bold theme-accent-text mb-1">
+                              {stat.value}
+                            </div>
+                            <div className="text-sm theme-text opacity-70">
+                              {stat.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Floating elements */}
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-indigo-500/20 rounded-full animate-float"></div>
+                  <div
+                    className="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-500/10 rounded-full animate-float"
+                    style={{ animationDelay: "2s" }}
+                  ></div>
                 </div>
 
-                {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-indigo-500/20 rounded-full animate-float"></div>
-                <div
-                  className="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-500/10 rounded-full animate-float"
-                  style={{ animationDelay: "2s" }}
-                ></div>
+                {/* Mobile stats - shown only on mobile */}
+                <div className="lg:hidden flex items-center justify-center gap-6 mt-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-indigo-400 mb-1">2024</div>
+                    <div className="text-xs text-gray-300 opacity-70">Founded</div>
+                  </div>
+                  <div className="w-px h-10 bg-slate-700"></div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-indigo-400 mb-1">2</div>
+                    <div className="text-xs text-gray-300 opacity-70">Innovators</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -322,42 +344,32 @@ const About = () => {
 
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
               {team.map((member, index) => (
-                <div key={index} className="text-center group">
-                  <div className="relative mb-6">
-                    <div className="w-48 h-48 mx-auto bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-3xl flex items-center justify-center text-6xl overflow-hidden group-hover:scale-105 transition-transform duration-300 text-indigo-400">
-                      {member.image && typeof member.image === 'string' && member.image.includes('/api/placeholder') ? (
-                        <i className="ri-user-line"></i>
-                      ) : member.image ? (
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <i className="ri-user-line"></i>
-                      )}
+                <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-6 sm:p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-indigo-400 font-semibold text-base mb-1">
+                      {member.role}
+                    </p>
+                    <div className="flex items-center gap-2 mt-3">
+                      <div className="w-2 h-2 bg-green-500 rounded-full status-indicator"></div>
+                      <span className="text-xs text-green-400">Available for projects</span>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity status-indicator"></div>
                   </div>
 
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-indigo-400 font-medium mb-4">
-                    {member.role}
-                  </p>
                   <p className="text-gray-300 text-sm mb-6 leading-relaxed">
                     {member.description}
                   </p>
 
                   {/* Skills */}
                   <div>
-                    <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-2">Skills</h4>
-                    <div className="flex flex-wrap justify-center gap-2">
+                    <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-3">Core Expertise</h4>
+                    <div className="flex flex-wrap gap-2">
                       {member.expertise.map((skill, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 text-xs bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20"
+                          className="px-3 py-1.5 text-xs bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20"
                         >
                           {skill}
                         </span>

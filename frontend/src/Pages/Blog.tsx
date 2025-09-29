@@ -8,7 +8,7 @@ const Blog = () => {
     <>
       <div className="min-h-screen bg-slate-900 text-gray-100">
         {/* Coming Soon Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center justify-center">
+        <section className="relative pt-16 sm:pt-24 md:pt-32 pb-20 overflow-hidden min-h-screen flex items-center justify-center">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
 
             {/* Animated Background Elements */}

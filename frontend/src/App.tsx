@@ -49,7 +49,7 @@ function App() {
   return (
     <ErrorBoundary>
       <div
-        className={`min-h-screen flex flex-col relative ${
+        className={`min-h-screen flex flex-col relative bg-[color:var(--body-background)] ${
           showMenu ? "overflow-hidden h-screen" : ""
         }`}
       >
@@ -60,7 +60,7 @@ function App() {
 
         {/* Main content behind dropdown */}
         <main
-          className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300`}
+          className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300 bg-[color:var(--body-background)]`}
         >
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
