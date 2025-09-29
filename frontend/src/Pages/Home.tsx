@@ -161,6 +161,39 @@ const Home = () => {
             style={{ animationDelay: "2s" }}
           ></div>
 
+          {/* Mobile-Only Floating Language Icons */}
+          <div className="lg:hidden absolute inset-0 z-5 pointer-events-none">
+            {/* React Icon - Top Left */}
+            <div className="absolute top-20 left-6 w-10 h-10 bg-[#61DAFB]/5 backdrop-blur-sm border border-[#61DAFB]/15 rounded-xl flex items-center justify-center animate-slide-up-float opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
+              <FaReact className="w-6 h-6 text-[#61DAFB] opacity-50" />
+            </div>
+
+            {/* JavaScript Icon - Top Right */}
+            <div className="absolute top-24 right-8 w-10 h-10 bg-[#F7DF1E]/5 backdrop-blur-sm border border-[#F7DF1E]/15 rounded-xl flex items-center justify-center animate-slide-up-float opacity-0" style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}>
+              <SiJavascript className="w-6 h-6 text-[#F7DF1E] opacity-50" />
+            </div>
+
+            {/* TypeScript Icon - Top Middle */}
+            <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#3178C6]/5 backdrop-blur-sm border border-[#3178C6]/15 rounded-xl flex items-center justify-center animate-slide-up-float opacity-0" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}>
+              <SiTypescript className="w-6 h-6 text-[#3178C6] opacity-50" />
+            </div>
+
+            {/* Node.js Icon - Bottom Middle */}
+            <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#339933]/5 backdrop-blur-sm border border-[#339933]/15 rounded-xl flex items-center justify-center animate-slide-up-float opacity-0" style={{ animationDelay: "0.65s", animationFillMode: "forwards" }}>
+              <FaNodeJs className="w-6 h-6 text-[#339933] opacity-50" />
+            </div>
+
+            {/* Python Icon - Bottom Left */}
+            <div className="absolute bottom-28 left-8 w-10 h-10 bg-[#3776AB]/5 backdrop-blur-sm border border-[#3776AB]/15 rounded-xl flex items-center justify-center animate-slide-up-float opacity-0" style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}>
+              <FaPython className="w-6 h-6 text-[#3776AB] opacity-50" />
+            </div>
+
+            {/* MongoDB Icon - Bottom Right */}
+            <div className="absolute bottom-24 right-4 w-10 h-10 bg-[#47A248]/5 backdrop-blur-sm border border-[#47A248]/15 rounded-xl flex items-center justify-center animate-slide-up-float opacity-0" style={{ animationDelay: "0.95s", animationFillMode: "forwards" }}>
+              <SiMongodb className="w-6 h-6 text-[#47A248] opacity-50" />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-12 items-center w-full max-w-7xl relative z-10 py-4 sm:py-8 lg:py-0">
             {/* Left Column - Text Content */}
             <div className="space-y-3 sm:space-y-5 md:space-y-6 lg:space-y-6 scroll-fade-in text-center lg:text-left">
