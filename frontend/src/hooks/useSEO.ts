@@ -27,7 +27,7 @@ export const useSEO = ({
   ogDescription,
   ogUrl,
   ogType = "website",
-  ogImage = "https://hexerize.com/HexerizeLogo.png",
+  ogImage = "https://hexerize.com/opengraph-image.png",
   twitterTitle,
   twitterDescription,
   twitterImage,
@@ -95,7 +95,7 @@ export const useSEO = ({
     // Additional SEO meta tags
     updateMetaTag('author', 'Hexerize');
     updateMetaTag('publisher', 'Hexerize');
-    updateMetaTag('theme-color', '#6366f1');
+    updateMetaTag('theme-color', '#31408f');
     updateMetaTag('application-name', 'Hexerize');
 
     // Canonical link

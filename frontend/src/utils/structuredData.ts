@@ -9,9 +9,9 @@ export const createOrganizationSchema = () => ({
   "url": "https://hexerize.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://hexerize.com/HexerizeLogo.png",
-    "width": 200,
-    "height": 200
+    "url": "https://hexerize.com/hexerize-logo-512.png",
+    "width": 512,
+    "height": 512
   },
   "description": "Digital innovation company helping businesses grow through modern websites, branding, and digital strategies while building our own ecosystem of platforms and apps.",
   "foundingDate": "2024",

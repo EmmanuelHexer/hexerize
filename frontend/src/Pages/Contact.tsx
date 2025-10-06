@@ -1,9 +1,37 @@
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
+import { createFAQSchema, createContactPageSchema } from "../utils/structuredData";
 
 const Contact = () => {
-  // SEO for Contact page
-  useSEO(seoConfig.contact);
+  // Create FAQ schema matching visible content on this page
+  const faqSchema = createFAQSchema([
+    {
+      question: "How long does a typical project take?",
+      answer: "Most projects range from 4-12 weeks depending on complexity."
+    },
+    {
+      question: "Do you offer ongoing support?",
+      answer: "Yes, we provide maintenance and support packages for all our projects."
+    },
+    {
+      question: "Can you work with existing teams?",
+      answer: "Absolutely! We often collaborate with in-house teams as an extension."
+    }
+  ]);
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createContactPageSchema(),
+      faqSchema
+    ]
+  };
+
+  // SEO for Contact page with FAQ structured data
+  useSEO({
+    ...seoConfig.contact,
+    structuredData
+  });
 
   const contactMethods = [
     {
