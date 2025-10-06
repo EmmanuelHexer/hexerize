@@ -21,7 +21,7 @@ export const seoConfig: Record<string, SEOConfig> = {
   },
 
   services: {
-    title: "Digital Services- Hexerize",
+    title: "Digital Services - Hexerize",
     description:
       "Comprehensive digital services including modern website development, digital branding, mobile app development, and strategic consulting. Transform your business with Hexerize's expert solutions.",
     keywords:
