@@ -14,14 +14,14 @@ export const seoConfig: Record<string, SEOConfig> = {
   },
 
   about: {
-    title: "About Hexerize",
+    title: "About - Hexerize",
     description:
       "Learn about Hexerize's journey as a digital innovation company. Discover our mission to transform businesses through cutting-edge web development, branding, and strategic digital solutions.",
     canonical: "https://hexerize.com/about",
   },
 
   services: {
-    title: "Digital Services",
+    title: "Digital Services- Hexerize",
     description:
       "Comprehensive digital services including modern website development, digital branding, mobile app development, and strategic consulting. Transform your business with Hexerize's expert solutions.",
     keywords:
@@ -30,7 +30,7 @@ export const seoConfig: Record<string, SEOConfig> = {
   },
 
   projects: {
-    title: "Our Work",
+    title: "Our Work - Hexerize",
     description:
       "Explore Hexerize's portfolio of successful digital innovation projects. From e-commerce platforms to AI-powered applications, see how we've transformed businesses worldwide.",
     keywords:
@@ -39,7 +39,7 @@ export const seoConfig: Record<string, SEOConfig> = {
   },
 
   blog: {
-    title: "Digital Innovation Blog",
+    title: "Digital Innovation Blog - Hexerize",
     description:
       "Stay updated with the latest in digital innovation, web development trends, and technology insights. Expert articles on modern development practices and digital strategies.",
     keywords:
@@ -48,7 +48,7 @@ export const seoConfig: Record<string, SEOConfig> = {
   },
 
   contact: {
-    title: "Contact",
+    title: "Contact - Hexerize",
     description:
       "Ready to transform your business? Contact Hexerize for a free consultation. Get expert digital solutions including web development, branding, and strategic consulting.",
     keywords:
