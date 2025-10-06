@@ -22,7 +22,7 @@ export const useSEO = ({
   title,
   description,
   keywords = "digital innovation, web design agency, modern websites, branding, digital strategies, app development, digital ecosystem, business growth",
-  canonical = "https://hexerize.com/",
+  canonical = "https://hexerize.com",
   ogTitle,
   ogDescription,
   ogUrl,
@@ -131,7 +131,7 @@ export const useSEO = ({
     // Add structured data if provided
     if (structuredData) {
       const scriptId = 'page-structured-data';
-      let existingScript = document.getElementById(scriptId);
+      const existingScript = document.getElementById(scriptId);
 
       if (existingScript) {
         existingScript.textContent = JSON.stringify(structuredData);

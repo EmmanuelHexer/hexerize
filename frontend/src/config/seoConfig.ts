@@ -10,7 +10,7 @@ export const seoConfig: Record<string, SEOConfig> = {
     title: "Hexerize | Digital Innovation Company",
     description:
       "Transform your business with innovative digital solutions. Hexerize delivers modern websites, apps, and strategic digital experiences that drive real growth. Get started today.",
-    canonical: "https://hexerize.com/",
+    canonical: "https://hexerize.com",
   },
 
   about: {
