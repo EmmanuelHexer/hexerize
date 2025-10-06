@@ -13,6 +13,10 @@ interface SEOAnalyticsData {
 
 export const useSEOAnalytics = (pageData: { page: string; title: string; description: string; keywords?: string }) => {
   useEffect(() => {
+    // Skip analytics on mobile for better performance
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return;
+    }
     const startTime = performance.now();
 
     const trackSEOMetrics = () => {

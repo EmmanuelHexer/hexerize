@@ -53,15 +53,16 @@ const Home = () => {
   useCoreWebVitalsSEO();
 
   useEffect(() => {
-    // Particle Effect
+    // Particle Effect (desktop only for mobile performance)
     const createParticles = () => {
+      if (window.innerWidth < 768) return; // Skip particles on mobile
       const container = document.getElementById("particles-container");
       if (!container) return;
 
       // Clear existing particles
       container.innerHTML = "";
 
-      const particleCount = window.innerWidth > 768 ? 15 : 4; // Reduced from 8 to 4 for mobile performance
+      const particleCount = 15;
 
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement("div");
