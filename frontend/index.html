@@ -33,10 +33,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#31408f" />
 
-    <link rel="manifest" href="/manifest.json" />
+    <!-- Web App Manifest (use one) -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Theme color (use one value) -->
+    <meta name="theme-color" content="#31408f" />
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,11 +67,16 @@
       property="og:description"
       content="Digital innovation company specializing in modern websites, apps, and strategic digital experiences that drive real business growth."
     />
-    <meta property="og:image" content="https://hexerize.com/favicon.png" />
+    <!-- Use a proper preview image (1200x630+), not the favicon -->
+    <meta
+      property="og:image"
+      content="https://hexerize.com/opengraph-image.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Hexerize Logo" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:image:type" content="image/png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -79,18 +86,18 @@
       name="twitter:description"
       content="Digital innovation company specializing in modern websites, apps, and strategic digital experiences that drive real business growth."
     />
-    <meta name="twitter:image" content="https://hexerize.com/favicon.ico" />
+    <!-- Same preview image as OG -->
+    <meta
+      name="twitter:image"
+      content="https://hexerize.com/opengraph-image.png"
+    />
     <meta name="twitter:image:alt" content="Hexerize Logo" />
     <meta name="twitter:creator" content="@hexerize" />
     <meta name="twitter:site" content="@hexerize" />
 
-    <!-- LinkedIn -->
-    <meta property="og:image:type" content="image/png" />
-
     <!-- Additional Meta -->
-    <meta name="theme-color" content="#6366f1" />
     <meta name="application-name" content="Hexerize" />
-    <meta name="msapplication-TileColor" content="#6366f1" />
+    <meta name="msapplication-TileColor" content="#31408f" />
     <meta
       name="google-site-verification"
       content="AMgSP1XnF3tqqY6fi4oX2YvYlX04AtHKwj1gpWLLYjA"
@@ -108,9 +115,9 @@
             "url": "https://hexerize.com",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://hexerize.com/favicon.ico",
-              "width": 200,
-              "height": 200
+              "url": "https://hexerize.com/hexerize-logo-512.png",
+              "width": 512,
+              "height": 512
             },
             "description": "Digital innovation company helping businesses grow through modern websites, branding, and digital strategies while building our own ecosystem of platforms and apps.",
             "foundingDate": "2024",
@@ -210,7 +217,7 @@
       }
     </script>
 
-    <!-- FAQ Structured Data -->
+    <!-- FAQ Structured Data (ensure Q&A is visible on the page) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
