@@ -6,12 +6,19 @@
   "start_url": "/?utm_source=homescreen",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "browser"],
+  "display_override": [
+    "standalone",
+    "browser"
+  ],
   "background_color": "#31408f",
   "theme_color": "#31408f",
   "dir": "ltr",
   "lang": "en",
-  "categories": ["business", "technology", "productivity"],
+  "categories": [
+    "business",
+    "technology",
+    "productivity"
+  ],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -36,44 +43,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Services",
-      "short_name": "Services",
-      "url": "/services",
-      "icons": [
-        {
-          "src": "/icons/shortcut-services.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Projects",
-      "short_name": "Projects",
-      "url": "/projects",
-      "icons": [
-        {
-          "src": "/icons/shortcut-projects.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Contact",
-      "short_name": "Contact",
-      "url": "/contact",
-      "icons": [
-        {
-          "src": "/icons/shortcut-contact.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
     }
   ],
   "prefer_related_applications": false

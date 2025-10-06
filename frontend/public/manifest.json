@@ -4,26 +4,39 @@
   "description": "An ecosystem of our own platforms, applied with product-level rigor, delivers secure, scalable, high-performance websites, apps, and digital experiences for clients, driving real growth.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#6366f1",
+  "background_color": "#31408f",
+  "theme_color": "#31408f",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.png",
-      "sizes": "32x32",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/HexerizeLogo.png",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "categories": ["business", "productivity", "utilities"],
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
   "lang": "en-US"
 }
-
-
-
