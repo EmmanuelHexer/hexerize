@@ -61,7 +61,7 @@ const Home = () => {
       // Clear existing particles
       container.innerHTML = "";
 
-      const particleCount = window.innerWidth > 768 ? 15 : 8;
+      const particleCount = window.innerWidth > 768 ? 15 : 4; // Reduced from 8 to 4 for mobile performance
 
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement("div");
@@ -106,8 +106,9 @@ const Home = () => {
       });
     };
 
-    // Magnetic hover effect
+    // Magnetic hover effect (desktop only for performance)
     const initMagneticHover = () => {
+      if (window.innerWidth < 1024) return; // Skip on mobile/tablet
       document.querySelectorAll(".magnetic-hover").forEach((element) => {
         const htmlElement = element as HTMLElement;
         htmlElement.addEventListener("mousemove", (e: MouseEvent) => {

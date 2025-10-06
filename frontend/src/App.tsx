@@ -21,20 +21,21 @@ const NotFound = lazy(() => import("./Pages/NotFound"));
 function App() {
   const { showMenu } = useAppContext();
 
-  // Intelligent preloading of lazy components on idle
+  // Intelligent preloading of lazy components on idle (delayed on mobile)
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
     const preloadComponents = () => {
       // Preload most likely next pages after initial render
       setTimeout(() => {
         import("./Pages/About"); // About is commonly visited after landing
         import("./Pages/Contact"); // Contact is high-conversion page
-      }, 2000); // Delay to avoid blocking initial render
+      }, isMobile ? 3000 : 2000); // Longer delay on mobile
 
       // Preload remaining components on user interaction
       setTimeout(() => {
         import("./Pages/Projects");
         import("./Pages/Blog");
-      }, 5000);
+      }, isMobile ? 8000 : 5000);
     };
 
     // Start preloading when browser is idle
@@ -42,7 +43,7 @@ function App() {
       requestIdleCallback(preloadComponents);
     } else {
       // Fallback for browsers without requestIdleCallback
-      setTimeout(preloadComponents, 3000);
+      setTimeout(preloadComponents, isMobile ? 5000 : 3000);
     }
   }, []);
 
