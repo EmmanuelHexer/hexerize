@@ -2,7 +2,7 @@
   "id": "/?source=pwa",
   "name": "Hexerize",
   "short_name": "Hexerize",
-  "description": "Digital innovation company building modern websites, apps, and strategic digital experiences that drive real growth.",
+  "description": "An ecosystem of our own platforms, applied with product-level rigor, delivers secure, scalable, high-performance websites, apps, and digital experiences for clients, driving real growth.",
   "start_url": "/?utm_source=homescreen",
   "scope": "/",
   "display": "standalone",
@@ -78,3 +78,7 @@
   ],
   "prefer_related_applications": false
 }
+
+
+
+

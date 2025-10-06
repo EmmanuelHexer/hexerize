@@ -8,8 +8,7 @@ interface SEOConfig {
 export const seoConfig: Record<string, SEOConfig> = {
   home: {
     title: "Hexerize",
-    description:
-      "Transform your business with innovative digital solutions. Hexerize delivers modern websites, apps, and strategic digital experiences that drive real growth. Get started today.",
+    description: "An ecosystem of our own platforms, applied with product-level rigor, delivers secure, scalable, high-performance websites, apps, and digital experiences for clients, driving real growth.",
     canonical: "https://hexerize.com",
   },
 
@@ -56,3 +55,7 @@ export const seoConfig: Record<string, SEOConfig> = {
     canonical: "https://hexerize.com/contact",
   },
 };
+
+
+
+
