@@ -79,7 +79,7 @@ export const useSEO = ({
     updateMetaTag('og:image', ogImage, true);
     updateMetaTag('og:image:width', '1200', true);
     updateMetaTag('og:image:height', '630', true);
-    updateMetaTag('og:image:alt', `${title} - Hexerize Digital Innovation`, true);
+    updateMetaTag('og:image:alt', `${title} - Hexerize`, true);
     updateMetaTag('og:site_name', 'Hexerize', true);
     updateMetaTag('og:locale', 'en_US', true);
 
@@ -90,7 +90,7 @@ export const useSEO = ({
     updateMetaTag('twitter:title', twitterTitle || title);
     updateMetaTag('twitter:description', twitterDescription || description);
     updateMetaTag('twitter:image', twitterImage || ogImage);
-    updateMetaTag('twitter:image:alt', `${title} - Hexerize Digital Innovation`);
+    updateMetaTag('twitter:image:alt', `${title} - Hexerize`);
 
     // Additional SEO meta tags
     updateMetaTag('author', 'Hexerize');
