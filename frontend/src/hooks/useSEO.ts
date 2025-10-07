@@ -21,7 +21,7 @@ interface SEOProps {
 export const useSEO = ({
   title,
   description,
-  keywords = "digital innovation, web design agency, modern websites, branding, digital strategies, app development, digital ecosystem, business growth",
+  keywords,
   canonical = "https://hexerize.com",
   ogTitle,
   ogDescription,
@@ -62,7 +62,9 @@ export const useSEO = ({
 
     // Basic SEO meta tags
     updateMetaTag('description', description);
-    updateMetaTag('keywords', keywords);
+    if (keywords) {
+      updateMetaTag('keywords', keywords);
+    }
 
     // Robots meta tag
     const robotsContent = [
