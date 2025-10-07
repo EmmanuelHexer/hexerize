@@ -1,6 +1,7 @@
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 import { createFAQSchema, createContactPageSchema } from "../utils/structuredData";
+import Breadcrumbs from "../Components/Breadcrumbs";
 
 const Contact = () => {
   // Create FAQ schema matching visible content on this page
@@ -70,6 +71,11 @@ const Contact = () => {
         <section className="relative pt-16 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
+              <Breadcrumbs items={[
+                { name: "Home", url: "https://hexerize.com" },
+                { name: "Contact", url: "https://hexerize.com/contact" }
+              ]} />
+
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Get In{" "}
                 <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">

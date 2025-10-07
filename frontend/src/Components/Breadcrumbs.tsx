@@ -12,6 +12,11 @@ interface BreadcrumbsProps {
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   const navigate = useNavigate();
 
+  const handleNavigate = (url: string) => {
+    const path = url.replace("https://hexerize.com", "") || "/";
+    navigate(path);
+  };
+
   return (
     <nav aria-label="Breadcrumb" className="mb-6">
       <ol className="flex items-center gap-2 text-sm text-gray-400">
@@ -19,7 +24,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
           <li key={index} className="flex items-center gap-2">
             {index > 0 && (
               <span className="text-gray-600" aria-hidden="true">
-                /
+                {">"}
               </span>
             )}
             {index === items.length - 1 ? (
@@ -28,7 +33,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
               </span>
             ) : (
               <button
-                onClick={() => navigate(item.url.replace("https://hexerize.com", ""))}
+                onClick={() => handleNavigate(item.url)}
                 className="hover:text-blue-400 transition-colors cursor-pointer"
               >
                 {item.name}

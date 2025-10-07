@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 import { assets } from "../assets/assets";
+import Breadcrumbs from "../Components/Breadcrumbs";
 
 const Projects = () => {
   // SEO for Projects page
@@ -114,6 +115,11 @@ const Projects = () => {
         <section className="relative pt-20 sm:pt-24 md:pt-32 pb-10 sm:pb-12 md:pb-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
+              <Breadcrumbs items={[
+                { name: "Home", url: "https://hexerize.com" },
+                { name: "Projects", url: "https://hexerize.com/projects" }
+              ]} />
+
               {/* Mobile-optimized badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-green-500/10 border border-green-500/20 rounded-full">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

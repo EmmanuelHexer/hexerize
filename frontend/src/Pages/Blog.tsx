@@ -1,5 +1,6 @@
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
+import Breadcrumbs from "../Components/Breadcrumbs";
 
 const Blog = () => {
   // SEO for Blog page
@@ -10,6 +11,10 @@ const Blog = () => {
         {/* Coming Soon Hero Section */}
         <section className="relative pt-16 sm:pt-24 md:pt-32 pb-20 overflow-hidden min-h-screen flex items-center justify-center">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <Breadcrumbs items={[
+              { name: "Home", url: "https://hexerize.com" },
+              { name: "Blog", url: "https://hexerize.com/blog" }
+            ]} />
 
             {/* Animated Background Elements */}
             <div className="absolute top-20 left-10 w-32 h-32 sm:w-64 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
