@@ -217,9 +217,9 @@ const Home = () => {
               </div>
 
               <p className="text-[color:var(--body-color)]/70 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-[50ch] mx-auto lg:mx-0 tiny-phone-text">
-                Innovative digital solutions that transform businesses. We
+                Innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services")}>digital solutions</span> that transform businesses. We
                 create modern websites, powerful apps, and strategic digital
-                experiences that drive real growth and success.
+                experiences that drive real growth and success. <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about")}>Learn more about our team</span>.
               </p>
 
               {/* Dual CTA */}
@@ -231,7 +231,7 @@ const Home = () => {
                   <span>Start Your Project</span>
                   <img
                     src={assets.whiteArrow}
-                    alt="Start project with Hexerize arrow icon"
+                    alt="Arrow icon - Start your web development project with Hexerize"
                     className="w-4 md:w-5 transition-transform duration-300 transform group-hover:translate-x-1 brightness-0 invert"
                   />
                 </button>

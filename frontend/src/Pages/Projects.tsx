@@ -194,7 +194,7 @@ const Projects = () => {
                           ) : project.status === 'completed' ? (
                             <img
                               src={project.image}
-                              alt={project.title}
+                              alt={`${project.title} - ${project.description.substring(0, 80)} - Built by Hexerize`}
                               className="w-full h-full object-cover rounded-lg"
                             />
                           ) : (

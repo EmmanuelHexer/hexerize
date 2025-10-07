@@ -2,12 +2,37 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
-import { createWebPageSchema, createBreadcrumbSchema, createServiceSchema } from "../utils/structuredData";
+import { createWebPageSchema, createBreadcrumbSchema, createServiceSchema, createFAQSchema } from "../utils/structuredData";
+import Breadcrumbs from "../Components/Breadcrumbs";
+import Testimonials from "../Components/Testimonials";
 
 const Services = () => {
   const navigate = useNavigate();
 
   // Create structured data for services page
+  const faqSchema = createFAQSchema([
+    {
+      question: "What web development services do you offer?",
+      answer: "We offer modern website development, digital branding, custom app development, and digital strategy consulting. Our services cover full-stack development with React, Node.js, Python, and more."
+    },
+    {
+      question: "How long does a typical web development project take?",
+      answer: "Projects typically range from 4-12 weeks depending on complexity. We provide detailed timelines during our discovery phase."
+    },
+    {
+      question: "Do you work with startups or only established businesses?",
+      answer: "We work with both startups and established businesses. Our flexible approach adapts to your company size and budget."
+    },
+    {
+      question: "What technologies do you specialize in?",
+      answer: "We specialize in React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, and modern cloud architectures."
+    },
+    {
+      question: "Do you provide ongoing support after launch?",
+      answer: "Yes, we offer comprehensive maintenance and support packages to ensure your digital solutions continue performing optimally."
+    }
+  ]);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -20,7 +45,8 @@ const Services = () => {
       createBreadcrumbSchema([
         { name: "Home", url: "https://hexerize.com" },
         { name: "Services", url: "https://hexerize.com/services" }
-      ])
+      ]),
+      faqSchema
     ]
   };
 
@@ -138,6 +164,11 @@ const Services = () => {
         <section className="relative pt-16 sm:pt-20 md:pt-32 pb-6 sm:pb-10 md:pb-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
+              <Breadcrumbs items={[
+                { name: "Home", url: "https://hexerize.com" },
+                { name: "Services", url: "https://hexerize.com/services" }
+              ]} />
+
               {/* Mobile-optimized badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
                 <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
@@ -151,7 +182,7 @@ const Services = () => {
                 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-12 leading-relaxed"
               >
                 Comprehensive digital solutions that transform businesses and
-                create lasting impact.
+                create lasting impact. See our <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/projects")}>successful projects</span> or <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/about")}>meet our team</span>.
               </p>
 
               {/* Mobile: Show only 2 key stats */}
@@ -335,6 +366,75 @@ const Services = () => {
                     {item.label}
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <Testimonials testimonials={[
+          {
+            name: "Brediyie Team",
+            role: "Founder",
+            company: "Brediyie",
+            content: "Hexerize transformed our online presence with a stunning, high-performance website. Their attention to detail and technical expertise exceeded our expectations. The site loads incredibly fast and has significantly improved our customer engagement.",
+            rating: 5,
+            project: "E-commerce Website Development"
+          },
+          {
+            name: "Millyis Cuisine",
+            role: "Owner",
+            company: "Millyis Cuisine Restaurant",
+            content: "Working with Hexerize was an absolute pleasure. They built us a beautiful restaurant website that perfectly captures our brand. Our online orders have increased by 40% since launch, and customers constantly compliment the user experience.",
+            rating: 5,
+            project: "Restaurant Website & Online Ordering System"
+          }
+        ]} />
+
+        {/* FAQ Section */}
+        <section className="py-20 border-t border-slate-700">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Questions</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Get answers to common questions about our services and process.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  question: "What web development services do you offer?",
+                  answer: "We offer modern website development, digital branding, custom app development, and digital strategy consulting. Our services cover full-stack development with React, Node.js, Python, and more."
+                },
+                {
+                  question: "How long does a typical web development project take?",
+                  answer: "Projects typically range from 4-12 weeks depending on complexity. We provide detailed timelines during our discovery phase."
+                },
+                {
+                  question: "Do you work with startups or only established businesses?",
+                  answer: "We work with both startups and established businesses. Our flexible approach adapts to your company size and budget."
+                },
+                {
+                  question: "What technologies do you specialize in?",
+                  answer: "We specialize in React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, and modern cloud architectures."
+                },
+                {
+                  question: "Do you provide ongoing support after launch?",
+                  answer: "Yes, we offer comprehensive maintenance and support packages to ensure your digital solutions continue performing optimally."
+                }
+              ].map((faq, index) => (
+                <details key={index} className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 group">
+                  <summary className="flex justify-between items-center cursor-pointer text-white font-semibold text-lg list-none">
+                    <span>{faq.question}</span>
+                    <svg className="w-5 h-5 text-indigo-400 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
+                </details>
               ))}
             </div>
           </div>

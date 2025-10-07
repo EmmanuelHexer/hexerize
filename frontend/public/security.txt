@@ -1,0 +1,10 @@
+Contact: mailto:security@hexerize.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://hexerize.com/.well-known/security.txt
+Policy: https://hexerize.com/security-policy
+Acknowledgments: https://hexerize.com/security-acknowledgments
+
+# Security Contact Information for Hexerize
+# If you discover a security vulnerability, please report it to security@hexerize.com
+# We appreciate responsible disclosure and will acknowledge all valid reports.

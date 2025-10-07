@@ -328,7 +328,7 @@ const Contact = () => {
                   <h3 className="text-2xl font-bold text-white mb-6">
                     Quick FAQ
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     {[
                       {
                         question: "How long does a typical project take?",
@@ -346,14 +346,15 @@ const Contact = () => {
                           "Absolutely! We often collaborate with in-house teams as an extension.",
                       },
                     ].map((faq, index) => (
-                      <div key={index}>
-                        <h4 className="font-semibold text-white mb-2">
-                          {faq.question}
-                        </h4>
-                        <p className="text-sm text-gray-300 opacity-70 mb-4">
-                          {faq.answer}
-                        </p>
-                      </div>
+                      <details key={index} className="bg-slate-700/30 rounded-xl p-4 group">
+                        <summary className="flex justify-between items-center cursor-pointer text-white font-semibold list-none">
+                          <span className="text-sm">{faq.question}</span>
+                          <svg className="w-4 h-4 text-blue-400 transform group-open:rotate-180 transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </summary>
+                        <p className="mt-3 text-sm text-gray-300 leading-relaxed">{faq.answer}</p>
+                      </details>
                     ))}
                   </div>
                 </div>

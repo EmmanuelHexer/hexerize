@@ -3,11 +3,57 @@ import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 import { assets } from "../assets/assets";
+import { createFAQSchema, createWebPageSchema, createBreadcrumbSchema } from "../utils/structuredData";
+import Breadcrumbs from "../Components/Breadcrumbs";
 
 const About = () => {
-  // SEO for About page
-  useSEO(seoConfig.about);
   const navigate = useNavigate();
+
+  // Create FAQ schema for About page
+  const faqSchema = createFAQSchema([
+    {
+      question: "Who founded Hexerize?",
+      answer: "Hexerize was founded in 2024 by two passionate developers, Hexer and Izen, who bring extensive expertise in full-stack development, system architecture, and digital innovation."
+    },
+    {
+      question: "What makes Hexerize different from other agencies?",
+      answer: "We're not just a client services agency - we build our own digital products and platforms like HexerSMS and Stedova. This dual approach keeps us innovative and ensures we're always working with cutting-edge technologies."
+    },
+    {
+      question: "What technologies does your team master?",
+      answer: "Our team masters 25+ technologies including React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, React Native, and AI/ML frameworks."
+    },
+    {
+      question: "How many projects has Hexerize completed?",
+      answer: "We've successfully completed 50+ projects ranging from custom web applications to mobile apps and enterprise platforms."
+    },
+    {
+      question: "Do you work on your own products or only client work?",
+      answer: "We do both! We build innovative client projects while developing our own ecosystem of platforms including HexerSMS for schools and Stedova for campus communities."
+    }
+  ]);
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createWebPageSchema(
+        seoConfig.about.title,
+        seoConfig.about.description,
+        "https://hexerize.com/about"
+      ),
+      createBreadcrumbSchema([
+        { name: "Home", url: "https://hexerize.com" },
+        { name: "About", url: "https://hexerize.com/about" }
+      ]),
+      faqSchema
+    ]
+  };
+
+  // SEO for About page with FAQ schema
+  useSEO({
+    ...seoConfig.about,
+    structuredData
+  });
 
   const [, setVisibleSections] = useState<string[]>([]);
 
@@ -63,7 +109,13 @@ const About = () => {
       name: "Hexer",
       role: "Co-Founder & CEO",
       description:
-        "Visionary entrepreneur and full-stack developer who conceptualized the Hexerize ecosystem. Passionate about building innovative digital solutions that solve real-world problems and drive business growth.",
+        "Visionary entrepreneur and full-stack developer with 5+ years of experience who conceptualized the Hexerize ecosystem. Led development of 50+ successful client projects generating significant ROI. Passionate about building innovative digital solutions that solve real-world problems and drive measurable business growth.",
+      credentials: [
+        "5+ Years Full-Stack Development",
+        "50+ Projects Successfully Delivered",
+        "Expert in Performance Optimization",
+        "Proven Track Record in Client Success"
+      ],
       expertise: [
         "Full-Stack Development",
         "Performance Engineering",
@@ -77,7 +129,13 @@ const About = () => {
       name: "Izen",
       role: "Co-Founder & Full-Stack Developer",
       description:
-        "Brilliant full-stack developer and technical architect who brings cutting-edge solutions to life. Specializes in both frontend and backend development, system design, and emerging technologies.",
+        "Brilliant full-stack developer and technical architect with extensive experience in building scalable systems. Specializes in both frontend and backend development, system design, and emerging AI/ML technologies. Co-created multiple successful digital platforms serving thousands of users.",
+      credentials: [
+        "Expert in System Architecture",
+        "AI/ML Integration Specialist",
+        "Mobile & Web Development Master",
+        "Product Strategy & Vision Leader"
+      ],
       expertise: [
         "Full-Stack Development",
         "System Architecture",
@@ -107,7 +165,14 @@ const About = () => {
             <div className="text-center lg:text-left">
               {/* Mobile-optimized centered layout */}
               <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-                <div className="flex flex-col items-center lg:items-start">
+                <div className="flex flex-col items-center lg:items-start w-full">
+                  <div className="w-full flex justify-center lg:justify-start">
+                    <Breadcrumbs items={[
+                      { name: "Home", url: "https://hexerize.com" },
+                      { name: "About", url: "https://hexerize.com/about" }
+                    ]} />
+                  </div>
+
                   {/* Mobile-optimized badge */}
                   <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-purple-500/10 border border-purple-500/20 rounded-full">
                     <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
@@ -118,7 +183,7 @@ const About = () => {
                     About <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Hexerize</span>
                   </h1>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed max-w-2xl w-full">
-                    Founded by two passionate developers building the future of technology with cutting-edge solutions.
+                    Founded by two passionate developers building the future of technology with cutting-edge solutions. Explore our <span className="cursor-pointer underline decoration-dotted hover:text-blue-400 transition-colors" onClick={() => navigate("/services")}>services</span> or view our <span className="cursor-pointer underline decoration-dotted hover:text-blue-400 transition-colors" onClick={() => navigate("/projects")}>project portfolio</span>.
                   </p>
 
                   {/* Mobile: Show only 2 badges */}
@@ -362,6 +427,21 @@ const About = () => {
                     {member.description}
                   </p>
 
+                  {/* Credentials */}
+                  <div className="mb-6">
+                    <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-3">Credentials & Achievements</h4>
+                    <div className="space-y-2">
+                      {member.credentials.map((credential, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span className="text-xs text-gray-300">{credential}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Skills */}
                   <div>
                     <h4 className="text-xs text-gray-400 uppercase tracking-wide mb-3">Core Expertise</h4>
@@ -473,6 +553,55 @@ const About = () => {
                   <div className="text-3xl font-bold text-blue-400 mb-2">{item.stat}</div>
                   <div className="text-sm text-gray-300">{item.label}</div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 border-t border-slate-700">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Questions</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Learn more about Hexerize, our team, and what makes us different.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  question: "Who founded Hexerize?",
+                  answer: "Hexerize was founded in 2024 by two passionate developers, Hexer and Izen, who bring extensive expertise in full-stack development, system architecture, and digital innovation."
+                },
+                {
+                  question: "What makes Hexerize different from other agencies?",
+                  answer: "We're not just a client services agency - we build our own digital products and platforms like HexerSMS and Stedova. This dual approach keeps us innovative and ensures we're always working with cutting-edge technologies."
+                },
+                {
+                  question: "What technologies does your team master?",
+                  answer: "Our team masters 25+ technologies including React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, React Native, and AI/ML frameworks."
+                },
+                {
+                  question: "How many projects has Hexerize completed?",
+                  answer: "We've successfully completed 50+ projects ranging from custom web applications to mobile apps and enterprise platforms."
+                },
+                {
+                  question: "Do you work on your own products or only client work?",
+                  answer: "We do both! We build innovative client projects while developing our own ecosystem of platforms including HexerSMS for schools and Stedova for campus communities."
+                }
+              ].map((faq, index) => (
+                <details key={index} className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 group">
+                  <summary className="flex justify-between items-center cursor-pointer text-white font-semibold text-lg list-none">
+                    <span>{faq.question}</span>
+                    <svg className="w-5 h-5 text-blue-400 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
+                </details>
               ))}
             </div>
           </div>

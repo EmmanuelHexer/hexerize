@@ -10,10 +10,6 @@ interface PerformanceMetrics {
 
 export const usePerformanceMonitoring = (pageName: string) => {
   useEffect(() => {
-    // Skip performance monitoring on mobile for better performance
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      return;
-    }
     // Function to get Core Web Vitals
     const getCLS = (onPerfEntry: (metric: PerformanceMetrics) => void) => {
       let clsValue = 0;
