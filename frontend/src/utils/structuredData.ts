@@ -13,7 +13,7 @@ export const createOrganizationSchema = () => ({
     "width": 512,
     "height": 512
   },
-  "description": "We build high-performance websites and apps for clients, while creating our own innovative digital products. Professional web development, branding, and digital solutions that drive real growth.",
+  "description": "Innovative digital solutions that transform businesses. We create modern websites, powerful apps, and strategic digital experiences that drive real growth and success.",
   "foundingDate": "2024",
   "industry": "Digital Innovation & Web Development",
   "serviceArea": "Worldwide",
@@ -35,7 +35,7 @@ export const createWebsiteSchema = () => ({
   "@id": "https://hexerize.com/#website",
   "url": "https://hexerize.com",
   "name": "Hexerize - Digital Innovation Company",
-  "description": "We build high-performance websites and apps for clients, while creating our own innovative digital products. Professional web development, branding, and digital solutions that drive real growth.",
+  "description": "Innovative digital solutions that transform businesses. We create modern websites, powerful apps, and strategic digital experiences that drive real growth and success.",
   "publisher": {
     "@id": "https://hexerize.com/#organization"
   },

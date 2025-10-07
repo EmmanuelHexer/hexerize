@@ -8,7 +8,7 @@ interface SEOConfig {
 export const seoConfig: Record<string, SEOConfig> = {
   home: {
     title: "Hexerize",
-    description: "We build high-performance websites and apps for clients, while creating our own innovative digital products. Professional web development, branding, and digital solutions that drive real growth.",
+    description: "Innovative digital solutions that transform businesses. We create modern websites, powerful apps, and strategic digital experiences that drive real growth and success.",
     canonical: "https://hexerize.com",
   },
 

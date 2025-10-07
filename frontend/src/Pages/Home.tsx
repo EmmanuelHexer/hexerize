@@ -195,11 +195,12 @@ const Home = () => {
             {/* Left Column - Text Content */}
             <div className="space-y-3 sm:space-y-5 md:space-y-6 lg:space-y-6 scroll-fade-in text-center lg:text-left">
               {/* Status Badge */}
-              <div className="inline-block py-2 px-4 rounded-full bg-[color:var(--accent-color)]/10 border border-[color:var(--accent-color)]/30 text-sm">
+              <div className="inline-block py-2 px-4 rounded-full bg-[color:var(--accent-color)]/10 border border-[color:var(--accent-color)]/30 text-sm tiny-phone-badge">
                 <span className="flex items-center justify-center lg:justify-start gap-2">
                   <span className="h-2 w-2 rounded-full bg-green-400 status-indicator"></span>
                   <span className="text-[color:var(--accent-color)] font-medium">
-                    Available for New Projects
+                    <span className="hidden tiny-phone-show">Open for Projects</span>
+                    <span className="tiny-phone-hide">Available for New Projects</span>
                   </span>
                 </span>
               </div>
@@ -217,9 +218,16 @@ const Home = () => {
               </div>
 
               <p className="text-[color:var(--body-color)]/70 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-[50ch] mx-auto lg:mx-0 tiny-phone-text">
-                Innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services")}>digital solutions</span> that transform businesses. We
-                create modern websites, powerful apps, and strategic digital
-                experiences that drive real growth and success. <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about")}>Learn more about our team</span>.
+                {/* iPhone 5 version - shorter */}
+                <span className="hidden tiny-phone-show">
+                  <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about")}>We</span> build innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services")}>websites and apps</span> that transform businesses and drive real growth.
+                </span>
+                {/* Larger screens version - full text */}
+                <span className="tiny-phone-hide">
+                  Innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services")}>digital solutions</span> that transform businesses. We
+                  create modern websites, powerful apps, and strategic digital
+                  experiences that drive real growth and success. <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about")}>Learn more about our team</span>.
+                </span>
               </p>
 
               {/* Dual CTA */}
