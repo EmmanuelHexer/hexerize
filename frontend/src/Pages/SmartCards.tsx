@@ -169,14 +169,14 @@ const SmartCards = () => {
                 style={{ minHeight: "200px" }}
               >
                 {/* Card Stack - Shows when NOT showing rings */}
-                <AnimatePresence mode="wait" initial={false}>
+                <AnimatePresence initial={false}>
                   {!showRings && (
                     <motion.div
                       key="cards"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.2 }}
                       className="absolute top-0 left-0 w-full cursor-pointer"
                     >
                       <div
@@ -267,14 +267,14 @@ const SmartCards = () => {
                 </AnimatePresence>
 
                 {/* Ring Stack - Shows when hovering (Desktop) or clicked (Mobile) */}
-                <AnimatePresence mode="wait" initial={false}>
+                <AnimatePresence initial={false}>
                   {showRings && (
                     <motion.div
                       key="rings"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.2 }}
                       className="absolute top-0 left-0 w-full cursor-pointer"
                       style={{ perspective: "2000px" }}
                     >
