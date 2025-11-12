@@ -98,11 +98,6 @@ const SmartCards = () => {
     ringMouseY.set(e.clientY - centerY);
   };
 
-  const handleRingMouseLeave = () => {
-    ringMouseX.set(0);
-    ringMouseY.set(0);
-  };
-
   // Scroll animations
   useEffect(() => {
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
