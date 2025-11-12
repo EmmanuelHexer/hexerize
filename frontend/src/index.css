@@ -357,6 +357,21 @@
     }
   }
 
+  /* Page-specific navbar styling */
+  .smartcards-nav {
+    background: linear-gradient(to bottom right, #020617, #0f172a, #020617) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .services-nav,
+  .about-nav,
+  .contact-nav,
+  .projects-nav,
+  .blog-nav {
+    background: #0f172a !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  }
+
 }
 
 :root {

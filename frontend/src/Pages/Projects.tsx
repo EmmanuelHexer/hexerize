@@ -13,6 +13,19 @@ const Projects = () => {
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
   const [activeFilter, setActiveFilter] = useState('all');
 
+  // Add custom navbar styling for this page
+  useEffect(() => {
+    const navbar = document.querySelector("header");
+    if (navbar) {
+      navbar.classList.add("projects-nav");
+    }
+    return () => {
+      if (navbar) {
+        navbar.classList.remove("projects-nav");
+      }
+    };
+  }, []);
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,

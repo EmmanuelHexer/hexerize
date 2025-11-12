@@ -18,6 +18,19 @@ const Blog = () => {
   const [visiblePosts, setVisiblePosts] = useState(9); // Show 9 posts initially
   const POSTS_PER_PAGE = 9;
 
+  // Add custom navbar styling for this page
+  useEffect(() => {
+    const navbar = document.querySelector("header");
+    if (navbar) {
+      navbar.classList.add("blog-nav");
+    }
+    return () => {
+      if (navbar) {
+        navbar.classList.remove("blog-nav");
+      }
+    };
+  }, []);
+
   // Fetch blog posts and categories from Sanity
   useEffect(() => {
     const fetchData = async () => {

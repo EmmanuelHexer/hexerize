@@ -9,6 +9,19 @@ import Testimonials from "../Components/Testimonials";
 const Services = () => {
   const navigate = useNavigate();
 
+  // Add custom navbar styling for this page
+  useEffect(() => {
+    const navbar = document.querySelector("header");
+    if (navbar) {
+      navbar.classList.add("services-nav");
+    }
+    return () => {
+      if (navbar) {
+        navbar.classList.remove("services-nav");
+      }
+    };
+  }, []);
+
   // Create structured data for services page
   const faqSchema = createFAQSchema([
     {

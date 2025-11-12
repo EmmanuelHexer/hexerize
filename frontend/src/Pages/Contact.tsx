@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 import { createFAQSchema, createContactPageSchema } from "../utils/structuredData";
 import Breadcrumbs from "../Components/Breadcrumbs";
 
 const Contact = () => {
+  // Add custom navbar styling for this page
+  useEffect(() => {
+    const navbar = document.querySelector("header");
+    if (navbar) {
+      navbar.classList.add("contact-nav");
+    }
+    return () => {
+      if (navbar) {
+        navbar.classList.remove("contact-nav");
+      }
+    };
+  }, []);
+
   // Create FAQ schema matching visible content on this page
   const faqSchema = createFAQSchema([
     {
