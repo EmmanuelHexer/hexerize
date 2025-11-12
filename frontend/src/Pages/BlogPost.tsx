@@ -156,9 +156,10 @@ const BlogPost = () => {
           {post.mainImage && (
             <div className="relative overflow-hidden rounded-2xl border border-blue-500/20 mb-12">
               <img
-                src={urlFor(post.mainImage).width(1200).url()}
+                src={urlFor(post.mainImage).width(1200).height(500).url()}
                 alt={post.mainImage.alt || post.title}
-                className="w-full object-cover"
+                className="w-full h-auto object-cover max-h-[500px]"
+                loading="eager"
               />
             </div>
           )}

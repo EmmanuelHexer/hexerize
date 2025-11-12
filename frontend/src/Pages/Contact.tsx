@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 import { createFAQSchema, createContactPageSchema } from "../utils/structuredData";
@@ -330,8 +331,9 @@ const Contact = () => {
                 </div>
 
                 {/* FAQ */}
-                <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6">
+                <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-8">
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i className="ri-question-line text-blue-400"></i>
                     Quick FAQ
                   </h3>
                   <div className="space-y-3">
@@ -351,17 +353,36 @@ const Contact = () => {
                         answer:
                           "Absolutely! We often collaborate with in-house teams as an extension.",
                       },
-                    ].map((faq, index) => (
-                      <details key={index} className="bg-slate-700/30 rounded-xl p-4 group">
-                        <summary className="flex justify-between items-center cursor-pointer text-white font-semibold list-none">
-                          <span className="text-sm">{faq.question}</span>
-                          <svg className="w-4 h-4 text-blue-400 transform group-open:rotate-180 transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </summary>
-                        <p className="mt-3 text-sm text-gray-300 leading-relaxed">{faq.answer}</p>
-                      </details>
-                    ))}
+                    ].map((faq, index) => {
+                      const FAQItem = () => {
+                        const [isOpen, setIsOpen] = useState(false);
+                      return (
+                        <div key={index} className="bg-slate-800/50 border border-blue-500/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-blue-500/40">
+                          <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="w-full flex justify-between items-center p-4 text-left cursor-pointer group"
+                          >
+                            <span className="text-sm font-semibold text-white pr-2 group-hover:text-blue-400 transition-colors">
+                              {faq.question}
+                            </span>
+                            <div className={`flex-shrink-0 w-8 h-8 rounded-lg bg-blue-600/20 flex items-center justify-center transition-all duration-300 ${isOpen ? 'rotate-180 bg-blue-600/30' : 'group-hover:bg-blue-600/30'}`}>
+                              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </div>
+                          </button>
+                          <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                            <div className="px-4 pb-4">
+                              <div className="pt-2 border-t border-blue-500/20">
+                                <p className="mt-2 text-sm text-gray-300 leading-relaxed">{faq.answer}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        );
+                      };
+                      return <FAQItem key={index} />;
+                    })}
                   </div>
                 </div>
 

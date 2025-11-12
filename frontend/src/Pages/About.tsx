@@ -5,6 +5,7 @@ import { seoConfig } from "../config/seoConfig";
 import { assets } from "../assets/assets";
 import { createFAQSchema, createWebPageSchema, createBreadcrumbSchema } from "../utils/structuredData";
 import Breadcrumbs from "../Components/Breadcrumbs";
+import FAQAccordion from "../Components/FAQAccordion";
 
 const About = () => {
   const navigate = useNavigate();
@@ -559,53 +560,32 @@ const About = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 border-t border-slate-700">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Questions</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Learn more about Hexerize, our team, and what makes us different.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {[
-                {
-                  question: "Who founded Hexerize?",
-                  answer: "Hexerize was founded in 2024 by two passionate developers, Hexer and Izen, who bring extensive expertise in full-stack development, system architecture, and digital innovation."
-                },
-                {
-                  question: "What makes Hexerize different from other agencies?",
-                  answer: "We're not just a client services agency - we build our own digital products and platforms like HexerSMS and Stedova. This dual approach keeps us innovative and ensures we're always working with cutting-edge technologies."
-                },
-                {
-                  question: "What technologies does your team master?",
-                  answer: "Our team masters 25+ technologies including React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, React Native, and AI/ML frameworks."
-                },
-                {
-                  question: "How many projects has Hexerize completed?",
-                  answer: "We've successfully completed 50+ projects ranging from custom web applications to mobile apps and enterprise platforms."
-                },
-                {
-                  question: "Do you work on your own products or only client work?",
-                  answer: "We do both! We build innovative client projects while developing our own ecosystem of platforms including HexerSMS for schools and Stedova for campus communities."
-                }
-              ].map((faq, index) => (
-                <details key={index} className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 group">
-                  <summary className="flex justify-between items-center cursor-pointer text-white font-semibold text-lg list-none">
-                    <span>{faq.question}</span>
-                    <svg className="w-5 h-5 text-blue-400 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FAQAccordion
+          title="Frequently Asked Questions"
+          subtitle="Learn more about Hexerize, our team, and what makes us different."
+          items={[
+            {
+              question: "Who founded Hexerize?",
+              answer: "Hexerize was founded in 2024 by two passionate developers, Hexer and Izen, who bring extensive expertise in full-stack development, system architecture, and digital innovation."
+            },
+            {
+              question: "What makes Hexerize different from other agencies?",
+              answer: "We're not just a client services agency - we build our own digital products and platforms like HexerSMS and Stedova. This dual approach keeps us innovative and ensures we're always working with cutting-edge technologies."
+            },
+            {
+              question: "What technologies does your team master?",
+              answer: "Our team masters 25+ technologies including React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, React Native, and AI/ML frameworks."
+            },
+            {
+              question: "How many projects has Hexerize completed?",
+              answer: "We've successfully completed 50+ projects ranging from custom web applications to mobile apps and enterprise platforms."
+            },
+            {
+              question: "Do you work on your own products or only client work?",
+              answer: "We do both! We build innovative client projects while developing our own ecosystem of platforms including HexerSMS for schools and Stedova for campus communities."
+            }
+          ]}
+        />
 
         {/* CTA Section */}
         <section className="py-20 border-t border-slate-700">

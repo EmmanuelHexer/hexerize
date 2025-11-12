@@ -44,35 +44,47 @@ export const usePerformanceMonitoring = (pageName: string) => {
     };
 
     const getFCP = (onPerfEntry: (metric: PerformanceMetrics) => void) => {
-      const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          if (entry.name === 'first-contentful-paint') {
-            onPerfEntry({ fcp: entry.startTime });
+      try {
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (entry.name === 'first-contentful-paint') {
+              onPerfEntry({ fcp: entry.startTime });
+            }
           }
-        }
-      });
-      observer.observe({ type: 'paint', buffered: true });
+        });
+        observer.observe({ type: 'paint', buffered: true });
+      } catch (e) {
+        // Paint not supported in this browser
+      }
     };
 
     const getLCP = (onPerfEntry: (metric: PerformanceMetrics) => void) => {
-      const observer = new PerformanceObserver((list) => {
-        const entries = list.getEntries();
-        const lastEntry = entries[entries.length - 1];
-        onPerfEntry({ lcp: lastEntry.startTime });
-      });
-      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+      try {
+        const observer = new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          onPerfEntry({ lcp: lastEntry.startTime });
+        });
+        observer.observe({ type: 'largest-contentful-paint', buffered: true });
+      } catch (e) {
+        // LCP not supported in this browser
+      }
     };
 
     const getFID = (onPerfEntry: (metric: PerformanceMetrics) => void) => {
-      const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          const fidEntry = entry as any; // Type assertion for FID entry
-          if (fidEntry.processingStart) {
-            onPerfEntry({ fid: fidEntry.processingStart - entry.startTime });
+      try {
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            const fidEntry = entry as any; // Type assertion for FID entry
+            if (fidEntry.processingStart) {
+              onPerfEntry({ fid: fidEntry.processingStart - entry.startTime });
+            }
           }
-        }
-      });
-      observer.observe({ type: 'first-input', buffered: true });
+        });
+        observer.observe({ type: 'first-input', buffered: true });
+      } catch (e) {
+        // FID not supported in this browser
+      }
     };
 
     const getTTFB = (onPerfEntry: (metric: PerformanceMetrics) => void) => {
