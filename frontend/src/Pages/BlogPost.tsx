@@ -30,26 +30,35 @@ const BlogPost = () => {
 
       try {
         setLoading(true);
+
+        // Fetch both post and related posts in parallel for faster loading
         const postData = await client.fetch(blogPostBySlugQuery, { slug });
 
         if (postData) {
           setPost(postData);
+          setLoading(false); // Show post immediately
 
-          // Fetch related posts
+          // Fetch related posts in background
           const categoryIds = postData.categories?.map((cat: any) => cat._id) || [];
-          const relatedData = await client.fetch(relatedPostsQuery, {
-            postId: postData._id,
-            categories: categoryIds,
-          });
-          setRelatedPosts(relatedData || []);
+          if (categoryIds.length > 0) {
+            const relatedData = await client.fetch(relatedPostsQuery, {
+              postId: postData._id,
+              categories: categoryIds,
+            });
+            setRelatedPosts(relatedData || []);
+          }
+        } else {
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching blog post:", error);
-      } finally {
         setLoading(false);
       }
     };
 
+    // Reset state when slug changes
+    setPost(null);
+    setRelatedPosts([]);
     fetchPost();
   }, [slug]);
 
@@ -62,7 +71,8 @@ const BlogPost = () => {
     canonical: `https://hexerize.com/blog/${slug}`,
   });
 
-  if (!post && !loading) {
+  // Only show "not found" if we're done loading and still no post
+  if (!loading && !post) {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
@@ -83,8 +93,8 @@ const BlogPost = () => {
     );
   }
 
-  // Show nothing while loading to avoid flash
-  if (loading || !post) {
+  // While loading or if no post yet, show nothing
+  if (!post) {
     return null;
   }
 

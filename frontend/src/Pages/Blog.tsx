@@ -71,8 +71,13 @@ const Blog = () => {
     setVisiblePosts(POSTS_PER_PAGE);
   }, [selectedCategory, searchQuery]);
 
+  // Don't render anything while loading to prevent grey flash
+  if (loading) {
+    return null;
+  }
+
   // Show coming soon page if no posts
-  if (!loading && posts.length === 0) {
+  if (posts.length === 0) {
     return (
       <div className="min-h-screen bg-slate-900 text-gray-100">
         <section className="relative pt-16 sm:pt-24 md:pt-32 pb-20 overflow-hidden min-h-screen flex items-center justify-center">
@@ -194,8 +199,7 @@ const Blog = () => {
       {/* Blog Content */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {!loading && (
-            <>
+          <>
               {/* Search Bar */}
               <SearchBar
                 searchQuery={searchQuery}
@@ -271,7 +275,6 @@ const Blog = () => {
                 </div>
               )}
             </>
-          )}
         </div>
       </section>
     </div>
