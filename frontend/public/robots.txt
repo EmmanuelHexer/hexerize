@@ -1,4 +1,24 @@
-User-agent: *
-Disallow:
+# Hexerize Robots.txt - SEO Optimized
+# Allow all crawlers to index the site
 
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemap
 Sitemap: https://hexerize.com/sitemap.xml
+
+# Crawl-delay for better server performance
+# Removed for major search engines as they have their own rate limiting
+
+# Specific bot configurations
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

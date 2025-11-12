@@ -10,9 +10,6 @@ import CategoryFilter from "../Components/Blog/CategoryFilter";
 import SearchBar from "../Components/Blog/SearchBar";
 
 const Blog = () => {
-  // SEO for Blog page
-  useSEO(seoConfig.blog);
-
   const [posts, setPosts] = useState<BlogListItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -41,6 +38,40 @@ const Blog = () => {
 
     fetchData();
   }, []);
+
+  // SEO with ItemList structured data for blog listing
+  useSEO({
+    ...seoConfig.blog,
+    structuredData: posts.length > 0 ? {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Hexerize Blog",
+      "description": seoConfig.blog.description,
+      "url": "https://hexerize.com/blog",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hexerize",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://hexerize.com/hexerize-logo-512.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      "blogPost": posts.slice(0, 10).map((post) => ({
+        "@type": "BlogPosting",
+        "@id": `https://hexerize.com/blog/${post.slug.current}`,
+        "headline": post.title,
+        "description": post.excerpt,
+        "datePublished": post.publishedAt,
+        "author": {
+          "@type": "Person",
+          "name": post.author?.name || "Hexerize"
+        },
+        "url": `https://hexerize.com/blog/${post.slug.current}`
+      }))
+    } : undefined
+  });
 
   // Filter posts based on category and search query
   const filteredPosts = posts.filter((post) => {

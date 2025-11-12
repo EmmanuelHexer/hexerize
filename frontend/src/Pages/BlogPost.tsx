@@ -55,13 +55,61 @@ const BlogPost = () => {
     fetchPost();
   }, [slug]);
 
-  // Dynamic SEO
+  // Dynamic SEO with Article structured data
   useSEO({
     title: post?.title || "Blog Post",
     description: post?.excerpt || "",
     ogImage: post?.mainImage ? urlFor(post.mainImage).width(1200).url() : undefined,
     ogUrl: `https://hexerize.com/blog/${slug}`,
     canonical: `https://hexerize.com/blog/${slug}`,
+    ogType: "article",
+    structuredData: post ? {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "description": post.excerpt,
+      "image": post.mainImage ? [
+        urlFor(post.mainImage).width(1200).height(1200).url(), // 1x1
+        urlFor(post.mainImage).width(1200).height(900).url(),  // 4x3
+        urlFor(post.mainImage).width(1200).height(675).url()   // 16x9
+      ] : undefined,
+      "datePublished": post.publishedAt,
+      "dateModified": post._updatedAt || post.publishedAt,
+      "author": {
+        "@type": "Person",
+        "name": post.author?.name || "Hexerize",
+        "url": "https://hexerize.com",
+        ...(post.author?.image && {
+          "image": {
+            "@type": "ImageObject",
+            "url": urlFor(post.author.image).width(200).url()
+          }
+        })
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hexerize",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://hexerize.com/hexerize-logo-512.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://hexerize.com/blog/${slug}`
+      },
+      ...(post.estimatedReadingTime && {
+        "timeRequired": `PT${post.estimatedReadingTime}M`
+      }),
+      ...(post.categories && post.categories.length > 0 && {
+        "articleSection": post.categories.map(cat => cat.title),
+        "keywords": post.categories.map(cat => cat.title).join(", ")
+      }),
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true
+    } : undefined
   });
 
   // If no post yet, don't render anything (prevents flash of empty page)
@@ -79,7 +127,7 @@ const BlogPost = () => {
     <div className="min-h-screen bg-slate-900 text-gray-100">
       <ReadingProgress />
       {/* Hero Section with Featured Image */}
-      <section className="relative pt-16 sm:pt-24 md:pt-32 pb-12">
+      <section className="relative pt-16 sm:pt-24 md:pt-32 pb-4">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <Breadcrumbs
             items={[
@@ -109,7 +157,7 @@ const BlogPost = () => {
           </h1>
 
           {/* Meta Information */}
-          <div className="flex flex-wrap items-center gap-6 text-gray-400 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 text-gray-400 mb-8">
             {/* Author */}
             {post.author && (
               <div className="flex items-center gap-3">
@@ -121,41 +169,40 @@ const BlogPost = () => {
                   />
                 )}
                 <div>
-                  <p className="text-sm text-gray-500">Written by</p>
-                  <p className="text-white font-medium">{post.author.name}</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Written by</p>
+                  <p className="text-white font-medium text-sm sm:text-base">{post.author.name}</p>
                 </div>
               </div>
             )}
 
-            {/* Date */}
-            <div>
-              <p className="text-sm text-gray-500">Published</p>
-              <p className="flex items-center gap-2">
+            {/* Date & Reading Time Combined */}
+            <div className="flex items-center gap-3 flex-wrap text-sm sm:text-base">
+              <div className="flex items-center gap-2">
                 <i className="ri-calendar-line text-blue-400"></i>
-                {formattedDate}
-              </p>
-            </div>
-
-            {/* Reading Time */}
-            {post.estimatedReadingTime && (
-              <div>
-                <p className="text-sm text-gray-500">Reading time</p>
-                <p className="flex items-center gap-2">
-                  <i className="ri-time-line text-blue-400"></i>
-                  {post.estimatedReadingTime} min
-                </p>
+                <span>{formattedDate}</span>
               </div>
-            )}
+
+              {post.estimatedReadingTime && (
+                <>
+                  <span className="text-gray-600">•</span>
+                  <div className="flex items-center gap-2">
+                    <i className="ri-time-line text-blue-400"></i>
+                    <span>{post.estimatedReadingTime} min read</span>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Featured Image */}
           {post.mainImage && (
-            <div className="relative overflow-hidden rounded-2xl border border-blue-500/20 mb-6">
+            <div className="relative overflow-hidden rounded-2xl border border-blue-500/20">
               <img
-                src={urlFor(post.mainImage).width(1200).height(500).url()}
-                alt={post.mainImage.alt || post.title}
-                className="w-full h-auto object-cover max-h-[500px] block"
+                src={urlFor(post.mainImage).width(1200).height(1200).url()}
+                alt={post.mainImage.alt || `${post.title} - Featured image for ${post.categories?.[0]?.title || 'blog post'} on Hexerize`}
+                className="w-full h-auto object-cover max-h-[600px] sm:max-h-[500px] md:max-h-[550px] lg:max-h-[600px] block"
                 loading="eager"
+                itemProp="image"
               />
             </div>
           )}
@@ -177,7 +224,7 @@ const BlogPost = () => {
 
           {/* Author Bio */}
           {post.author?.bio && (
-            <div className="mt-16 p-8 bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl">
+            <div className="mt-16 p-8 bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl" itemScope itemType="https://schema.org/Person">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <i className="ri-user-line text-blue-400"></i>
                 About the Author
@@ -186,15 +233,16 @@ const BlogPost = () => {
                 {post.author.image && (
                   <img
                     src={urlFor(post.author.image).width(80).height(80).url()}
-                    alt={post.author.name}
+                    alt={`${post.author.name} - Author at Hexerize`}
                     className="w-20 h-20 rounded-full border-2 border-blue-500/30"
+                    itemProp="image"
                   />
                 )}
                 <div>
-                  <p className="text-white font-semibold text-lg mb-2">
+                  <p className="text-white font-semibold text-lg mb-2" itemProp="name">
                     {post.author.name}
                   </p>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed" itemProp="description">
                     {post.author.bio}
                   </p>
                 </div>

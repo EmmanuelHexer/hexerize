@@ -3,48 +3,68 @@ interface SEOConfig {
   description: string;
   keywords?: string;
   canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
 }
 
 export const seoConfig: Record<string, SEOConfig> = {
   home: {
-    title: "Hexerize",
-    description: "Innovative digital solutions that transform businesses. We create modern websites, powerful apps, and strategic digital experiences that drive real growth and success.",
+    title: "Hexerize - Digital Innovation & Web Development",
+    description: "Transform your business with innovative digital solutions. Expert web development, mobile apps, and strategic digital experiences that drive growth. Get your free consultation today.",
+    keywords: "web development agency, digital innovation, custom web applications, mobile app development, digital transformation, website design, software development, digital strategy, tech consulting",
     canonical: "https://hexerize.com",
+    ogTitle: "Hexerize - Transform Your Business with Digital Innovation",
+    ogDescription: "Award-winning digital agency specializing in modern web development, mobile apps, and strategic digital solutions. Let's build your success together.",
   },
 
   about: {
-    title: "About Us | Hexerize Digital Innovation",
+    title: "About Hexerize | Leading Digital Innovation Agency",
     description:
-      "Discover how Hexerize helps businesses thrive online through cutting-edge web development, branding, and strategic digital solutions.",
+      "Meet the team behind innovative digital solutions. Learn how Hexerize combines cutting-edge technology, creative design, and strategic thinking to transform businesses globally.",
+    keywords: "about hexerize, digital agency team, web development experts, software engineers, tech innovation company, digital transformation specialists",
     canonical: "https://hexerize.com/about",
+    ogTitle: "About Hexerize - Your Digital Innovation Partner",
+    ogDescription: "Passionate about building exceptional digital experiences. Discover our story, values, and commitment to transforming businesses through technology.",
   },
 
   services: {
-    title: "Our Digital Services | Hexerize",
+    title: "Web Development & App Solutions | Hexerize Services",
     description:
-      "Modern website development, digital branding, mobile app development, and strategic consulting. Transform your business with Hexerize.",
+      "Professional web development, mobile apps, digital branding, and strategic consulting services. Custom solutions tailored to your business needs. Free consultation available.",
+    keywords: "web development services, mobile app development, digital branding, custom software, e-commerce development, API development, cloud solutions, digital consulting, UI/UX design",
     canonical: "https://hexerize.com/services",
+    ogTitle: "Hexerize Services - Web Development, Apps & Digital Solutions",
+    ogDescription: "Comprehensive digital services including modern website development, mobile apps, branding, and strategic consulting. Transform your business today.",
   },
 
   projects: {
-    title: "Our Portfolio | Hexerize Success Stories",
+    title: "Portfolio | Hexerize Digital Projects & Case Studies",
     description:
-      "Explore our portfolio of successful digital projects - from e-commerce platforms to AI-powered applications and custom web solutions.",
+      "Explore successful digital projects and case studies. See our work in e-commerce platforms, AI-powered applications, custom web solutions, and mobile apps. Real results, real impact.",
+    keywords: "portfolio, case studies, web development projects, mobile app examples, digital transformation success stories, client work, project showcase",
     canonical: "https://hexerize.com/projects",
+    ogTitle: "Hexerize Portfolio - Successful Digital Projects & Case Studies",
+    ogDescription: "Browse our portfolio of award-winning digital projects. From startups to enterprises, see how we've transformed businesses through innovative technology.",
   },
 
   blog: {
     title: "Digital Innovation Insights | Hexerize Blog",
     description:
       "Expert insights on digital innovation, web development trends, and cutting-edge technology. Learn modern development practices and strategies.",
+    keywords: "web development blog, digital innovation, software engineering, modern web development, React tutorials, TypeScript guides, tech insights, development best practices, SEO optimization, digital transformation",
     canonical: "https://hexerize.com/blog",
+    ogTitle: "Hexerize Blog - Web Development & Digital Innovation Insights",
+    ogDescription: "Stay ahead with expert web development tutorials, digital innovation strategies, and modern tech insights. Learn best practices for building successful digital products.",
   },
 
   contact: {
-    title: "Get In Touch | Hexerize - Free Consultation",
+    title: "Contact Hexerize | Free Consultation Available",
     description:
-      "Contact Hexerize for a free consultation on web development, branding, and strategic digital solutions. Let's build your success together.",
+      "Ready to transform your business? Contact Hexerize for a free consultation. Expert web development, mobile apps, and digital strategy. Available worldwide. Let's start your project today.",
+    keywords: "contact hexerize, free consultation, web development quote, project inquiry, digital agency contact, get started, request quote, hire developers",
     canonical: "https://hexerize.com/contact",
+    ogTitle: "Contact Hexerize - Start Your Digital Transformation Today",
+    ogDescription: "Get in touch for a free consultation. We're ready to discuss your web development, mobile app, or digital transformation project. Let's build something amazing together.",
   },
 };
 
