@@ -70,7 +70,9 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
         </h3>
 
         {/* Excerpt */}
-        <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+        {post.excerpt && (
+          <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+        )}
 
         {/* Meta */}
         <div className="flex items-center justify-between text-sm text-gray-400">
