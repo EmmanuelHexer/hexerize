@@ -15,7 +15,6 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPostType | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogListItem[]>([]);
-  const [loading, setLoading] = useState(true);
   const [copySuccess, setCopySuccess] = useState(false);
 
   const handleCopyLink = () => {
@@ -29,14 +28,11 @@ const BlogPost = () => {
       if (!slug) return;
 
       try {
-        setLoading(true);
-
-        // Fetch both post and related posts in parallel for faster loading
+        // Fetch post data
         const postData = await client.fetch(blogPostBySlugQuery, { slug });
 
         if (postData) {
           setPost(postData);
-          setLoading(false); // Show post immediately
 
           // Fetch related posts in background
           const categoryIds = postData.categories?.map((cat: any) => cat._id) || [];
@@ -47,12 +43,9 @@ const BlogPost = () => {
             });
             setRelatedPosts(relatedData || []);
           }
-        } else {
-          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching blog post:", error);
-        setLoading(false);
       }
     };
 
@@ -71,31 +64,13 @@ const BlogPost = () => {
     canonical: `https://hexerize.com/blog/${slug}`,
   });
 
-  // Only show "not found" if we're done loading and still no post
-  if (!loading && !post) {
+  // If no post yet, don't render anything (will show once loaded)
+  if (!post) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-        <div className="text-center">
-          <i className="ri-file-damage-line text-6xl text-gray-600 mb-4"></i>
-          <h2 className="text-3xl font-bold text-white mb-2">Post Not Found</h2>
-          <p className="text-gray-400 mb-6">
-            The blog post you're looking for doesn't exist.
-          </p>
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors"
-          >
-            <i className="ri-arrow-left-line"></i>
-            Back to Blog
-          </Link>
-        </div>
+      <div className="min-h-screen bg-slate-900">
+        {/* Empty but with background - prevents layout shift */}
       </div>
     );
-  }
-
-  // While loading or if no post yet, show nothing
-  if (!post) {
-    return null;
   }
 
   const formattedDate = new Date(post.publishedAt).toLocaleDateString("en-US", {
