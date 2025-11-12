@@ -11,7 +11,14 @@
       "Bash(npx tsc:*)",
       "mcp__ide__getDiagnostics",
       "Bash(npm update:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(npm create:*)",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

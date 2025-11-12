@@ -15,6 +15,7 @@ import Services from "./Pages/Services"; // Critical business page
 const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Blog = lazy(() => import("./Pages/Blog"));
+const BlogPost = lazy(() => import("./Pages/BlogPost"));
 const Projects = lazy(() => import("./Pages/Projects"));
 const NotFound = lazy(() => import("./Pages/NotFound"));
 
@@ -70,6 +71,7 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

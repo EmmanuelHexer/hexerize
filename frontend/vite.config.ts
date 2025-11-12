@@ -49,11 +49,6 @@ export default defineConfig({
       usePolling: false,
       interval: 100
     },
-    // Better caching headers for development
-    headers: {
-      'Cache-Control': 'public, max-age=0, must-revalidate',
-      'X-Content-Type-Options': 'nosniff'
-    }
   },
   // Optimize dependencies pre-bundling
   optimizeDeps: {

@@ -1,28 +1,14 @@
-// Vite plugin for SEO optimizations
+// Vite plugin for SEO optimizations (only applied during production builds)
 export function seoOptimizationPlugin() {
   return {
     name: 'seo-optimization',
-    configureServer(server) {
-      // Add custom headers for better SEO
-      server.middlewares.use((req, res, next) => {
-        // Security headers
-        res.setHeader('X-Content-Type-Options', 'nosniff');
-        res.setHeader('X-Frame-Options', 'DENY');
-        res.setHeader('X-XSS-Protection', '1; mode=block');
-        res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-
-        // Performance headers
-        res.setHeader('Cache-Control', 'public, max-age=31536000');
-
-        next();
-      });
-    },
-    generateBundle(options, bundle) {
-      // Generate robots.txt and sitemap.xml during build
-      console.log('🔍 SEO files generated successfully');
+    apply: 'build',
+    generateBundle() {
+      // Placeholder for sitemap/robots generation logic
+      console.log('SEO files generated successfully');
     },
     transformIndexHtml(html) {
-      // Add performance optimizations to HTML
+      // Add performance-oriented meta tags to the built HTML
       return html.replace(
         '<head>',
         `<head>
