@@ -154,11 +154,11 @@ const BlogPost = () => {
 
           {/* Featured Image */}
           {post.mainImage && (
-            <div className="relative overflow-hidden rounded-2xl border border-blue-500/20 mb-12">
+            <div className="relative overflow-hidden rounded-2xl border border-blue-500/20 mb-6">
               <img
                 src={urlFor(post.mainImage).width(1200).height(500).url()}
                 alt={post.mainImage.alt || post.title}
-                className="w-full h-auto object-cover max-h-[500px]"
+                className="w-full h-auto object-cover max-h-[500px] block"
                 loading="eager"
               />
             </div>
