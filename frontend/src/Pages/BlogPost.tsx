@@ -64,13 +64,9 @@ const BlogPost = () => {
     canonical: `https://hexerize.com/blog/${slug}`,
   });
 
-  // If no post yet, don't render anything (will show once loaded)
+  // If no post yet, don't render anything (prevents flash of empty page)
   if (!post) {
-    return (
-      <div className="min-h-screen bg-slate-900">
-        {/* Empty but with background - prevents layout shift */}
-      </div>
-    );
+    return null;
   }
 
   const formattedDate = new Date(post.publishedAt).toLocaleDateString("en-US", {
