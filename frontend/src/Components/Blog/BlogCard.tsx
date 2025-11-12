@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { urlFor } from "../../sanity/client";
 import { BlogListItem } from "../../sanity/types";
+import { formatReadingTime } from "../../utils/readingTime";
 
 interface BlogCardProps {
   post: BlogListItem;
@@ -102,7 +103,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
             {post.estimatedReadingTime && (
               <span className="flex items-center gap-1.5">
                 <i className="ri-time-line text-blue-400"></i>
-                {post.estimatedReadingTime} min
+                {formatReadingTime(post.estimatedReadingTime)}
               </span>
             )}
           </div>

@@ -50,8 +50,8 @@ const Blog = () => {
       post.categories?.some((cat) => cat._id === selectedCategory);
     const matchesSearch =
       !searchQuery ||
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+      (post.title && post.title.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      (post.excerpt && post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
@@ -195,9 +195,7 @@ const Blog = () => {
       {/* Blog Content */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {loading ? (
-            <LoadingSpinner />
-          ) : (
+          {!loading && (
             <>
               {/* Search Bar */}
               <SearchBar

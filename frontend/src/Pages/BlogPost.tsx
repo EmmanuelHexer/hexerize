@@ -63,15 +63,7 @@ const BlogPost = () => {
     canonical: `https://hexerize.com/blog/${slug}`,
   });
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-slate-900">
-        <LoadingSpinner />
-      </div>
-    );
-  }
-
-  if (!post) {
+  if (!post && !loading) {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
@@ -97,6 +89,11 @@ const BlogPost = () => {
     month: "long",
     day: "numeric",
   });
+
+  // Show nothing while loading to avoid flash
+  if (loading) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-slate-900 text-gray-100">
