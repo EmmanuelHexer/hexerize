@@ -19,6 +19,8 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [visiblePosts, setVisiblePosts] = useState(9); // Show 9 posts initially
+  const POSTS_PER_PAGE = 9;
 
   // Fetch blog posts and categories from Sanity
   useEffect(() => {
@@ -56,6 +58,19 @@ const Blog = () => {
   // Separate featured and regular posts
   const featuredPosts = filteredPosts.filter((post) => post.featured);
   const regularPosts = filteredPosts.filter((post) => !post.featured);
+
+  // Pagination for regular posts
+  const displayedPosts = regularPosts.slice(0, visiblePosts);
+  const hasMorePosts = visiblePosts < regularPosts.length;
+
+  const handleLoadMore = () => {
+    setVisiblePosts((prev) => prev + POSTS_PER_PAGE);
+  };
+
+  // Reset visible posts when filters change
+  useEffect(() => {
+    setVisiblePosts(POSTS_PER_PAGE);
+  }, [selectedCategory, searchQuery]);
 
   // Show coming soon page if no posts
   if (!loading && posts.length === 0) {
@@ -223,10 +238,26 @@ const Blog = () => {
                     </h2>
                   )}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {regularPosts.map((post) => (
+                    {displayedPosts.map((post) => (
                       <BlogCard key={post._id} post={post} />
                     ))}
                   </div>
+
+                  {/* Load More Button */}
+                  {hasMorePosts && (
+                    <div className="text-center mt-12">
+                      <button
+                        onClick={handleLoadMore}
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/30"
+                      >
+                        <i className="ri-arrow-down-line text-lg"></i>
+                        Load More Posts
+                        <span className="text-sm opacity-80">
+                          ({regularPosts.length - visiblePosts} remaining)
+                        </span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 

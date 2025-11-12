@@ -7,6 +7,9 @@ import PortableTextRenderer from "../Components/Blog/PortableTextRenderer";
 import BlogCard from "../Components/Blog/BlogCard";
 import Breadcrumbs from "../Components/Breadcrumbs";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import ReadingProgress from "../Components/Blog/ReadingProgress";
+import CTASection from "../Components/Blog/CTASection";
+import Comments from "../Components/Blog/Comments";
 import { useSEO } from "../hooks/useSEO";
 
 const BlogPost = () => {
@@ -14,6 +17,13 @@ const BlogPost = () => {
   const [post, setPost] = useState<BlogPostType | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogListItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopySuccess(true);
+    setTimeout(() => setCopySuccess(false), 2000);
+  };
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -89,6 +99,7 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-gray-100">
+      <ReadingProgress />
       {/* Hero Section with Featured Image */}
       <section className="relative pt-16 sm:pt-24 md:pt-32 pb-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -213,9 +224,23 @@ const BlogPost = () => {
           )}
 
           {/* Share Buttons */}
-          <div className="mt-12 flex items-center gap-4">
+          <div className="mt-12 flex items-center gap-4 flex-wrap">
             <span className="text-gray-400 font-medium">Share this post:</span>
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-wrap">
+              <button
+                onClick={handleCopyLink}
+                className="w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-blue-600 text-white rounded-lg transition-all relative group"
+                aria-label="Copy link"
+              >
+                {copySuccess ? (
+                  <i className="ri-check-line text-lg text-green-400"></i>
+                ) : (
+                  <i className="ri-link text-lg"></i>
+                )}
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  {copySuccess ? "Copied!" : "Copy link"}
+                </span>
+              </button>
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                   post.title
@@ -253,6 +278,12 @@ const BlogPost = () => {
               </a>
             </div>
           </div>
+
+          {/* CTA Section */}
+          <CTASection />
+
+          {/* Comments Section */}
+          {slug && <Comments slug={slug} />}
         </div>
       </article>
 

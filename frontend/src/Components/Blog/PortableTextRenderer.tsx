@@ -1,5 +1,7 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "../../sanity/client";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const components: PortableTextComponents = {
   block: {
@@ -85,12 +87,31 @@ const components: PortableTextComponents = {
       );
     },
     code: ({ value }) => {
+      const language = value.language || "javascript";
       return (
-        <pre className="bg-slate-950 border border-blue-500/20 rounded-xl p-6 overflow-x-auto my-6">
-          <code className="text-blue-300 font-mono text-sm leading-relaxed">
+        <div className="my-6 rounded-xl overflow-hidden border border-blue-500/20 bg-slate-950">
+          {/* Language label */}
+          <div className="bg-slate-900/50 border-b border-blue-500/20 px-4 py-2 flex items-center justify-between">
+            <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">
+              {language}
+            </span>
+          </div>
+          <SyntaxHighlighter
+            language={language}
+            style={vscDarkPlus}
+            customStyle={{
+              margin: 0,
+              padding: "1.5rem",
+              background: "transparent",
+              fontSize: "0.875rem",
+              lineHeight: "1.7",
+            }}
+            showLineNumbers={true}
+            wrapLines={true}
+          >
             {value.code}
-          </code>
-        </pre>
+          </SyntaxHighlighter>
+        </div>
       );
     },
   },
