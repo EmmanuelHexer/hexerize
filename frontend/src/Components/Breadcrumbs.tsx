@@ -21,7 +21,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   // Add BreadcrumbList structured data
   useEffect(() => {
     const scriptId = "breadcrumb-structured-data";
-    let script = document.getElementById(scriptId);
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
 
     const breadcrumbSchema = {
       "@context": "https://schema.org",
