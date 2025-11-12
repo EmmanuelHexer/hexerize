@@ -37,7 +37,7 @@ const BlogPost = () => {
           setPost(postData);
 
           // Fetch related posts
-          const categoryIds = postData.categories?.map((cat) => cat._id) || [];
+          const categoryIds = postData.categories?.map((cat: any) => cat._id) || [];
           const relatedData = await client.fetch(relatedPostsQuery, {
             postId: postData._id,
             categories: categoryIds,
@@ -58,8 +58,9 @@ const BlogPost = () => {
   useSEO({
     title: post?.title || "Blog Post",
     description: post?.excerpt || "",
-    image: post?.mainImage ? urlFor(post.mainImage).width(1200).url() : undefined,
-    url: `https://hexerize.com/blog/${slug}`,
+    ogImage: post?.mainImage ? urlFor(post.mainImage).width(1200).url() : undefined,
+    ogUrl: `https://hexerize.com/blog/${slug}`,
+    canonical: `https://hexerize.com/blog/${slug}`,
   });
 
   if (loading) {
