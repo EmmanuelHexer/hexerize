@@ -8,7 +8,6 @@ import type { BlogListItem, Category } from "../sanity/types";
 import BlogCard from "../Components/Blog/BlogCard";
 import CategoryFilter from "../Components/Blog/CategoryFilter";
 import SearchBar from "../Components/Blog/SearchBar";
-import LoadingSpinner from "../Components/LoadingSpinner";
 
 const Blog = () => {
   // SEO for Blog page

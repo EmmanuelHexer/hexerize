@@ -6,7 +6,6 @@ import type { BlogPost as BlogPostType, BlogListItem } from "../sanity/types";
 import PortableTextRenderer from "../Components/Blog/PortableTextRenderer";
 import BlogCard from "../Components/Blog/BlogCard";
 import Breadcrumbs from "../Components/Breadcrumbs";
-import LoadingSpinner from "../Components/LoadingSpinner";
 import ReadingProgress from "../Components/Blog/ReadingProgress";
 import CTASection from "../Components/Blog/CTASection";
 import Comments from "../Components/Blog/Comments";
@@ -84,16 +83,16 @@ const BlogPost = () => {
     );
   }
 
+  // Show nothing while loading to avoid flash
+  if (loading || !post) {
+    return null;
+  }
+
   const formattedDate = new Date(post.publishedAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
-
-  // Show nothing while loading to avoid flash
-  if (loading) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen bg-slate-900 text-gray-100">
