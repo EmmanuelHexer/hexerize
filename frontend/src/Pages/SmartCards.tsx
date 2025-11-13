@@ -406,7 +406,7 @@ const SmartCards = () => {
                                 <img
                                   src={ringImage}
                                   alt="Smart Ring"
-                                  className="w-[400px] xs:w-[480px] sm:w-[750px] md:w-[850px] lg:w-[950px] h-auto"
+                                  className="w-[800px] xs:w-[1000px] sm:w-[1500px] md:w-[1800px] lg:w-[2200px] h-auto"
                                   style={{
                                     filter: `drop-shadow(0 35px 70px rgba(0, 0, 0, ${0.5 + index * 0.15})) drop-shadow(0 18px 36px rgba(0, 0, 0, 0.6)) brightness(${0.75 + index * 0.15})`,
                                   }}
