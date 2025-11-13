@@ -129,23 +129,23 @@ const Contact = () => {
 
         {/* Contact Information */}
         <section className="relative py-8 overflow-hidden">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
             {/* Main contact card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden group hover:border-[color:var(--accent-color)]/30 transition-all duration-500"
+              className="bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 relative overflow-hidden group hover:border-[color:var(--accent-color)]/30 transition-all duration-500"
             >
               {/* Background glow effect */}
               <div className="absolute -top-40 -right-40 w-80 h-80 bg-[color:var(--accent-color)]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
               <div className="relative z-10">
                 {/* Contact grid */}
-                <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+                <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-16">
                   {/* Left column - Main contact */}
-                  <div className="space-y-10">
+                  <div className="space-y-6 sm:space-y-8 md:space-y-10">
                     <div>
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -158,9 +158,9 @@ const Contact = () => {
                         </h3>
                         <a
                           href="mailto:Emmanuelhexer@gmail.com"
-                          className="group/link inline-flex items-center gap-3 text-xl md:text-2xl font-bold text-[color:var(--heading-color)] hover:text-[color:var(--accent-color)] transition-colors duration-300"
+                          className="group/link inline-flex items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-[color:var(--heading-color)] hover:text-[color:var(--accent-color)] transition-colors duration-300 break-all"
                         >
-                          <svg className="w-7 h-7 text-[color:var(--accent-color)] group-hover/link:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[color:var(--accent-color)] group-hover/link:scale-110 transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
                           Emmanuelhexer@gmail.com
@@ -183,9 +183,9 @@ const Contact = () => {
                         </h3>
                         <a
                           href="tel:+233553130196"
-                          className="group/link inline-flex items-center gap-3 text-2xl md:text-3xl font-bold text-[color:var(--heading-color)] hover:text-[color:var(--accent-color)] transition-colors duration-300"
+                          className="group/link inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[color:var(--heading-color)] hover:text-[color:var(--accent-color)] transition-colors duration-300"
                         >
-                          <svg className="w-7 h-7 text-[color:var(--accent-color)] group-hover/link:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[color:var(--accent-color)] group-hover/link:scale-110 transition-transform duration-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                           </svg>
                           +233 553 130 196
@@ -198,7 +198,7 @@ const Contact = () => {
                   </div>
 
                   {/* Right column - Additional info */}
-                  <div className="space-y-10">
+                  <div className="space-y-6 sm:space-y-8 md:space-y-10">
                     <div>
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -209,8 +209,8 @@ const Contact = () => {
                         <h3 className="text-sm font-semibold text-[color:var(--body-color)]/50 uppercase tracking-wider mb-4">
                           Location
                         </h3>
-                        <div className="inline-flex items-start gap-3 text-2xl md:text-3xl font-bold text-[color:var(--heading-color)]">
-                          <svg className="w-7 h-7 text-[color:var(--accent-color)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="inline-flex items-start gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[color:var(--heading-color)]">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[color:var(--accent-color)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                           </svg>
@@ -232,8 +232,8 @@ const Contact = () => {
                         <h3 className="text-sm font-semibold text-[color:var(--body-color)]/50 uppercase tracking-wider mb-4">
                           Response Time
                         </h3>
-                        <div className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold text-[color:var(--heading-color)]">
-                          <svg className="w-7 h-7 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[color:var(--heading-color)]">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[color:var(--accent-color)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                           &lt; 24 hours
@@ -247,7 +247,7 @@ const Contact = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="my-12 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                <div className="my-8 sm:my-10 md:my-12 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
                 {/* Bottom note */}
                 <motion.div
@@ -257,7 +257,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <p className="text-[color:var(--body-color)]/60 leading-relaxed">
+                  <p className="text-sm sm:text-base text-[color:var(--body-color)]/60 leading-relaxed">
                     Have a project in mind? We'd love to hear about it. Get in touch and let's create something extraordinary together.
                   </p>
                 </motion.div>
