@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import ringImage from "../assets/ring.png";
 
 const SmartCards = () => {
@@ -114,7 +115,60 @@ const SmartCards = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 transition-all duration-700 ease-in-out">
+    <>
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana</title>
+        <meta
+          name="title"
+          content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"
+        />
+        <meta
+          name="description"
+          content="Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350. No app required, instant share, lifetime updates."
+        />
+        <meta
+          name="keywords"
+          content="smart business cards Ghana, NFC business cards, smart rings Ghana, digital business cards, contactless networking, NFC technology Ghana, Hexerize, professional networking, smart cards Accra"
+        />
+        <link rel="canonical" href="https://hexerize.com/smart-cards" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="product.group" />
+        <meta property="og:url" content="https://hexerize.com/smart-cards" />
+        <meta
+          property="og:title"
+          content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"
+        />
+        <meta
+          property="og:description"
+          content="Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350."
+        />
+        <meta property="og:image" content="https://hexerize.com/og-smart-cards.jpg" />
+        <meta property="og:locale" content="en_GH" />
+        <meta property="og:site_name" content="Hexerize" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://hexerize.com/smart-cards" />
+        <meta
+          property="twitter:title"
+          content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"
+        />
+        <meta
+          property="twitter:description"
+          content="Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350."
+        />
+        <meta property="twitter:image" content="https://hexerize.com/og-smart-cards.jpg" />
+
+        {/* Additional SEO */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Hexerize" />
+        <meta name="geo.region" content="GH" />
+        <meta name="geo.placename" content="Ghana" />
+      </Helmet>
+
+      <div className="bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 transition-all duration-700 ease-in-out">
       {/* Hero Section */}
       <section className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -663,6 +717,136 @@ const SmartCards = () => {
         </div>
       </section>
     </div>
+
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Product",
+              "@id": "https://hexerize.com/smart-cards#business-card",
+              "name": "Hexerize Smart Business Card",
+              "description": "Premium NFC smart business card with instant digital sharing. Full color printing, custom design, and lifetime updates.",
+              "image": "https://hexerize.com/smart-card-product.jpg",
+              "brand": {
+                "@type": "Brand",
+                "name": "Hexerize"
+              },
+              "offers": {
+                "@type": "Offer",
+                "url": "https://hexerize.com/smart-cards",
+                "priceCurrency": "GHS",
+                "price": "400",
+                "priceValidUntil": "2026-12-31",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availability": "https://schema.org/InStock",
+                "seller": {
+                  "@type": "Organization",
+                  "name": "Hexerize"
+                }
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "127"
+              }
+            },
+            {
+              "@type": "Product",
+              "@id": "https://hexerize.com/smart-cards#smart-ring",
+              "name": "Hexerize Smart Ring",
+              "description": "Premium tungsten/titanium smart ring with NFC technology. Water-resistant, scratch-proof, with lifetime warranty.",
+              "image": "https://hexerize.com/smart-ring-product.jpg",
+              "brand": {
+                "@type": "Brand",
+                "name": "Hexerize"
+              },
+              "offers": {
+                "@type": "Offer",
+                "url": "https://hexerize.com/smart-cards",
+                "priceCurrency": "GHS",
+                "price": "600",
+                "priceValidUntil": "2026-12-31",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availability": "https://schema.org/PreOrder",
+                "seller": {
+                  "@type": "Organization",
+                  "name": "Hexerize"
+                }
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://hexerize.com/smart-cards",
+              "url": "https://hexerize.com/smart-cards",
+              "name": "Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana",
+              "description": "Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap.",
+              "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://hexerize.com/#website",
+                "url": "https://hexerize.com",
+                "name": "Hexerize",
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Hexerize",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://hexerize.com/logo.png"
+                  }
+                }
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://hexerize.com"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Smart Cards & Rings",
+                    "item": "https://hexerize.com/smart-cards"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How do Hexerize smart cards work?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Simply tap your Hexerize smart card or ring on any compatible smartphone (iPhone 7+ or Android). Your complete digital profile opens instantly with contact info, social media, and more. No app required."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I update my smart card information?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! You can change your information from your dashboard whenever you want. Updates sync instantly to your card."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What devices are compatible with Hexerize smart cards?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Hexerize smart cards and rings work with iPhone 7+ and most Android devices with NFC capability."
+                  }
+                }
+              ]
+            }
+          ]
+        })}
+      </script>
+    </>
   );
 };
 
