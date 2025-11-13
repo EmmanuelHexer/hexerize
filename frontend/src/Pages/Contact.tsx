@@ -64,36 +64,6 @@ const Contact = () => {
     structuredData
   });
 
-  const contactMethods = [
-    {
-      title: "Email",
-      value: "Coming Soon",
-      icon: "ri-mail-line",
-      description: "Drop us a line anytime",
-    },
-    {
-      title: "Phone",
-      value: "+233 0553130196",
-      icon: "ri-phone-line",
-      description: "Call us during business hours",
-    },
-    {
-      title: "Location",
-      value: "Ghana",
-      icon: "ri-map-pin-line",
-      description: "Visit our office",
-    },
-    {
-      title: "Response Time",
-      value: "< 24 hours",
-      icon: "ri-time-line",
-      description: "We're quick to respond",
-    },
-  ];
-
-  // Form options removed as form is currently disabled
-  // Available for future form implementation
-
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 text-gray-100 transition-all duration-700 ease-in-out">
