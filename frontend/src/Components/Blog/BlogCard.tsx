@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { urlFor } from "../../sanity/client";
 import { BlogListItem } from "../../sanity/types";
 import { formatReadingTime } from "../../utils/readingTime";
+import { useState } from "react";
 
 interface BlogCardProps {
   post: BlogListItem;
@@ -9,11 +10,16 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ post, featured = false }: BlogCardProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const formattedDate = new Date(post.publishedAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
+
+  // Get LQIP (Low Quality Image Placeholder) from Sanity
+  const lqip = post.mainImage?.asset?.metadata?.lqip;
 
   return (
     <Link
@@ -23,14 +29,29 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
       }`}
     >
       {/* Image */}
-      <div className="relative overflow-hidden aspect-video">
+      <div className="relative overflow-hidden aspect-video bg-slate-800">
         {post.mainImage && (
-          <img
-            src={urlFor(post.mainImage).width(800).height(450).url()}
-            alt={post.mainImage.alt || post.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
+          <>
+            {/* LQIP blur placeholder */}
+            {lqip && !imageLoaded && (
+              <img
+                src={lqip}
+                alt=""
+                className="w-full h-full object-cover absolute inset-0 blur-xl scale-110"
+                aria-hidden="true"
+              />
+            )}
+            {/* Full resolution image */}
+            <img
+              src={urlFor(post.mainImage).width(800).height(450).url()}
+              alt={post.mainImage.alt || post.title}
+              className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${
+                imageLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              loading="lazy"
+              onLoad={() => setImageLoaded(true)}
+            />
+          </>
         )}
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>

@@ -15,10 +15,10 @@ const Comments = ({ slug }: CommentsProps) => {
       <div className="bg-slate-800/30 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6">
         <Giscus
           id="comments"
-          repo="YOUR_GITHUB_USERNAME/YOUR_REPO_NAME"
-          repoId="YOUR_REPO_ID"
-          category="Blog Comments"
-          categoryId="YOUR_CATEGORY_ID"
+          repo="Emmanuelhexer/hexerize"
+          repoId="R_kgDOPFRh2Q"
+          category="General"
+          categoryId="DIC_kwDOPFRh2c4Cxt4W"
           mapping="pathname"
           term={slug}
           reactionsEnabled="1"

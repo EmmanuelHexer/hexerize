@@ -6,6 +6,7 @@ import { client } from "../sanity/client";
 import { blogPostsQuery, categoriesQuery } from "../sanity/queries";
 import type { BlogListItem, Category } from "../sanity/types";
 import BlogCard from "../Components/Blog/BlogCard";
+import BlogCardSkeleton from "../Components/Blog/BlogCardSkeleton";
 import CategoryFilter from "../Components/Blog/CategoryFilter";
 import SearchBar from "../Components/Blog/SearchBar";
 
@@ -238,8 +239,17 @@ const Blog = () => {
       {/* Blog Content */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Only show content when we have posts */}
-          {posts.length > 0 && (
+          {/* Loading skeleton */}
+          {loading && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {Array.from({ length: 9 }).map((_, index) => (
+                <BlogCardSkeleton key={index} />
+              ))}
+            </div>
+          )}
+
+          {/* Only show content when we have posts and not loading */}
+          {!loading && posts.length > 0 && (
             <>
               {/* Search Bar */}
               <SearchBar

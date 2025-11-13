@@ -412,77 +412,180 @@ const SmartCards = () => {
       </section>
 
       {/* How It Works */}
-      <section id="features" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 scroll-fade-in">
-            <p className="uppercase font-semibold text-xs md:text-sm text-[color:var(--body-color)]/70 mb-4 tracking-wider">Simple Process</p>
-            <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-[color:var(--heading-color)] mb-6">
+      <section id="features" className="py-32 px-4 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[color:var(--accent-color)]/5 to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20 scroll-fade-in">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[color:var(--accent-color)]/20 to-blue-600/20 border border-[color:var(--accent-color)]/30 text-sm font-semibold text-[color:var(--accent-color)] tracking-wider">
+                SIMPLE PROCESS
+              </span>
+            </motion.div>
+            <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-[color:var(--heading-color)] mb-6 leading-tight">
               How It <span className="text-gradient-animated">Works</span>
             </h2>
+            <p className="text-[color:var(--body-color)]/70 text-lg max-w-2xl mx-auto">
+              Three simple steps to transform your networking game
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {[
               {
                 step: "01",
                 title: "Tap & Share",
                 description: "Simply tap your card or ring on any compatible smartphone. Works with iPhone 7+ and Android devices.",
-                icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>,
+                icon: <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>,
               },
               {
                 step: "02",
                 title: "Instant Profile",
                 description: "Your complete digital profile opens instantly with contact info, social media, and more.",
-                icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
+                icon: <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
               },
               {
                 step: "03",
                 title: "Update Anytime",
                 description: "Change your information from your dashboard whenever you want. Updates sync instantly.",
-                icon: <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>,
+                icon: <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>,
               },
             ].map((item, index) => (
-              <div key={index} className="scroll-fade-in" style={{ transitionDelay: `${index * 0.1}s` }}>
-                <div className="relative theme-card backdrop-blur-sm p-8 rounded-2xl hover-lift h-full border border-[color:var(--accent-color)]/20">
-                  <div className="text-7xl font-bold text-[color:var(--body-color)]/10 mb-4">{item.step}</div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-[color:var(--accent-color)] to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">{item.icon}</div>
-                  <h3 className="text-2xl font-bold text-[color:var(--heading-color)] mb-4">{item.title}</h3>
-                  <p className="text-[color:var(--body-color)]/70 leading-relaxed">{item.description}</p>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="scroll-fade-in group"
+              >
+                <div className="relative theme-card backdrop-blur-sm p-10 rounded-3xl hover-lift h-full border border-[color:var(--accent-color)]/30 bg-gradient-to-br from-gray-900/50 to-black/50 overflow-hidden transition-all duration-500 hover:border-[color:var(--accent-color)]/60 hover:shadow-2xl hover:shadow-[color:var(--accent-color)]/20">
+                  {/* Animated background gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--accent-color)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  {/* Step number with glow */}
+                  <div className="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[color:var(--accent-color)]/30 to-blue-600/20 mb-6 leading-none group-hover:from-[color:var(--accent-color)]/50 group-hover:to-blue-600/40 transition-all duration-500">
+                    {item.step}
+                  </div>
+
+                  {/* Icon container with animation */}
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-20 h-20 bg-gradient-to-br from-[color:var(--accent-color)] to-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-[color:var(--accent-color)]/30 group-hover:shadow-2xl group-hover:shadow-[color:var(--accent-color)]/50 transition-all duration-500"
+                  >
+                    {item.icon}
+                  </motion.div>
+
+                  <h3 className="text-3xl font-bold text-[color:var(--heading-color)] mb-4 group-hover:text-gradient-animated transition-all duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-[color:var(--body-color)]/70 leading-relaxed text-base">
+                    {item.description}
+                  </p>
+
+                  {/* Connecting line (except last card) */}
+                  {index < 2 && (
+                    <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-8 w-12 lg:w-16 h-0.5 bg-gradient-to-r from-[color:var(--accent-color)]/50 to-transparent"></div>
+                  )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 scroll-fade-in">
-            <p className="uppercase font-semibold text-xs md:text-sm text-[color:var(--body-color)]/70 mb-4 tracking-wider">Why Choose Us</p>
-            <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-[color:var(--heading-color)] mb-6">
-              Premium <span className="text-gradient-animated">Features</span>
-            </h2>
+      {/* Features Grid - Minimal Bento Style */}
+      <section className="py-32 px-4 relative overflow-hidden">
+        {/* Subtle background */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[color:var(--accent-color)]/5 via-transparent to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-24 scroll-fade-in">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-[color:var(--heading-color)] mb-4 leading-tight tracking-tight"
+            >
+              Why Choose <span className="text-gradient-animated">Us</span>
+            </motion.h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "No App Needed", desc: "Works instantly with any smartphone", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> },
-              { title: "Always Updated", desc: "Edit your info anytime, anywhere", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg> },
-              { title: "Universal", desc: "Compatible with iOS & Android", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
-              { title: "Instant Share", desc: "Tap once to transfer everything", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> },
-              { title: "Premium Build", desc: "High-quality durable material", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg> },
-              { title: "Secure", desc: "Advanced encryption technology", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg> },
-              { title: "Custom Design", desc: "Match your brand perfectly", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg> },
-              { title: "Eco-Friendly", desc: "No paper waste, reusable", icon: <svg className="w-10 h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg> },
-            ].map((feature, index) => (
-              <div key={index} className="scroll-fade-in" style={{ transitionDelay: `${index * 0.05}s` }}>
-                <div className="theme-card p-6 rounded-xl hover-lift text-center border border-[color:var(--accent-color)]/20 h-full">
-                  <div className="mb-4 flex justify-center">{feature.icon}</div>
-                  <h4 className="text-lg font-bold text-[color:var(--heading-color)] mb-2">{feature.title}</h4>
-                  <p className="text-[color:var(--body-color)]/70 text-sm">{feature.desc}</p>
+          {/* Bento Grid - Asymmetric Layout */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {/* Large Feature - Spans 2 columns */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="col-span-2 row-span-2 group"
+            >
+              <div className="h-full p-8 md:p-12 rounded-3xl bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-xl border border-white/10 hover:border-[color:var(--accent-color)]/50 transition-all duration-500 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--accent-color)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-[color:var(--accent-color)]/10 rounded-2xl flex items-center justify-center mb-6">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Instant Share</h3>
+                  <p className="text-[color:var(--body-color)]/60 text-base md:text-lg">One tap transfers everything. No apps, no friction, just seamless connection.</p>
                 </div>
               </div>
+            </motion.div>
+
+            {/* Small Features */}
+            {[
+              { title: "Universal", icon: <svg className="w-6 h-6 md:w-8 md:h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
+              { title: "Secure", icon: <svg className="w-6 h-6 md:w-8 md:h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg> },
+              { title: "Premium", icon: <svg className="w-6 h-6 md:w-8 md:h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg> },
+              { title: "Updated", icon: <svg className="w-6 h-6 md:w-8 md:h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg> },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="h-full p-6 md:p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br from-gray-900/40 to-black/40 backdrop-blur-xl border border-white/5 hover:border-[color:var(--accent-color)]/30 transition-all duration-500 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[color:var(--accent-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 flex flex-col items-center text-center h-full justify-center">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-[color:var(--accent-color)]/10 rounded-xl flex items-center justify-center mb-4">
+                      {feature.icon}
+                    </div>
+                    <h4 className="text-base md:text-lg font-semibold text-white">{feature.title}</h4>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Medium Features */}
+            {[
+              { title: "No App Required", desc: "Works with any smartphone", icon: <svg className="w-8 h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> },
+              { title: "Eco-Friendly", desc: "Sustainable & reusable", icon: <svg className="w-8 h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg> },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="col-span-2 md:col-span-1 group"
+              >
+                <div className="h-full p-6 md:p-8 rounded-2xl md:rounded-3xl bg-gradient-to-br from-gray-900/40 to-black/40 backdrop-blur-xl border border-white/5 hover:border-[color:var(--accent-color)]/30 transition-all duration-500 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[color:var(--accent-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-[color:var(--accent-color)]/10 rounded-xl flex items-center justify-center mb-4">
+                      {feature.icon}
+                    </div>
+                    <h4 className="text-lg md:text-xl font-semibold text-white mb-2">{feature.title}</h4>
+                    <p className="text-[color:var(--body-color)]/60 text-sm">{feature.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
