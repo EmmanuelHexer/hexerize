@@ -10,7 +10,16 @@ export const blogPostsQuery = `*[_type == "post"] | order(publishedAt desc) {
     slug,
     image
   },
-  mainImage,
+  mainImage {
+    ...,
+    asset->{
+      _id,
+      url,
+      metadata {
+        lqip
+      }
+    }
+  },
   categories[]->{
     _id,
     title,
@@ -32,7 +41,16 @@ export const featuredPostsQuery = `*[_type == "post" && featured == true] | orde
     slug,
     image
   },
-  mainImage,
+  mainImage {
+    ...,
+    asset->{
+      _id,
+      url,
+      metadata {
+        lqip
+      }
+    }
+  },
   categories[]->{
     _id,
     title,
@@ -58,7 +76,16 @@ export const blogPostBySlugQuery = `*[_type == "post" && slug.current == $slug][
     image,
     bio
   },
-  mainImage,
+  mainImage {
+    ...,
+    asset->{
+      _id,
+      url,
+      metadata {
+        lqip
+      }
+    }
+  },
   categories[]->{
     _id,
     title,
@@ -82,7 +109,16 @@ export const postsByCategoryQuery = `*[_type == "post" && $categoryId in categor
     slug,
     image
   },
-  mainImage,
+  mainImage {
+    ...,
+    asset->{
+      _id,
+      url,
+      metadata {
+        lqip
+      }
+    }
+  },
   categories[]->{
     _id,
     title,
@@ -111,7 +147,16 @@ export const relatedPostsQuery = `*[_type == "post" && _id != $postId && count((
     slug,
     image
   },
-  mainImage,
+  mainImage {
+    ...,
+    asset->{
+      _id,
+      url,
+      metadata {
+        lqip
+      }
+    }
+  },
   categories[]->{
     _id,
     title,
