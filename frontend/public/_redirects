@@ -1,1 +1,27 @@
-/*    /index.html   200
+# Hexerize - Netlify Redirects Configuration
+# IMPORTANT: This file is overridden by netlify.toml
+# The netlify.toml file provides more granular control with proper 404 handling
+
+# Valid static routes
+/                   /index.html   200
+/services           /index.html   200
+/projects           /index.html   200
+/about              /index.html   200
+/smart-cards        /index.html   200
+/blog               /index.html   200
+/contact            /index.html   200
+
+# Blog posts (dynamic routes)
+/blog/*             /index.html   200
+
+# Static files should be served directly
+/sitemap.xml        /sitemap.xml  200
+/robots.txt         /robots.txt   200
+
+# Assets
+/assets/*           /assets/:splat 200
+
+# CRITICAL: Catch-all for invalid routes
+# This returns proper 404 status for non-existent pages
+# This fixes soft 404 errors in Google Search Console
+/*                  /404.html     404

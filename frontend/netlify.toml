@@ -1,0 +1,168 @@
+# Netlify Configuration for Hexerize
+# This fixes soft 404 errors by returning proper HTTP status codes
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Build settings
+[build.environment]
+  NODE_VERSION = "18"
+
+# Headers for better SEO and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache images
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# SEO files - never cache
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# CRITICAL: Redirect rules for proper 404 handling
+# Order matters - specific routes first, catch-all last
+
+# Valid static routes - return 200 with SPA
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/projects"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/smart-cards"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/index.html"
+  status = 200
+
+# Blog posts - dynamic routes
+# IMPORTANT: Validated by Edge Function (validate-blog.ts)
+# The Edge Function checks sitemap.xml for valid slugs
+# Valid posts return 200, invalid posts return 404
+[[redirects]]
+  from = "/blog/*"
+  to = "/index.html"
+  status = 200
+
+# Static files should be served directly
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+[[redirects]]
+  from = "/*.png"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.jpg"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.ico"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.json"
+  to = "/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*.webmanifest"
+  to = "/:splat"
+  status = 200
+
+# Assets folder
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+# CRITICAL: Catch-all for invalid routes
+# Any route not matched above returns a proper 404
+# This fixes the soft 404 issue in Google Search Console
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Edge Functions Configuration
+# This enables the blog post validator to fix soft 404 errors
+[[edge_functions]]
+  function = "validate-blog"
+  path = "/blog/*"
+
+# Plugin configuration
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs]
+    output_path = "reports/lighthouse.html"
+
+# Form handling (if you have contact forms)
+[forms]
+  spam_filter = true
