@@ -135,7 +135,6 @@ const Projects = () => {
 
               {/* Mobile-optimized badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-green-500/10 border border-green-500/20 rounded-full">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-xs font-medium text-green-400">Our Work</span>
               </div>
 
@@ -266,7 +265,6 @@ const Projects = () => {
                   <div className={`lg:col-span-2 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full animate-pulse-soft"></div>
                         <span className="text-sm uppercase tracking-wide text-indigo-400 font-semibold">
                           {project.client}
                         </span>
@@ -305,8 +303,7 @@ const Projects = () => {
                       <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wide">Key Results</h3>
                       {project.results.map((result, idx) => (
                         <div key={idx} className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full status-indicator"></div>
-                          <span className="text-sm text-gray-300">{result}</span>
+                          <span className="text-sm text-gray-300">• {result}</span>
                         </div>
                       ))}
                     </div>

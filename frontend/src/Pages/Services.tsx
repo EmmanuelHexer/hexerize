@@ -184,7 +184,6 @@ const Services = () => {
 
               {/* Mobile-optimized badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
-                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
                 <span className="text-xs font-medium text-indigo-400">What We Offer</span>
               </div>
 
@@ -249,7 +248,6 @@ const Services = () => {
                   {/* Content */}
                   <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full animate-pulse-soft"></div>
                       <span className="text-sm uppercase tracking-wide text-indigo-400 font-semibold">
                         0{index + 1}
                       </span>
@@ -273,7 +271,6 @@ const Services = () => {
 
                     {/* Metrics */}
                     <div className="inline-flex items-center gap-2 px-4 py-2 theme-card rounded-full border border-indigo-500/20">
-                      <div className="w-2 h-2 bg-green-500 rounded-full status-indicator"></div>
                       <span className="text-sm font-medium text-indigo-400">
                         {service.metrics}
                       </span>
@@ -369,7 +366,6 @@ const Services = () => {
                         {item.metric}
                       </div>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity status-indicator"></div>
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-3">
                     {item.title}
