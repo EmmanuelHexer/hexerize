@@ -23,7 +23,9 @@
       "Bash(dir:*)",
       "Bash(test:*)",
       "Bash(test -f \"frontend/netlify/edge-functions/validate-blog.ts\")",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

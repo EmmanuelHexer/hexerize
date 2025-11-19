@@ -465,6 +465,62 @@ const SmartCards = () => {
         </div>
       </section>
 
+      {/* Video Demo Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-transparent via-[color:var(--accent-color)]/5 to-transparent">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 scroll-fade-in">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-4"
+            >
+              <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[color:var(--accent-color)]/20 to-blue-600/20 border border-[color:var(--accent-color)]/30 text-sm font-semibold text-[color:var(--accent-color)] tracking-wider">
+                LIVE DEMO
+              </span>
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-[color:var(--heading-color)] mb-4"
+            >
+              See It In <span className="text-gradient-animated">Action</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[color:var(--body-color)]/70 text-lg max-w-2xl mx-auto"
+            >
+              Watch how easy it is to share your digital presence with just a tap
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="scroll-fade-in"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[color:var(--accent-color)]/30 bg-black/20 backdrop-blur-sm">
+              {/* 16:9 Aspect Ratio Container */}
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://player.vimeo.com/video/1138326820?autoplay=0&title=0&byline=0&portrait=0#t=6s"
+                  title="Hexerize Smart Cards Demo"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section id="features" className="py-32 px-4 relative overflow-hidden">
         {/* Background Elements */}
