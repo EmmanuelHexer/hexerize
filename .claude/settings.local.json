@@ -25,7 +25,8 @@
       "Bash(test -f \"frontend/netlify/edge-functions/validate-blog.ts\")",
       "Bash(node:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
