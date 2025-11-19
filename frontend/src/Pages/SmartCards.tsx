@@ -510,8 +510,7 @@ const SmartCards = () => {
                   className="absolute top-0 left-0 w-full h-full"
                   src="https://player.vimeo.com/video/1138326820?autoplay=0&title=0&byline=0&portrait=0"
                   title="Hexerize Smart Cards Demo"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
+                  allow="fullscreen"
                   allowFullScreen
                   loading="lazy"
                 ></iframe>
