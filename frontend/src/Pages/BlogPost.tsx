@@ -198,9 +198,9 @@ const BlogPost = () => {
           {post.mainImage && (
             <div className="relative overflow-hidden rounded-2xl border border-blue-500/20">
               <img
-                src={urlFor(post.mainImage).width(1200).height(1200).url()}
+                src={urlFor(post.mainImage).width(1200).url()}
                 alt={post.mainImage.alt || `${post.title} - Featured image for ${post.categories?.[0]?.title || 'blog post'} on Hexerize`}
-                className="w-full h-auto object-cover max-h-[600px] sm:max-h-[500px] md:max-h-[550px] lg:max-h-[600px] block"
+                className="w-full h-auto object-contain rounded-2xl block"
                 loading="eager"
                 itemProp="image"
               />
