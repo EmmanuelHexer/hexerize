@@ -4,7 +4,6 @@ import { Suspense, lazy, useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Dropdown from "./Components/Dropdown";
 import LoadingSpinner from "./Components/LoadingSpinner";
-import ErrorBoundary from "./Components/ErrorBoundary";
 import { useAppContext } from "./AppContext/AppContext.tsx";
 
 // Eager load critical pages for instant access
@@ -50,37 +49,35 @@ function App() {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <div
-        className={`min-h-screen flex flex-col relative bg-[color:var(--body-background)] ${
-          showMenu ? "overflow-hidden h-screen" : ""
-        }`}
+    <div
+      className={`min-h-screen flex flex-col relative bg-[color:var(--body-background)] ${
+        showMenu ? "overflow-hidden h-screen" : ""
+      }`}
+    >
+      <Navbar />
+
+      {/* Dropdown Overlay (Always on top of all pages) */}
+      <Dropdown />
+
+      {/* Main content behind dropdown */}
+      <main
+        className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300 bg-[color:var(--body-background)]`}
       >
-        <Navbar />
-
-        {/* Dropdown Overlay (Always on top of all pages) */}
-        <Dropdown />
-
-        {/* Main content behind dropdown */}
-        <main
-          className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300 bg-[color:var(--body-background)]`}
-        >
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/smart-cards" element={<SmartCards />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
-      </div>
-    </ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/smart-cards" element={<SmartCards />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </main>
+    </div>
   );
 }
 
