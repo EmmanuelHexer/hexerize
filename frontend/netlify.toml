@@ -62,6 +62,36 @@
 # CRITICAL: Redirect rules for proper 404 handling
 # Order matters - specific routes first, catch-all last
 
+# Canonical URL redirects - Force HTTPS and non-WWW
+[[redirects]]
+  from = "https://www.hexerize.com/*"
+  to = "https://hexerize.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://hexerize.com/*"
+  to = "https://hexerize.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.hexerize.com/*"
+  to = "https://hexerize.com/:splat"
+  status = 301
+  force = true
+
+# Block spam/malicious URLs - Return 404
+[[redirects]]
+  from = "/parking.php"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/search/*"
+  to = "/404.html"
+  status = 404
+
 # Valid static routes - return 200 with SPA
 [[redirects]]
   from = "/"

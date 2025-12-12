@@ -5,6 +5,10 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/
+# Block spam/malicious URLs
+Disallow: /parking.php
+Disallow: /search/
+Disallow: /*.php$
 # Allow webmanifest and essential JSON files
 Allow: /*.webmanifest$
 Allow: /sitemap.json$
