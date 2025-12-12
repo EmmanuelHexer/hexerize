@@ -175,3 +175,53 @@ export const createContactPageSchema = () => ({
     "@id": "https://hexerize.com/#organization"
   }
 });
+
+// SiteNavigationElement - CRITICAL for Google Sitelinks
+export const createSiteNavigationSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "SiteNavigationElement",
+      "position": 1,
+      "name": "Services",
+      "description": "Comprehensive digital services and solutions",
+      "url": "https://hexerize.com/services"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 2,
+      "name": "Projects",
+      "description": "Our portfolio of successful digital projects",
+      "url": "https://hexerize.com/projects"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 3,
+      "name": "Smart Cards & Rings",
+      "description": "Premium NFC smart business cards and rings",
+      "url": "https://hexerize.com/smart-cards"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 4,
+      "name": "Blog",
+      "description": "Latest insights on web development and digital innovation",
+      "url": "https://hexerize.com/blog"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 5,
+      "name": "About Us",
+      "description": "Learn about Hexerize and our mission",
+      "url": "https://hexerize.com/about"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 6,
+      "name": "Contact",
+      "description": "Get in touch with our team",
+      "url": "https://hexerize.com/contact"
+    }
+  ]
+});

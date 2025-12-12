@@ -14,6 +14,7 @@ import {
   createWebsiteSchema,
   createWebPageSchema,
   createBreadcrumbSchema,
+  createSiteNavigationSchema,
 } from "../utils/structuredData";
 import { FaReact, FaNodeJs, FaPython, FaDocker, FaAws } from "react-icons/fa";
 import { SiJavascript, SiTypescript, SiMongodb } from "react-icons/si";
@@ -33,6 +34,7 @@ const Home = () => {
         "https://hexerize.com",
       ),
       createBreadcrumbSchema([{ name: "Home", url: "https://hexerize.com" }]),
+      createSiteNavigationSchema(), // CRITICAL for Google Sitelinks restoration
     ],
   };
 
