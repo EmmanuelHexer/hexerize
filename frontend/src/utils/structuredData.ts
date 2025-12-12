@@ -38,12 +38,8 @@ export const createWebsiteSchema = () => ({
   "description": "Innovative digital solutions that transform businesses. We create modern websites, powerful apps, and strategic digital experiences that drive real growth and success.",
   "publisher": {
     "@id": "https://hexerize.com/#organization"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://hexerize.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
   }
+  // SearchAction removed - deprecated by Google Nov 2024
 });
 
 export const createWebPageSchema = (title: string, description: string, url: string) => ({
