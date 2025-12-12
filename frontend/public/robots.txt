@@ -5,7 +5,9 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/
-Disallow: /*.json$
+# Allow webmanifest and essential JSON files
+Allow: /*.webmanifest$
+Allow: /sitemap.json$
 
 # Sitemap
 Sitemap: https://hexerize.com/sitemap.xml

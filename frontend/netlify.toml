@@ -52,6 +52,13 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# 404 page - Tell search engines not to index
+[[headers]]
+  for = "/404.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 # CRITICAL: Redirect rules for proper 404 handling
 # Order matters - specific routes first, catch-all last
 
