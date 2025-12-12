@@ -60,7 +60,7 @@ const Navbar = () => {
             <span className="relative z-10">Explore</span>
             <img
               src={assets.rightArrow}
-              alt="arrow"
+              alt="Navigation arrow icon"
               className="ml-2 w-4 filter brightness-0 invert transition-transform duration-300 group-hover:translate-x-1"
             />
           </a>

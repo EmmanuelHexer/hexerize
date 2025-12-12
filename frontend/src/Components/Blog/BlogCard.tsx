@@ -48,6 +48,8 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
               className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${
                 imageLoaded ? "opacity-100" : "opacity-0"
               }`}
+              width="800"
+              height="450"
               loading="lazy"
               onLoad={() => setImageLoaded(true)}
             />
@@ -104,8 +106,11 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
                 {post.author.image && (
                   <img
                     src={urlFor(post.author.image).width(32).height(32).url()}
-                    alt={post.author.name}
+                    alt={`Author photo of ${post.author.name}`}
                     className="w-8 h-8 rounded-full border-2 border-blue-500/30"
+                    width="32"
+                    height="32"
+                    loading="lazy"
                   />
                 )}
                 <span className="font-medium text-gray-300">

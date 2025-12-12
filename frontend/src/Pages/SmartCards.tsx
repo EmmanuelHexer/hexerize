@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -115,7 +115,7 @@ const SmartCards = () => {
   }, []);
 
   return (
-    <>
+    <LazyMotion features={domAnimation} strict>
       <Helmet>
         {/* Primary Meta Tags */}
         <title>Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana</title>
@@ -225,7 +225,7 @@ const SmartCards = () => {
                 {/* Card Stack - Shows when NOT showing rings */}
                 <AnimatePresence initial={false}>
                   {!showRings && (
-                    <motion.div
+                    <m.div
                       key="cards"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -253,7 +253,7 @@ const SmartCards = () => {
                           const zIndex = positionInCycle;
 
                           return (
-                            <motion.div
+                            <m.div
                               key={index}
                               style={{
                                 rotateX: isFront ? cardRotateX : 0,
@@ -284,7 +284,7 @@ const SmartCards = () => {
                               >
                                 <div className="w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-900 p-6 relative border border-[color:var(--accent-color)]/30">
                                   {isFront && (
-                                    <motion.div
+                                    <m.div
                                       className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                                       animate={{ x: ["-100%", "200%"] }}
                                       transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
@@ -309,21 +309,21 @@ const SmartCards = () => {
                                   </div>
                                 </div>
                               </div>
-                            </motion.div>
+                            </m.div>
                           );
                         })}
                         {/* Spacer for layout */}
                         <div className="w-[260px] h-[160px] xs:w-[300px] xs:h-[185px] sm:w-[380px] sm:h-[240px]"></div>
                       </div>
                       <p className="text-center text-[color:var(--body-color)]/60 text-sm mt-4">Business Card • GHS 400</p>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
                 {/* Ring Stack - Shows when hovering (Desktop) or clicked (Mobile) */}
                 <AnimatePresence initial={false}>
                   {showRings && (
-                    <motion.div
+                    <m.div
                       key="rings"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -347,7 +347,7 @@ const SmartCards = () => {
                           const isFront = index === 1;
 
                           return (
-                            <motion.div
+                            <m.div
                               key={index}
                               style={{
                                 rotateX: isFront && !isMobile ? ringRotateX : 0,
@@ -368,7 +368,7 @@ const SmartCards = () => {
                               }}
                               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                             >
-                              <motion.div
+                              <m.div
                                 className="relative"
                                 animate={{
                                   rotateZ: [0, 360],
@@ -383,7 +383,7 @@ const SmartCards = () => {
                               >
                                 {/* Glow effect behind ring - only on front */}
                                 {isFront && (
-                                  <motion.div
+                                  <m.div
                                     className="absolute inset-0 rounded-full blur-xl"
                                     style={{
                                       background: 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, transparent 70%)',
@@ -405,7 +405,7 @@ const SmartCards = () => {
                                 {/* Actual Ring Image - Responsive */}
                                 <img
                                   src={ringImage}
-                                  alt="Smart Ring"
+                                  alt="Hexerize Smart Ring - NFC-enabled wearable technology for instant digital sharing"
                                   className="w-[800px] xs:w-[1000px] sm:w-[1500px] md:w-[1800px] lg:w-[2200px] h-auto"
                                   style={{
                                     filter: `drop-shadow(0 35px 70px rgba(0, 0, 0, ${0.5 + index * 0.15})) drop-shadow(0 18px 36px rgba(0, 0, 0, 0.6)) brightness(${0.75 + index * 0.15})`,
@@ -414,13 +414,13 @@ const SmartCards = () => {
 
                                 {/* Animated light sweep overlay - only on front ring */}
                                 {isFront && (
-                                  <motion.div
+                                  <m.div
                                     className="absolute inset-0 overflow-hidden pointer-events-none"
                                     style={{
                                       mixBlendMode: 'overlay',
                                     }}
                                   >
-                                    <motion.div
+                                    <m.div
                                       className="absolute inset-0"
                                       style={{
                                         background: `
@@ -446,17 +446,17 @@ const SmartCards = () => {
                                         ease: "easeInOut"
                                       }}
                                     />
-                                  </motion.div>
+                                  </m.div>
                                 )}
-                              </motion.div>
-                            </motion.div>
+                              </m.div>
+                            </m.div>
                           );
                         })}
                       </div>
                       <p className="text-center text-[color:var(--body-color)]/60 text-sm mt-4">
                         Smart Ring • GHS 600 {isMobile && <span className="block text-xs mt-1">(Tap again to see cards)</span>}
                       </p>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </div>
@@ -469,7 +469,7 @@ const SmartCards = () => {
       <section className="py-20 px-4 bg-gradient-to-b from-transparent via-[color:var(--accent-color)]/5 to-transparent">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 scroll-fade-in">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -478,26 +478,26 @@ const SmartCards = () => {
               <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[color:var(--accent-color)]/20 to-blue-600/20 border border-[color:var(--accent-color)]/30 text-sm font-semibold text-[color:var(--accent-color)] tracking-wider">
                 LIVE DEMO
               </span>
-            </motion.div>
-            <motion.h2
+            </m.div>
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-[color:var(--heading-color)] mb-4"
             >
               See It In <span className="text-gradient-animated">Action</span>
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[color:var(--body-color)]/70 text-lg max-w-2xl mx-auto"
             >
               Watch how easy it is to share your digital presence with just a tap
-            </motion.p>
+            </m.p>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
@@ -516,7 +516,7 @@ const SmartCards = () => {
                 ></iframe>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -527,7 +527,7 @@ const SmartCards = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20 scroll-fade-in">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -536,7 +536,7 @@ const SmartCards = () => {
               <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[color:var(--accent-color)]/20 to-blue-600/20 border border-[color:var(--accent-color)]/30 text-sm font-semibold text-[color:var(--accent-color)] tracking-wider">
                 SIMPLE PROCESS
               </span>
-            </motion.div>
+            </m.div>
             <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl text-[color:var(--heading-color)] mb-6 leading-tight">
               How It <span className="text-gradient-animated">Works</span>
             </h2>
@@ -566,7 +566,7 @@ const SmartCards = () => {
                 icon: <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>,
               },
             ].map((item, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -583,12 +583,12 @@ const SmartCards = () => {
                   </div>
 
                   {/* Icon container with animation */}
-                  <motion.div
+                  <m.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     className="w-20 h-20 bg-gradient-to-br from-[color:var(--accent-color)] to-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-[color:var(--accent-color)]/30 group-hover:shadow-2xl group-hover:shadow-[color:var(--accent-color)]/50 transition-all duration-500"
                   >
                     {item.icon}
-                  </motion.div>
+                  </m.div>
 
                   <h3 className="text-3xl font-bold text-[color:var(--heading-color)] mb-4 group-hover:text-gradient-animated transition-all duration-300">
                     {item.title}
@@ -602,7 +602,7 @@ const SmartCards = () => {
                     <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-8 w-12 lg:w-16 h-0.5 bg-gradient-to-r from-[color:var(--accent-color)]/50 to-transparent"></div>
                   )}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -615,20 +615,20 @@ const SmartCards = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-24 scroll-fade-in">
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="font-extrabold text-5xl md:text-6xl lg:text-7xl text-[color:var(--heading-color)] mb-4 leading-tight tracking-tight"
             >
               Why Choose <span className="text-gradient-animated">Us</span>
-            </motion.h2>
+            </m.h2>
           </div>
 
           {/* Bento Grid - Asymmetric Layout */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {/* Large Feature - Spans 2 columns */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -644,7 +644,7 @@ const SmartCards = () => {
                   <p className="text-[color:var(--body-color)]/60 text-base md:text-lg">One tap transfers everything. No apps, no friction, just seamless connection.</p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Small Features */}
             {[
@@ -653,7 +653,7 @@ const SmartCards = () => {
               { title: "Premium", icon: <svg className="w-6 h-6 md:w-8 md:h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg> },
               { title: "Updated", icon: <svg className="w-6 h-6 md:w-8 md:h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg> },
             ].map((feature, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -669,7 +669,7 @@ const SmartCards = () => {
                     <h4 className="text-base md:text-lg font-semibold text-white">{feature.title}</h4>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
 
             {/* Medium Features */}
@@ -677,7 +677,7 @@ const SmartCards = () => {
               { title: "No App Required", desc: "Works with any smartphone", icon: <svg className="w-8 h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> },
               { title: "Eco-Friendly", desc: "Sustainable & reusable", icon: <svg className="w-8 h-8 text-[color:var(--accent-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg> },
             ].map((feature, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -694,7 +694,7 @@ const SmartCards = () => {
                     <p className="text-[color:var(--body-color)]/60 text-sm">{feature.desc}</p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -965,7 +965,7 @@ const SmartCards = () => {
           ]
         })}
       </script>
-    </>
+    </LazyMotion>
   );
 };
 

@@ -82,7 +82,7 @@ const Dropdown = () => {
               <span className="relative z-10">Get Started</span>
               <img
                 src={assets.rightArrow}
-                alt="arrow"
+                alt="Right arrow icon"
                 className="ml-3 w-4 filter brightness-0 invert transition-transform duration-300 group-hover:translate-x-1 relative z-10"
               />
               <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

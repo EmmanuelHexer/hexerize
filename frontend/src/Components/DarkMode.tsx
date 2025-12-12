@@ -66,13 +66,13 @@ const DarkMode = () => {
         <div className={`absolute top-[6px] left-[8px] transition-all duration-500 ${
           isDark ? "opacity-40 scale-90" : "opacity-20 scale-75"
         }`}>
-          <img src={Moon} alt="moon" className="w-[12px] h-[12px]" />
+          <img src={Moon} alt="Moon icon for dark mode toggle" className="w-[12px] h-[12px]" />
         </div>
 
         <div className={`absolute top-[6px] right-[8px] transition-all duration-500 ${
           isDark ? "opacity-20 scale-75" : "opacity-40 scale-90"
         }`}>
-          <img src={Sun} alt="sun" className="w-[12px] h-[12px]" />
+          <img src={Sun} alt="Sun icon for light mode toggle" className="w-[12px] h-[12px]" />
         </div>
       </label>
     </div>

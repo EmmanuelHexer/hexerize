@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { useSEO } from "../hooks/useSEO";
 import { seoConfig } from "../config/seoConfig";
 import { createFAQSchema, createContactPageSchema } from "../utils/structuredData";
@@ -65,7 +65,7 @@ const Contact = () => {
   });
 
   return (
-    <>
+    <LazyMotion features={domAnimation} strict>
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 text-gray-100 transition-all duration-700 ease-in-out">
         {/* Animated Background Particles */}
         <div className="fixed inset-0 z-0 pointer-events-none">
@@ -91,7 +91,7 @@ const Contact = () => {
                 { name: "Contact", url: "https://hexerize.com/contact" }
               ]} />
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -103,9 +103,9 @@ const Contact = () => {
                     READY TO HELP
                   </span>
                 </span>
-              </motion.div>
+              </m.div>
 
-              <motion.h1
+              <m.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
@@ -113,16 +113,16 @@ const Contact = () => {
               >
                 Let's Start a{" "}
                 <span className="text-gradient-animated">Conversation</span>
-              </motion.h1>
+              </m.h1>
 
-              <motion.p
+              <m.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-base sm:text-lg md:text-xl text-[color:var(--body-color)]/70 max-w-3xl mx-auto leading-relaxed"
               >
                 Ready to transform your digital presence? Let's discuss your vision and create something extraordinary together.
-              </motion.p>
+              </m.p>
             </div>
           </div>
         </section>
@@ -131,7 +131,7 @@ const Contact = () => {
         <section className="relative py-8 overflow-hidden">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
             {/* Main contact card */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -147,7 +147,7 @@ const Contact = () => {
                   {/* Left column - Main contact */}
                   <div className="space-y-6 sm:space-y-8 md:space-y-10">
                     <div>
-                      <motion.div
+                      <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
@@ -168,11 +168,11 @@ const Contact = () => {
                         <p className="text-[color:var(--body-color)]/60 mt-3 leading-relaxed">
                           Drop us a line anytime
                         </p>
-                      </motion.div>
+                      </m.div>
                     </div>
 
                     <div>
-                      <motion.div
+                      <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -193,14 +193,14 @@ const Contact = () => {
                         <p className="text-[color:var(--body-color)]/60 mt-3 leading-relaxed">
                           Mon-Fri from 8am to 5pm
                         </p>
-                      </motion.div>
+                      </m.div>
                     </div>
                   </div>
 
                   {/* Right column - Additional info */}
                   <div className="space-y-6 sm:space-y-8 md:space-y-10">
                     <div>
-                      <motion.div
+                      <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
@@ -219,11 +219,11 @@ const Contact = () => {
                         <p className="text-[color:var(--body-color)]/60 mt-3 leading-relaxed">
                           Serving clients nationwide
                         </p>
-                      </motion.div>
+                      </m.div>
                     </div>
 
                     <div>
-                      <motion.div
+                      <m.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
@@ -241,7 +241,7 @@ const Contact = () => {
                         <p className="text-[color:var(--body-color)]/60 mt-3 leading-relaxed">
                           We're quick to respond
                         </p>
-                      </motion.div>
+                      </m.div>
                     </div>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ const Contact = () => {
                 <div className="my-8 sm:my-10 md:my-12 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
                 {/* Bottom note */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
@@ -260,9 +260,9 @@ const Contact = () => {
                   <p className="text-sm sm:text-base text-[color:var(--body-color)]/60 leading-relaxed">
                     Have a project in mind? We'd love to hear about it. Get in touch and let's create something extraordinary together.
                   </p>
-                </motion.div>
+                </m.div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -271,7 +271,7 @@ const Contact = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Why Choose Us */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -317,7 +317,7 @@ const Contact = () => {
                           icon: "ri-refresh-line",
                         },
                       ].map((item, index) => (
-                        <motion.div
+                        <m.div
                           key={index}
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
@@ -337,15 +337,15 @@ const Contact = () => {
                               {item.description}
                             </p>
                           </div>
-                        </motion.div>
+                        </m.div>
                       ))}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* FAQ Section */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -387,7 +387,7 @@ const Contact = () => {
                         const FAQItem = () => {
                           const [isOpen, setIsOpen] = useState(false);
                           return (
-                            <motion.div
+                            <m.div
                               key={index}
                               initial={{ opacity: 0, y: 10 }}
                               whileInView={{ opacity: 1, y: 0 }}
@@ -415,7 +415,7 @@ const Contact = () => {
                                   </div>
                                 </div>
                               </div>
-                            </motion.div>
+                            </m.div>
                           );
                         };
                         return <FAQItem key={index} />;
@@ -423,12 +423,12 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
       </div>
-    </>
+    </LazyMotion>
   );
 };
 

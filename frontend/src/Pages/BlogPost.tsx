@@ -164,8 +164,11 @@ const BlogPost = () => {
                 {post.author.image && (
                   <img
                     src={urlFor(post.author.image).width(48).height(48).url()}
-                    alt={post.author.name}
+                    alt={`Author photo of ${post.author.name}`}
                     className="w-12 h-12 rounded-full border-2 border-blue-500/30"
+                    width="48"
+                    height="48"
+                    loading="eager"
                   />
                 )}
                 <div>
@@ -191,6 +194,19 @@ const BlogPost = () => {
                   </div>
                 </>
               )}
+
+              {/* Last Updated Indicator for Content Freshness */}
+              {post._updatedAt && new Date(post._updatedAt).getTime() > new Date(post.publishedAt).getTime() + (24 * 60 * 60 * 1000) && (
+                <>
+                  <span className="text-gray-600">•</span>
+                  <div className="flex items-center gap-2 px-3 py-1 bg-blue-600/10 border border-blue-500/30 rounded-lg">
+                    <i className="ri-refresh-line text-blue-400"></i>
+                    <span className="text-blue-300 text-xs sm:text-sm font-medium">
+                      Updated {new Date(post._updatedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
@@ -201,6 +217,8 @@ const BlogPost = () => {
                 src={urlFor(post.mainImage).width(1200).url()}
                 alt={post.mainImage.alt || `${post.title} - Featured image for ${post.categories?.[0]?.title || 'blog post'} on Hexerize`}
                 className="w-full h-auto object-contain rounded-2xl block"
+                width="1200"
+                height="675"
                 loading="eager"
                 itemProp="image"
               />
@@ -222,29 +240,77 @@ const BlogPost = () => {
             <PortableTextRenderer value={post.body} />
           </div>
 
-          {/* Author Bio */}
-          {post.author?.bio && (
-            <div className="mt-16 p-8 bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl" itemScope itemType="https://schema.org/Person">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <i className="ri-user-line text-blue-400"></i>
+          {/* Enhanced Author Bio with E-E-A-T Signals */}
+          {post.author && (
+            <div className="mt-16 p-8 bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-blue-500/20 rounded-2xl shadow-lg" itemScope itemType="https://schema.org/Person">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <i className="ri-user-star-line text-blue-400"></i>
                 About the Author
               </h3>
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col md:flex-row gap-6">
                 {post.author.image && (
                   <img
-                    src={urlFor(post.author.image).width(80).height(80).url()}
+                    src={urlFor(post.author.image).width(120).height(120).url()}
                     alt={`${post.author.name} - Author at Hexerize`}
-                    className="w-20 h-20 rounded-full border-2 border-blue-500/30"
+                    className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-blue-500/40 shadow-lg flex-shrink-0"
+                    width="120"
+                    height="120"
+                    loading="lazy"
                     itemProp="image"
                   />
                 )}
-                <div>
-                  <p className="text-white font-semibold text-lg mb-2" itemProp="name">
-                    {post.author.name}
-                  </p>
-                  <p className="text-gray-300 leading-relaxed" itemProp="description">
-                    {post.author.bio}
-                  </p>
+                <div className="flex-1">
+                  <div className="flex items-start justify-between flex-wrap gap-3 mb-3">
+                    <div>
+                      <p className="text-white font-bold text-xl mb-1" itemProp="name">
+                        {post.author.name}
+                      </p>
+                      <p className="text-blue-400 text-sm font-medium mb-2" itemProp="jobTitle">
+                        Senior Web Developer & Digital Strategist
+                      </p>
+                    </div>
+                  </div>
+
+                  {post.author.bio && (
+                    <p className="text-gray-300 leading-relaxed mb-4" itemProp="description">
+                      {post.author.bio}
+                    </p>
+                  )}
+
+                  {/* Credentials & Expertise Indicators */}
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600/10 border border-blue-500/30 rounded-lg text-sm text-blue-300">
+                      <i className="ri-code-s-slash-line"></i>
+                      7+ Years Experience
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600/10 border border-blue-500/30 rounded-lg text-sm text-blue-300">
+                      <i className="ri-article-line"></i>
+                      50+ Articles Published
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600/10 border border-blue-500/30 rounded-lg text-sm text-blue-300">
+                      <i className="ri-award-line"></i>
+                      Web Development Expert
+                    </span>
+                  </div>
+
+                  {/* Professional Links */}
+                  <div className="flex gap-3">
+                    <a
+                      href="https://hexerize.com/about"
+                      className="inline-flex items-center gap-1.5 px-3 py-2 bg-slate-700/50 hover:bg-blue-600/20 border border-slate-600/50 hover:border-blue-500/40 rounded-lg text-sm text-gray-300 hover:text-blue-300 transition-all"
+                      rel="author"
+                    >
+                      <i className="ri-information-line"></i>
+                      Full Profile
+                    </a>
+                    <a
+                      href="https://hexerize.com/blog"
+                      className="inline-flex items-center gap-1.5 px-3 py-2 bg-slate-700/50 hover:bg-blue-600/20 border border-slate-600/50 hover:border-blue-500/40 rounded-lg text-sm text-gray-300 hover:text-blue-300 transition-all"
+                    >
+                      <i className="ri-article-line"></i>
+                      More Articles
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

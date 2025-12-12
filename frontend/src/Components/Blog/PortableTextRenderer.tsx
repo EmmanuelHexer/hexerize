@@ -74,7 +74,7 @@ const components: PortableTextComponents = {
         <figure className="my-8">
           <img
             src={urlFor(value).width(1200).url()}
-            alt={value.alt || "Blog image"}
+            alt={value.alt || "Article illustration - Visual content from Hexerize blog"}
             className="w-full rounded-2xl border border-blue-500/20"
             loading="lazy"
           />
