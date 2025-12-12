@@ -800,11 +800,6 @@ const SmartCards = () => {
                   "@type": "Organization",
                   "name": "Hexerize"
                 }
-              },
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "127"
               }
             },
             {
