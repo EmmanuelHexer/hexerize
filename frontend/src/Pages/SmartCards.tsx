@@ -928,8 +928,7 @@ const SmartCards = () => {
                   {
                     "@type": "ListItem",
                     "position": 2,
-                    "name": "Smart Cards & Rings",
-                    "item": "https://hexerize.com/smart-cards"
+                    "name": "Smart Cards & Rings"
                   }
                 ]
               }

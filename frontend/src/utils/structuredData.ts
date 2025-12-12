@@ -65,12 +65,16 @@ export const createWebPageSchema = (title: string, description: string, url: str
 export const createBreadcrumbSchema = (items: { name: string; url: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": items.map((item, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "name": item.name,
-    "item": item.url
-  }))
+  "itemListElement": items.map((item, index) => {
+    const isLast = index === items.length - 1;
+    return {
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      // Last item should not have 'item' property per Google guidelines
+      ...(isLast ? {} : { "item": item.url })
+    };
+  })
 });
 
 export const createServiceSchema = () => ({
