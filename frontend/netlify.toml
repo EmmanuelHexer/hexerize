@@ -200,6 +200,10 @@
   [plugins.inputs]
     output_path = "reports/lighthouse.html"
 
+# CRITICAL: Prerendering for SEO - Ensures Google sees fully rendered pages
+[[plugins]]
+  package = "@netlify/plugin-prerender"
+
 # Form handling (if you have contact forms)
 [forms]
   spam_filter = true
