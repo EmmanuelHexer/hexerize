@@ -75,7 +75,7 @@ function generateRouteHTML(route) {
 
   // Replace title meta tag first (before description to avoid conflicts)
   html = html.replace(
-    /<meta name="title" content="[^"]*"\/>/,
+    /<meta\s+name="title"\s+content="[^"]*"\s*\/>/,
     `<meta name="title" content="${route.title}"/>`
   );
 
@@ -152,11 +152,23 @@ function generateRouteHTML(route) {
       );
     }
 
-    // Add article:published_time and article:modified_time
+    // Add article:published_time, article:modified_time, and article:section/tag
     if (route.publishedTime) {
-      const articleTimeTags = `
+      let articleTimeTags = `
     <meta property="article:published_time" content="${route.publishedTime}"/>
     <meta property="article:modified_time" content="${route.modifiedTime || route.publishedTime}"/>`;
+
+      // Add article:section for primary category and article:tag for all categories
+      if (route.categories && route.categories.length > 0) {
+        articleTimeTags += `
+    <meta property="article:section" content="${route.categories[0]}"/>`;
+
+        // Add article:tag for each category
+        route.categories.forEach(category => {
+          articleTimeTags += `
+    <meta property="article:tag" content="${category}"/>`;
+        });
+      }
 
       html = html.replace(
         /<meta property="og:type" content="article"\/>/,
@@ -251,6 +263,7 @@ async function generateAllHTML() {
         publishedTime: post.publishedAt,
         modifiedTime: post._updatedAt || post.publishedAt,
         keywords: keywords,
+        categories: post.categories || [],
         structuredData: {
           "@context": "https://schema.org",
           "@type": "Article",
