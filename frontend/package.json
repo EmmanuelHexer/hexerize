@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run generate:sitemap && tsc -b && vite build && npm run submit:indexnow",
+    "build": "npm run generate:sitemap && tsc -b && vite build && npm run generate:route-html && npm run submit:indexnow",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate:sitemap": "node scripts/generate-sitemap.js",
+    "generate:route-html": "node scripts/generate-route-html.js",
     "submit:indexnow": "node scripts/submit-indexnow.js"
   },
   "dependencies": {
