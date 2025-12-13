@@ -75,15 +75,23 @@ function generateRouteHTML(route) {
 
   // Replace title meta tag first (before description to avoid conflicts)
   html = html.replace(
-    /<meta name="title" content=".*?"\/>/,
+    /<meta name="title" content="[^"]*"\/>/,
     `<meta name="title" content="${route.title}"/>`
   );
 
-  // Replace description
+  // Replace description (handle multiline attributes)
   html = html.replace(
-    /<meta name="description" content=".*?"\/>/,
+    /<meta\s+name="description"\s+content="[^"]*"[^>]*>/,
     `<meta name="description" content="${route.description}"/>`
   );
+
+  // Replace keywords if provided (for blog posts with categories)
+  if (route.keywords) {
+    html = html.replace(
+      /<meta\s+name="keywords"\s+content="[^"]*"[^>]*>/,
+      `<meta name="keywords" content="${route.keywords}"/>`
+    );
+  }
 
   // Add canonical tag
   html = html.replace(
@@ -93,48 +101,82 @@ function generateRouteHTML(route) {
 
   // Update Open Graph tags
   html = html.replace(
-    /<meta property="og:url" content=".*?"\/>/,
+    /<meta\s+property="og:url"\s+content="[^"]*"[^>]*>/,
     `<meta property="og:url" content="${route.canonical}"/>`
   );
 
   html = html.replace(
-    /<meta property="og:title" content=".*?"\/>/,
+    /<meta\s+property="og:title"\s+content="[^"]*"[^>]*>/,
     `<meta property="og:title" content="${route.title}"/>`
   );
 
   html = html.replace(
-    /<meta property="og:description" content=".*?"\/>/,
+    /<meta\s+property="og:description"\s+content="[^"]*"[^>]*>/,
     `<meta property="og:description" content="${route.description}"/>`
   );
 
   // Update Twitter tags
   html = html.replace(
-    /<meta name="twitter:url" content=".*?"\/>/,
+    /<meta\s+name="twitter:url"\s+content="[^"]*"[^>]*>/,
     `<meta name="twitter:url" content="${route.canonical}"/>`
   );
 
   html = html.replace(
-    /<meta name="twitter:title" content=".*?"\/>/,
+    /<meta\s+name="twitter:title"\s+content="[^"]*"[^>]*>/,
     `<meta name="twitter:title" content="${route.title}"/>`
   );
 
   html = html.replace(
-    /<meta name="twitter:description" content=".*?"\/>/,
+    /<meta\s+name="twitter:description"\s+content="[^"]*"[^>]*>/,
     `<meta name="twitter:description" content="${route.description}"/>`
   );
 
   // Add article type for blog posts
   if (route.isArticle) {
     html = html.replace(
-      /<meta property="og:type" content="website"\/>/,
+      /<meta\s+property="og:type"\s+content="website"\s*\/>/,
       `<meta property="og:type" content="article"/>`
     );
+
+    // Update OG image to use featured image if available
+    if (route.ogImage) {
+      html = html.replace(
+        /<meta\s+property="og:image"\s+content="[^"]*"[^>]*>/,
+        `<meta property="og:image" content="${route.ogImage}"/>`
+      );
+
+      // Update Twitter image too
+      html = html.replace(
+        /<meta\s+name="twitter:image"\s+content="[^"]*"[^>]*>/,
+        `<meta name="twitter:image" content="${route.ogImage}"/>`
+      );
+    }
+
+    // Add article:published_time and article:modified_time
+    if (route.publishedTime) {
+      const articleTimeTags = `
+    <meta property="article:published_time" content="${route.publishedTime}"/>
+    <meta property="article:modified_time" content="${route.modifiedTime || route.publishedTime}"/>`;
+
+      html = html.replace(
+        /<meta property="og:type" content="article"\/>/,
+        `<meta property="og:type" content="article"/>${articleTimeTags}`
+      );
+    }
 
     // Add article structured data if provided
     if (route.structuredData) {
       html = html.replace(
         /<script type="application\/ld\+json">/,
         `<script type="application/ld+json">\n${JSON.stringify(route.structuredData, null, 2)}\n</script>\n    <script type="application/ld+json">`
+      );
+    }
+
+    // Add breadcrumb structured data if provided
+    if (route.breadcrumb) {
+      html = html.replace(
+        /<script type="application\/ld\+json">/,
+        `<script type="application/ld+json">\n${JSON.stringify(route.breadcrumb, null, 2)}\n</script>\n    <script type="application/ld+json">`
       );
     }
   }
@@ -189,12 +231,26 @@ async function generateAllHTML() {
         ? post.excerpt.substring(0, 152) + '...'
         : (post.excerpt || 'Read this article on Hexerize blog.');
 
+      // Generate OG image URL (1200x630 for optimal social sharing)
+      const ogImage = post.mainImage
+        ? `${post.mainImage}?w=1200&h=630&fit=crop&auto=format`
+        : 'https://hexerize.com/opengraph-image.png';
+
+      // Extract keywords from categories
+      const keywords = post.categories && post.categories.length > 0
+        ? post.categories.join(', ')
+        : 'web development, programming, technology';
+
       const route = {
         path: `blog/${post.slug}`,
         title: `${post.title} | Hexerize Blog`,
         description: description,
         canonical: `https://hexerize.com/blog/${post.slug}`,
         isArticle: true,
+        ogImage: ogImage,
+        publishedTime: post.publishedAt,
+        modifiedTime: post._updatedAt || post.publishedAt,
+        keywords: keywords,
         structuredData: {
           "@context": "https://schema.org",
           "@type": "Article",
@@ -205,8 +261,25 @@ async function generateAllHTML() {
           "dateModified": post._updatedAt || post.publishedAt,
           "author": {
             "@type": "Person",
-            "name": post.author?.name || "Hexerize",
-            "url": "https://hexerize.com"
+            "name": post.author?.name || "Hexerize Team",
+            "url": "https://hexerize.com/about",
+            "jobTitle": "Senior Web Developer & Digital Strategist",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Hexerize",
+              "url": "https://hexerize.com"
+            },
+            ...(post.author?.image && {
+              "image": {
+                "@type": "ImageObject",
+                "url": post.author.image
+              }
+            }),
+            "sameAs": [
+              "https://linkedin.com/company/hexerize",
+              "https://twitter.com/hexerize",
+              "https://github.com/hexerize"
+            ]
           },
           "publisher": {
             "@type": "Organization",
@@ -224,6 +297,30 @@ async function generateAllHTML() {
           },
           "inLanguage": "en-US",
           "isAccessibleForFree": true
+        },
+        breadcrumb: {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://hexerize.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://hexerize.com/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": post.title,
+              "item": `https://hexerize.com/blog/${post.slug}`
+            }
+          ]
         }
       };
 
