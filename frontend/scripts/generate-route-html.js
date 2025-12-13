@@ -12,25 +12,25 @@ const baseHTML = readFileSync(`${__dirname}/../dist/index.html`, 'utf-8');
 const routes = [
   {
     path: 'services',
-    title: 'Web Development & App Solutions | Hexerize Services',
+    title: 'Services | Hexerize',
     description: 'Professional web development, mobile apps, digital branding, and strategic consulting services. Custom solutions tailored to your business needs. Free consultation available.',
     canonical: 'https://hexerize.com/services'
   },
   {
     path: 'projects',
-    title: 'Portfolio | Hexerize Digital Projects & Case Studies',
+    title: 'Projects | Hexerize',
     description: 'Explore successful digital projects and case studies. See our work in e-commerce platforms, AI-powered applications, custom web solutions, and mobile apps. Real results, real impact.',
     canonical: 'https://hexerize.com/projects'
   },
   {
     path: 'about',
-    title: 'About Hexerize | Leading Digital Innovation Agency',
+    title: 'About | Hexerize',
     description: 'Meet the team behind innovative digital solutions. Learn how Hexerize combines cutting-edge technology, creative design, and strategic thinking to transform businesses globally.',
     canonical: 'https://hexerize.com/about'
   },
   {
     path: 'contact',
-    title: 'Contact Hexerize | Free Consultation Available',
+    title: 'Contact | Hexerize',
     description: 'Ready to transform your business? Contact Hexerize for a free consultation. Expert web development, mobile apps, and digital strategy. Available worldwide. Let\'s start your project today.',
     canonical: 'https://hexerize.com/contact'
   }
