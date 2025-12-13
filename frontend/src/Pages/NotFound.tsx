@@ -7,7 +7,7 @@ const NotFound = () => {
 
   // SEO for 404 page
   useSEO({
-    title: "404 - Page Not Found | Hexerize",
+    title: "404 | Hexerize",
     description: "The page you're looking for doesn't exist. Discover Hexerize's digital innovation services including web development, branding, and app development.",
     canonical: "https://hexerize.com/404",
   });

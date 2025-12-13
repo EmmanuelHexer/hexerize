@@ -33,6 +33,12 @@ const routes = [
     title: 'Contact | Hexerize',
     description: 'Ready to transform your business? Contact Hexerize for a free consultation. Expert web development, mobile apps, and digital strategy. Available worldwide. Let\'s start your project today.',
     canonical: 'https://hexerize.com/contact'
+  },
+  {
+    path: 'smart-cards',
+    title: 'Smart Cards | Hexerize',
+    description: 'Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350. No app required, instant share, lifetime updates.',
+    canonical: 'https://hexerize.com/smart-cards'
   }
 ];
 

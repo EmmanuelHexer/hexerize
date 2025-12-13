@@ -118,10 +118,10 @@ const SmartCards = () => {
     <LazyMotion features={domAnimation} strict>
       <Helmet>
         {/* Primary Meta Tags */}
-        <title>Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana</title>
+        <title>Smart Cards | Hexerize</title>
         <meta
           name="title"
-          content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"
+          content="Smart Cards | Hexerize"
         />
         <meta
           name="description"
