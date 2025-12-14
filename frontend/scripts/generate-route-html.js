@@ -24,37 +24,37 @@ const routes = [
     path: 'services',
     title: 'Services | Hexerize',
     description: 'Professional web development, mobile apps, digital branding, and strategic consulting services. Custom solutions tailored to your business needs. Free consultation available.',
-    canonical: 'https://hexerize.com/services'
+    canonical: 'https://hexerize.com/services/'
   },
   {
     path: 'projects',
     title: 'Projects | Hexerize',
     description: 'Explore successful digital projects and case studies. See our work in e-commerce platforms, AI-powered applications, custom web solutions, and mobile apps. Real results, real impact.',
-    canonical: 'https://hexerize.com/projects'
+    canonical: 'https://hexerize.com/projects/'
   },
   {
     path: 'about',
     title: 'About | Hexerize',
     description: 'Meet the team behind innovative digital solutions. Learn how Hexerize combines cutting-edge technology, creative design, and strategic thinking to transform businesses globally.',
-    canonical: 'https://hexerize.com/about'
+    canonical: 'https://hexerize.com/about/'
   },
   {
     path: 'contact',
     title: 'Contact | Hexerize',
     description: 'Ready to transform your business? Contact Hexerize for a free consultation. Expert web development, mobile apps, and digital strategy. Available worldwide. Let\'s start your project today.',
-    canonical: 'https://hexerize.com/contact'
+    canonical: 'https://hexerize.com/contact/'
   },
   {
     path: 'smart-cards',
     title: 'Smart Cards | Hexerize',
     description: 'Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350. No app required, instant share, lifetime updates.',
-    canonical: 'https://hexerize.com/smart-cards'
+    canonical: 'https://hexerize.com/smart-cards/'
   },
   {
     path: 'blog',
     title: 'Blog | Hexerize',
     description: 'Expert insights on digital innovation, web development trends, and cutting-edge technology. Learn modern development practices and strategies.',
-    canonical: 'https://hexerize.com/blog'
+    canonical: 'https://hexerize.com/blog/'
   }
 ];
 
@@ -257,7 +257,7 @@ async function generateAllHTML() {
         path: `blog/${post.slug}`,
         title: `${post.title} | Hexerize Blog`,
         description: description,
-        canonical: `https://hexerize.com/blog/${post.slug}`,
+        canonical: `https://hexerize.com/blog/${post.slug}/`,
         isArticle: true,
         ogImage: ogImage,
         publishedTime: post.publishedAt,
@@ -306,7 +306,7 @@ async function generateAllHTML() {
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://hexerize.com/blog/${post.slug}`
+            "@id": `https://hexerize.com/blog/${post.slug}/`
           },
           "inLanguage": "en-US",
           "isAccessibleForFree": true
@@ -319,19 +319,19 @@ async function generateAllHTML() {
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://hexerize.com"
+              "item": "https://hexerize.com/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Blog",
-              "item": "https://hexerize.com/blog"
+              "item": "https://hexerize.com/blog/"
             },
             {
               "@type": "ListItem",
               "position": 3,
               "name": post.title,
-              "item": `https://hexerize.com/blog/${post.slug}`
+              "item": `https://hexerize.com/blog/${post.slug}/`
             }
           ]
         }
