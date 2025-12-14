@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import HexerizeLogo from '../assets/HexerizeLogoDark.png';
 
 const LoadingSpinner = () => {
   const [showLoader, setShowLoader] = useState(false);
@@ -19,20 +20,30 @@ const LoadingSpinner = () => {
 
   return (
     <div className="min-h-screen bg-[color:var(--card-background)] flex items-center justify-center">
-      <div className="flex flex-col items-center gap-4">
-        {/* Minimal, Professional Loading Animation */}
-        <div className="relative">
-          <div className="w-8 h-8 border-2 border-[color:var(--accent-color)]/20 rounded-full"></div>
-          <div className="absolute inset-0 w-8 h-8 border-2 border-transparent border-t-[color:var(--accent-color)] rounded-full animate-spin"></div>
-        </div>
-
-        {/* Subtle Loading Text */}
-        <div className="text-center">
-          <p className="text-sm text-[color:var(--body-color)]/60 font-medium">
-            Loading
-          </p>
-        </div>
+      <div className="animate-pulse-scale">
+        <img
+          src={HexerizeLogo}
+          alt="Hexerize Logo"
+          className="w-32 h-32 object-contain"
+        />
       </div>
+
+      <style>{`
+        @keyframes pulse-scale {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(0.85);
+            opacity: 0.7;
+          }
+        }
+
+        .animate-pulse-scale {
+          animation: pulse-scale 1.5s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };

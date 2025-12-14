@@ -1,0 +1,26 @@
+# Hexerize - Netlify Headers Configuration
+# CRITICAL: Prevent trailing slash redirects for SEO
+
+# All HTML pages - prevent trailing slash behavior
+/*
+  X-Robots-Tag: index, follow
+  Link: <https://hexerize.com>; rel="canonical"
+
+# Specific pages with canonical URLs
+/services
+  Link: <https://hexerize.com/services>; rel="canonical"
+
+/about
+  Link: <https://hexerize.com/about>; rel="canonical"
+
+/contact
+  Link: <https://hexerize.com/contact>; rel="canonical"
+
+/projects
+  Link: <https://hexerize.com/projects>; rel="canonical"
+
+/blog
+  Link: <https://hexerize.com/blog>; rel="canonical"
+
+/smart-cards
+  Link: <https://hexerize.com/smart-cards>; rel="canonical"

@@ -9,6 +9,7 @@ import Breadcrumbs from "../Components/Breadcrumbs";
 import ReadingProgress from "../Components/Blog/ReadingProgress";
 import CTASection from "../Components/Blog/CTASection";
 import Comments from "../Components/Blog/Comments";
+import BlogPostSkeleton from "../Components/Blog/BlogPostSkeleton";
 import { useSEO } from "../hooks/useSEO";
 
 const BlogPost = () => {
@@ -16,6 +17,7 @@ const BlogPost = () => {
   const [post, setPost] = useState<BlogPostType | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogListItem[]>([]);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -28,6 +30,7 @@ const BlogPost = () => {
       if (!slug) return;
 
       try {
+        setLoading(true);
         // Fetch post data
         const postData = await client.fetch(blogPostBySlugQuery, { slug });
 
@@ -46,6 +49,8 @@ const BlogPost = () => {
         }
       } catch (error) {
         console.error("Error fetching blog post:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -112,9 +117,9 @@ const BlogPost = () => {
     } : undefined
   });
 
-  // If no post yet, don't render anything (prevents flash of empty page)
-  if (!post) {
-    return null;
+  // Show skeleton while loading
+  if (loading || !post) {
+    return <BlogPostSkeleton />;
   }
 
   const formattedDate = new Date(post.publishedAt).toLocaleDateString("en-US", {
