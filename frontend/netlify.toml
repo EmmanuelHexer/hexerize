@@ -9,6 +9,13 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# CRITICAL: Disable Netlify's automatic trailing slash behavior
+# This prevents duplicate content and Google de-indexing
+[build.processing]
+  skip_processing = false
+[build.processing.html]
+  pretty_urls = false
+
 # Headers for better SEO and performance
 [[headers]]
   for = "/*"
