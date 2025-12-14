@@ -201,7 +201,7 @@ const SmartCards = () => {
 
               <div className="pt-1 xs:pt-2">
                 <button
-                  onClick={() => navigate("/contact")}
+                  onClick={() => navigate("/contact/")}
                   className="magnetic-hover group inline-flex items-center justify-center gap-2 px-5 py-2 xs:px-6 xs:py-2.5 sm:px-8 sm:py-3 text-sm xs:text-base font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow"
                 >
                   <span>Order Now</span>
@@ -721,7 +721,7 @@ const SmartCards = () => {
                     <li key={i} className="flex items-start gap-2"><svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-[color:var(--body-color)]/70 text-sm">{f}</span></li>
                   ))}
                 </ul>
-                <button onClick={() => navigate("/contact")} className="w-full py-3 rounded-full font-semibold border border-[color:var(--accent-color)]/30 text-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/10 transition-all duration-300 hover:scale-105">Order Now</button>
+                <button onClick={() => navigate("/contact/")} className="w-full py-3 rounded-full font-semibold border border-[color:var(--accent-color)]/30 text-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/10 transition-all duration-300 hover:scale-105">Order Now</button>
               </div>
             </div>
 
@@ -736,7 +736,7 @@ const SmartCards = () => {
                     <li key={i} className="flex items-start gap-2"><svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-[color:var(--body-color)]/70 text-sm">{f}</span></li>
                   ))}
                 </ul>
-                <button onClick={() => navigate("/contact")} className="w-full py-3 rounded-full font-semibold bg-[color:var(--accent-color)] text-white shadow-lg transition-all duration-300 hover:scale-105">Order Now</button>
+                <button onClick={() => navigate("/contact/")} className="w-full py-3 rounded-full font-semibold bg-[color:var(--accent-color)] text-white shadow-lg transition-all duration-300 hover:scale-105">Order Now</button>
               </div>
             </div>
 
@@ -750,7 +750,7 @@ const SmartCards = () => {
                     <li key={i} className="flex items-start gap-2"><svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-[color:var(--body-color)]/70 text-sm">{f}</span></li>
                   ))}
                 </ul>
-                <button onClick={() => navigate("/contact")} className="w-full py-3 rounded-full font-semibold border border-[color:var(--accent-color)]/30 text-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/10 transition-all duration-300 hover:scale-105">Pre-Order</button>
+                <button onClick={() => navigate("/contact/")} className="w-full py-3 rounded-full font-semibold border border-[color:var(--accent-color)]/30 text-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/10 transition-all duration-300 hover:scale-105">Pre-Order</button>
               </div>
             </div>
           </div>
@@ -766,7 +766,7 @@ const SmartCards = () => {
           <p className="text-xl text-[color:var(--body-color)]/70 mb-8 max-w-2xl mx-auto">
             Join professionals using Hexerize Smart Cards and Rings. Never miss a connection again.
           </p>
-          <button onClick={() => navigate("/contact")} className="magnetic-hover inline-flex items-center justify-center gap-3 px-10 py-4 text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow">
+          <button onClick={() => navigate("/contact/")} className="magnetic-hover inline-flex items-center justify-center gap-3 px-10 py-4 text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow">
             Get Started Today
           </button>
         </div>

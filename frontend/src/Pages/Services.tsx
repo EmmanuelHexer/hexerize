@@ -194,7 +194,7 @@ const Services = () => {
                 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-12 leading-relaxed"
               >
                 Comprehensive digital solutions that transform businesses and
-                create lasting impact. See our <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/projects")}>successful projects</span> or <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/about")}>meet our team</span>.
+                create lasting impact. See our <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/projects/")}>successful projects</span> or <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/about/")}>meet our team</span>.
               </p>
 
               {/* Mobile: Show only 2 key stats */}

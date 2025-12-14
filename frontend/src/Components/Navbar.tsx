@@ -53,7 +53,7 @@ const Navbar = () => {
         <div className="flex item-center h-full m-auto">
           {/* <DarkMode /> */}
           <a
-            href="/projects"
+            href="/projects/"
             className="relative theme-accent-bg hover:brightness-110 text-white text-sm md:text-base font-semibold px-6 py-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 group items-center overflow-hidden hidden lg:flex"
           >
             <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

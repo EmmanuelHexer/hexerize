@@ -196,7 +196,7 @@ const About = () => {
                     About <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Hexerize</span>
                   </h1>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed max-w-2xl w-full">
-                    Founded by two passionate developers building the future of technology with cutting-edge solutions. Explore our <span className="cursor-pointer underline decoration-dotted hover:text-blue-400 transition-colors" onClick={() => navigate("/services")}>services</span> or view our <span className="cursor-pointer underline decoration-dotted hover:text-blue-400 transition-colors" onClick={() => navigate("/projects")}>project portfolio</span>.
+                    Founded by two passionate developers building the future of technology with cutting-edge solutions. Explore our <span className="cursor-pointer underline decoration-dotted hover:text-blue-400 transition-colors" onClick={() => navigate("/services/")}>services</span> or view our <span className="cursor-pointer underline decoration-dotted hover:text-blue-400 transition-colors" onClick={() => navigate("/projects/")}>project portfolio</span>.
                   </p>
 
                   {/* Mobile: Show only 2 badges */}

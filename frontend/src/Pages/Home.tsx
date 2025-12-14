@@ -222,20 +222,20 @@ const Home = () => {
               <p className="text-[color:var(--body-color)]/70 text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-[50ch] mx-auto lg:mx-0 tiny-phone-text">
                 {/* iPhone 5 version - shorter */}
                 <span className="hidden tiny-phone-show">
-                  <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about")}>We</span> build innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services")}>websites and apps</span> that transform businesses and drive real growth.
+                  <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about/")}>We</span> build innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services/")}>websites and apps</span> that transform businesses and drive real growth.
                 </span>
                 {/* Larger screens version - full text */}
                 <span className="tiny-phone-hide">
-                  Innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services")}>digital solutions</span> that transform businesses. We
+                  Innovative <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/services/")}>digital solutions</span> that transform businesses. We
                   create modern websites, powerful apps, and strategic digital
-                  experiences that drive real growth and success. <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about")}>Learn more about our team</span>.
+                  experiences that drive real growth and success. <span className="cursor-pointer underline decoration-dotted hover:text-[color:var(--accent-color)] transition-colors" onClick={() => navigate("/about/")}>Learn more about our team</span>.
                 </span>
               </p>
 
               {/* Dual CTA */}
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center justify-center lg:justify-start tiny-phone-spacing small-phone-spacing">
                 <button
-                  onClick={() => navigate("/contact")}
+                  onClick={() => navigate("/contact/")}
                   className="magnetic-hover group inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-white bg-[color:var(--accent-color)] hover:bg-[color:var(--accent-color)]/90 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow w-full sm:w-fit tiny-phone-buttons small-phone-buttons"
                 >
                   <span>Start Your Project</span>
@@ -247,7 +247,7 @@ const Home = () => {
                 </button>
 
                 <button
-                  onClick={() => navigate("/projects")}
+                  onClick={() => navigate("/projects/")}
                   className="magnetic-hover inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-[color:var(--accent-color)] bg-transparent border border-[color:var(--accent-color)]/30 hover:bg-[color:var(--accent-color)]/10 hover:border-[color:var(--accent-color)] rounded-full transition-all duration-300 transform hover:scale-105 w-full sm:w-fit tiny-phone-buttons small-phone-buttons"
                 >
                   <svg
