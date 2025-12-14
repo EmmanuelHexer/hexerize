@@ -61,7 +61,7 @@ const Blog = () => {
       "@type": "Blog",
       "name": "Hexerize Blog",
       "description": seoConfig.blog.description,
-      "url": "https://hexerize.com/blog",
+      "url": "https://hexerize.com/blog/",
       "publisher": {
         "@type": "Organization",
         "name": "Hexerize",
@@ -125,7 +125,7 @@ const Blog = () => {
             <Breadcrumbs
               items={[
                 { name: "Home", url: "https://hexerize.com" },
-                { name: "Blog", url: "https://hexerize.com/blog" },
+                { name: "Blog", url: "https://hexerize.com/blog/" },
               ]}
             />
 
@@ -211,7 +211,7 @@ const Blog = () => {
           <Breadcrumbs
             items={[
               { name: "Home", url: "https://hexerize.com" },
-              { name: "Blog", url: "https://hexerize.com/blog" },
+              { name: "Blog", url: "https://hexerize.com/blog/" },
             ]}
           />
 

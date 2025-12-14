@@ -53,11 +53,11 @@ const Services = () => {
       createWebPageSchema(
         seoConfig.services.title,
         seoConfig.services.description,
-        "https://hexerize.com/services"
+        "https://hexerize.com/services/"
       ),
       createBreadcrumbSchema([
         { name: "Home", url: "https://hexerize.com" },
-        { name: "Services", url: "https://hexerize.com/services" }
+        { name: "Services", url: "https://hexerize.com/services/" }
       ]),
       faqSchema
     ]
@@ -179,7 +179,7 @@ const Services = () => {
             <div className="text-center">
               <Breadcrumbs items={[
                 { name: "Home", url: "https://hexerize.com" },
-                { name: "Services", url: "https://hexerize.com/services" }
+                { name: "Services", url: "https://hexerize.com/services/" }
               ]} />
 
               {/* Mobile-optimized badge */}

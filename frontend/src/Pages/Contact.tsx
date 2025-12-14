@@ -88,7 +88,7 @@ const Contact = () => {
             <div className="text-center">
               <Breadcrumbs items={[
                 { name: "Home", url: "https://hexerize.com" },
-                { name: "Contact", url: "https://hexerize.com/contact" }
+                { name: "Contact", url: "https://hexerize.com/contact/" }
               ]} />
 
               <m.div

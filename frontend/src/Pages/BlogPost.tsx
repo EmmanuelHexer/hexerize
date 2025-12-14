@@ -137,7 +137,7 @@ const BlogPost = () => {
           <Breadcrumbs
             items={[
               { name: "Home", url: "https://hexerize.com" },
-              { name: "Blog", url: "https://hexerize.com/blog" },
+              { name: "Blog", url: "https://hexerize.com/blog/" },
               { name: post.title, url: `https://hexerize.com/blog/${slug}` },
             ]}
           />
@@ -301,7 +301,7 @@ const BlogPost = () => {
                   {/* Professional Links */}
                   <div className="flex gap-3">
                     <a
-                      href="https://hexerize.com/about"
+                      href="https://hexerize.com/about/"
                       className="inline-flex items-center gap-1.5 px-3 py-2 bg-slate-700/50 hover:bg-blue-600/20 border border-slate-600/50 hover:border-blue-500/40 rounded-lg text-sm text-gray-300 hover:text-blue-300 transition-all"
                       rel="author"
                     >
@@ -309,7 +309,7 @@ const BlogPost = () => {
                       Full Profile
                     </a>
                     <a
-                      href="https://hexerize.com/blog"
+                      href="https://hexerize.com/blog/"
                       className="inline-flex items-center gap-1.5 px-3 py-2 bg-slate-700/50 hover:bg-blue-600/20 border border-slate-600/50 hover:border-blue-500/40 rounded-lg text-sm text-gray-300 hover:text-blue-300 transition-all"
                     >
                       <i className="ri-article-line"></i>

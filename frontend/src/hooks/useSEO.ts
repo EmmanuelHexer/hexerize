@@ -22,7 +22,7 @@ export const useSEO = ({
   title,
   description,
   keywords,
-  canonical = "https://hexerize.com",
+  canonical = "https://hexerize.com/",
   ogTitle,
   ogDescription,
   ogUrl,

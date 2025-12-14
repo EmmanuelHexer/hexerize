@@ -130,7 +130,7 @@ const Projects = () => {
             <div className="text-center">
               <Breadcrumbs items={[
                 { name: "Home", url: "https://hexerize.com" },
-                { name: "Projects", url: "https://hexerize.com/projects" }
+                { name: "Projects", url: "https://hexerize.com/projects/" }
               ]} />
 
               {/* Mobile-optimized badge */}

@@ -53,11 +53,11 @@ const About = () => {
       createWebPageSchema(
         seoConfig.about.title,
         seoConfig.about.description,
-        "https://hexerize.com/about"
+        "https://hexerize.com/about/"
       ),
       createBreadcrumbSchema([
         { name: "Home", url: "https://hexerize.com" },
-        { name: "About", url: "https://hexerize.com/about" }
+        { name: "About", url: "https://hexerize.com/about/" }
       ]),
       faqSchema
     ]
@@ -183,7 +183,7 @@ const About = () => {
                   <div className="w-full flex justify-center lg:justify-start">
                     <Breadcrumbs items={[
                       { name: "Home", url: "https://hexerize.com" },
-                      { name: "About", url: "https://hexerize.com/about" }
+                      { name: "About", url: "https://hexerize.com/about/" }
                     ]} />
                   </div>
 
