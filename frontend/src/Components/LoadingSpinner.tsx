@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import HexerizeLogo from '../assets/HexerizeLogoDark.png';
+import { assets } from '../assets/assets';
 
 const LoadingSpinner = () => {
   const [showLoader, setShowLoader] = useState(false);
@@ -22,7 +22,7 @@ const LoadingSpinner = () => {
     <div className="min-h-screen bg-[color:var(--card-background)] flex items-center justify-center">
       <div className="animate-pulse-scale">
         <img
-          src={HexerizeLogo}
+          src={assets.darkLogo}
           alt="Hexerize Logo"
           className="w-32 h-32 object-contain"
         />
