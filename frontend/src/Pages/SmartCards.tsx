@@ -150,7 +150,7 @@ const SmartCards = () => {
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://hexerize.com/smart-cards" />
+        <meta property="twitter:url" content="https://hexerize.com/smart-cards/" />
         <meta
           property="twitter:title"
           content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"
@@ -790,7 +790,7 @@ const SmartCards = () => {
               },
               "offers": {
                 "@type": "Offer",
-                "url": "https://hexerize.com/smart-cards",
+                "url": "https://hexerize.com/smart-cards/",
                 "priceCurrency": "GHS",
                 "price": "400",
                 "priceValidUntil": "2026-12-31",
@@ -849,7 +849,7 @@ const SmartCards = () => {
               },
               "offers": {
                 "@type": "Offer",
-                "url": "https://hexerize.com/smart-cards",
+                "url": "https://hexerize.com/smart-cards/",
                 "priceCurrency": "GHS",
                 "price": "600",
                 "priceValidUntil": "2026-12-31",
@@ -898,14 +898,14 @@ const SmartCards = () => {
             },
             {
               "@type": "WebPage",
-              "@id": "https://hexerize.com/smart-cards",
-              "url": "https://hexerize.com/smart-cards",
+              "@id": "https://hexerize.com/smart-cards/",
+              "url": "https://hexerize.com/smart-cards/",
               "name": "Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana",
               "description": "Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap.",
               "isPartOf": {
                 "@type": "WebSite",
                 "@id": "https://hexerize.com/#website",
-                "url": "https://hexerize.com",
+                "url": "https://hexerize.com/",
                 "name": "Hexerize",
                 "publisher": {
                   "@type": "Organization",
@@ -923,7 +923,7 @@ const SmartCards = () => {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://hexerize.com"
+                    "item": "https://hexerize.com/"
                   },
                   {
                     "@type": "ListItem",

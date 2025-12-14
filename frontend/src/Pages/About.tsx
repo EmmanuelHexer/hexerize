@@ -56,7 +56,7 @@ const About = () => {
         "https://hexerize.com/about/"
       ),
       createBreadcrumbSchema([
-        { name: "Home", url: "https://hexerize.com" },
+        { name: "Home", url: "https://hexerize.com/" },
         { name: "About", url: "https://hexerize.com/about/" }
       ]),
       faqSchema
@@ -182,7 +182,7 @@ const About = () => {
                 <div className="flex flex-col items-center lg:items-start w-full">
                   <div className="w-full flex justify-center lg:justify-start">
                     <Breadcrumbs items={[
-                      { name: "Home", url: "https://hexerize.com" },
+                      { name: "Home", url: "https://hexerize.com/" },
                       { name: "About", url: "https://hexerize.com/about/" }
                     ]} />
                   </div>

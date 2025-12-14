@@ -124,7 +124,7 @@ const Blog = () => {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <Breadcrumbs
               items={[
-                { name: "Home", url: "https://hexerize.com" },
+                { name: "Home", url: "https://hexerize.com/" },
                 { name: "Blog", url: "https://hexerize.com/blog/" },
               ]}
             />
@@ -210,7 +210,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <Breadcrumbs
             items={[
-              { name: "Home", url: "https://hexerize.com" },
+              { name: "Home", url: "https://hexerize.com/" },
               { name: "Blog", url: "https://hexerize.com/blog/" },
             ]}
           />

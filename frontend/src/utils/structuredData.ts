@@ -6,7 +6,7 @@ export const createOrganizationSchema = () => ({
   "@id": "https://hexerize.com/#organization",
   "name": "Hexerize",
   "alternateName": "Hexerize Digital Innovation",
-  "url": "https://hexerize.com",
+  "url": "https://hexerize.com/",
   "logo": {
     "@type": "ImageObject",
     "url": "https://hexerize.com/hexerize-logo-512.png",
@@ -33,7 +33,7 @@ export const createWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://hexerize.com/#website",
-  "url": "https://hexerize.com",
+  "url": "https://hexerize.com/",
   "name": "Hexerize - Digital Innovation Company",
   "description": "Innovative digital solutions that transform businesses. We create modern websites, powerful apps, and strategic digital experiences that drive real growth and success.",
   "publisher": {
@@ -131,7 +131,7 @@ export const createPersonSchema = (name: string, role: string, description: stri
   "worksFor": {
     "@id": "https://hexerize.com/#organization"
   },
-  "url": "https://hexerize.com/about"
+  "url": "https://hexerize.com/about/"
 });
 
 export const createFAQSchema = (faqs: { question: string; answer: string }[]) => ({
@@ -163,7 +163,7 @@ export const createReviewSchema = () => ({
 export const createContactPageSchema = () => ({
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "url": "https://hexerize.com/contact",
+  "url": "https://hexerize.com/contact/",
   "name": "Contact Hexerize - Start Your Digital Innovation Project",
   "description": "Ready to transform your business? Contact Hexerize for a free consultation.",
   "mainEntity": {
@@ -182,42 +182,42 @@ export const createSiteNavigationSchema = () => ({
       "position": 1,
       "name": "Services",
       "description": "Comprehensive digital services and solutions",
-      "url": "https://hexerize.com/services"
+      "url": "https://hexerize.com/services/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 2,
       "name": "Projects",
       "description": "Our portfolio of successful digital projects",
-      "url": "https://hexerize.com/projects"
+      "url": "https://hexerize.com/projects/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 3,
       "name": "Smart Cards & Rings",
       "description": "Premium NFC smart business cards and rings",
-      "url": "https://hexerize.com/smart-cards"
+      "url": "https://hexerize.com/smart-cards/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 4,
       "name": "Blog",
       "description": "Latest insights on web development and digital innovation",
-      "url": "https://hexerize.com/blog"
+      "url": "https://hexerize.com/blog/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 5,
       "name": "About Us",
       "description": "Learn about Hexerize and our mission",
-      "url": "https://hexerize.com/about"
+      "url": "https://hexerize.com/about/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 6,
       "name": "Contact",
       "description": "Get in touch with our team",
-      "url": "https://hexerize.com/contact"
+      "url": "https://hexerize.com/contact/"
     }
   ]
 });

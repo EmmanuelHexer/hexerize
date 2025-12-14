@@ -31,9 +31,9 @@ const Home = () => {
       createWebPageSchema(
         seoConfig.home.title,
         seoConfig.home.description,
-        "https://hexerize.com",
+        "https://hexerize.com/",
       ),
-      createBreadcrumbSchema([{ name: "Home", url: "https://hexerize.com" }]),
+      createBreadcrumbSchema([{ name: "Home", url: "https://hexerize.com/" }]),
       createSiteNavigationSchema(), // CRITICAL for Google Sitelinks restoration
     ],
   };

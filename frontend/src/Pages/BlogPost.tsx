@@ -83,7 +83,7 @@ const BlogPost = () => {
       "author": {
         "@type": "Person",
         "name": post.author?.name || "Hexerize",
-        "url": "https://hexerize.com",
+        "url": "https://hexerize.com/",
         ...(post.author?.image && {
           "image": {
             "@type": "ImageObject",
@@ -136,7 +136,7 @@ const BlogPost = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <Breadcrumbs
             items={[
-              { name: "Home", url: "https://hexerize.com" },
+              { name: "Home", url: "https://hexerize.com/" },
               { name: "Blog", url: "https://hexerize.com/blog/" },
               { name: post.title, url: `https://hexerize.com/blog/${slug}` },
             ]}

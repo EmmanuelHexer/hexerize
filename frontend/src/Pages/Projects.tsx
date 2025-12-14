@@ -129,7 +129,7 @@ const Projects = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
               <Breadcrumbs items={[
-                { name: "Home", url: "https://hexerize.com" },
+                { name: "Home", url: "https://hexerize.com/" },
                 { name: "Projects", url: "https://hexerize.com/projects/" }
               ]} />
 
