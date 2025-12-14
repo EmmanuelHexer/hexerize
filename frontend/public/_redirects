@@ -1,8 +1,16 @@
 # Hexerize - Netlify Redirects Configuration
-# IMPORTANT: This file is overridden by netlify.toml
-# The netlify.toml file provides more granular control with proper 404 handling
+# IMPORTANT: This file works WITH netlify.toml
 
-# Valid static routes
+# CRITICAL: Remove trailing slashes FIRST (before serving pages)
+# This prevents duplicate content and Google de-indexing
+/services/          /services           301!
+/about/             /about              301!
+/contact/           /contact            301!
+/projects/          /projects           301!
+/blog/              /blog               301!
+/smart-cards/       /smart-cards        301!
+
+# Valid static routes (serve pages WITHOUT trailing slashes)
 /                   /index.html   200
 /services           /index.html   200
 /projects           /index.html   200
