@@ -4,7 +4,7 @@ import rightArrow from "./rightArrow.png";
 import whiteArrow from "./icons8-right-24.png";
 import openMenu from "./openMenu.png";
 import closeMenu from "./closeMenu.png";
-import darkLogo from "./HexerizeLogoDark.png";
+import darkLogo from "./hexerizeLogoDark.png";
 import project1 from "./projects/project1.jpeg";
 import project2 from "./projects/project2.jpeg";
 import dev1 from "./devs/dev1.jpg";
