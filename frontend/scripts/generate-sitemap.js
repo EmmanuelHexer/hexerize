@@ -34,38 +34,38 @@ async function generateSitemap() {
     // Static pages (only loc and lastmod - Google/Bing ignore changefreq and priority in 2025)
     const staticPages = [
       {
-        loc: 'https://hexerize.com',
+        loc: 'https://hexerize.com/',
         lastmod: new Date().toISOString().split('T')[0], // YYYY-MM-DD format
       },
       {
-        loc: 'https://hexerize.com/services',
+        loc: 'https://hexerize.com/services/',
         lastmod: new Date().toISOString().split('T')[0],
       },
       {
-        loc: 'https://hexerize.com/projects',
+        loc: 'https://hexerize.com/projects/',
         lastmod: new Date().toISOString().split('T')[0],
       },
       {
-        loc: 'https://hexerize.com/about',
+        loc: 'https://hexerize.com/about/',
         lastmod: new Date().toISOString().split('T')[0],
       },
       {
-        loc: 'https://hexerize.com/smart-cards',
+        loc: 'https://hexerize.com/smart-cards/',
         lastmod: new Date().toISOString().split('T')[0],
       },
       {
-        loc: 'https://hexerize.com/blog',
+        loc: 'https://hexerize.com/blog/',
         lastmod: new Date().toISOString().split('T')[0],
       },
       {
-        loc: 'https://hexerize.com/contact',
+        loc: 'https://hexerize.com/contact/',
         lastmod: new Date().toISOString().split('T')[0],
       },
     ];
 
     // Dynamic blog post pages (accurate lastmod from Sanity)
     const blogPages = posts.map((post) => ({
-      loc: `https://hexerize.com/blog/${post.slug}`,
+      loc: `https://hexerize.com/blog/${post.slug}/`,
       lastmod: (post._updatedAt || post.publishedAt).split('T')[0], // YYYY-MM-DD format
     }));
 
