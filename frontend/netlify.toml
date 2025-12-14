@@ -9,12 +9,13 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# CRITICAL: Disable Netlify's automatic trailing slash behavior
-# This prevents duplicate content and Google de-indexing
+# CRITICAL: Enable Netlify's Pretty URLs feature
+# This automatically handles trailing slashes correctly
+# Pretty URLs forwards /about to /about/ for proper SEO
 [build.processing]
   skip_processing = false
 [build.processing.html]
-  pretty_urls = false
+  pretty_urls = true
 
 # Headers for better SEO and performance
 [[headers]]
@@ -66,46 +67,10 @@
     X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# CRITICAL: Redirect rules for proper 404 handling
+# Redirect rules
+# Note: Netlify's Pretty URLs feature handles trailing slash normalization automatically
+# You CANNOT use redirect rules to add/remove trailing slashes (per Netlify docs)
 # Order matters - specific routes first, catch-all last
-
-# CRITICAL FIX: Remove trailing slashes to match sitemap
-# This prevents duplicate content and fixes de-indexing
-[[redirects]]
-  from = "/services/"
-  to = "/services"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/about/"
-  to = "/about"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/contact/"
-  to = "/contact"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/projects/"
-  to = "/projects"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/"
-  to = "/blog"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/smart-cards/"
-  to = "/smart-cards"
-  status = 301
-  force = true
 
 # Canonical URL redirects - Force HTTPS and non-WWW
 [[redirects]]

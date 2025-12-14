@@ -1,16 +1,9 @@
 # Hexerize - Netlify Redirects Configuration
 # IMPORTANT: This file works WITH netlify.toml
+# Note: Netlify's Pretty URLs feature handles trailing slash normalization automatically
+# You CANNOT use redirect rules to add/remove trailing slashes (per Netlify docs)
 
-# CRITICAL: Remove trailing slashes FIRST (before serving pages)
-# This prevents duplicate content and Google de-indexing
-/services/          /services           301!
-/about/             /about              301!
-/contact/           /contact            301!
-/projects/          /projects           301!
-/blog/              /blog               301!
-/smart-cards/       /smart-cards        301!
-
-# Valid static routes (serve pages WITHOUT trailing slashes)
+# Valid static routes (SPA routing)
 /                   /index.html   200
 /services           /index.html   200
 /projects           /index.html   200
