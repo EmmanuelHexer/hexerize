@@ -131,11 +131,11 @@ const SmartCards = () => {
           name="keywords"
           content="smart business cards Ghana, NFC business cards, smart rings Ghana, digital business cards, contactless networking, NFC technology Ghana, Hexerize, professional networking, smart cards Accra"
         />
-        <link rel="canonical" href="https://hexerize.com/smart-cards" />
+        <link rel="canonical" href="https://hexerize.com/smart-cards/" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="product.group" />
-        <meta property="og:url" content="https://hexerize.com/smart-cards" />
+        <meta property="og:url" content="https://hexerize.com/smart-cards/" />
         <meta
           property="og:title"
           content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"

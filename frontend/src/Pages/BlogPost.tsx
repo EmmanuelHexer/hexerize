@@ -65,8 +65,8 @@ const BlogPost = () => {
     title: post?.title || "Blog Post",
     description: post?.excerpt || "",
     ogImage: post?.mainImage ? urlFor(post.mainImage).width(1200).url() : undefined,
-    ogUrl: `https://hexerize.com/blog/${slug}`,
-    canonical: `https://hexerize.com/blog/${slug}`,
+    ogUrl: `https://hexerize.com/blog/${slug}/`,
+    canonical: `https://hexerize.com/blog/${slug}/`,
     ogType: "article",
     structuredData: post ? {
       "@context": "https://schema.org",

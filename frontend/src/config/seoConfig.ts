@@ -12,7 +12,7 @@ export const seoConfig: Record<string, SEOConfig> = {
     title: "Hexerize",
     description: "Transform your business with innovative digital solutions. Expert web development, mobile apps, and strategic digital experiences that drive growth. Get your free consultation today.",
     keywords: "web development agency, digital innovation, custom web applications, mobile app development, digital transformation, website design, software development, digital strategy, tech consulting",
-    canonical: "https://hexerize.com",
+    canonical: "https://hexerize.com/",
     ogTitle: "Hexerize",
     ogDescription: "Award-winning digital agency specializing in modern web development, mobile apps, and strategic digital solutions. Let's build your success together.",
   },
