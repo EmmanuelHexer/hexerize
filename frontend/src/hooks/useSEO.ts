@@ -76,8 +76,9 @@ export const useSEO = ({
     // Open Graph meta tags
     updateMetaTag('og:title', ogTitle || title, true);
     updateMetaTag('og:description', ogDescription || description, true);
-    if (ogUrl || canonical) {
-      updateMetaTag('og:url', ogUrl || canonical, true);
+    const ogUrlValue = ogUrl || canonical;
+    if (ogUrlValue) {
+      updateMetaTag('og:url', ogUrlValue, true);
     }
     updateMetaTag('og:type', ogType, true);
     updateMetaTag('og:image', ogImage, true);
