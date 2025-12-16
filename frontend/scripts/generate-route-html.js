@@ -131,6 +131,24 @@ function generateRouteHTML(route) {
     `<meta name="twitter:description" content="${route.description}"/>`
   );
 
+  // CRITICAL FIX: Update WebPage structured data URL
+  // This fixes "Duplicate, Google chose different canonical than user" error
+  html = html.replace(
+    /"@type":\s*"WebPage",\s*"@id":\s*"https:\/\/hexerize\.com\/#webpage",\s*"url":\s*"https:\/\/hexerize\.com\/"/,
+    `"@type": "WebPage",\n            "@id": "${route.canonical}#webpage",\n            "url": "${route.canonical}"`
+  );
+
+  // Also update WebPage name and description in structured data
+  html = html.replace(
+    /("@type":\s*"WebPage"[\s\S]*?"name":\s*)"[^"]*"/,
+    `$1"${route.title}"`
+  );
+
+  html = html.replace(
+    /("@type":\s*"WebPage"[\s\S]*?"description":\s*)"[^"]*"/,
+    `$1"${route.description}"`
+  );
+
   // Add article type for blog posts
   if (route.isArticle) {
     html = html.replace(
