@@ -103,7 +103,7 @@ const BlogPost = () => {
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://hexerize.com/blog/${slug}`
+        "@id": `https://hexerize.com/blog/${slug}/`
       },
       ...(post.estimatedReadingTime && {
         "timeRequired": `PT${post.estimatedReadingTime}M`
@@ -138,7 +138,7 @@ const BlogPost = () => {
             items={[
               { name: "Home", url: "https://hexerize.com/" },
               { name: "Blog", url: "https://hexerize.com/blog/" },
-              { name: post.title, url: `https://hexerize.com/blog/${slug}` },
+              { name: post.title, url: `https://hexerize.com/blog/${slug}/` },
             ]}
           />
 
@@ -343,7 +343,7 @@ const BlogPost = () => {
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                   post.title
                 )}&url=${encodeURIComponent(
-                  `https://hexerize.com/blog/${slug}`
+                  `https://hexerize.com/blog/${slug}/`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -354,7 +354,7 @@ const BlogPost = () => {
               </a>
               <a
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-                  `https://hexerize.com/blog/${slug}`
+                  `https://hexerize.com/blog/${slug}/`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -365,7 +365,7 @@ const BlogPost = () => {
               </a>
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                  `https://hexerize.com/blog/${slug}`
+                  `https://hexerize.com/blog/${slug}/`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -406,7 +406,7 @@ const BlogPost = () => {
       <section className="pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <Link
-            to="/blog"
+            to="/blog/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105"
           >
             <i className="ri-arrow-left-line"></i>

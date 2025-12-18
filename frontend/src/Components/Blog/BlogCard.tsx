@@ -23,7 +23,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
 
   return (
     <Link
-      to={`/blog/${post.slug.current}`}
+      to={`/blog/${post.slug.current}/`}
       className={`group block bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/10 ${
         featured ? "md:col-span-2 lg:col-span-3" : ""
       }`}

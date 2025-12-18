@@ -74,7 +74,7 @@ const Blog = () => {
       },
       "blogPost": posts.slice(0, 10).map((post) => ({
         "@type": "BlogPosting",
-        "@id": `https://hexerize.com/blog/${post.slug.current}`,
+        "@id": `https://hexerize.com/blog/${post.slug.current}/`,
         "headline": post.title,
         "description": post.excerpt,
         "datePublished": post.publishedAt,
@@ -82,7 +82,7 @@ const Blog = () => {
           "@type": "Person",
           "name": post.author?.name || "Hexerize"
         },
-        "url": `https://hexerize.com/blog/${post.slug.current}`
+        "url": `https://hexerize.com/blog/${post.slug.current}/`
       }))
     } : undefined
   });

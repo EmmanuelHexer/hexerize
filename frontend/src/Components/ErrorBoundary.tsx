@@ -114,7 +114,7 @@ class ErrorBoundary extends Component<Props, State> {
                 Still having issues?
               </p>
               <a
-                href="/contact"
+                href="/contact/"
                 className="inline-flex items-center gap-2 text-[color:var(--accent-color)] hover:text-[color:var(--accent-color)]/80 font-medium transition-colors duration-300"
               >
                 Contact our support team

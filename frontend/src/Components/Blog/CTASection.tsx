@@ -24,14 +24,14 @@ const CTASection = () => {
 
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
-            to="/contact"
+            to="/contact/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/30"
           >
             <i className="ri-mail-line text-lg"></i>
             Get In Touch
           </Link>
           <Link
-            to="/services"
+            to="/services/"
             className="inline-flex items-center gap-2 px-8 py-4 bg-slate-800/50 backdrop-blur-sm border border-blue-500/30 text-white rounded-xl font-semibold hover:bg-slate-700/50 transition-all duration-300 hover:scale-105"
           >
             <i className="ri-service-line text-lg"></i>
