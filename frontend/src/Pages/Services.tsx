@@ -463,10 +463,10 @@ const Services = () => {
                   industry.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button onClick={() => navigate('/contact')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
+                  <button onClick={() => navigate('/contact/')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
                     Start Your Project
                   </button>
-                  <button onClick={() => navigate('/projects')} className="px-8 py-4 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
+                  <button onClick={() => navigate('/projects/')} className="px-8 py-4 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
                     View Our Work
                   </button>
                 </div>

@@ -1,32 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch",
-      "Bash(npm install:*)",
-      "Bash(npm run dev:*)",
-      "Bash(git checkout:*)",
-      "Bash(cd:*)",
-      "Bash(npm ls:*)",
+      "Bash(curl:*)",
       "Bash(npm run build:*)",
-      "Bash(npx tsc:*)",
-      "mcp__ide__getDiagnostics",
-      "Bash(npm update:*)",
-      "Bash(npm uninstall:*)",
-      "Bash(npm create:*)",
-      "Bash(mkdir:*)",
       "Bash(cat:*)",
-      "Bash(netstat:*)",
-      "Bash(findstr:*)",
-      "Bash(taskkill:*)",
-      "Bash(rm:*)",
-      "Bash(npx lighthouse:*)",
-      "Bash(dir:*)",
-      "Bash(test:*)",
-      "Bash(test -f \"frontend/netlify/edge-functions/validate-blog.ts\")",
-      "Bash(node:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(find:*)",
+      "Bash(git restore:*)"
     ],
     "deny": [],
     "ask": []

@@ -611,10 +611,10 @@ const About = () => {
                   innovative digital solutions that drive real results.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button onClick={() => navigate('/contact')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
+                  <button onClick={() => navigate('/contact/')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
                     Start a Project
                   </button>
-                  <button onClick={() => navigate('/services')} className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
+                  <button onClick={() => navigate('/services/')} className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
                     Learn More
                   </button>
                 </div>

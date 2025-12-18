@@ -21,10 +21,10 @@ const NotFound = () => {
 
   const popularPages = [
     { name: "Home", path: "/", description: "Discover our digital innovation company" },
-    { name: "Services", path: "/services", description: "Web development, branding & app development" },
-    { name: "Projects", path: "/projects", description: "View our portfolio of successful projects" },
-    { name: "About", path: "/about", description: "Learn about our team and mission" },
-    { name: "Contact", path: "/contact", description: "Get in touch for your next project" },
+    { name: "Services", path: "/services/", description: "Web development, branding & app development" },
+    { name: "Projects", path: "/projects/", description: "View our portfolio of successful projects" },
+    { name: "About", path: "/about/", description: "Learn about our team and mission" },
+    { name: "Contact", path: "/contact/", description: "Get in touch for your next project" },
   ];
 
   return (
@@ -111,7 +111,7 @@ const NotFound = () => {
             Looking for something specific?
           </p>
           <button
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/contact/')}
             className="inline-flex items-center gap-2 text-[color:var(--accent-color)] hover:text-[color:var(--accent-color)]/80 font-medium transition-colors duration-300"
           >
             Contact us for help
