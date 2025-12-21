@@ -8,7 +8,11 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(find:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(npm run generate:route-html:*)",
+      "Bash(for dir in about services contact projects smart-cards)",
+      "Bash(do echo \"=== $dir ===\")",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []

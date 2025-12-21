@@ -66,6 +66,16 @@ export const seoConfig: Record<string, SEOConfig> = {
     ogTitle: "Contact | Hexerize",
     ogDescription: "Get in touch for a free consultation. We're ready to discuss your web development, mobile app, or digital transformation project. Let's build something amazing together.",
   },
+
+  smartCards: {
+    title: "Smart Cards | Hexerize",
+    description:
+      "Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350. No app required, instant share, lifetime updates.",
+    keywords: "smart business cards Ghana, NFC business cards, smart rings Ghana, digital business cards, contactless networking, NFC technology Ghana, Hexerize, professional networking, smart cards Accra",
+    canonical: "https://hexerize.com/smart-cards/",
+    ogTitle: "Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana",
+    ogDescription: "Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350.",
+  },
 };
 
 
