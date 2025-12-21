@@ -1,7 +1,8 @@
 import { LazyMotion, domAnimation, m, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { useSEO } from "../hooks/useSEO";
+import { seoConfig } from "../config/seoConfig";
 import ringImage from "../assets/ring.png";
 
 const SmartCards = () => {
@@ -114,59 +115,15 @@ const SmartCards = () => {
     return () => observer.disconnect();
   }, []);
 
+  // SEO for Smart Cards page
+  useSEO({
+    ...seoConfig.smartCards,
+    ogType: "product.group",
+    ogImage: "https://hexerize.com/og-smart-cards.jpg",
+  });
+
   return (
     <LazyMotion features={domAnimation} strict>
-      <Helmet>
-        {/* Primary Meta Tags */}
-        <title>Smart Cards | Hexerize</title>
-        <meta
-          name="title"
-          content="Smart Cards | Hexerize"
-        />
-        <meta
-          name="description"
-          content="Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350. No app required, instant share, lifetime updates."
-        />
-        <meta
-          name="keywords"
-          content="smart business cards Ghana, NFC business cards, smart rings Ghana, digital business cards, contactless networking, NFC technology Ghana, Hexerize, professional networking, smart cards Accra"
-        />
-        <link rel="canonical" href="https://hexerize.com/smart-cards/" />
-
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="product.group" />
-        <meta property="og:url" content="https://hexerize.com/smart-cards/" />
-        <meta
-          property="og:title"
-          content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"
-        />
-        <meta
-          property="og:description"
-          content="Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350."
-        />
-        <meta property="og:image" content="https://hexerize.com/og-smart-cards.jpg" />
-        <meta property="og:locale" content="en_GH" />
-        <meta property="og:site_name" content="Hexerize" />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://hexerize.com/smart-cards/" />
-        <meta
-          property="twitter:title"
-          content="Smart Business Cards & Rings - Premium NFC Technology | Hexerize Ghana"
-        />
-        <meta
-          property="twitter:description"
-          content="Transform your networking with Hexerize Smart Business Cards & Rings in Ghana. Share your digital presence with a tap. Premium NFC solutions from GHS 350."
-        />
-        <meta property="twitter:image" content="https://hexerize.com/og-smart-cards.jpg" />
-
-        {/* Additional SEO */}
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="author" content="Hexerize" />
-        <meta name="geo.region" content="GH" />
-        <meta name="geo.placename" content="Ghana" />
-      </Helmet>
 
       <div className="bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 transition-all duration-700 ease-in-out">
       {/* Hero Section */}
