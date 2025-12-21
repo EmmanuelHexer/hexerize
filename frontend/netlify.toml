@@ -140,7 +140,7 @@
   status = 301
   force = false
 
-# Valid static routes WITH trailing slashes - return 200 with SPA
+# Valid static routes WITH trailing slashes - Serve pre-rendered HTML for SEO
 [[redirects]]
   from = "/"
   to = "/index.html"
@@ -148,41 +148,41 @@
 
 [[redirects]]
   from = "/services/"
-  to = "/index.html"
+  to = "/services/index.html"
   status = 200
 
 [[redirects]]
   from = "/projects/"
-  to = "/index.html"
+  to = "/projects/index.html"
   status = 200
 
 [[redirects]]
   from = "/about/"
-  to = "/index.html"
+  to = "/about/index.html"
   status = 200
 
 [[redirects]]
   from = "/smart-cards/"
-  to = "/index.html"
+  to = "/smart-cards/index.html"
   status = 200
 
 [[redirects]]
   from = "/blog/"
-  to = "/index.html"
+  to = "/blog/index.html"
   status = 200
 
 [[redirects]]
   from = "/contact/"
-  to = "/index.html"
+  to = "/contact/index.html"
   status = 200
 
-# Blog posts - dynamic routes
+# Blog posts - dynamic routes - Serve pre-rendered HTML
 # IMPORTANT: Validated by Edge Function (validate-blog.ts)
 # The Edge Function checks sitemap.xml for valid slugs
 # Valid posts return 200, invalid posts return 404
 [[redirects]]
   from = "/blog/*"
-  to = "/index.html"
+  to = "/blog/:splat/index.html"
   status = 200
 
 # Static files should be served directly
