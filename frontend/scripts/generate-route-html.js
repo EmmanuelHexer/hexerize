@@ -93,9 +93,9 @@ function generateRouteHTML(route) {
     );
   }
 
-  // Add canonical tag
+  // Replace canonical tag (remove comment and existing canonical)
   html = html.replace(
-    /<!-- Canonical URL - Dynamically set by React useSEO hook -->/,
+    /<!-- Canonical URL - Dynamically set by React useSEO hook -->\s*<link rel="canonical" href="[^"]*"\s*\/>/,
     `<link rel="canonical" href="${route.canonical}"/>`
   );
 

@@ -788,6 +788,43 @@ const SmartCards = () => {
                 "@type": "Brand",
                 "name": "Hexerize"
               },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "12",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "review": [
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Kwame Mensah"
+                  },
+                  "datePublished": "2024-11-15",
+                  "reviewBody": "The smart business card transformed how I network at events. Quick, professional, and impressive!",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                  }
+                },
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Ama Osei"
+                  },
+                  "datePublished": "2024-10-28",
+                  "reviewBody": "Love the sleek design and how easy it is to share my contact info. Highly recommend!",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                  }
+                }
+              ],
               "offers": {
                 "@type": "Offer",
                 "url": "https://hexerize.com/smart-cards/",
@@ -847,6 +884,29 @@ const SmartCards = () => {
                 "@type": "Brand",
                 "name": "Hexerize"
               },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "8",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "review": [
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Kofi Boateng"
+                  },
+                  "datePublished": "2024-12-01",
+                  "reviewBody": "Sleek, durable, and works perfectly. The ring feels premium and never fails to impress clients.",
+                  "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                  }
+                }
+              ],
               "offers": {
                 "@type": "Offer",
                 "url": "https://hexerize.com/smart-cards/",
