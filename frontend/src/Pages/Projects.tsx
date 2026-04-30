@@ -191,7 +191,7 @@ const Projects = () => {
                     )}
                   </div>
 
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-[1.05] tracking-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
                     {project.title}
                   </h2>
 
