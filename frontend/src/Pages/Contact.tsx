@@ -77,7 +77,7 @@ const Contact = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="relative pt-20 sm:pt-28 md:pt-32 pb-8 sm:pb-10 md:pb-12 overflow-hidden">
+        <section className="relative py-8 sm:py-10 md:py-12 overflow-hidden">
           {/* Background Gradient Orbs */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[color:var(--accent-color)]/10 rounded-full blur-3xl"></div>
@@ -86,10 +86,13 @@ const Contact = () => {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
             <div className="text-center">
-              <Breadcrumbs items={[
-                { name: "Home", url: "https://hexerize.com/" },
-                { name: "Contact", url: "https://hexerize.com/contact/" }
-              ]} />
+              {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
+              <div className="sr-only">
+                <Breadcrumbs items={[
+                  { name: "Home", url: "https://hexerize.com/" },
+                  { name: "Contact", url: "https://hexerize.com/contact/" }
+                ]} />
+              </div>
 
               <m.div
                 initial={{ opacity: 0, y: 20 }}

@@ -125,13 +125,16 @@ const Projects = () => {
 
       <div className="min-h-screen bg-slate-900 text-gray-100">
         {/* Hero Section */}
-        <section className="relative pt-20 sm:pt-24 md:pt-32 pb-10 sm:pb-12 md:pb-20 overflow-hidden">
+        <section className="relative py-10 sm:py-12 md:py-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="text-center">
-              <Breadcrumbs items={[
-                { name: "Home", url: "https://hexerize.com/" },
-                { name: "Projects", url: "https://hexerize.com/projects/" }
-              ]} />
+              {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
+              <div className="sr-only">
+                <Breadcrumbs items={[
+                  { name: "Home", url: "https://hexerize.com/" },
+                  { name: "Projects", url: "https://hexerize.com/projects/" }
+                ]} />
+              </div>
 
               {/* Mobile-optimized badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-green-500/10 border border-green-500/20 rounded-full">
