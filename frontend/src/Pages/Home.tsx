@@ -154,7 +154,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-[color:var(--card-background)] transition-all duration-700 ease-in-out overflow-hidden h-[calc(100vh-60px)] md:h-[calc(100vh-80px)]">
+      <div className="bg-[color:var(--body-background)] transition-all duration-700 ease-in-out overflow-hidden h-[calc(100vh-60px)] md:h-[calc(100vh-80px)]">
         {/* Hero Section */}
         <section className="h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
           {/* Animated Background Elements */}
