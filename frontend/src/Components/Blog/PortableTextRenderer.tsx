@@ -70,12 +70,21 @@ const components: PortableTextComponents = {
   },
   types: {
     image: ({ value }) => {
+      // Sanity asset refs encode intrinsic dimensions (e.g. "image-abc-1600x900-jpg").
+      // Extracting them lets us set width/height attrs to prevent CLS.
+      const ref: string = value?.asset?._ref || "";
+      const dims = ref.match(/-(\d+)x(\d+)-/);
+      const intrinsicWidth = dims ? parseInt(dims[1], 10) : undefined;
+      const intrinsicHeight = dims ? parseInt(dims[2], 10) : undefined;
+
       return (
         <figure className="my-8">
           <img
-            src={urlFor(value).width(1200).url()}
+            src={urlFor(value).width(1600).url()}
             alt={value.alt || "Article illustration - Visual content from Hexerize blog"}
-            className="w-full rounded-2xl border border-blue-500/20"
+            className="w-full h-auto rounded-2xl border border-blue-500/20"
+            width={intrinsicWidth}
+            height={intrinsicHeight}
             loading="lazy"
           />
           {value.caption && (
