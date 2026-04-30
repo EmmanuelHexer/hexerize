@@ -51,10 +51,10 @@ const Home = () => {
     <div className="bg-[color:var(--body-background)] min-h-[calc(100vh-60px)] md:min-h-[calc(100vh-80px)] flex items-center justify-center px-4 sm:px-6">
       <div className="max-w-3xl mx-auto text-center py-12">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
-          Hexerize is a software company.
+          We make software for the everyday.
         </h1>
         <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto mb-10">
-          We make software products. From Ghana.
+          Hexerize is a software company from Ghana.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
