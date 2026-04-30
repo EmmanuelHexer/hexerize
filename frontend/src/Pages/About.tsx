@@ -23,7 +23,7 @@ const About = () => {
     },
     {
       question: "Where is Hexerize based?",
-      answer: "Ghana. We build for the world from here."
+      answer: "Ghana. That's where we are and who we build for."
     }
   ]);
 
@@ -55,14 +55,14 @@ const About = () => {
         "Software that holds up over years, not weeks. We invest in foundations that compound rather than features that decay.",
     },
     {
-      title: "Real problems first",
+      title: "Start from use",
       description:
-        "Every product we ship starts from a problem we've actually seen. No solutions in search of problems.",
+        "Every product starts from something we've watched not work in Ghana, not from a market we read about online.",
     },
     {
       title: "Ship and iterate",
       description:
-        "Working software in users' hands beats perfect software in our heads. We ship early and improve relentlessly.",
+        "Working software in users' hands beats perfect software in our heads. We ship early and keep improving.",
     },
     {
       title: "Stay sharp",
@@ -76,7 +76,7 @@ const About = () => {
       name: "Hexer",
       role: "Co-Founder & CEO",
       description:
-        "Full-stack developer and visionary who conceptualized the Hexerize ecosystem. Leads product direction and engineering.",
+        "Full-stack developer. Started Hexerize and leads product direction and engineering.",
       expertise: ["Full-Stack Development", "Performance Engineering", "Product Direction"],
     },
     {
@@ -151,13 +151,13 @@ const About = () => {
             <div>
               <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-3">Mission</h3>
               <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-                Build software products that solve real problems for real people.
+                Build software products people in Ghana use every day.
               </p>
             </div>
             <div>
               <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-3">Vision</h3>
               <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-                A portfolio of software products from Ghana, used by people everywhere.
+                A portfolio of software products that Ghana actually relies on.
               </p>
             </div>
           </div>
@@ -239,7 +239,7 @@ const About = () => {
               },
               {
                 question: "Where is Hexerize based?",
-                answer: "Ghana. We build for the world from here."
+                answer: "Ghana. That's where we are and who we build for."
               }
             ].map((faq, index) => (
               <details key={index} className="border border-slate-700/60 rounded-xl px-5 py-4 group open:bg-slate-800/30 transition-colors">

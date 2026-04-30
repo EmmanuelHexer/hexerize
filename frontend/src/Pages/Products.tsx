@@ -43,9 +43,9 @@ const Products = () => {
     {
       id: "piazam",
       title: "Piazam",
-      tagline: "Online shopping, done right.",
+      tagline: "Online shopping for Ghana.",
       description:
-        "An e-commerce platform built for the way people actually shop. Launching in 2026.",
+        "An e-commerce platform built around how Ghanaians buy and sell. Launching in 2026.",
       tech: ["React", "Node.js", "PostgreSQL"],
       status: "Launching soon",
     },
@@ -64,7 +64,7 @@ const Products = () => {
     {
       title: "Brediyie",
       year: "2024",
-      description: "A digital platform that streamlines business operations and customer engagement.",
+      description: "Website for a COCOBOD-licensed cocoa trading company in Ghana.",
       tech: ["React", "Node.js", "MongoDB"],
       website: "brediyie.com",
     },

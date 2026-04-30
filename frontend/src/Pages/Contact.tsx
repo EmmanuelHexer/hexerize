@@ -4,19 +4,18 @@ import { createFAQSchema, createContactPageSchema } from "../utils/structuredDat
 import Breadcrumbs from "../Components/Breadcrumbs";
 
 const Contact = () => {
-  // Create FAQ schema matching visible content on this page
   const faqSchema = createFAQSchema([
     {
-      question: "How long does a typical project take?",
-      answer: "Most projects range from 4-12 weeks depending on complexity."
+      question: "Are you taking on client work?",
+      answer: "No. We're focused on our own products. Brediyie and Milly's Cuisine are still live, but we're not taking new gigs."
     },
     {
-      question: "Do you offer ongoing support?",
-      answer: "Yes, we provide maintenance and support packages for all our projects."
+      question: "How do I get early access to a product?",
+      answer: "Email us with the product name (HexerSMS, Piazam, or Stedova) and we'll let you know when it opens up."
     },
     {
-      question: "Can you work with existing teams?",
-      answer: "Absolutely! We often collaborate with in-house teams as an extension."
+      question: "Found a bug or have feedback on something we've shipped?",
+      answer: "Email us with the product name in the subject line. We read everything."
     }
   ]);
 
@@ -51,7 +50,7 @@ const Contact = () => {
             Get in touch
           </h1>
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto">
-            Tell us what you're building. We reply within a day.
+            Early access, feedback, or just hello. We reply within a day.
           </p>
         </div>
       </section>
@@ -90,7 +89,7 @@ const Contact = () => {
               <dt className="text-xs uppercase tracking-widest text-gray-500 mb-2">Location</dt>
               <dd>
                 <p className="text-xl md:text-2xl font-bold text-white">Ghana</p>
-                <p className="text-sm text-gray-400 mt-2">Serving clients nationwide.</p>
+                <p className="text-sm text-gray-400 mt-2">Founded 2024.</p>
               </dd>
             </div>
 
@@ -114,16 +113,16 @@ const Contact = () => {
           <div className="space-y-3">
             {[
               {
-                question: "How long does a typical project take?",
-                answer: "Most projects range from 4-12 weeks depending on complexity."
+                question: "Are you taking on client work?",
+                answer: "No. We're focused on our own products. Brediyie and Milly's Cuisine are still live, but we're not taking new gigs."
               },
               {
-                question: "Do you offer ongoing support?",
-                answer: "Yes, we provide maintenance and support packages for all our projects."
+                question: "How do I get early access to a product?",
+                answer: "Email us with the product name (HexerSMS, Piazam, or Stedova) and we'll let you know when it opens up."
               },
               {
-                question: "Can you work with existing teams?",
-                answer: "Absolutely. We often collaborate with in-house teams as an extension."
+                question: "Found a bug or have feedback on something we've shipped?",
+                answer: "Email us with the product name in the subject line. We read everything."
               }
             ].map((faq, index) => (
               <details key={index} className="border border-slate-700/60 rounded-xl px-5 py-4 group open:bg-slate-800/30 transition-colors">
