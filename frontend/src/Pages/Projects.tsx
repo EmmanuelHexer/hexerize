@@ -112,289 +112,144 @@ const Projects = () => {
 
       <div className="min-h-screen text-gray-100">
         {/* Hero Section */}
-        <section className="relative py-10 sm:py-12 md:py-20 overflow-hidden">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="text-center">
-              {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
-              <div className="sr-only">
-                <Breadcrumbs items={[
-                  { name: "Home", url: "https://hexerize.com/" },
-                  { name: "Projects", url: "https://hexerize.com/projects/" }
-                ]} />
-              </div>
-
-              {/* Mobile-optimized badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-green-500/10 border border-green-500/20 rounded-full">
-                <span className="text-xs font-medium text-green-400">Our Work</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
-                Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Projects</span>
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-12 leading-relaxed">
-                Real stories of digital transformation and innovation.
-              </p>
-
-              {/* Mobile: Show only 2 key stats */}
-              <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">4</div>
-                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">Featured</div>
-                </div>
-                <div className="w-px h-10 sm:h-10 md:h-12 bg-slate-700"></div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">95%</div>
-                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">Success</div>
-                </div>
-                {/* Third stat hidden on mobile, shown on tablet+ */}
-                <div className="hidden sm:flex w-px h-10 md:h-12 bg-slate-700"></div>
-                <div className="hidden sm:block text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-orange-400 mb-1">2</div>
-                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">Coming Soon</div>
-                </div>
-              </div>
+        <section className="relative py-10 md:py-12">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
+            <div className="sr-only">
+              <Breadcrumbs items={[
+                { name: "Home", url: "https://hexerize.com/" },
+                { name: "Projects", url: "https://hexerize.com/projects/" }
+              ]} />
             </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 leading-[1.05] tracking-tight">
+              Projects
+            </h1>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto">
+              Recent work and what we're building next.
+            </p>
           </div>
         </section>
 
         {/* Filter Navigation */}
-        <section className="py-12 border-b border-slate-700">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="flex flex-wrap justify-center gap-4">
+        <section className="py-6 border-t border-slate-700/60">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="flex flex-wrap justify-center gap-2">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveFilter(category.id)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
                     activeFilter === category.id
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white'
-                      : 'bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 text-gray-300 hover:transform hover:-translate-y-1 transition-all duration-300'
+                      ? 'bg-blue-600 text-white'
+                      : 'border border-slate-700/70 text-gray-300 hover:border-slate-500 hover:text-white'
                   }`}
                 >
                   {category.label}
-                  <span className="ml-2 text-xs opacity-70">({category.count})</span>
+                  <span className="ml-1.5 opacity-60">{category.count}</span>
                 </button>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Projects Grid */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid gap-20">
-              {filteredProjects.map((project, index) => (
-                <div
+        {/* Projects List */}
+        <section className="py-12 md:py-16">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="divide-y divide-slate-800/80">
+              {filteredProjects.map((project) => (
+                <article
                   key={project.id}
                   id={project.id}
-                  className={`scroll-fade-in ${visibleSections.includes(project.id) ? 'visible' : ''} grid lg:grid-cols-5 gap-8 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
+                  className={`scroll-fade-in py-12 md:py-16 first:pt-0 last:pb-0 ${visibleSections.includes(project.id) ? 'visible' : ''}`}
                 >
-                  {/* Project Image/Visual */}
-                  <div className={`lg:col-span-3 ${index % 2 === 1 ? 'lg:col-start-3' : ''}`}>
-                    <div className="relative group">
-                      <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
-                        <div className="aspect-video bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl mb-6 flex items-center justify-center relative overflow-hidden">
-                          {project.status === 'completed' && typeof project.image === 'string' && project.image.includes('/api/placeholder') ? (
-                            <>
-                              <div className="text-6xl opacity-20 text-indigo-400"><i className="ri-rocket-line"></i></div>
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse-soft"></div>
-                            </>
-                          ) : project.status === 'completed' ? (
-                            <img
-                              src={project.image}
-                              alt={`${project.title} - ${project.description.substring(0, 80)} - Built by Hexerize`}
-                              className="w-full h-full object-cover rounded-lg"
-                            />
-                          ) : (
-                            <>
-                              <div className="text-6xl opacity-20 text-indigo-400">
-                                <i className={project.category === 'platform' ? 'ri-dashboard-line' : project.category === 'app' ? 'ri-smartphone-line' : 'ri-computer-line'}></i>
-                              </div>
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse-soft"></div>
-                              <div className="absolute top-4 right-4 px-3 py-1 bg-blue-500/20 border border-blue-500/40 rounded-full text-xs text-blue-400 font-medium">
-                                Coming Soon
-                              </div>
-                            </>
-                          )}
-                        </div>
-
-                        {/* Tech Stack */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {project.tech.slice(0, 4).map((tech, idx) => (
-                            <span key={idx} className="px-3 py-1 text-xs bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20">
-                              {tech}
-                            </span>
-                          ))}
-                          {project.tech.length > 4 && (
-                            <span className="px-3 py-1 text-xs text-gray-300 opacity-50 rounded-full">
-                              +{project.tech.length - 4} more
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Project Metrics */}
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="text-center p-4 bg-slate-700/50 rounded-xl border border-indigo-500/10">
-                            <div className="text-sm text-gray-300 opacity-70 mb-1">Duration</div>
-                            <div className="font-semibold text-indigo-400">{project.duration}</div>
-                          </div>
-                          <div className="text-center p-4 bg-slate-700/50 rounded-xl border border-indigo-500/10">
-                            <div className="text-sm text-gray-300 opacity-70 mb-1">Year</div>
-                            <div className="font-semibold text-indigo-400">{project.year}</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Floating elements */}
-                      <div className="absolute -top-4 -right-4 w-8 h-8 bg-indigo-500/20 rounded-full"></div>
-                      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-500/10 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  {/* Project Content */}
-                  <div className={`lg:col-span-2 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <span className="text-sm uppercase tracking-wide text-indigo-400 font-semibold">
-                          {project.client}
-                        </span>
-                      </div>
-                      <div className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        project.status === 'completed'
-                          ? 'bg-green-500/10 text-green-400 border border-green-500/20'
-                          : 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
-                      }`}>
-                        {project.status === 'completed' ? 'Completed' : 'In Development'}
-                      </div>
-                    </div>
-
-                    <h2 className="text-4xl font-bold text-white mb-6">
-                      {project.title}
-                    </h2>
-
-                    <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Challenge & Solution */}
-                    <div className="space-y-6 mb-8">
-                      <div>
-                        <h3 className="text-sm font-semibold text-indigo-400 mb-2 uppercase tracking-wide">Challenge</h3>
-                        <p className="text-gray-300 text-sm leading-relaxed">{project.challenge}</p>
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-indigo-400 mb-2 uppercase tracking-wide">Solution</h3>
-                        <p className="text-gray-300 text-sm leading-relaxed">{project.solution}</p>
-                      </div>
-                    </div>
-
-                    {/* Results */}
-                    <div className="space-y-3 mb-8">
-                      <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wide">Key Results</h3>
-                      {project.results.map((result, idx) => (
-                        <div key={idx} className="flex items-center gap-3">
-                          <span className="text-sm text-gray-300">• {result}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* CTA */}
-                    {project.status === 'completed' ? (
-                      <a href={`https://${project.website}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
-                        Visit Website
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
+                  {/* Project Image */}
+                  <div className="aspect-video rounded-xl overflow-hidden border border-slate-800 mb-6 bg-slate-900/40 flex items-center justify-center">
+                    {project.status === 'completed' && typeof project.image === 'string' && !project.image.includes('/api/placeholder') ? (
+                      <img
+                        src={project.image}
+                        alt={`${project.title} - Built by Hexerize`}
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
-                      <div className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700/50 border border-blue-500/20 text-blue-400 rounded-xl font-semibold">
-                        <i className="ri-time-line text-base"></i>
-                        Coming Soon
+                      <div className="text-5xl opacity-30 text-blue-400">
+                        <i className={project.category === 'platform' ? 'ri-dashboard-line' : project.category === 'app' ? 'ri-smartphone-line' : 'ri-computer-line'}></i>
                       </div>
                     )}
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Process Section */}
-        <section className="py-20 border-t border-slate-700">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Process</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Every successful project follows our proven methodology, ensuring exceptional results and client satisfaction.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                {
-                  step: "01",
-                  title: "Discovery",
-                  description: "Understanding your business, goals, and challenges through comprehensive research and analysis."
-                },
-                {
-                  step: "02",
-                  title: "Strategy",
-                  description: "Crafting a detailed roadmap with clear objectives, timelines, and success metrics."
-                },
-                {
-                  step: "03",
-                  title: "Development",
-                  description: "Bringing your vision to life with cutting-edge technology and best practices."
-                },
-                {
-                  step: "04",
-                  title: "Launch & Support",
-                  description: "Deploying your solution and providing ongoing support for continued success."
-                }
-              ].map((item, index) => (
-                <div key={index} className="text-center group">
-                  <div className="relative mb-6">
-                    <div className="w-16 h-16 mx-auto bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-lg font-bold text-indigo-400">{item.step}</span>
-                    </div>
-                    {index < 3 && (
-                      <div className="hidden md:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-indigo-500/50 to-transparent"></div>
+                  {/* Meta line */}
+                  <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-gray-500 mb-3">
+                    <span>{project.client}</span>
+                    <span className="opacity-50">·</span>
+                    <span>{project.year}</span>
+                    {project.status !== 'completed' && (
+                      <>
+                        <span className="opacity-50">·</span>
+                        <span className="text-blue-400">In Development</span>
+                      </>
                     )}
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                  <p className="text-gray-300">{item.description}</p>
-                </div>
+
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-[1.05] tracking-tight">
+                    {project.title}
+                  </h2>
+
+                  <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed max-w-2xl">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <ul className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, idx) => (
+                      <li key={idx} className="text-xs text-gray-300 px-3 py-1 border border-slate-700/70 rounded-full">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  {project.status === 'completed' && project.website ? (
+                    <a
+                      href={`https://${project.website}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                      Visit {project.website}
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ) : null}
+                </article>
               ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-3xl p-12 relative overflow-hidden">
-              <div className="relative z-10">
-                <h2 className="text-3xl font-bold text-white mb-6">
-                  Ready to Start Your Project?
-                </h2>
-                <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Join our growing list of successful clients. Let's transform your business with innovative digital solutions.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button onClick={() => navigate('/contact/')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
-                    Start Your Project
-                  </button>
-                  <button onClick={() => navigate('/contact/')} className="px-8 py-4 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
-                    Schedule Consultation
-                  </button>
-                </div>
-              </div>
-
-              {/* Background elements */}
-              <div className="absolute top-4 right-4 w-20 h-20 bg-indigo-500/10 rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-16 h-16 bg-purple-500/10 rounded-full"></div>
+        <section className="py-12 md:py-16 border-t border-slate-700/60">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
+              Have a project in mind?
+            </h2>
+            <p className="text-base md:text-lg text-gray-300 mb-8 max-w-xl mx-auto">
+              Tell us what you're building. We'll get back within a day.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => navigate('/contact/')}
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors"
+              >
+                Start a project
+              </button>
+              <button
+                onClick={() => navigate('/services/')}
+                className="px-6 py-3 border border-slate-600 hover:border-slate-500 text-gray-200 rounded-lg font-medium transition-colors"
+              >
+                See our services
+              </button>
             </div>
           </div>
         </section>
