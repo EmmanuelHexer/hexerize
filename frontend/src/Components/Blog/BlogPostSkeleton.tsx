@@ -5,18 +5,8 @@ const BlogPostSkeleton = () => {
   return (
     <div className="min-h-screen bg-slate-900 text-gray-100">
       {/* Hero Section Skeleton */}
-      <section className="relative pt-16 sm:pt-24 md:pt-32 pb-4">
+      <section className="relative py-4">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          {/* Breadcrumbs skeleton */}
-          <div className="mb-6">
-            <Skeleton
-              width={300}
-              height={16}
-              baseColor="#1e293b"
-              highlightColor="#334155"
-            />
-          </div>
-
           {/* Categories skeleton */}
           <div className="flex gap-2 mb-6">
             <Skeleton
