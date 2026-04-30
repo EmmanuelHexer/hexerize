@@ -90,13 +90,6 @@ const Services = () => {
         "SEO Foundation",
         "Modern Frameworks",
       ],
-      metrics: "95% faster load times",
-      process: [
-        "Discovery & Strategy",
-        "Design & Prototyping",
-        "Development & Testing",
-        "Launch & Optimization",
-      ],
     },
     {
       id: "digital-branding",
@@ -108,13 +101,6 @@ const Services = () => {
         "Visual Identity",
         "Digital Guidelines",
         "Asset Creation",
-      ],
-      metrics: "3x brand recognition",
-      process: [
-        "Brand Audit",
-        "Strategy Development",
-        "Visual Design",
-        "Implementation",
       ],
     },
     {
@@ -128,13 +114,6 @@ const Services = () => {
         "User-Centric Design",
         "Performance Focused",
       ],
-      metrics: "2x user engagement",
-      process: [
-        "Requirements Analysis",
-        "Architecture Design",
-        "Development",
-        "Testing & Launch",
-      ],
     },
     {
       id: "digital-strategy",
@@ -146,13 +125,6 @@ const Services = () => {
         "Tech Stack Planning",
         "Growth Strategies",
         "ROI Optimization",
-      ],
-      metrics: "5x business growth",
-      process: [
-        "Business Assessment",
-        "Strategy Formation",
-        "Implementation Planning",
-        "Performance Tracking",
       ],
     },
   ];
@@ -194,91 +166,36 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="py-20 border-t border-slate-700">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="grid gap-20">
-              {services.map((service, index) => (
-                <div
+        {/* Services List */}
+        <section className="py-12 md:py-16 border-t border-slate-700/60">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="grid gap-16">
+              {services.map((service) => (
+                <article
                   key={service.id}
                   id={service.id}
                   className={`scroll-fade-in ${
                     visibleSections.includes(service.id) ? "visible" : ""
-                  } grid lg:grid-cols-2 gap-12 items-center ${
-                    index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
                   }`}
                 >
-                  {/* Content */}
-                  <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-sm uppercase tracking-wide text-indigo-400 font-semibold">
-                        0{index + 1}
-                      </span>
-                    </div>
-                    <h2 className="text-4xl font-bold text-white mb-6">
-                      {service.title}
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    {/* Features */}
-                    <div className="grid grid-cols-2 gap-4 mb-8">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></div>
-                          <span className="text-sm text-gray-300">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Metrics */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 theme-card rounded-full border border-indigo-500/20">
-                      <span className="text-sm font-medium text-indigo-400">
-                        {service.metrics}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Visual Element */}
-                  <div className={index % 2 === 1 ? "lg:col-start-1" : ""}>
-                    <div className="relative">
-                      <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300">
-                        <h3 className="text-xl font-semibold text-white mb-6">
-                          Our Process
-                        </h3>
-                        <div className="space-y-4">
-                          {service.process.map((step, idx) => (
-                            <div key={idx} className="flex items-center gap-4">
-                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center text-white text-sm font-semibold">
-                                {idx + 1}
-                              </div>
-                              <span className="text-gray-300">{step}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Progress indicator */}
-                        <div className="mt-8 pt-6 border-t border-gray-200/10">
-                          <div className="flex justify-between text-sm text-gray-300 mb-2">
-                            <span>Process Efficiency</span>
-                            <span>92%</span>
-                          </div>
-                          <div className="w-full bg-gray-200/20 rounded-full h-2">
-                            <div
-                              className="bg-gradient-to-r from-blue-600 to-blue-700 h-2 rounded-full"
-                              style={{ width: "92%" }}
-                            ></div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Floating elements */}
-                      <div className="absolute -top-4 -right-4 w-8 h-8 bg-indigo-500/20 rounded-full"></div>
-                      <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-purple-500/10 rounded-full"></div>
-                    </div>
-                  </div>
-                </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                    {service.title}
+                  </h2>
+                  <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li
+                        key={idx}
+                        className="text-sm text-gray-400 flex items-center gap-2"
+                      >
+                        <span className="w-1 h-1 bg-blue-400 rounded-full flex-shrink-0"></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
           </div>
