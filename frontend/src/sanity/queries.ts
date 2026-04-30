@@ -31,6 +31,14 @@ export const blogPostsQuery = `*[_type == "post"] | order(publishedAt desc) {
   featured
 }`;
 
+// Query to fetch the 3 most recent posts for the home page
+export const latestPostsQuery = `*[_type == "post"] | order(publishedAt desc) [0...3] {
+  _id,
+  title,
+  slug,
+  publishedAt
+}`;
+
 // Query to fetch featured posts
 export const featuredPostsQuery = `*[_type == "post" && featured == true] | order(publishedAt desc) [0...3] {
   _id,
