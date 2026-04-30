@@ -88,7 +88,6 @@ const About = () => {
       description:
         "Full-stack developer and visionary who conceptualized the Hexerize ecosystem. Leads project delivery and product direction.",
       expertise: ["Full-Stack Development", "Performance Engineering", "Team Leadership"],
-      image: assets.dev1,
     },
     {
       name: "Izen",
@@ -96,7 +95,6 @@ const About = () => {
       description:
         "Full-stack developer and technical architect. Specializes in scalable systems, mobile, and AI/ML integration.",
       expertise: ["System Architecture", "Mobile & Web", "AI/ML Integration"],
-      image: assets.dev2,
     },
   ];
 
@@ -206,31 +204,24 @@ const About = () => {
           </h2>
           <div className="divide-y divide-slate-800/80">
             {team.map((member, index) => (
-              <div key={index} className="py-8 first:pt-0 last:pb-0 flex gap-6">
-                <img
-                  src={member.image}
-                  alt={`${member.name} — ${member.role} at Hexerize`}
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border border-slate-700/70 flex-shrink-0"
-                />
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1 tracking-tight">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-blue-400 mb-3">{member.role}</p>
-                  <p className="text-sm text-gray-300 leading-relaxed mb-4">
-                    {member.description}
-                  </p>
-                  <ul className="flex flex-wrap gap-2">
-                    {member.expertise.map((skill, idx) => (
-                      <li
-                        key={idx}
-                        className="text-xs text-gray-300 px-3 py-1 border border-slate-700/70 rounded-full"
-                      >
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div key={index} className="py-8 first:pt-0 last:pb-0">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-1 tracking-tight">
+                  {member.name}
+                </h3>
+                <p className="text-sm text-blue-400 mb-3">{member.role}</p>
+                <p className="text-sm text-gray-300 leading-relaxed mb-4 max-w-2xl">
+                  {member.description}
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  {member.expertise.map((skill, idx) => (
+                    <li
+                      key={idx}
+                      className="text-xs text-gray-300 px-3 py-1 border border-slate-700/70 rounded-full"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

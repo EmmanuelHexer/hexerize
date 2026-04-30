@@ -64,10 +64,10 @@ const Contact = () => {
               <dt className="text-xs uppercase tracking-widest text-gray-500 mb-2">Email</dt>
               <dd>
                 <a
-                  href="mailto:Emmanuelhexer@gmail.com"
+                  href="mailto:hexerise@gmail.com"
                   className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors break-all"
                 >
-                  Emmanuelhexer@gmail.com
+                  hexerise@gmail.com
                 </a>
                 <p className="text-sm text-gray-400 mt-2">Drop a line anytime.</p>
               </dd>
