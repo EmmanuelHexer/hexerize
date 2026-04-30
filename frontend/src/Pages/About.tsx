@@ -19,7 +19,7 @@ const About = () => {
     },
     {
       question: "Are you taking on client work?",
-      answer: "No. We're focused on our own products. Past client projects like Brediyie and Milly's Cuisine are still live, but client work funded the company's transition into product development."
+      answer: "No. We're focused on our own products. Past client work is delivered. Client work funded the company's transition into product development."
     },
     {
       question: "Where is Hexerize based?",
@@ -136,9 +136,8 @@ const About = () => {
             <p>
               Our focus is our own products: HexerSMS for schools, Piazam for
               shopping, and Stedova for campus life. We took on client work early
-              on (Brediyie, Milly's Cuisine) to fund the company while we built
-              the things we really wanted to ship, and we're glad we did. But
-              the future is products.
+              on to fund the company while we built the things we really wanted
+              to ship, and we're glad we did. But the future is products.
             </p>
           </div>
         </div>
@@ -235,7 +234,7 @@ const About = () => {
               },
               {
                 question: "Are you taking on client work?",
-                answer: "No. We're focused on our own products. Past client projects like Brediyie and Milly's Cuisine are still live, but client work funded the company's transition into product development."
+                answer: "No. We're focused on our own products. Past client work is delivered. Client work funded the company's transition into product development."
               },
               {
                 question: "Where is Hexerize based?",

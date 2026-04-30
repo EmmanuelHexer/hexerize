@@ -60,23 +60,6 @@ const Products = () => {
     },
   ];
 
-  const pastWork = [
-    {
-      title: "Brediyie",
-      year: "2024",
-      description: "Website for a COCOBOD-licensed cocoa trading company in Ghana.",
-      tech: ["React", "Node.js", "MongoDB"],
-      website: "brediyie.com",
-    },
-    {
-      title: "Milly's Cuisine",
-      year: "2024",
-      description: "Restaurant website with menu displays and online reservations.",
-      tech: ["React", "TypeScript", "PostgreSQL"],
-      website: "millyscuisine.com",
-    },
-  ];
-
   return (
     <div className="min-h-screen text-gray-100">
       {/* Hero Section */}
@@ -142,47 +125,16 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Past client work */}
+      {/* Past work */}
       <section className="py-12 md:py-16 border-t border-slate-700/60">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-6">
-            Past client work
+          <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-4">
+            Past work
           </h2>
-          <div className="divide-y divide-slate-800/80">
-            {pastWork.map((work, index) => (
-              <article key={index} className="py-6 first:pt-0 last:pb-0">
-                <div className="flex items-baseline justify-between gap-4 flex-wrap mb-2">
-                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-                    {work.title}
-                  </h3>
-                  <span className="text-xs text-gray-500">{work.year}</span>
-                </div>
-                <p className="text-sm text-gray-400 mb-3 leading-relaxed">
-                  {work.description}
-                </p>
-                <div className="flex items-center gap-4 flex-wrap">
-                  <ul className="flex flex-wrap gap-2">
-                    {work.tech.map((tech, idx) => (
-                      <li
-                        key={idx}
-                        className="text-xs text-gray-400 px-2.5 py-0.5 border border-slate-800 rounded-full"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={`https://${work.website}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-blue-400 hover:text-blue-300 transition-colors"
-                  >
-                    {work.website} ↗
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+          <p className="text-base text-gray-400 leading-relaxed max-w-2xl">
+            We took on a couple of client projects in 2024 to fund the company.
+            Both are delivered. The future is products.
+          </p>
         </div>
       </section>
 

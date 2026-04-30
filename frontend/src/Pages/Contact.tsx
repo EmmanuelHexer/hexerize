@@ -7,7 +7,7 @@ const Contact = () => {
   const faqSchema = createFAQSchema([
     {
       question: "Are you taking on client work?",
-      answer: "No. We're focused on our own products. Brediyie and Milly's Cuisine are still live, but we're not taking new gigs."
+      answer: "No. We're focused on our own products. Past client work is delivered, and we're not taking new gigs."
     },
     {
       question: "How do I get early access to a product?",
@@ -114,7 +114,7 @@ const Contact = () => {
             {[
               {
                 question: "Are you taking on client work?",
-                answer: "No. We're focused on our own products. Brediyie and Milly's Cuisine are still live, but we're not taking new gigs."
+                answer: "No. We're focused on our own products. Past client work is delivered, and we're not taking new gigs."
               },
               {
                 question: "How do I get early access to a product?",
