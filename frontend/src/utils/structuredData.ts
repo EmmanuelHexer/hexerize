@@ -180,36 +180,29 @@ export const createSiteNavigationSchema = () => ({
     {
       "@type": "SiteNavigationElement",
       "position": 1,
-      "name": "Services",
-      "description": "Comprehensive digital services and solutions",
-      "url": "https://hexerize.com/services/"
+      "name": "Products",
+      "description": "Software products by Hexerize",
+      "url": "https://hexerize.com/products/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 2,
-      "name": "Projects",
-      "description": "Our portfolio of successful digital projects",
-      "url": "https://hexerize.com/projects/"
+      "name": "About",
+      "description": "About Hexerize and our story",
+      "url": "https://hexerize.com/about/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 3,
       "name": "Blog",
-      "description": "Latest insights on web development and digital innovation",
+      "description": "Notes on software, products, and the work of building Hexerize",
       "url": "https://hexerize.com/blog/"
     },
     {
       "@type": "SiteNavigationElement",
       "position": 4,
-      "name": "About Us",
-      "description": "Learn about Hexerize and our mission",
-      "url": "https://hexerize.com/about/"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "position": 5,
       "name": "Contact",
-      "description": "Get in touch with our team",
+      "description": "Get in touch with Hexerize",
       "url": "https://hexerize.com/contact/"
     }
   ]

@@ -5,10 +5,8 @@
 
 # Valid static routes - Serve pre-rendered HTML for SEO
 /                   /index.html           200
-/services           /services/index.html  200
-/services/          /services/index.html  200
-/projects           /projects/index.html  200
-/projects/          /projects/index.html  200
+/products           /products/index.html  200
+/products/          /products/index.html  200
 /about              /about/index.html     200
 /about/             /about/index.html     200
 /smart-cards        /404.html             410
@@ -17,6 +15,12 @@
 /blog/              /blog/index.html      200
 /contact            /contact/index.html   200
 /contact/           /contact/index.html   200
+
+# Old URLs -> new URLs (positioning pivot Apr 2026)
+/services           /products/            301!
+/services/          /products/            301!
+/projects           /products/            301!
+/projects/          /products/            301!
 
 # Blog posts (dynamic routes) - Serve pre-rendered HTML
 /blog/*             /blog/:splat/index.html 200

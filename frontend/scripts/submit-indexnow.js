@@ -86,8 +86,7 @@ async function main() {
     // Build URL list
     const staticPages = [
       `${SITE_URL}/`,
-      `${SITE_URL}/services`,
-      `${SITE_URL}/projects`,
+      `${SITE_URL}/products`,
       `${SITE_URL}/about`,
       `${SITE_URL}/blog`,
       `${SITE_URL}/contact`,

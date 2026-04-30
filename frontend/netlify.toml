@@ -116,17 +116,30 @@
   status = 301
   force = false
 
-[[redirects]]
-  from = "/projects"
-  to = "/projects/"
-  status = 301
-  force = false
-
+# Old /services and /projects URLs redirect to /products/ (positioning pivot Apr 2026)
 [[redirects]]
   from = "/services"
-  to = "/services/"
+  to = "/products/"
   status = 301
-  force = false
+  force = true
+
+[[redirects]]
+  from = "/services/"
+  to = "/products/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects"
+  to = "/products/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects/"
+  to = "/products/"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/blog"
@@ -155,13 +168,8 @@
   status = 200
 
 [[redirects]]
-  from = "/services/"
-  to = "/services/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/projects/"
-  to = "/projects/index.html"
+  from = "/products/"
+  to = "/products/index.html"
   status = 200
 
 [[redirects]]

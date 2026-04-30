@@ -38,11 +38,7 @@ async function generateSitemap() {
         lastmod: new Date().toISOString().split('T')[0], // YYYY-MM-DD format
       },
       {
-        loc: 'https://hexerize.com/services/',
-        lastmod: new Date().toISOString().split('T')[0],
-      },
-      {
-        loc: 'https://hexerize.com/projects/',
+        loc: 'https://hexerize.com/products/',
         lastmod: new Date().toISOString().split('T')[0],
       },
       {

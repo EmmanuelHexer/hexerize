@@ -21,16 +21,10 @@ const baseHTML = readFileSync(`${__dirname}/../dist/index.html`, 'utf-8');
 // Define all static routes with their SEO data
 const routes = [
   {
-    path: 'services',
-    title: 'Services | Hexerize',
-    description: 'Professional web development, mobile apps, digital branding, and strategic consulting services. Custom solutions tailored to your business needs. Free consultation available.',
-    canonical: 'https://hexerize.com/services/'
-  },
-  {
-    path: 'projects',
-    title: 'Projects | Hexerize',
-    description: 'Explore successful digital projects and case studies. See our work in e-commerce platforms, AI-powered applications, custom web solutions, and mobile apps. Real results, real impact.',
-    canonical: 'https://hexerize.com/projects/'
+    path: 'products',
+    title: 'Products | Hexerize',
+    description: 'What Hexerize makes — HexerSMS for schools, Piazam for shopping, and Stedova for campus life. Software products built in Ghana.',
+    canonical: 'https://hexerize.com/products/'
   },
   {
     path: 'about',

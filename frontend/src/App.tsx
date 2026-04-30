@@ -7,14 +7,13 @@ import { useAppContext } from "./AppContext/AppContext.tsx";
 
 // Eager load critical pages for instant access
 import Home from "./Pages/Home";
-import Services from "./Pages/Services"; // Critical business page
 import BlogPost from "./Pages/BlogPost"; // SEO-critical, eager-loaded
 
 // Lazy load secondary pages for performance
 const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Blog = lazy(() => import("./Pages/Blog"));
-const Projects = lazy(() => import("./Pages/Projects"));
+const Products = lazy(() => import("./Pages/Products"));
 const NotFound = lazy(() => import("./Pages/NotFound"));
 
 function App() {
@@ -26,13 +25,13 @@ function App() {
     const preloadComponents = () => {
       // Preload most likely next pages after initial render
       setTimeout(() => {
+        import("./Pages/Products"); // Products is the new flagship page
         import("./Pages/About"); // About is commonly visited after landing
-        import("./Pages/Contact"); // Contact is high-conversion page
       }, isMobile ? 3000 : 2000); // Longer delay on mobile
 
       // Preload remaining components on user interaction
       setTimeout(() => {
-        import("./Pages/Projects");
+        import("./Pages/Contact");
         import("./Pages/Blog");
       }, isMobile ? 8000 : 5000);
     };
@@ -67,8 +66,7 @@ function App() {
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
