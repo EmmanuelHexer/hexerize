@@ -132,18 +132,15 @@ const BlogPost = () => {
     <div className="min-h-screen bg-slate-900 text-gray-100">
       <ReadingProgress />
       {/* Hero Section with Featured Image */}
-      <section className="relative py-4">
+      <section className="relative pt-16 sm:pt-24 md:pt-32 pb-4">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
-          <div className="sr-only">
-            <Breadcrumbs
-              items={[
-                { name: "Home", url: "https://hexerize.com/" },
-                { name: "Blog", url: "https://hexerize.com/blog/" },
-                { name: post.title, url: `https://hexerize.com/blog/${slug}/` },
-              ]}
-            />
-          </div>
+          <Breadcrumbs
+            items={[
+              { name: "Home", url: "https://hexerize.com/" },
+              { name: "Blog", url: "https://hexerize.com/blog/" },
+              { name: post.title, url: `https://hexerize.com/blog/${slug}/` },
+            ]}
+          />
 
           {/* Categories */}
           {post.categories && post.categories.length > 0 && (
