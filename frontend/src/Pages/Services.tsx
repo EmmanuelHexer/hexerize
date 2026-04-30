@@ -135,10 +135,10 @@ const Services = () => {
               ]} />
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 leading-[1.05] tracking-tight">
               Services
             </h1>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto">
               We build websites, apps, and digital products. See{" "}
               <span
                 className="cursor-pointer text-blue-400 hover:text-blue-300 underline decoration-dotted underline-offset-4 transition-colors"
@@ -161,28 +161,27 @@ const Services = () => {
         {/* Services List */}
         <section className="py-12 md:py-16 border-t border-slate-700/60">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
-            <div className="grid gap-16">
+            <div className="divide-y divide-slate-800/80">
               {services.map((service) => (
                 <article
                   key={service.id}
                   id={service.id}
-                  className={`scroll-fade-in ${
+                  className={`scroll-fade-in py-12 md:py-16 first:pt-0 last:pb-0 ${
                     visibleSections.includes(service.id) ? "visible" : ""
                   }`}
                 >
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-[1.05] tracking-tight">
                     {service.title}
                   </h2>
-                  <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed max-w-2xl">
                     {service.description}
                   </p>
-                  <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
+                  <ul className="flex flex-wrap gap-2">
                     {service.features.map((feature, idx) => (
                       <li
                         key={idx}
-                        className="text-sm text-gray-400 flex items-center gap-2"
+                        className="text-xs text-gray-300 px-3 py-1 border border-slate-700/70 rounded-full"
                       >
-                        <span className="w-1 h-1 bg-blue-400 rounded-full flex-shrink-0"></span>
                         {feature}
                       </li>
                     ))}
@@ -216,7 +215,7 @@ const Services = () => {
         {/* FAQ Section */}
         <section className="py-12 md:py-16 border-t border-slate-700/60">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 tracking-tight">
               Frequently asked
             </h2>
 
@@ -252,7 +251,7 @@ const Services = () => {
         {/* CTA Section */}
         <section className="py-12 md:py-16 border-t border-slate-700/60">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
               Have a project in mind?
             </h2>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-xl mx-auto">
