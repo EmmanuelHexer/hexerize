@@ -57,6 +57,61 @@ function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Escape for HTML attributes / text content
+function escapeAttr(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// Escape for embedding inside JSON string literals (used in JSON-LD <script>)
+function escapeJsonString(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, '\\n')
+    .replace(/\r/g, '\\r')
+    .replace(/\t/g, '\\t');
+}
+
+// Convert Sanity Portable Text blocks to plain text (for description fallback)
+function portableTextToPlainText(blocks) {
+  if (!blocks || !Array.isArray(blocks)) return '';
+  return blocks
+    .filter(block => block && block._type === 'block')
+    .map(block =>
+      (block.children || [])
+        .filter(child => child._type === 'span')
+        .map(span => span.text || '')
+        .join('')
+    )
+    .filter(text => text.trim().length > 0)
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Render first N paragraphs of body as static HTML for crawler indexing
+function renderBodyParagraphs(blocks, maxParagraphs = 4) {
+  if (!blocks || !Array.isArray(blocks)) return '';
+  const paragraphs = blocks
+    .filter(block => block && block._type === 'block' && (!block.style || block.style === 'normal'))
+    .map(block =>
+      (block.children || [])
+        .filter(child => child._type === 'span')
+        .map(span => escapeAttr(span.text || ''))
+        .join('')
+        .trim()
+    )
+    .filter(text => text.length > 0)
+    .slice(0, maxParagraphs);
+  return paragraphs.map(p => `<p style="margin:0 0 16px;">${p}</p>`).join('');
+}
+
 // Helper function to generate route HTML
 function generateRouteHTML(route) {
   let html = baseHTML;
@@ -135,13 +190,37 @@ function generateRouteHTML(route) {
   // Also update WebPage name and description in structured data
   html = html.replace(
     /("@type":\s*"WebPage"[\s\S]*?"name":\s*)"[^"]*"/,
-    `$1"${route.title}"`
+    `$1"${escapeJsonString(route.title)}"`
   );
 
   html = html.replace(
     /("@type":\s*"WebPage"[\s\S]*?"description":\s*)"[^"]*"/,
-    `$1"${route.description}"`
+    `$1"${escapeJsonString(route.description)}"`
   );
+
+  // For blog posts, override the stale 2024-01-01/2025-01-01 dates baked
+  // into the WebPage schema with the actual post timestamps
+  if (route.publishedTime) {
+    const pubDate = String(route.publishedTime).split('T')[0];
+    const modDate = String(route.modifiedTime || route.publishedTime).split('T')[0];
+    html = html.replace(
+      /("@type":\s*"WebPage"[\s\S]*?"datePublished":\s*)"[^"]*"/,
+      `$1"${pubDate}"`
+    );
+    html = html.replace(
+      /("@type":\s*"WebPage"[\s\S]*?"dateModified":\s*)"[^"]*"/,
+      `$1"${modDate}"`
+    );
+  }
+
+  // Inline article content into <div id="root"> so crawlers see real content
+  // before JS executes. React's createRoot() will replace this on hydration.
+  if (route.isArticle && route.inlineContent) {
+    html = html.replace(
+      /<div id="root"><\/div>/,
+      `<div id="root">${route.inlineContent}</div>`
+    );
+  }
 
   // Add article type for blog posts
   if (route.isArticle) {
@@ -155,6 +234,30 @@ function generateRouteHTML(route) {
       html = html.replace(
         /<meta\s+property="og:image"\s+content="[^"]*"[^>]*>/,
         `<meta property="og:image" content="${route.ogImage}"/>`
+      );
+
+      // CRITICAL: WhatsApp/Facebook fall back to og:image:secure_url if og:image
+      // is unsupported (e.g. WebP). Keep them in sync with the post image.
+      html = html.replace(
+        /<meta\s+property="og:image:secure_url"\s+content="[^"]*"[^>]*>/,
+        `<meta property="og:image:secure_url" content="${route.ogImage}"/>`
+      );
+
+      // og:image:type must match the actual image MIME (we force JPEG for posts)
+      html = html.replace(
+        /<meta\s+property="og:image:type"\s+content="[^"]*"[^>]*>/,
+        `<meta property="og:image:type" content="${route.ogImageType || 'image/jpeg'}"/>`
+      );
+
+      // og:image:alt and twitter:image:alt — use post title, not the generic site alt
+      const altText = escapeAttr(route.title);
+      html = html.replace(
+        /<meta\s+property="og:image:alt"\s+content="[^"]*"[^>]*>/,
+        `<meta property="og:image:alt" content="${altText}"/>`
+      );
+      html = html.replace(
+        /<meta\s+name="twitter:image:alt"\s+content="[^"]*"[^>]*>/,
+        `<meta name="twitter:image:alt" content="${altText}"/>`
       );
 
       // Update Twitter image too
@@ -234,6 +337,7 @@ async function generateAllHTML() {
         "slug": slug.current,
         title,
         excerpt,
+        body,
         publishedAt,
         _updatedAt,
         "mainImage": mainImage.asset->url,
@@ -250,20 +354,44 @@ async function generateAllHTML() {
     console.log('📄 Generating blog post pages...');
 
     posts.forEach(post => {
-      // Truncate description to 155 characters for SEO
-      const description = post.excerpt && post.excerpt.length > 155
-        ? post.excerpt.substring(0, 152) + '...'
-        : (post.excerpt || 'Read this article on Hexerize blog.');
+      // Build a real description: prefer excerpt, fall back to body plain text,
+      // last resort is title. Never use the generic placeholder string.
+      const bodyText = portableTextToPlainText(post.body);
+      const rawDescription =
+        (post.excerpt && post.excerpt.trim().length > 0)
+          ? post.excerpt.trim()
+          : (bodyText.length > 0
+              ? bodyText
+              : `${post.title} - Read on Hexerize Blog`);
+      const description = rawDescription.length > 155
+        ? rawDescription.substring(0, 152).trim() + '...'
+        : rawDescription;
 
-      // Generate OG image URL (1200x630 for optimal social sharing)
+      // Force JPEG for og:image — WhatsApp does not reliably render WebP previews.
+      // The visible page image (rendered by React) can stay WebP via auto=format.
       const ogImage = post.mainImage
-        ? `${post.mainImage}?w=1200&h=630&fit=crop&auto=format`
+        ? `${post.mainImage}?w=1200&h=630&fit=crop&fm=jpg&q=85`
         : 'https://hexerize.com/opengraph-image.png';
+
+      // Article schema image — also force JPEG for consistent crawler rendering
+      const articleImage = post.mainImage
+        ? `${post.mainImage}?w=1200&fm=jpg&q=85`
+        : null;
 
       // Extract keywords from categories
       const keywords = post.categories && post.categories.length > 0
         ? post.categories.join(', ')
         : 'web development, programming, technology';
+
+      // Static fallback content that gets rendered into <div id="root"> so that
+      // crawlers (and users in the brief pre-JS window) see real article content
+      const formattedDate = post.publishedAt
+        ? new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        : '';
+      const authorName = post.author?.name || 'Hexerize';
+      const readingMinutes = post.estimatedReadingTime ? ` &middot; ${post.estimatedReadingTime} min read` : '';
+      const bodyParagraphs = renderBodyParagraphs(post.body);
+      const inlineContent = `<article style="max-width:768px;margin:0 auto;padding:96px 20px 48px;color:#f9fafb;background:#0f172a;min-height:100vh;font-family:system-ui,-apple-system,sans-serif;line-height:1.6;"><nav style="font-size:14px;color:#9ca3af;margin-bottom:24px;"><a href="/" style="color:#38bdf8;text-decoration:none;">Home</a><span style="margin:0 8px;">/</span><a href="/blog/" style="color:#38bdf8;text-decoration:none;">Blog</a></nav><h1 style="font-size:36px;font-weight:700;line-height:1.2;margin:0 0 16px;color:#ffffff;">${escapeAttr(post.title)}</h1><p style="font-size:14px;color:#9ca3af;margin:0 0 32px;">By ${escapeAttr(authorName)} &middot; ${escapeAttr(formattedDate)}${readingMinutes}</p>${post.mainImage ? `<img src="${ogImage}" alt="${escapeAttr(post.title)}" width="1200" height="630" style="width:100%;height:auto;border-radius:8px;margin:0 0 32px;display:block;" />` : ''}<p style="font-size:18px;color:#d1d5db;margin:0 0 32px;">${escapeAttr(description)}</p><div style="font-size:16px;color:#e5e7eb;">${bodyParagraphs}</div></article>`;
 
       const route = {
         path: `blog/${post.slug}`,
@@ -272,6 +400,8 @@ async function generateAllHTML() {
         canonical: `https://hexerize.com/blog/${post.slug}/`,
         isArticle: true,
         ogImage: ogImage,
+        ogImageType: 'image/jpeg',
+        inlineContent: inlineContent,
         publishedTime: post.publishedAt,
         modifiedTime: post._updatedAt || post.publishedAt,
         keywords: keywords,
@@ -280,8 +410,8 @@ async function generateAllHTML() {
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": post.title,
-          "description": post.excerpt,
-          "image": post.mainImage ? [post.mainImage] : undefined,
+          "description": description,
+          "image": articleImage ? [articleImage] : undefined,
           "datePublished": post.publishedAt,
           "dateModified": post._updatedAt || post.publishedAt,
           "author": {
