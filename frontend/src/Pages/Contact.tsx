@@ -88,7 +88,7 @@ const Contact = () => {
             <div>
               <dt className="text-xs uppercase tracking-widest text-gray-500 mb-2">Location</dt>
               <dd>
-                <p className="text-xl md:text-2xl font-bold text-white">Ghana</p>
+                <p className="text-xl md:text-2xl font-bold text-white">Kumasi, Ghana</p>
                 <p className="text-sm text-gray-400 mt-2">Founded 2024.</p>
               </dd>
             </div>
