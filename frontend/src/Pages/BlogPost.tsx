@@ -133,7 +133,7 @@ const BlogPost = () => {
       <ReadingProgress />
       {/* Hero Section with Featured Image */}
       <section className="relative pt-16 sm:pt-24 md:pt-32 pb-4">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <Breadcrumbs
             items={[
               { name: "Home", url: "https://hexerize.com/" },
