@@ -377,7 +377,7 @@
 
 :root {
   /* Default to dark mode */
-  --body-background: #1a1a1a;
+  --body-background: #0f172a; /* Tailwind's slate-900 — branded cool dark */
   --body-color: #f9fafb; /* white-ish */
   --heading-color: #ffffff;
   --link-color: #38bdf8; /* Tailwind's cyan-400 */
@@ -396,7 +396,7 @@
 }
 
 [data-theme="dark"] {
-  --body-background: #1a1a1a;
+  --body-background: #0f172a; /* Tailwind's slate-900 — branded cool dark */
   --body-color: #f9fafb; /* white-ish */
   --heading-color: #ffffff;
   --link-color: #38bdf8; /* Tailwind's cyan-400 */
