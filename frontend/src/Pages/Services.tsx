@@ -161,63 +161,36 @@ const Services = () => {
     <>
       <div className="min-h-screen text-gray-100">
         {/* Hero Section */}
-        <section className="relative py-6 sm:py-10 md:py-20 overflow-hidden">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="text-center">
-              {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
-              <div className="sr-only">
-                <Breadcrumbs items={[
-                  { name: "Home", url: "https://hexerize.com/" },
-                  { name: "Services", url: "https://hexerize.com/services/" }
-                ]} />
-              </div>
-
-              {/* Mobile-optimized badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
-                <span className="text-xs font-medium text-indigo-400">What We Offer</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-2 sm:mb-3 md:mb-6 leading-tight">
-                Our <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Services</span>
-              </h1>
-              <p
-                className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-4 sm:mb-6 md:mb-12 leading-relaxed"
-              >
-                Comprehensive digital solutions that transform businesses and
-                create lasting impact. See our <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/projects/")}>successful projects</span> or <span className="cursor-pointer underline decoration-dotted hover:text-indigo-400 transition-colors" onClick={() => navigate("/about/")}>meet our team</span>.
-              </p>
-
-              {/* Mobile: Show only 2 key stats */}
-              <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">
-                    150+
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">
-                    Projects
-                  </div>
-                </div>
-                <div className="w-px h-10 sm:h-10 md:h-12 bg-slate-700"></div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-2xl md:text-3xl font-bold text-indigo-400 mb-1">
-                    98%
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">
-                    Satisfaction
-                  </div>
-                </div>
-                {/* Third stat hidden on mobile, shown on tablet+ */}
-                <div className="hidden sm:flex w-px h-10 md:h-12 bg-slate-700"></div>
-                <div className="hidden sm:block text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-indigo-400 mb-1">
-                    24/7
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-300 opacity-70">
-                    Support
-                  </div>
-                </div>
-              </div>
+        <section className="relative py-10 md:py-12">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
+            <div className="sr-only">
+              <Breadcrumbs items={[
+                { name: "Home", url: "https://hexerize.com/" },
+                { name: "Services", url: "https://hexerize.com/services/" }
+              ]} />
             </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              Services
+            </h1>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              We build websites, apps, and digital products. See{" "}
+              <span
+                className="cursor-pointer text-blue-400 hover:text-blue-300 underline decoration-dotted underline-offset-4 transition-colors"
+                onClick={() => navigate("/projects/")}
+              >
+                our recent work
+              </span>{" "}
+              or{" "}
+              <span
+                className="cursor-pointer text-blue-400 hover:text-blue-300 underline decoration-dotted underline-offset-4 transition-colors"
+                onClick={() => navigate("/about/")}
+              >
+                meet the team
+              </span>
+              .
+            </p>
           </div>
         </section>
 
