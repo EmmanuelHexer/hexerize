@@ -373,16 +373,6 @@
     }
   }
 
-  /* Page-specific navbar styling */
-  .services-nav,
-  .about-nav,
-  .contact-nav,
-  .projects-nav,
-  .blog-nav {
-    background: #0f172a !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-  }
-
 }
 
 :root {

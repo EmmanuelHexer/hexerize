@@ -6,19 +6,6 @@ import { createFAQSchema, createContactPageSchema } from "../utils/structuredDat
 import Breadcrumbs from "../Components/Breadcrumbs";
 
 const Contact = () => {
-  // Add custom navbar styling for this page
-  useEffect(() => {
-    const navbar = document.querySelector("header");
-    if (navbar) {
-      navbar.classList.add("contact-nav");
-    }
-    return () => {
-      if (navbar) {
-        navbar.classList.remove("contact-nav");
-      }
-    };
-  }, []);
-
   // Scroll animations
   useEffect(() => {
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };

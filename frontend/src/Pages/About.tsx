@@ -11,18 +11,6 @@ const About = () => {
   const navigate = useNavigate();
 
   // Add custom navbar styling for this page
-  useEffect(() => {
-    const navbar = document.querySelector("header");
-    if (navbar) {
-      navbar.classList.add("about-nav");
-    }
-    return () => {
-      if (navbar) {
-        navbar.classList.remove("about-nav");
-      }
-    };
-  }, []);
-
   // Create FAQ schema for About page
   const faqSchema = createFAQSchema([
     {
