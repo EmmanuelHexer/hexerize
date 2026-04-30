@@ -8,27 +8,22 @@ import Breadcrumbs from "../Components/Breadcrumbs";
 const About = () => {
   const navigate = useNavigate();
 
-  // Create FAQ schema for About page
   const faqSchema = createFAQSchema([
     {
       question: "Who founded Hexerize?",
-      answer: "Hexerize was founded in 2024 by two passionate developers, Hexer and Izen, who bring extensive expertise in full-stack development, system architecture, and digital innovation."
+      answer: "Hexer and Izen — two developers with experience in full-stack development, system architecture, and product engineering. Founded in 2024."
     },
     {
-      question: "What makes Hexerize different from other agencies?",
-      answer: "We're not just a client services agency - we build our own digital products and platforms like HexerSMS and Stedova. This dual approach keeps us innovative and ensures we're always working with cutting-edge technologies."
+      question: "What does Hexerize make?",
+      answer: "Software products. Right now we're building HexerSMS for schools, Piazam for shopping, and Stedova for campus life."
     },
     {
-      question: "What technologies does your team master?",
-      answer: "Our team masters 25+ technologies including React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, React Native, and AI/ML frameworks."
+      question: "Are you taking on client work?",
+      answer: "No. We're focused on our own products. Past client projects like Brediyie and Milly's Cuisine are still live, but client work funded the company's transition into product development."
     },
     {
-      question: "How many projects has Hexerize completed?",
-      answer: "We've successfully completed 50+ projects ranging from custom web applications to mobile apps and enterprise platforms."
-    },
-    {
-      question: "Do you work on your own products or only client work?",
-      answer: "We do both! We build innovative client projects while developing our own ecosystem of platforms including HexerSMS for schools and Stedova for campus communities."
+      question: "Where is Hexerize based?",
+      answer: "Ghana. We build for the world from here."
     }
   ]);
 
@@ -48,7 +43,6 @@ const About = () => {
     ]
   };
 
-  // SEO for About page with FAQ schema
   useSEO({
     ...seoConfig.about,
     structuredData
@@ -56,28 +50,24 @@ const About = () => {
 
   const values = [
     {
-      title: "Innovation First",
+      title: "Build to last",
       description:
-        "We're always exploring emerging technologies and methodologies to deliver cutting-edge solutions that give our clients a competitive advantage.",
-      icon: "ri-rocket-line",
+        "Software that holds up over years, not weeks. We invest in foundations that compound rather than features that decay.",
     },
     {
-      title: "Quality Excellence",
+      title: "Real problems first",
       description:
-        "Every project receives our full attention to detail, ensuring high-quality deliverables that exceed expectations and drive real results.",
-      icon: "ri-star-line",
+        "Every product we ship starts from a problem we've actually seen. No solutions in search of problems.",
     },
     {
-      title: "Client Partnership",
+      title: "Ship and iterate",
       description:
-        "We work as an extension of your team, building long-term relationships based on trust, transparency, and mutual success.",
-      icon: "ri-team-line",
+        "Working software in users' hands beats perfect software in our heads. We ship early and improve relentlessly.",
     },
     {
-      title: "Continuous Growth",
+      title: "Stay sharp",
       description:
-        "We're committed to continuous learning and improvement, staying ahead of industry trends to benefit our clients and ecosystem.",
-      icon: "ri-line-chart-line",
+        "Continuous learning is the cost of building software that matters. We pick the right tools for the problem.",
     },
   ];
 
@@ -86,8 +76,8 @@ const About = () => {
       name: "Hexer",
       role: "Co-Founder & CEO",
       description:
-        "Full-stack developer and visionary who conceptualized the Hexerize ecosystem. Leads project delivery and product direction.",
-      expertise: ["Full-Stack Development", "Performance Engineering", "Team Leadership"],
+        "Full-stack developer and visionary who conceptualized the Hexerize ecosystem. Leads product direction and engineering.",
+      expertise: ["Full-Stack Development", "Performance Engineering", "Product Direction"],
     },
     {
       name: "Izen",
@@ -103,7 +93,6 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative py-10 md:py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
           <div className="sr-only">
             <Breadcrumbs items={[
               { name: "Home", url: "https://hexerize.com/" },
@@ -115,7 +104,7 @@ const About = () => {
             About
           </h1>
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto">
-            Founded in 2024 by two developers building modern websites, apps, and our own products.
+            Hexerize is a software company from Ghana, founded in 2024 by Hexer and Izen.
           </p>
         </div>
       </section>
@@ -135,9 +124,9 @@ const About = () => {
           </div>
           <div className="space-y-5 text-base md:text-lg text-gray-300 leading-relaxed">
             <p>
-              Founded in 2024 by Hexer and Izen, Hexerize started as late-night
-              coding sessions and ambitious ideas. It's grown into a small studio
-              that ships modern websites, apps, and our own products.
+              Hexerize started in 2024 as late-night coding sessions and ambitious
+              ideas between Hexer and Izen. The plan was simple: build software
+              products people actually want to use.
             </p>
             <p>
               We work across React, Node.js, Python, AI/ML, cloud, and mobile —
@@ -145,9 +134,11 @@ const About = () => {
               around.
             </p>
             <p>
-              Alongside client work we build our own ecosystem: HexerSMS for
-              schools and Stedova for campus communities. Building products keeps
-              us sharp on the same technologies we ship to clients.
+              Our focus is our own products: HexerSMS for schools, Piazam for
+              shopping, and Stedova for campus life. We took on client work early
+              on (Brediyie, Milly's Cuisine) to fund the company while we built
+              the things we really wanted to ship — and we're glad we did. But
+              the future is products.
             </p>
           </div>
         </div>
@@ -160,15 +151,13 @@ const About = () => {
             <div>
               <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-3">Mission</h3>
               <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-                Empower businesses with digital solutions that drive growth and
-                create lasting value.
+                Build software products that solve real problems for real people.
               </p>
             </div>
             <div>
               <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-3">Vision</h3>
               <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-                Bridge cutting-edge technology and meaningful business outcomes —
-                building an ecosystem where innovation thrives.
+                A portfolio of software products from Ghana, used by people everywhere.
               </p>
             </div>
           </div>
@@ -238,15 +227,19 @@ const About = () => {
             {[
               {
                 question: "Who founded Hexerize?",
-                answer: "Hexer and Izen — two developers with experience in full-stack development, system architecture, and digital innovation. Founded in 2024."
+                answer: "Hexer and Izen — two developers with experience in full-stack development, system architecture, and product engineering. Founded in 2024."
               },
               {
-                question: "What makes Hexerize different?",
-                answer: "We don't just do client services — we build our own products like HexerSMS and Stedova. The dual approach keeps us working with cutting-edge tech every day."
+                question: "What does Hexerize make?",
+                answer: "Software products. Right now we're building HexerSMS for schools, Piazam for shopping, and Stedova for campus life."
               },
               {
-                question: "Do you work on your own products or only client work?",
-                answer: "Both. We ship client projects while building our own ecosystem of platforms including HexerSMS for schools and Stedova for campus communities."
+                question: "Are you taking on client work?",
+                answer: "No. We're focused on our own products. Past client projects like Brediyie and Milly's Cuisine are still live, but client work funded the company's transition into product development."
+              },
+              {
+                question: "Where is Hexerize based?",
+                answer: "Ghana. We build for the world from here."
               }
             ].map((faq, index) => (
               <details key={index} className="border border-slate-700/60 rounded-xl px-5 py-4 group open:bg-slate-800/30 transition-colors">
@@ -267,23 +260,23 @@ const About = () => {
       <section className="py-12 md:py-16 border-t border-slate-700/60">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
-            Have a project in mind?
+            Want to know more?
           </h2>
           <p className="text-base md:text-lg text-gray-300 mb-8 max-w-xl mx-auto">
-            Tell us what you're building. We'll get back within a day.
+            See what we're building or get in touch.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
-              onClick={() => navigate('/contact/')}
+              onClick={() => navigate('/products/')}
               className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors"
             >
-              Start a project
+              See products
             </button>
             <button
-              onClick={() => navigate('/services/')}
+              onClick={() => navigate('/contact/')}
               className="px-6 py-3 border border-slate-600 hover:border-slate-500 text-gray-200 rounded-lg font-medium transition-colors"
             >
-              See our services
+              Get in touch
             </button>
           </div>
         </div>
