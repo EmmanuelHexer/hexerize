@@ -120,14 +120,17 @@ const Blog = () => {
   if (!loading && posts.length === 0) {
     return (
       <div className="min-h-screen bg-slate-900 text-gray-100">
-        <section className="relative pt-16 sm:pt-24 md:pt-32 pb-20 overflow-hidden min-h-screen flex items-center justify-center">
+        <section className="relative py-20 overflow-hidden min-h-screen flex items-center justify-center">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <Breadcrumbs
-              items={[
-                { name: "Home", url: "https://hexerize.com/" },
-                { name: "Blog", url: "https://hexerize.com/blog/" },
-              ]}
-            />
+            {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
+            <div className="sr-only">
+              <Breadcrumbs
+                items={[
+                  { name: "Home", url: "https://hexerize.com/" },
+                  { name: "Blog", url: "https://hexerize.com/blog/" },
+                ]}
+              />
+            </div>
 
             <div className="absolute top-20 left-10 w-32 h-32 sm:w-64 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
             <div
@@ -206,14 +209,17 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-slate-900 text-gray-100">
       {/* Hero Section */}
-      <section className="relative pt-16 sm:pt-24 md:pt-32 pb-12 overflow-hidden">
+      <section className="relative py-12 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-          <Breadcrumbs
-            items={[
-              { name: "Home", url: "https://hexerize.com/" },
-              { name: "Blog", url: "https://hexerize.com/blog/" },
-            ]}
-          />
+          {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
+          <div className="sr-only">
+            <Breadcrumbs
+              items={[
+                { name: "Home", url: "https://hexerize.com/" },
+                { name: "Blog", url: "https://hexerize.com/blog/" },
+              ]}
+            />
+          </div>
 
           <div className="absolute top-20 left-10 w-32 h-32 sm:w-64 sm:h-64 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
           <div
