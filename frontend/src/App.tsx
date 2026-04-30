@@ -9,12 +9,12 @@ import { useAppContext } from "./AppContext/AppContext.tsx";
 // Eager load critical pages for instant access
 import Home from "./Pages/Home";
 import Services from "./Pages/Services"; // Critical business page
+import BlogPost from "./Pages/BlogPost"; // SEO-critical, eager to skip Suspense LoadingSpinner stage
 
 // Lazy load secondary pages for performance
 const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Blog = lazy(() => import("./Pages/Blog"));
-const BlogPost = lazy(() => import("./Pages/BlogPost"));
 const Projects = lazy(() => import("./Pages/Projects"));
 const NotFound = lazy(() => import("./Pages/NotFound"));
 

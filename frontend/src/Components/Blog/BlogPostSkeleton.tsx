@@ -6,7 +6,7 @@ const BlogPostSkeleton = () => {
     <div className="min-h-screen bg-slate-900 text-gray-100">
       {/* Hero Section Skeleton */}
       <section className="relative pt-16 sm:pt-24 md:pt-32 pb-4">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           {/* Breadcrumbs skeleton */}
           <div className="mb-6">
             <Skeleton
