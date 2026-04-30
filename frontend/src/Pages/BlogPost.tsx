@@ -6,7 +6,6 @@ import type { BlogPost as BlogPostType, BlogListItem } from "../sanity/types";
 import PortableTextRenderer from "../Components/Blog/PortableTextRenderer";
 import BlogCard from "../Components/Blog/BlogCard";
 import Breadcrumbs from "../Components/Breadcrumbs";
-import ReadingProgress from "../Components/Blog/ReadingProgress";
 import CTASection from "../Components/Blog/CTASection";
 import Comments from "../Components/Blog/Comments";
 import BlogPostSkeleton from "../Components/Blog/BlogPostSkeleton";
@@ -130,7 +129,6 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-slate-900 text-gray-100">
-      <ReadingProgress />
       {/* Hero Section with Featured Image */}
       <section className="relative pt-16 sm:pt-24 md:pt-32 pb-4">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
