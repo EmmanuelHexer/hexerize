@@ -20,6 +20,18 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      description:
+        'Short summary shown in Google search results, WhatsApp/Twitter/Facebook link previews, and blog listings. Aim for 140-155 characters. If left blank, the system will auto-generate one from the body — but a hand-written excerpt always performs better.',
+      type: 'text',
+      rows: 3,
+      validation: (Rule) => [
+        Rule.max(160).warning('Keep excerpts under 160 characters — Google truncates longer descriptions in search results'),
+        Rule.min(50).warning('Excerpts under 50 characters often look thin in search snippets'),
+      ],
+    }),
+    defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
