@@ -106,7 +106,7 @@ const Blog = () => {
   // Show coming soon page if no posts (only after loading)
   if (!loading && posts.length === 0) {
     return (
-      <div className="min-h-screen bg-slate-900 text-gray-100">
+      <div className="min-h-screen text-gray-100">
         <section className="relative py-20 overflow-hidden min-h-screen flex items-center justify-center">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             {/* Breadcrumbs hidden visually but kept in DOM for SEO/screen readers */}
@@ -194,7 +194,7 @@ const Blog = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-gray-100">
+    <div className="min-h-screen text-gray-100">
       {/* Hero Section */}
       <section className="relative py-12 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">

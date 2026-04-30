@@ -3,7 +3,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const BlogPostSkeleton = () => {
   return (
-    <div className="min-h-screen bg-slate-900 text-gray-100">
+    <div className="min-h-screen text-gray-100">
       {/* Hero Section Skeleton */}
       <section className="relative pt-16 sm:pt-24 md:pt-32 pb-4">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">

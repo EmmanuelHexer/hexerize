@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-gray-900 to-slate-950 text-gray-100 transition-all duration-700 ease-in-out">
+      <div className="min-h-screen text-gray-100 transition-all duration-700 ease-in-out">
         {/* Animated Background Particles */}
         <div className="fixed inset-0 z-0 pointer-events-none">
           <div className="particle" style={{ left: "10%", top: "20%", animationDelay: "0s", width: "6px", height: "6px" }}></div>

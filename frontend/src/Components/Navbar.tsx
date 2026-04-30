@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="fixed top-0 left-0 w-full h-[60px] md:h-[80px] z-50 theme-card backdrop-blur-md shadow-md px-4 py-3 md:px-8 md:py-5 flex justify-between items-center transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full h-[60px] md:h-[80px] z-50 bg-[color:var(--body-background)] backdrop-blur-md shadow-md px-4 py-3 md:px-8 md:py-5 flex justify-between items-center transition-all duration-300">
       <div
         onClick={() => {
           navigate("/");

@@ -159,7 +159,7 @@ const Services = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-slate-900 text-gray-100">
+      <div className="min-h-screen text-gray-100">
         {/* Hero Section */}
         <section className="relative py-6 sm:py-10 md:py-20 overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
