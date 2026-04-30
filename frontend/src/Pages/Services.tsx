@@ -12,24 +12,16 @@ const Services = () => {
   // Create structured data for services page
   const faqSchema = createFAQSchema([
     {
-      question: "What web development services do you offer?",
-      answer: "We offer modern website development, digital branding, custom app development, and digital strategy consulting. Our services cover full-stack development with React, Node.js, Python, and more."
+      question: "What services do you offer?",
+      answer: "Modern website development, digital branding, custom app development, and digital strategy consulting — full-stack work with React, Next.js, Node.js, Python, and the modern cloud."
     },
     {
-      question: "How long does a typical web development project take?",
-      answer: "Projects typically range from 4-12 weeks depending on complexity. We provide detailed timelines during our discovery phase."
+      question: "How long does a typical project take?",
+      answer: "Most projects ship in 4-12 weeks depending on scope. You'll get a detailed timeline during the discovery phase before any code is written."
     },
     {
-      question: "Do you work with startups or only established businesses?",
-      answer: "We work with both startups and established businesses. Our flexible approach adapts to your company size and budget."
-    },
-    {
-      question: "What technologies do you specialize in?",
-      answer: "We specialize in React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, and modern cloud architectures."
-    },
-    {
-      question: "Do you provide ongoing support after launch?",
-      answer: "Yes, we offer comprehensive maintenance and support packages to ensure your digital solutions continue performing optimally."
+      question: "What technologies do you work with?",
+      answer: "React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, and modern cloud architectures. We pick the stack that fits the problem, not the other way around."
     }
   ]);
 
@@ -201,65 +193,6 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Why Choose Hexerize */}
-        <section className="py-20 border-t border-slate-700">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Why Choose{" "}
-                <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Hexerize</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                We're not just another agency. We're your digital innovation
-                partner, committed to building lasting success.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                {
-                  title: "Innovation First",
-                  description:
-                    "We stay ahead of trends, implementing cutting-edge solutions that give you a competitive advantage.",
-                  metric: "99.9%",
-                  label: "Uptime",
-                },
-                {
-                  title: "Results Driven",
-                  description:
-                    "Every decision is backed by data and focused on delivering measurable business outcomes.",
-                  metric: "300%",
-                  label: "Avg ROI",
-                },
-                {
-                  title: "Partnership Approach",
-                  description:
-                    "We work as an extension of your team, providing ongoing support and strategic guidance.",
-                  metric: "24/7",
-                  label: "Support",
-                },
-              ].map((item, index) => (
-                <div key={index} className="text-center group">
-                  <div className="relative mb-6">
-                    <div className="w-20 h-20 mx-auto bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <div className="text-2xl font-bold text-indigo-400">
-                        {item.metric}
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-300 mb-4">{item.description}</p>
-                  <div className="text-sm text-indigo-400 font-medium">
-                    {item.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Testimonials Section */}
         <Testimonials testimonials={[
           {
@@ -281,48 +214,35 @@ const Services = () => {
         ]} />
 
         {/* FAQ Section */}
-        <section className="py-20 border-t border-slate-700">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Frequently Asked <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Questions</span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                Get answers to common questions about our services and process.
-              </p>
-            </div>
+        <section className="py-12 md:py-16 border-t border-slate-700/60">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
+              Frequently asked
+            </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[
                 {
-                  question: "What web development services do you offer?",
-                  answer: "We offer modern website development, digital branding, custom app development, and digital strategy consulting. Our services cover full-stack development with React, Node.js, Python, and more."
+                  question: "What services do you offer?",
+                  answer: "Modern website development, digital branding, custom app development, and digital strategy consulting — full-stack work with React, Next.js, Node.js, Python, and the modern cloud."
                 },
                 {
-                  question: "How long does a typical web development project take?",
-                  answer: "Projects typically range from 4-12 weeks depending on complexity. We provide detailed timelines during our discovery phase."
+                  question: "How long does a typical project take?",
+                  answer: "Most projects ship in 4-12 weeks depending on scope. You'll get a detailed timeline during the discovery phase before any code is written."
                 },
                 {
-                  question: "Do you work with startups or only established businesses?",
-                  answer: "We work with both startups and established businesses. Our flexible approach adapts to your company size and budget."
-                },
-                {
-                  question: "What technologies do you specialize in?",
-                  answer: "We specialize in React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, and modern cloud architectures."
-                },
-                {
-                  question: "Do you provide ongoing support after launch?",
-                  answer: "Yes, we offer comprehensive maintenance and support packages to ensure your digital solutions continue performing optimally."
+                  question: "What technologies do you work with?",
+                  answer: "React, Next.js, Node.js, Python, TypeScript, MongoDB, PostgreSQL, AWS, Docker, and modern cloud architectures. We pick the stack that fits the problem, not the other way around."
                 }
               ].map((faq, index) => (
-                <details key={index} className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-xl p-6 group">
-                  <summary className="flex justify-between items-center cursor-pointer text-white font-semibold text-lg list-none">
+                <details key={index} className="border border-slate-700/60 rounded-xl px-5 py-4 group open:bg-slate-800/30 transition-colors">
+                  <summary className="flex justify-between items-center cursor-pointer text-white font-medium list-none gap-4">
                     <span>{faq.question}</span>
-                    <svg className="w-5 h-5 text-indigo-400 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-gray-400 flex-shrink-0 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <p className="mt-4 text-gray-300 leading-relaxed">{faq.answer}</p>
+                  <p className="mt-3 text-gray-300 leading-relaxed text-sm">{faq.answer}</p>
                 </details>
               ))}
             </div>
@@ -330,31 +250,27 @@ const Services = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 rounded-3xl p-12 relative overflow-hidden">
-              <div className="relative z-10">
-                <h2 className="text-3xl font-bold text-white mb-6">
-                  Ready to Transform Your Business?
-                </h2>
-                <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Let's discuss how our comprehensive digital services can
-                  accelerate your growth and create lasting impact in your
-                  industry.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button onClick={() => navigate('/contact/')} className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:scale-105 transition-transform duration-300">
-                    Start Your Project
-                  </button>
-                  <button onClick={() => navigate('/projects/')} className="px-8 py-4 bg-slate-700/50 border border-indigo-500/20 text-gray-300 rounded-xl font-semibold hover:transform hover:-translate-y-1 transition-all duration-300">
-                    View Our Work
-                  </button>
-                </div>
-              </div>
-
-              {/* Background elements */}
-              <div className="absolute top-4 right-4 w-20 h-20 bg-indigo-500/10 rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-16 h-16 bg-purple-500/10 rounded-full"></div>
+        <section className="py-12 md:py-16 border-t border-slate-700/60">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Have a project in mind?
+            </h2>
+            <p className="text-base md:text-lg text-gray-300 mb-8 max-w-xl mx-auto">
+              Tell us what you're building. We'll get back within a day.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => navigate('/contact/')}
+                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium transition-colors"
+              >
+                Start a project
+              </button>
+              <button
+                onClick={() => navigate('/projects/')}
+                className="px-6 py-3 border border-slate-600 hover:border-slate-500 text-gray-200 rounded-lg font-medium transition-colors"
+              >
+                See our work
+              </button>
             </div>
           </div>
         </section>
