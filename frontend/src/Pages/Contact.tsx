@@ -11,7 +11,7 @@ const Contact = () => {
     },
     {
       question: "How do I get early access to a product?",
-      answer: "Email us with the product name (HexerSMS, Piazam, or Stedova) and we'll let you know when it opens up."
+      answer: "Email us with the product name (Piazam, HexerSMS, or Stedova) and we'll let you know when it opens up."
     },
     {
       question: "Found a bug or have feedback on something we've shipped?",
@@ -118,7 +118,7 @@ const Contact = () => {
               },
               {
                 question: "How do I get early access to a product?",
-                answer: "Email us with the product name (HexerSMS, Piazam, or Stedova) and we'll let you know when it opens up."
+                answer: "Email us with the product name (Piazam, HexerSMS, or Stedova) and we'll let you know when it opens up."
               },
               {
                 question: "Found a bug or have feedback on something we've shipped?",

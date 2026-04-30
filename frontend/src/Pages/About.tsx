@@ -15,7 +15,7 @@ const About = () => {
     },
     {
       question: "What does Hexerize make?",
-      answer: "Software products. Right now we're building HexerSMS for schools, Piazam for shopping, and Stedova for campus life."
+      answer: "Software products. Right now we're building Piazam for shopping, HexerSMS for schools, and Stedova for campus life."
     },
     {
       question: "Are you taking on client work?",
@@ -134,8 +134,8 @@ const About = () => {
               around.
             </p>
             <p>
-              Our focus is our own products: HexerSMS for schools, Piazam for
-              shopping, and Stedova for campus life. We took on client work early
+              Our focus is our own products: Piazam for shopping, HexerSMS for
+              schools, and Stedova for campus life. We took on client work early
               on to fund the company while we built the things we really wanted
               to ship, and we're glad we did. But the future is products.
             </p>
@@ -230,7 +230,7 @@ const About = () => {
               },
               {
                 question: "What does Hexerize make?",
-                answer: "Software products. Right now we're building HexerSMS for schools, Piazam for shopping, and Stedova for campus life."
+                answer: "Software products. Right now we're building Piazam for shopping, HexerSMS for schools, and Stedova for campus life."
               },
               {
                 question: "Are you taking on client work?",

@@ -32,15 +32,6 @@ const Products = () => {
 
   const products = [
     {
-      id: "hexersms",
-      title: "HexerSMS",
-      tagline: "School management for Ghanaian schools.",
-      description:
-        "Student records, attendance tracking, gradebook, and a parent portal. Built for primary and junior high schools in Ghana.",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      status: "In development",
-    },
-    {
       id: "piazam",
       title: "Piazam",
       tagline: "Online shopping for Ghana.",
@@ -48,6 +39,15 @@ const Products = () => {
         "An e-commerce platform built around how Ghanaians buy and sell. Launching in 2026.",
       tech: ["React", "Node.js", "PostgreSQL"],
       status: "Launching soon",
+    },
+    {
+      id: "hexersms",
+      title: "HexerSMS",
+      tagline: "School management for Ghanaian schools.",
+      description:
+        "Student records, attendance tracking, gradebook, and a parent portal. Built for primary and junior high schools in Ghana.",
+      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
+      status: "In development",
     },
     {
       id: "stedova",

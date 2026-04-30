@@ -12,7 +12,7 @@ export const seoConfig: Record<string, SEOConfig> = {
     title: "Hexerize",
     description:
       "Hexerize is a software company from Ghana. We build the software Ghana needs.",
-    keywords: "hexerize, software company ghana, hexersms, piazam, stedova",
+    keywords: "hexerize, software company ghana, piazam, hexersms, stedova",
     canonical: "https://hexerize.com/",
     ogTitle: "Hexerize",
     ogDescription:
@@ -32,11 +32,11 @@ export const seoConfig: Record<string, SEOConfig> = {
   products: {
     title: "Products | Hexerize",
     description:
-      "What Hexerize makes. HexerSMS for schools, Piazam for shopping, and Stedova for campus life. Software from Ghana.",
-    keywords: "hexerize products, hexersms, piazam, stedova, school management ghana, online shopping ghana",
+      "What Hexerize makes. Piazam for shopping, HexerSMS for schools, and Stedova for campus life. Software from Ghana.",
+    keywords: "hexerize products, piazam, hexersms, stedova, online shopping ghana, school management ghana",
     canonical: "https://hexerize.com/products/",
     ogTitle: "Products | Hexerize",
-    ogDescription: "HexerSMS, Piazam, Stedova. Software products by Hexerize. Built in Ghana.",
+    ogDescription: "Piazam, HexerSMS, Stedova. Software products by Hexerize. Built in Ghana.",
   },
 
   blog: {
