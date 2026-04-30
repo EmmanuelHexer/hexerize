@@ -373,9 +373,10 @@ async function generateAllHTML() {
         ? `${post.mainImage}?w=1200&h=630&fit=crop&fm=jpg&q=85`
         : 'https://hexerize.com/opengraph-image.png';
 
-      // Article schema image — also force JPEG for consistent crawler rendering
+      // Article schema image — force JPEG for consistent crawler rendering.
+      // Use 1600px to match the page's displayed featured image (retina-friendly).
       const articleImage = post.mainImage
-        ? `${post.mainImage}?w=1200&fm=jpg&q=85`
+        ? `${post.mainImage}?w=1600&fm=jpg&q=85`
         : null;
 
       // Extract keywords from categories
