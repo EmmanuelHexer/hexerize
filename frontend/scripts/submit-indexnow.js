@@ -89,7 +89,6 @@ async function main() {
       `${SITE_URL}/services`,
       `${SITE_URL}/projects`,
       `${SITE_URL}/about`,
-      `${SITE_URL}/smart-cards`,
       `${SITE_URL}/blog`,
       `${SITE_URL}/contact`,
     ];

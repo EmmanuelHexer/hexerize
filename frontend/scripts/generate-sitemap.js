@@ -50,10 +50,6 @@ async function generateSitemap() {
         lastmod: new Date().toISOString().split('T')[0],
       },
       {
-        loc: 'https://hexerize.com/smart-cards/',
-        lastmod: new Date().toISOString().split('T')[0],
-      },
-      {
         loc: 'https://hexerize.com/blog/',
         lastmod: new Date().toISOString().split('T')[0],
       },

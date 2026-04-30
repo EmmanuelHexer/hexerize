@@ -134,11 +134,19 @@
   status = 301
   force = false
 
+# Smart Cards page removed - return 410 Gone for clean de-indexing
+# 410 signals intentional permanent removal (faster de-index than 404)
 [[redirects]]
   from = "/smart-cards"
-  to = "/smart-cards/"
-  status = 301
-  force = false
+  to = "/404.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/smart-cards/"
+  to = "/404.html"
+  status = 410
+  force = true
 
 # Valid static routes WITH trailing slashes - Serve pre-rendered HTML for SEO
 [[redirects]]
@@ -159,11 +167,6 @@
 [[redirects]]
   from = "/about/"
   to = "/about/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/smart-cards/"
-  to = "/smart-cards/index.html"
   status = 200
 
 [[redirects]]

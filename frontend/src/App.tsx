@@ -16,7 +16,6 @@ const Contact = lazy(() => import("./Pages/Contact"));
 const Blog = lazy(() => import("./Pages/Blog"));
 const BlogPost = lazy(() => import("./Pages/BlogPost"));
 const Projects = lazy(() => import("./Pages/Projects"));
-const SmartCards = lazy(() => import("./Pages/SmartCards"));
 const NotFound = lazy(() => import("./Pages/NotFound"));
 
 function App() {
@@ -67,7 +66,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/smart-cards" element={<SmartCards />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />

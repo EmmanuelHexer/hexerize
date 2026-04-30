@@ -194,27 +194,20 @@ export const createSiteNavigationSchema = () => ({
     {
       "@type": "SiteNavigationElement",
       "position": 3,
-      "name": "Smart Cards & Rings",
-      "description": "Premium NFC smart business cards and rings",
-      "url": "https://hexerize.com/smart-cards/"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "position": 4,
       "name": "Blog",
       "description": "Latest insights on web development and digital innovation",
       "url": "https://hexerize.com/blog/"
     },
     {
       "@type": "SiteNavigationElement",
-      "position": 5,
+      "position": 4,
       "name": "About Us",
       "description": "Learn about Hexerize and our mission",
       "url": "https://hexerize.com/about/"
     },
     {
       "@type": "SiteNavigationElement",
-      "position": 6,
+      "position": 5,
       "name": "Contact",
       "description": "Get in touch with our team",
       "url": "https://hexerize.com/contact/"
