@@ -3,13 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Dropdown from "./Components/Dropdown";
-import LoadingSpinner from "./Components/LoadingSpinner";
 import { useAppContext } from "./AppContext/AppContext.tsx";
 
 // Eager load critical pages for instant access
 import Home from "./Pages/Home";
 import Services from "./Pages/Services"; // Critical business page
-import BlogPost from "./Pages/BlogPost"; // SEO-critical, eager to skip Suspense LoadingSpinner stage
+import BlogPost from "./Pages/BlogPost"; // SEO-critical, eager-loaded
 
 // Lazy load secondary pages for performance
 const About = lazy(() => import("./Pages/About"));
@@ -62,7 +61,10 @@ function App() {
       <main
         className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300 bg-[color:var(--body-background)]`}
       >
-        <Suspense fallback={<LoadingSpinner />}>
+        {/* No global loader — each page renders its own skeleton when needed
+            (BlogPost -> BlogPostSkeleton, Blog -> BlogCardSkeleton). Static
+            pages render instantly so they don't need a fallback. */}
+        <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
