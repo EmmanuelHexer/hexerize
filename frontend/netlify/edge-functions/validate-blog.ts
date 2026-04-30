@@ -45,12 +45,15 @@ async function getValidBlogSlugs(siteUrl: string): Promise<string[]> {
     const xml = await response.text();
 
     // Extract blog post URLs using regex
-    // Matches: <loc>https://hexerize.com/blog/SLUG</loc>
+    // Matches: <loc>https://hexerize.com/blog/SLUG</loc> or .../blog/SLUG/</loc>
     const blogUrlPattern = /<loc>https:\/\/hexerize\.com\/blog\/([^<]+)<\/loc>/g;
     const matches = [...xml.matchAll(blogUrlPattern)];
 
-    // Extract slugs from matches
-    const slugs = matches.map(match => match[1]);
+    // Extract slugs and strip trailing slash so comparison with request paths works.
+    // Sitemap URLs end in "/" (e.g. /blog/foo/), but the request slug is normalized
+    // without one — without this strip every valid post returned 404 (which is
+    // why Google never indexed anything and WhatsApp showed nothing).
+    const slugs = matches.map(match => match[1].replace(/\/$/, ''));
 
     // Update cache
     cachedSlugs = slugs;
