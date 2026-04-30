@@ -11,7 +11,7 @@ const About = () => {
   const faqSchema = createFAQSchema([
     {
       question: "Who founded Hexerize?",
-      answer: "Hexer and Izen — two developers with experience in full-stack development, system architecture, and product engineering. Founded in 2024."
+      answer: "Hexer and Izen, two developers with experience in full-stack development, system architecture, and product engineering. Founded in 2024."
     },
     {
       question: "What does Hexerize make?",
@@ -118,7 +118,7 @@ const About = () => {
           <div className="aspect-[16/10] rounded-xl overflow-hidden border border-slate-800 mb-8">
             <img
               src={assets.ourStory}
-              alt="Hexerize — founded by Hexer and Izen in 2024"
+              alt="Hexerize, founded by Hexer and Izen in 2024"
               className="w-full h-full object-cover"
             />
           </div>
@@ -129,7 +129,7 @@ const About = () => {
               products people actually want to use.
             </p>
             <p>
-              We work across React, Node.js, Python, AI/ML, cloud, and mobile —
+              We work across React, Node.js, Python, AI/ML, cloud, and mobile,
               picking the right stack for the problem rather than the other way
               around.
             </p>
@@ -137,7 +137,7 @@ const About = () => {
               Our focus is our own products: HexerSMS for schools, Piazam for
               shopping, and Stedova for campus life. We took on client work early
               on (Brediyie, Milly's Cuisine) to fund the company while we built
-              the things we really wanted to ship — and we're glad we did. But
+              the things we really wanted to ship, and we're glad we did. But
               the future is products.
             </p>
           </div>
@@ -227,7 +227,7 @@ const About = () => {
             {[
               {
                 question: "Who founded Hexerize?",
-                answer: "Hexer and Izen — two developers with experience in full-stack development, system architecture, and product engineering. Founded in 2024."
+                answer: "Hexer and Izen, two developers with experience in full-stack development, system architecture, and product engineering. Founded in 2024."
               },
               {
                 question: "What does Hexerize make?",

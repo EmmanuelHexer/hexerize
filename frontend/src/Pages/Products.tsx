@@ -36,7 +36,7 @@ const Products = () => {
       title: "HexerSMS",
       tagline: "School management for Ghanaian schools.",
       description:
-        "Student records, attendance tracking, gradebook, and a parent portal — built for primary and junior high schools in Ghana.",
+        "Student records, attendance tracking, gradebook, and a parent portal. Built for primary and junior high schools in Ghana.",
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
       status: "In development",
     },

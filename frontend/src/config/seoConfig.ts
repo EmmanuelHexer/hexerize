@@ -9,39 +9,39 @@ interface SEOConfig {
 
 export const seoConfig: Record<string, SEOConfig> = {
   home: {
-    title: "Hexerize — A software company",
-    description: "Hexerize is a software company from Ghana. We make software products that solve real problems.",
-    keywords: "hexerize, software company ghana, software products, hexersms, piazam, stedova",
+    title: "Hexerize",
+    description: "Hexerize is a software company from Ghana.",
+    keywords: "hexerize, software company ghana, hexersms, piazam, stedova",
     canonical: "https://hexerize.com/",
-    ogTitle: "Hexerize — A software company",
-    ogDescription: "Hexerize is a software company from Ghana. We make software products that solve real problems.",
+    ogTitle: "Hexerize",
+    ogDescription: "Hexerize is a software company from Ghana.",
   },
 
   about: {
     title: "About | Hexerize",
     description:
-      "Hexerize is a software company from Ghana, founded in 2024 by Hexer and Izen. We make software products.",
-    keywords: "about hexerize, software company ghana, hexer izen founders, software studio ghana",
+      "Hexerize is a software company from Ghana, founded in 2024 by Hexer and Izen. We make software for the everyday.",
+    keywords: "about hexerize, software company ghana, hexer izen founders",
     canonical: "https://hexerize.com/about/",
     ogTitle: "About | Hexerize",
-    ogDescription: "Hexerize is a software company from Ghana, founded in 2024. We make software products.",
+    ogDescription: "Hexerize is a software company from Ghana, founded in 2024 by Hexer and Izen.",
   },
 
   products: {
     title: "Products | Hexerize",
     description:
-      "What Hexerize makes — HexerSMS for schools, Piazam for shopping, and Stedova for campus life. Software products built in Ghana.",
-    keywords: "hexerize products, hexersms, piazam, stedova, software products ghana, school management ghana, online shopping ghana",
+      "What Hexerize makes. HexerSMS for schools, Piazam for shopping, and Stedova for campus life. Software from Ghana.",
+    keywords: "hexerize products, hexersms, piazam, stedova, school management ghana, online shopping ghana",
     canonical: "https://hexerize.com/products/",
     ogTitle: "Products | Hexerize",
-    ogDescription: "Software products by Hexerize — HexerSMS, Piazam, Stedova. Built in Ghana.",
+    ogDescription: "HexerSMS, Piazam, Stedova. Software products by Hexerize. Built in Ghana.",
   },
 
   blog: {
     title: "Blog | Hexerize",
     description:
-      "Notes on software, products, and the work of building Hexerize.",
-    keywords: "hexerize blog, software development, product building, web development",
+      "Notes on software, products, and the work of building Hexerize, a software company from Ghana.",
+    keywords: "hexerize blog, software, product building, ghana tech",
     canonical: "https://hexerize.com/blog/",
     ogTitle: "Blog | Hexerize",
     ogDescription: "Notes on software, products, and the work of building Hexerize.",
@@ -50,7 +50,7 @@ export const seoConfig: Record<string, SEOConfig> = {
   contact: {
     title: "Contact | Hexerize",
     description:
-      "Get in touch with Hexerize. We reply within a day.",
+      "Get in touch with Hexerize, a software company from Ghana. We reply within a day.",
     keywords: "contact hexerize, hexerize email, hexerize ghana",
     canonical: "https://hexerize.com/contact/",
     ogTitle: "Contact | Hexerize",
