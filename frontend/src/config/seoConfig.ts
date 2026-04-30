@@ -11,12 +11,12 @@ export const seoConfig: Record<string, SEOConfig> = {
   home: {
     title: "Hexerize",
     description:
-      "Hexerize is a software company from Ghana. We build the software Ghana needs and the world can use.",
+      "Hexerize is a software company from Ghana. We build the software Ghana needs.",
     keywords: "hexerize, software company ghana, hexersms, piazam, stedova",
     canonical: "https://hexerize.com/",
     ogTitle: "Hexerize",
     ogDescription:
-      "We build the software Ghana needs and the world can use. A software company from Ghana, founded in 2024.",
+      "We build the software Ghana needs. A software company from Ghana, founded in 2024.",
   },
 
   about: {
