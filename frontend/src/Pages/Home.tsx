@@ -50,31 +50,6 @@ const Home = () => {
   useCoreWebVitalsSEO();
 
   useEffect(() => {
-    const createParticles = () => {
-      if (window.innerWidth < 768) return;
-      const container = document.getElementById("particles-container");
-      if (!container) return;
-      container.innerHTML = "";
-      const particleCount = 15;
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement("div");
-        particle.classList.add("particle");
-        const size = Math.random() * 8 + 3;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const opacity = Math.random() * 0.4 + 0.1;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 5;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.opacity = opacity.toString();
-        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite alternate`;
-        container.appendChild(particle);
-      }
-    };
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -87,31 +62,21 @@ const Home = () => {
     );
 
     const timer = setTimeout(() => {
-      createParticles();
       document.querySelectorAll(".scroll-fade-in").forEach((el) => {
         observer.observe(el);
       });
     }, 100);
 
-    const handleResize = () => {
-      createParticles();
-    };
-    window.addEventListener("resize", handleResize);
-
     return () => {
       clearTimeout(timer);
       observer.disconnect();
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <div className="bg-[color:var(--body-background)] transition-all duration-700 ease-in-out overflow-hidden h-[calc(100vh-60px)] md:h-[calc(100vh-80px)]">
-      <section className="h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Particle background (desktop) */}
-        <div id="particles-container" className="absolute inset-0 z-0"></div>
-
-        <div className="scroll-fade-in text-center max-w-3xl mx-auto relative z-10 py-4 sm:py-8 lg:py-0 space-y-3 sm:space-y-5 md:space-y-6">
+    <div className="overflow-hidden h-[calc(100vh-60px)] md:h-[calc(100vh-80px)]">
+      <section className="h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 relative">
+        <div className="scroll-fade-in text-center max-w-3xl mx-auto py-4 sm:py-8 lg:py-0 space-y-3 sm:space-y-5 md:space-y-6">
           <p className="uppercase font-semibold text-xs md:text-sm text-[color:var(--body-color)]/70 tracking-wider">
             Software Company From Ghana
           </p>

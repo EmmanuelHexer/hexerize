@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Dropdown from "./Components/Dropdown";
+import Particles from "./Components/Particles";
 import { useAppContext } from "./AppContext/AppContext.tsx";
 
 // Eager load critical pages for instant access
@@ -56,9 +57,12 @@ function App() {
       {/* Dropdown Overlay (Always on top of all pages) */}
       <Dropdown />
 
+      {/* Particle background (desktop, behind all content) */}
+      <Particles />
+
       {/* Main content behind dropdown */}
       <main
-        className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300 bg-[color:var(--body-background)]`}
+        className={`flex-1 pt-[60px] md:pt-[80px] w-full transition-all duration-300 relative z-10`}
       >
         {/* No global loader — each page renders its own skeleton when needed
             (BlogPost -> BlogPostSkeleton, Blog -> BlogCardSkeleton). Static

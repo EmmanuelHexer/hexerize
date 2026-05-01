@@ -28,7 +28,7 @@ const NotFound = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[color:var(--card-background)] flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         {/* Animated 404 */}
         <div className="relative mb-8">
