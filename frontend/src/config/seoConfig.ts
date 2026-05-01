@@ -9,13 +9,13 @@ interface SEOConfig {
 
 export const seoConfig: Record<string, SEOConfig> = {
   home: {
-    title: "Hexerize | Software Company in Ghana",
+    title: "Hexerize",
     description:
       "Hexerize is an independent software company from Kumasi, Ghana. Building products for the long term, starting with Piazam, HexerSMS, and Stedova.",
     keywords:
       "hexerize, software company ghana, kumasi software, piazam, hexersms, stedova, hexer izen",
     canonical: "https://hexerize.com/",
-    ogTitle: "Hexerize | Software Company in Ghana",
+    ogTitle: "Hexerize",
     ogDescription:
       "An independent software company from Kumasi, Ghana. Founded 2024 by Hexer and Izen. Currently building Piazam, HexerSMS, and Stedova.",
   },
