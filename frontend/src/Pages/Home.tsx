@@ -105,7 +105,7 @@ const Home = () => {
                 Software Company From Ghana
               </p>
 
-              <h1 className="font-extrabold text-4xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 sm:mb-6 leading-tight tracking-tight text-[color:var(--heading-color)] tiny-phone-header tiny-phone-mb lg:max-w-none">
+              <h1 className="font-extrabold text-3xl sm:text-4xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 leading-tight tracking-tight text-[color:var(--heading-color)] tiny-phone-header tiny-phone-mb lg:max-w-none">
                 We build the software
                 <br />
                 <span className="text-gradient-animated">Ghana needs.</span>
