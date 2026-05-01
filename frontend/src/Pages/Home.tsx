@@ -202,9 +202,9 @@ const Home = () => {
                 </p>
 
                 <h1 className="font-extrabold text-4xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight tracking-tight text-[color:var(--heading-color)] tiny-phone-header tiny-phone-mb">
-                  We build the digital future
+                  We build the software
                   <br />
-                  <span className="text-gradient-animated">for Ghana.</span>
+                  <span className="text-gradient-animated">Ghana needs.</span>
                 </h1>
               </div>
 
